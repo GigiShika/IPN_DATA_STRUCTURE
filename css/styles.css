@@ -65,7 +65,7 @@ img, video, iframe {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: url("https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=2070&q=80") center/cover no-repeat;
+     background: url("assets/img/titulo.aivf") center/cover no-repeat;
     width: 100%;        
     height: 90%;
     border-radius: 20px; 
@@ -429,6 +429,7 @@ body.light-mode .footer {
     background: #eaeaea;
     border-top: 3px solid #ccc;
 }
+
 
 
 
