@@ -61,8 +61,9 @@ img, video, iframe {
         linear-gradient(135deg,
             rgba(0, 102, 255, 0.2),
             rgba(157, 0, 255, 0.15)),
-        url("https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=2070&q=80");
-    background-size: cover;
+    url("https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=2070&q=80");
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
     background-position: center;
     border-bottom: 3px solid var(--primary-blue);
     position: relative;
@@ -431,4 +432,5 @@ body.light-mode .footer {
     background: #eaeaea;
     border-top: 3px solid #ccc;
 }
+
 
