@@ -57,26 +57,26 @@ img, video, iframe {
 .header {
     padding: 60px 20px 50px;
     text-align: center;
+    position: relative;
+    border-bottom: 3px solid var(--primary-blue);
     background:
         linear-gradient(135deg,
             rgba(0, 102, 255, 0.2),
-            rgba(157, 0, 255, 0.15)),
-    url("https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=2070&q=80");
-    background-size: 70% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-bottom: 3px solid var(--primary-blue);
-    position: relative;
+            rgba(157, 0, 255, 0.15));
     overflow: hidden;
 }
 
 .header::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 20% 30%, transparent 10%, rgba(0, 204, 255, 0.05) 20%, transparent 30%),
-        radial-gradient(circle at 80% 70%, transparent 10%, rgba(157, 0, 255, 0.05) 20%, transparent 30%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;        /* el tamaño que querías */
+    height: 90%;       /* el tamaño que querías */
+    background: url("https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=2070&q=80") center/cover no-repeat;
+    border-radius: 25px; /* solo la imagen se redondea */
+    z-index: 1;          /* detrás del contenido */
 }
 
 .header-content {
@@ -87,25 +87,30 @@ img, video, iframe {
 .header-logos {
     position: absolute;
     top: 20px;
-    right: 30px;
+    right: 50px;
     display: flex;
     gap: 15px;
     z-index: 3;
 }
 
-.logo {
-    width: 70px;
-    background: rgba(255,255,255,0.1);
-    padding: 6px;
-    border-radius: 10px;
-    backdrop-filter: blur(6px);
-    transition: transform 0.3s ease;
+.logo { 
+    width: 70px; 
+    background: rgba(255,255,255,0.1); 
+    padding: 6px; border-radius: 10px; 
+    backdrop-filter: blur(6px); 
+    transition: transform 0.3s ease; 
+} 
+.logo:hover { 
+    transform: scale(1.08); 
 }
-
-.logo:hover {
-    transform: scale(1.08);
+/* RESPONSIVE: se ajusta en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    
+    .logo {
+        width: 60px;
+        right: 3%;
+    }
 }
-
 .header p {
     font-size: 1.2rem;
     margin-bottom: 15px;
@@ -115,13 +120,12 @@ img, video, iframe {
 }
 
 .header h1 {
-    font-size: 3.5rem;
+    font-size: 3.5rem; 
     font-family: 'Press Start 2P', monospace;
     letter-spacing: 2px;
     text-transform: uppercase;
     text-shadow:
         4px 4px 0 #fff,
-        0 0 30px var(--gamer-purple);
 }
 
 /* ============================= */
@@ -359,8 +363,8 @@ img, video, iframe {
 /* SWITCH */
 .theme-switch {
     position: absolute;
-    top: 20px;
-    left: 30px;
+    top: 30px;
+    left: 40px;
     display: flex;
     align-items: center;
     gap: 10px;
