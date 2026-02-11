@@ -66,7 +66,7 @@ img, video, iframe {
     left: 50%;
     transform: translate(-50%, -50%);
      background: url("assets/img/titulo.aivf") center/cover no-repeat;
-    width: 10%;        
+    width: 95%;        
     height: 90%;
     border-radius: 20px; 
     z-index: 1;          
@@ -429,6 +429,7 @@ body.light-mode .footer {
     background: #eaeaea;
     border-top: 3px solid #ccc;
 }
+
 
 
 
