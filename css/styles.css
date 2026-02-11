@@ -1,3 +1,7 @@
+/* ============================= */
+/* RESET Y CONFIGURACIÓN GLOBAL */
+/* ============================= */
+
 :root {
     --primary-dark: #0a0a0a;
     --secondary-dark: #1a1a1a;
@@ -46,7 +50,10 @@ img, video, iframe {
     display: block;
 }
 
+/* ============================= */
 /* HEADER */
+/* ============================= */
+
 .header {
     padding: 60px 20px 50px;
     text-align: center;
@@ -65,11 +72,11 @@ img, video, iframe {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-     background: url("assets/img/titulo.aivf") center/cover no-repeat;
-    width: 95%;        
-    height: 90%;
-    border-radius: 20px; 
-    z-index: 1;          
+    width: 95%;        /* el tamaño que querías */
+    height: 90%;       /* el tamaño que querías */
+    background: url("https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=2070&q=80") center/cover no-repeat;
+    border-radius: 25px; /* solo la imagen se redondea */
+    z-index: 1;          /* detrás del contenido */
 }
 
 .header-content {
@@ -429,10 +436,5 @@ body.light-mode .footer {
     background: #eaeaea;
     border-top: 3px solid #ccc;
 }
-
-
-
-
-
 
 
