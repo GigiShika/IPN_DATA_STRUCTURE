@@ -55,6 +55,7 @@ body {
 
 .header-bg {
     position: absolute;
+    opacity: 0.50;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -407,4 +408,5 @@ body {
     background: linear-gradient(var(--primary-blue), var(--electric-blue));
     border-radius: 5px;
 }
+
 
