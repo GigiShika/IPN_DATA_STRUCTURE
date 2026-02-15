@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 1 - Estructura de Datos</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+
+<header class="header">
+    <img src="assets/img/titulo.jpg" alt="Título" class="header-bg">
+    <div class="header-logos">
+        <img src="assets/img/ipn.jpg" alt="IPN" class="logo">
+        <img src="assets/img/upiicsa.jpg" alt="UPIICSA" class="logo">
+    </div>
+    <div class="header-content">
+        <p>Instituto Politécnico Nacional · UPIICSA</p>
+        <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales</p>
+        <h1>Estructura de Datos</h1>
+    </div>
+</header>
+<nav class="main-nav">
+    <button class="nav-toggle">&#9776;</button>
+    <ul class="nav-links">
+        <li><a href="index.html">INICIO</a></li>
+        <li><a href="navuni1.html">UNIDAD1</a></li>
+        <li><a href="navuni2.html">UNIDAD2</a></li>
+        <li><a href="navuni3.html">UNIDAD3</a></li>
+        <li><a href="navuni4.html">UNIDAD4</a></li>
+        <li><a href="referencias.html">LISTA DE REFERENCIAS</a></li>
+        <li><a href="glosario.html">GLOSARIO</a></li>
+    </ul>
+</nav>
+
+<section class="unit-content" style="padding:60px 20px; text-align:center;">
+    <h2>Unidad 4: </h2>
+    <p>Aquí irá todo el contenido de la Unidad 2.</p>
+
+
+
+
+
+    
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <h3>UPIICSA · IPN</h3>
+        <p>Unidad de Aprendizaje: Estructura de Datos</p>
+        <p>© 2026 Instituto Politécnico Nacional</p>
+    </div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (toggleButton && navLinks) {
+        toggleButton.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+    }
+});
+</script>
+</html>
