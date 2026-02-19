@@ -299,12 +299,12 @@ body {
     font-size: 1rem;
     text-align: justify;
 
-    transition: max-height 0.025s ease, padding 0.025s ease; /* más rápido */
+    transition: max-height 0.015s ease, padding 0.015s ease; /* más rápido */
     will-change: max-height, padding; /* indica al navegador optimizar */
 }
 
 .dropdown.active .dropdown-content {
-    max-height: 500px; /* suficiente para contenidos largos */
+    max-height: 800px; 
     padding: 20px 25px;
     overflow-y: auto;
 }
@@ -505,9 +505,9 @@ body {
     }
 
     .units {
-        width: 100%;
-        grid-template-columns: repeat(1, 1fr);
-        margin: 0 48px;
+        width: 85%;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 25px;
         gap: 10px;
     }
 
