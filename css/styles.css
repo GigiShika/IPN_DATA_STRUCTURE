@@ -297,15 +297,18 @@ body {
     border-top: 2px solid var(--primary-blue);
     line-height: 1.8;
     font-size: 1rem;
-    transition: max-height 0.4s ease, padding 0.3s ease;
     text-align: justify;
+
+    transition: max-height 0.025s ease, padding 0.025s ease; /* más rápido */
+    will-change: max-height, padding; /* indica al navegador optimizar */
 }
 
 .dropdown.active .dropdown-content {
-    max-height: 500px;
+    max-height: 500px; /* suficiente para contenidos largos */
     padding: 20px 25px;
     overflow-y: auto;
 }
+
 /*DOWNLOAD*/
 
 .download-container{
