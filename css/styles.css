@@ -139,7 +139,7 @@ body {
 }
 
 .welcome-content {
-    max-width: 1000px;  
+    max-width: 1500px;  
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -156,7 +156,7 @@ body {
 .welcome-center {
     grid-column: 1 / -1;  
     text-align: center;  
-    max-width: 900px;     
+    max-width: 1500px;     
     margin: 0 auto;       
 }
 .main-nav {
@@ -395,8 +395,9 @@ body {
 }
 
 .units {
-    width: 8%;
-    max-width: 700px;
+    width: 88%;
+    max-width: 1050px;
+    margin-left: 240px; /* Ajusta el valor */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--grid-gap); 
@@ -556,8 +557,6 @@ body {
       width: 85%;
 
     }
-
-
 }
 
 ::-webkit-scrollbar {
