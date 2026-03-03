@@ -397,10 +397,11 @@ body {
 .units {
     width: 88%;
     max-width: 1050px;
-    margin-left: 240px; /* Ajusta el valor */
+    margin: 0 auto; /* CENTRADO REAL */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--grid-gap); 
+    gap: var(--grid-gap);
+    justify-items: center; 
 }
 
 .unit-card {
@@ -461,8 +462,120 @@ body {
     color: var(--primary-blue);
 }
 
+.unit-wrapper {
+    max-width: 1000px;
+    margin: auto;
+    text-align: left;
+}
+
+.section-bar {
+    background: url("../assets/img/back3.png") center/cover no-repeat;
+    color: white;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 40px;
+}
+.section-bar h1 ,h2 {
+    background: url("../assets/img/back3.png") center/cover no-repeat;
+    color: white;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 40px;
+}
+  
+
+.image-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.image-container img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.image-caption {
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.image-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.image-row img {
+    width: 45%;
+    border-radius: 8px;
+}
+
+.image-left {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.image-left img {
+    max-width: 300px;
+    float: left;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.activity-box {
+    background: #f4f8f4;
+    border-left: 6px solid #2e7d32;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 6px;
+}
+
+.activity-box-title {
+    margin-top: 50px;
+}
+
+/* BOTONES DE NAVEGACIÓN */
 
 
+.unit-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    max-width: 1000px;   /* mismo ancho que unit-wrapper */
+    margin-left: auto;
+    margin-right: auto;
+}
+.nav-btn {
+    background: url("../assets/img/back1.png") center/cover no-repeat;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    min-width: 220px;
+    text-align: center;
+}
+.nav-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* 📱 Celular */
+@media (max-width: 768px) {
+    .unit-navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-btn {
+        width: 90%;
+        text-align: center;
+    }
+}
 @media (max-width: 768px) {
 
     .header-top {
@@ -537,6 +650,39 @@ body {
     .header h1 {
         font-size: 1rem;
     }
+    .unit-wrapper {
+        padding: 15px;
+    }
+
+    .section-bar {
+        font-size: 18px;
+        padding: 12px;
+        text-align: center;
+    }
+
+    /* Las imágenes en fila se vuelven columna */
+    .image-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-row img {
+        width: 90%;
+    }
+
+    /* Imagen izquierda se centra */
+    .image-left img {
+        float: none;
+        display: block;
+        margin: 0 auto 20px auto;
+        max-width: 90%;
+    }
+
+    /* Caja de actividad más compacta */
+    .activity-box {
+        padding: 15px;
+    }
+
 
 
 }
