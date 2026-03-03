@@ -50,9 +50,239 @@
 </nav>
 
 <section class="unit-content" style="padding:60px 20px; text-align:center;">
-     <h3>Unidad temática I:Representación de datos</h3>
-     <p>Aquí irá todo el contenido de la Unidad 1.</p>
+     <div class="unit-wrapper">
+        <div class="image-container">
+           <div class="section-bar">
+             <h1>Unidad Temática I</h1>
+             <h2>Representación de datos</h2>
+           </div>
+
+        </div>
+    
+     
+
+        <h3>Unidad de competencia:</h3>
+        <p>
+        Emplea tipos y estructuras de datos en la memoria de una computadora a partir de su clasificación y propósito, así como un lenguaje de programación.
+        </p>
+
+        <div class="activity-box">
+
+            <p><strong>Los siguientes temas se tratan en esta unidad:</strong></p>
+
+         
+            <li>1.1 Medios de almacenamiento y organización de la memoria en una computadora</li>
+            <li>1.2 Organización de los datos en la memoria física y lógica</li>
+            <li>1.2.1 Clasificación de datos simples y compuestos</li>
+            <li>1.2.2 Operaciones permitidas con los datos</li>
+            <li>1.3 Representación de las estructuras de datos</li>
+            <li>1.3.1 Operaciones básicas sobre las estructuras de datos</li>
+      
+
+        </div>
+
+        <h2 class="section-bar">1.1 Medios de almacenamiento y organización de la memoria en una computadora</h2>
+
+        <div class="image-row">
+            <img src="assets/img/imagen1.png" alt="Medio de almacenamiento 1">
+            <img src="assets/img/imagen2.png" alt="Medio de almacenamiento 2">
+        </div>
+
+        <div class="image-container">
+            <img src="assets/img/imagen3.png" alt="Figura 1 Medios de almacenamiento">
+            <p class="image-caption">Figura 1 Medios de almacenamiento</p>
+        </div>
+
+        <h2 class="section-bar">1.2 Organización de los datos en la memoria física y lógica</h2>
+
+        <div class="image-container">
+            <img src="assets/img/imagen4.png" alt="Organización memoria física y lógica">
+        </div>
+
+
+        <div class="image-left">
+            <img src="assets/img/imagen5.png" alt="Representación de bits">
+        </div>
+
+        <p>
+        La memoria (RAM) esta físicamente formada por bits, componentes que pueden estar en uno de dos estados claramente definidos, encendido/apagado 0’s y 1’s.
+        </p>
+
+        <p>
+        Como se observa un bit puede representar dos valores, combinando grupos de bits se pueden representar más estados
+        </p>
+
+
+        <h3>Realizar el siguiente ejercicio:</h3>
+
+        <ol>
+        <li>Para almacenar el sexo de una persona ¿cuántos bits se requieren?</li>
+        <li>Cuántos bits se requieren para almacenar los siete días de la semana?</li>
+        <li>Cuántos bits se requieren para almacenar los meses del año?</li>
+        <li>Para almacenar el código ASCII ¿cuántos bits se requieren?</li>
+        </ol>
+
+        <p>
+        La memoria física RAM está compuesta por casillas de memoria en las cuales se pueden almacenar datos que están organizados por direcciones de memoria. Cada celda en una dirección puede ser de 8, 16, 32 o 64 bits.
+        </p>
+
+        <div class="image-container">
+            <img src="assets/img/imagen6.png" alt="Casillas de memoria">
+        </div>
+
+        <h2 class="section-bar">1.2.1 Clasificación de datos simples y compuestos</h2>
+
+        <p>
+        De acuerdo con la forma en que los datos se organizan, se clasifican en:
+        </p>
+
+        <ul>
+        <li>a) Tipos de datos simples</li>
+        <li>b) Tipos de datos compuestos o estructurados</li>
+        </ul>
+
+        <p>
+        a) Un tipo de dato simple (primitivo) es aquel que hace referencia a un único valor a la vez y que ocupan solo una casilla de memoria, por tanto, una variable simple hace referencia a un único valor a la vez. En este grupo se encuentran:
+        </p>
+
+        <ul>
+        <li>Enteros (int): números sin decimales, como 10, -3 o 2025</li>
+        <li>Flotantes (float o double): números con punto decimal, como 3.14 o -0.25</li>
+        <li>Caracter (char): un solo símbolo, como ‘a’, ‘9’ o ‘$’</li>
+        <li>Booleanos (bool): representan valores lógicos: verdadero (true) o falso (false).</li>
+        </ul>
+
+        <h3>Direccionamiento de la memoria</h3>
+
+        <p>
+        La unidad de control se dirige a los distintos bytes de memoria por su posición.
+        </p>
+
+        <p>
+        Todos los lenguajes de programación permiten dar un nombre a las posiciones de memoria y se conocen como variables.
+        </p>
+
+        <p>
+        Entonces una variable son las posiciones de memorias asociadas a un nombre, por ejemplo:
+        Area, Base y Altura.
+        </p>
+
+        <p>
+        Las variables pueden cambiar su contenido o pueden contener un valor constante, como es el caso del valor pi.
+        </p>
+
+        <p>
+        Usando un lenguaje de programación, por ejemplo, c++, se declaran las variables asignando un valor a las variables Base y Altura
+        </p>
+
+        <div class="image-container">
+            <img src="assets/img/imagen7.png" alt="Declaración de variables">
+        </div>
+
+        <p>
+        Automáticamente la unidad de control asigna a las casillas de memoria con sus direcciones a esas variables
+        </p>
+
+        <div class="image-container">
+            <img src="assets/img/imagen8.png" alt="Asignación de memoria">
+        </div>
+
+        <p>
+        Al momento de declarar las variables de tipo de dato entero esas casillas nada más van a permitir datos enteros, en el caso del ejemplo al momento de declararlas se les ASIGNÓ un valor de tipo de dato entero a las variables Base=3 y Altura=2
+        </p>
+
+        <h3 class="activity-box-title">ACTIVIDAD A1:</h3>
+
+        <div class="activity-box">
+        <p>
+        Propósito: Utilizar un lenguaje de programación para declarar las variables que son las posiciones de memoria y que tienen un nombre, para este caso, son Base, Altura y Area definiéndolas con el tipo de dato simple que son los enteros.
+        </p>
+
+        <p>
+        La intención de esta actividad es que comprendan como declarar variables con su respectivo tipo de dato para reservar un espacio de memoria y también como asignarle valores, además de entender la entrada y salida de datos
+        </p>
+
+        <h4>Instrucciones:</h4>
+
+        <ol>
+        <li>Declara las variables Base y Altura de tipo entero asignándoles los valores 3 y 2 respectivamente. También declara la variable Area del mismo tipo</li>
+        <li>Obtén el área con los valores de las variables base y altura</li>
+        <li>Manda a imprimir el resultado con el siguiente mensaje: “El valor del área del triángulo es: “</li>
+        </ol>
+
+        <h4>Evidencia que entregar</h4>
+
+        <ul>
+        <li>Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el nombre del programa, por ejemplo, RBV_Programa_Variable</li>
+        <li>Programa executable</li>
+        <li>Corrida del programa, en un archivo PDF</li>
+        </ul>
+
+        <p>
+        Subir esta evidencia a class room en la hora y fecha indicada
+        </p>
+
+        <p>
+        El valor de la actividad es de 10 puntos
+        </p>
+        </div>
+
+        <p>
+        b) Los tipos de datos compuestos o estructurados (estructura de datos) se caracterizan por el hecho de que, con un nombre, se hace referencia a un grupo de casillas. Es decir, que tiene varios componentes, que son de un tipo de dato simple. Por ejemplo:
+        </p>
+
+        <p>
+        Arreglos (arrays): colecciones ordenadas de elementos del mismo tipo.
+        </p>
+
+        <div class="image-row">
+            <img src="assets/img/imagen9.png" alt="Arreglos 1">
+            <img src="assets/img/imagen10.png" alt="Arreglos 2">
+        </div>
+
+        <h2 class="section-bar">1.3 Representación de las estructuras de datos</h2>
+
+        <p>
+        Las estructuras de datos son fundamentales para las principales actividades para llegar al desarrollo de grandes sistemas de software. Las estructuras de datos permiten organizar, almacenar y manipular datos en la memoria de una computadora.
+        </p>
+
+        <p>
+        Clasificación de las estructuras de datos:
+        </p>
+
+        <div class="image-container">
+            <img src="assets/img/imagen11.png" alt="Clasificación estructuras de datos">
+            <p class="image-caption">Figura 2 Clasificación de las Estructura de Datos</p>
+        </div>
+
+        <h2 class="section-bar">1.3.1 Operaciones básicas sobre las estructuras de datos</h2>
+
+        <p>
+        Las operaciones que se pueden hacer con estructuras de datos son varias. Las más básicas son:
+        </p>
+
+        <ul>
+        <li>Insertar: Agregar un valor a la estructura.</li>
+        <li>Eliminar: Borrar un valor existente.</li>
+        <li>Buscar: Encontrar un valor específico.</li>
+        <li>Actualizar: Modificar un valor existente.</li>
+        <li>Recorrer: Acceder a cada elemento de la estructura.</li>
+        </ul>
+
+        </div>
+
 </section>
+<div class="unit-navigation">
+
+    <a href="index.html" class="nav-btn nav-left">
+        ⬅ Volver al Inicio
+    </a>
+
+    <a href="navuni2.html" class="nav-btn nav-right">
+        Siguiente Unidad ➡
+    </a>
+
+</div>
 
 <footer class="footer">
     <div class="footer-content">
@@ -61,6 +291,7 @@
         <p>© 2026 Instituto Politécnico Nacional</p>
     </div>
 </footer>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const toggleButton = document.querySelector('.nav-toggle');
