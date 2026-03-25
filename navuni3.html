@@ -2,75 +2,378 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unidad 1 - Estructura de Datos</title>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/menu.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Unidad 3 - Estructura de Datos Dinámicas Lineales | Pilas, Colas, Listas Enlazadas</title>
+
+<!-- Fuentes Google -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<!-- Tu archivo CSS personalizado -->
+<link rel="stylesheet" href="css/stylenav.css">
+
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    'inter': ['Inter', 'sans-serif'],
+                    'press-start': ['Press Start 2P', 'cursive'],
+                },
+                colors: {
+                    'ipn-blue': '#1e6ab3',
+                    'ipn-dark-blue': '#2c7fd4',
+                    'ipn-primary': '#0f2f57',
+                },
+                animation: {
+                    'fade-in': 'fadeIn 0.3s ease-in-out',
+                },
+                keyframes: {
+                    fadeIn: {
+                        '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                        '100%': { opacity: '1', transform: 'translateY(0)' },
+                    }
+                }
+            }
+        }
+    }
+</script>
+
 </head>
-<body>
+<body class="font-inter overflow-x-hidden custom-scrollbar bg-radial-gradient">
 
-<header class="header">
-
-    <div class="header-top">
-        <p class="ipn-title">Instituto Politécnico Nacional</p>
-        <p class="upiicsa-title">
+<header class="w-full bg-header text-center pt-[30px]">
+    <div class="mb-[30px] px-[15px] md:px-0">
+        <p class="text-[1.8rem] md:text-2xl font-bold text-[#0b2c6b]">Instituto Politécnico Nacional</p>
+        <p class="text-[0.9rem] md:text-[1.3rem] text-[#0b2c6b] max-w-[800px] mx-auto mt-2">
             Unidad Profesional Interdisciplinaria de Ingeniería y 
             Ciencias Sociales y Administrativas
         </p>
     </div>
 
-    <div class="header-banner">
-        <img src="assets/img/titulo.avif" alt="Título" class="header-bg">
-
-        <div class="banner-text">
-            <p class="polilibro">Polilibro</p>
-            <h1 class="titulo-principal">Estructura de Datos</h1>
+    <div class="flex justify-center">
+        <div class="relative w-[90%] md:w-[75%] h-[200px] md:h-[320px] mx-auto">
+            <img src="assets/img/titulo.avif" alt="Título" class="w-full h-full object-cover rounded-t-[10px]">
+            <div class="absolute bottom-0 left-0 right-0 banner-overlay rounded-b-[1rem] p-[0.8rem_1rem_0.8rem_1rem] md:p-[1.5rem_1.5rem_1rem_1.5rem] text-left">
+                <p class="font-press-start text-[0.45rem] md:text-[0.65rem] text-white bg-gradient-to-r from-ipn-blue to-ipn-dark-blue inline-block px-[12px] py-[5px] rounded-[20px] mb-[10px]">📘 Unidad temática III</p>
+                <h1 class="font-press-start text-[1.2rem] md:text-[1.8rem] text-white text-shadow">Estructura de Datos Dinámicas Lineales</h1>
+            </div>
+            <div class="header-logos">
+                <img src="assets/img/ipn.jpg" alt="IPN">
+                <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
+            </div>
         </div>
-
-        <div class="header-logos">
-            <img src="assets/img/ipn.jpg" alt="IPN" class="logo">
-            <img src="assets/img/upiicsa.jpg" alt="UPIICSA" class="logo">
-        </div>
-
     </div>
-
 </header>
-<nav class="main-nav">
-    <button class="nav-toggle">&#9776;</button>
-    <ul class="nav-links">
-        <li><a href="index.html">INICIO</a></li>
-        <li><a href="navuni1.html">Unidad temática I</a></li>
-        <li><a href="navuni2.html">Unidad temática II</a></li>
-        <li><a href="navuni3.html">Unidad temática III</a></li>
-        <li><a href="navuni4.html">Unidad temática IV</a></li>
-        <li><a href="navuni5.html">Bibliografia</a></li>
-        <li><a href="glosario.html">GLOSARIO</a></li>
-    </ul>
-</nav>
 
-<section class="unit-content" style="padding:60px 20px; text-align:center;">
-     <h3>Unidad temática III:Estructuras de datos dínamicas lineales</h3>
-     <p>Aquí irá todo el contenido de la Unidad 3.</p>
+<div class="flex justify-center">
+    <nav class="w-[90%] md:w-[75%] mx-auto rounded-b-[10px] relative z-[1000] shadow-md nav-bg-custom">
+        <button class="nav-toggle md:hidden text-[1.8rem] text-white bg-none border-none cursor-pointer p-[12px_20px] w-full text-left font-bold rounded-b-[10px] nav-toggle-custom">☰ MENÚ</button>
+        <ul class="nav-links hidden md:flex justify-center gap-[10px] list-none m-0 p-0 rounded-b-[10px] md:relative">
+            <li><a href="index.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🏠 INICIO</a></li>
+            <li><a href="navuni1.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📊 Unidad I</a></li>
+            <li><a href="navuni2.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📈 Unidad II</a></li>
+            <li><a href="navuni3.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🔗 Unidad III</a></li>
+            <li><a href="navuni4.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🌳 Unidad IV</a></li>
+            <li><a href="navuni5.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📚 Bibliografia</a></li>
+            <li><a href="glosario.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖 GLOSARIO</a></li>
+        </ul>
+    </nav>
+</div>
+
+<section class="py-[40px] px-[20px]">
+    <div class="max-w-[900px] mx-auto text-left">
+        <!-- Título principal -->
+        <div class="text-center my-[25px]">
+            <div class="section-bar-bg text-white p-[12px_18px] rounded-[10px] mb-[20px] font-bold">
+                <h1 class="text-[1.1rem] md:text-[1.3rem] m-0">📚 Estructura de Datos Dinámicas Lineales</h1>
+                <h2 class="text-[1rem] md:text-[1.1rem] m-0 mt-2">PILAS, COLAS, LISTAS ENLAZADAS</h2>
+            </div>
+        </div>
+
+        <!-- Imagen decorativa -->
+        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
+            <img src="assets/img/imagen20.png" alt="Estructuras de datos dinámicas" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
+            <p class="text-[0.8rem] text-slate-500 mt-[8px] font-medium">📌 Estructuras de datos dinámicas lineales</p>
+        </div>
+
+        <!-- PILAS -->
+        <h2 class="section-bar-bg text-white p-[12px_18px] rounded-[10px] my-[30px] font-bold text-[1.1rem] md:text-[1.2rem]">📚 PILAS</h2>
+
+        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
+            Las pilas son una estructura de datos dinámica lineal en la que los elementos se pueden insertar (añadir) o eliminar (suprimir) en un extremo determinado llamado <strong>TOPE</strong>.
+        </p>
+
+        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
+            También se conocen como <strong>LIFO (Last-In, First-Out)</strong>: el último en entrar es el primero en salir.
+            Las pilas utilizan una variable TOPE que representa el elemento superior de la pila.
+        </p>
+
+        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
+            Si la pila está vacía (No tiene elementos) <strong>TOPE = 0</strong>.
+        </p>
+
+        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
+            <strong>PILA[TOPE]</strong>: TOPE se incrementa en uno cada vez que se introduce un elemento y decrece si se saca un elemento.
+        </p>
+
+ 
+
+        <!-- EJERCICIO DE LÓGICA - TIPO PILAS -->
+        <div class="titulo-seccion">🧠 EJERCICIO DE LÓGICA</div>
+
+       <div class="text-center my-[25px] p-[8px] md:p-[15px]">
+            <img src="assets/img/imagen21.png" alt="Representación de pila" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
+            <p class="text-[0.8rem] text-slate-500 mt-[8px] font-medium">📌 Representación gráfica de una pila</p>
+        </div>
+
+        <div class="ejercicio-pregunta">
+            <p class="text-[1rem] font-bold text-amber-800 mb-[8px]">📌 PREGUNTA:</p>
+            <p class="text-slate-800">Utilizando una pila, ¿cómo sería la entrada? ¿Cómo sería la salida?</p>
+        </div>
+
+        <!-- PREGUNTA DE SECUENCIA CON BOTÓN -->
+        <div class="activity-box-bg border-l-[5px] border-ipn-blue p-[20px] my-[25px] rounded-[12px]">
+            <p class="mb-[12px] font-bold text-ipn-blue text-[1rem]">📝 PREGUNTA DE SECUENCIA:</p>
+            <p class="mb-[12px] text-slate-700">¿Cuál es el resultado de la siguiente secuencia de acciones sobre una pila vacía?</p>
+            <p class="font-mono text-[1rem] bg-white p-[12px] rounded-[8px] text-center font-bold">push(5), push(10), top(), push(3), pop(), pop(), push(8), push(9), top()</p>
+            
+            <button class="btn-respuesta" onclick="toggleRespuesta()">📖 Ver resolución</button>
+            
+            <div id="respuestaPila" class="respuesta-contenido">
+                <p class="font-semibold text-ipn-blue mb-[12px]">📌 Resolución paso a paso:</p>
+                <ul class="list-disc ml-[20px] text-slate-700 text-[0.9rem] space-y-1">
+                    <li>push(5) → Pila: [5]</li>
+                    <li>push(10) → Pila: [5, 10]</li>
+                    <li>top() → Devuelve: <strong>10</strong></li>
+                    <li>push(3) → Pila: [5, 10, 3]</li>
+                    <li>pop() → Elimina 3 → Pila: [5, 10]</li>
+                    <li>pop() → Elimina 10 → Pila: [5]</li>
+                    <li>push(8) → Pila: [5, 8]</li>
+                    <li>push(9) → Pila: [5, 8, 9]</li>
+                    <li>top() → Devuelve: <strong>9</strong></li>
+                </ul>
+                <p class="mt-[15px] font-bold text-center text-ipn-blue text-[1rem]">🎯 RESULTADO FINAL: top() = 9</p>
+            </div>
+        </div>
+
+        <!-- OPERACIONES BÁSICAS CON PILAS -->
+        <div class="titulo-seccion">⚙️ OPERACIONES BÁSICAS CON PILAS</div>
+
+        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
+            <strong>PUSH (insertar):</strong> Agrega un elemento a la pila en el extremo llamado tope.
+        </p>
+        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
+            <strong>POP (remover):</strong> Remueve el elemento de la pila que se encuentra en el extremo llamado tope.
+        </p>
+
+        <!-- REPRESENTACIÓN DE PILAS -->
+        <div class="titulo-seccion">📊 REPRESENTACIÓN DE PILAS</div>
+        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
+            Usando arreglos: Define un arreglo de una dimensión (vector) donde se almacenan los elementos.
+        </p>
+
+        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
+            <img src="assets/img/imagen23.png" alt="Diagrama de celdas 0 a 5" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
+            <p class="text-[0.8rem] text-slate-500 mt-[8px] font-medium">📌 Arreglo de pila (celdas 0 a 5)</p>
+        </div>
+
+        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
+            <strong>TOPE:</strong> Apunta hacia el elemento que se encuentra en el extremo de la pila.
+        </p>
+
+        <!-- EJEMPLO DE MOVIMIENTOS -->
+        <div class="titulo-seccion">🔄 EJEMPLO DE MOVIMIENTOS</div>
+
+        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
+            <img src="assets/img/imagen22.png" alt="Diagrama de estados de la pila" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
+            <p class="text-[0.8rem] text-slate-500 mt-[8px] font-medium">📌 Estados de la pila durante inserciones y eliminaciones</p>
+        </div>
+
+        <!-- ALGORITMOS -->
+        <div class="titulo-seccion">💻 ALGORITMOS</div>
+        <h4 class="text-[1.1rem] font-bold text-ipn-dark-blue mt-[15px] mb-[8px]">Algoritmo para insertar un elemento (PUSH):</h4>
+
+        <div class="code-container">
+            <div class="code-header">
+                <span class="code-dot red"></span>
+                <span class="code-dot yellow"></span>
+                <span class="code-dot green"></span>
+                <span class="ml-2">algoritmo_push.java</span>
+            </div>
+            <div class="code-split">
+                <div class="code-pseudo">
+                    <pre><strong>insertar_push (int elem);</strong>
+Verificar si la pila está llena
+    Si la pila está llena: 
+        enviar mensaje de "Pila llena"
+    Si no:
+        se prepara a insertar, incrementando el tope de la pila
+        se inserta el elemento en la pila
+{fin del condicional}</pre>
+                </div>
+                <div class="code-java">
+                    <pre><span class="keyword">public void</span> <span class="function">push</span> (<span class="keyword">int</span> elem) {
+    <span class="keyword">if</span> (<span class="function">this.llena</span>()) {
+        <span class="comment">// ERROR: Pila llena</span>
+        System.out.println(<span class="comment">"Error: Pila llena"</span>);
+    } <span class="keyword">else</span> {
+        tope ++;
+        pila[tope] = elem;
+    }
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="text-[1.1rem] font-bold text-ipn-dark-blue mt-[25px] mb-[8px]">Algoritmo para retirar un elemento (POP):</h4>
+
+        <div class="code-container">
+            <div class="code-header">
+                <span class="code-dot red"></span>
+                <span class="code-dot yellow"></span>
+                <span class="code-dot green"></span>
+                <span class="ml-2">algoritmo_pop.java</span>
+            </div>
+            <div class="code-split">
+                <div class="code-pseudo">
+                    <pre><strong>eliminar_pop ();</strong>
+Verificar si la pila está vacía
+    Si la pila está vacía: 
+        enviar mensaje de "Pila vacía"
+    Si no:
+        se respalda el elemento a eliminar
+        se decrementa el tope de la pila
+        se regresa el valor eliminado de la pila
+{fin del condicional}</pre>
+                </div>
+                <div class="code-java">
+                    <pre><span class="keyword">public int</span> <span class="function">pop</span>() {
+    <span class="keyword">if</span> (<span class="function">this.vacia</span>()) {
+        <span class="comment">// ERROR: Pila vacía</span>
+        System.out.println(<span class="comment">"Error: Pila vacía"</span>);
+        <span class="keyword">return</span> -1;
+    } <span class="keyword">else</span> {
+        <span class="keyword">int</span> x = pila[tope];
+        tope --;
+        <span class="keyword">return</span> x;
+    }
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- APLICACIONES DE LAS PILAS -->
+        <div class="titulo-seccion">📌 APLICACIONES DE LAS PILAS</div>
+
+        <ul class="list-disc ml-[25px] text-slate-700 text-[0.95rem] mb-[12px]">
+            <li class="mb-[6px]">A) Llamado de funciones, subrutinas, procedimientos, programas, etc.</li>
+            <li class="mb-[6px]">B) Expresiones aritméticas.</li>
+            <li class="mb-[6px]">C) Recursividad.</li>
+        </ul>
+
+        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
+            <img src="assets/img/imagen10.png" alt="Diagrama de flujo entre programas" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
+            <p class="text-[0.8rem] text-slate-500 mt-[8px] font-medium">📌 Aplicaciones de pilas en programación</p>
+        </div>
+
+        <!-- EXPRESIONES ARITMÉTICAS -->
+        <div class="titulo-seccion">📐 EXPRESIONES ARITMÉTICAS</div>
+
+        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
+            Una expresión aritmética contiene constantes, variables y operaciones con distintos niveles de precedencia.
+        </p>
+
+        <h4 class="font-bold text-ipn-blue mt-[15px] mb-[8px]">Operaciones:</h4>
+        <ul class="list-disc ml-[25px] text-slate-700 text-[0.95rem] mb-[12px]">
+            <li class="mb-[2px]">^ Potencia (mayor prioridad)</li>
+            <li class="mb-[2px]">* / Multiplicación, división</li>
+            <li class="mb-[2px]">+ - Suma, resta (menor prioridad)</li>
+        </ul>
+
+        <!-- NOTACIONES -->
+        <div class="titulo-seccion">📝 NOTACIONES</div>
+
+        <div class="notacion-box">
+            <h4>📌 NOTACIÓN INFIJA:</h4>
+            <p>Los operadores aparecen en medio de los operandos.</p>
+            <p class="font-mono">A + B, A – 1, E/F, A * C, A ^ B, A + B + C, A+B-C</p>
+        </div>
+
+        <div class="notacion-box">
+            <h4>📌 NOTACIÓN PREFIJA:</h4>
+            <p>El operador aparece antes de los operandos.</p>
+            <p class="font-mono">+ AB, - A1, / EF, * AC, ^ AB, + + AB C, - + AB C</p>
+        </div>
+
+        <div class="notacion-box">
+            <h4>📌 NOTACIÓN POSTFIJA:</h4>
+            <p>El operador aparece al final de los operandos.</p>
+            <p class="font-mono">AB+, A1-, EF/, AC*, AB^, AB+C+, AB+C-</p>
+        </div>
+
+        <!-- PASOS PARA EVALUAR -->
+        <div class="titulo-seccion">⚡ PASOS PARA EVALUAR UNA EXPRESIÓN</div>
+
+        <ul class="list-decimal ml-[25px] text-slate-700 text-[0.95rem] mb-[12px]">
+            <li class="mb-[6px]"><strong>CONVERTIR A POSTFIJO:</strong> Convertir la expresión de notación infija a notación postfija.</li>
+            <li class="mb-[6px]"><strong>EVALUAR LA EXPRESIÓN POSTFIJA:</strong> Usar una pila para mantener los resultados intermedios cuando se evalúa la expresión en notación postfija.</li>
+        </ul>
+
+        <!-- CONVERSIÓN DE EXPRESIÓN INFIJA A POSTFIJA -->
+        <div class="titulo-seccion">🔄 CONVERSIÓN DE EXPRESIÓN INFIJA A POSTFIJA</div>
+
+        <ul class="list-disc ml-[25px] text-slate-700 text-[0.95rem] mb-[12px]">
+            <li class="mb-[6px]">1. Las operaciones de prioridad más alta se convierten primero</li>
+            <li class="mb-[6px]">2. Después que una parte de la expresión ha sido convertida, se trata como un solo operando</li>
+            <li class="mb-[6px]">3. Si son de igual prioridad, se procesan de izquierda a derecha</li>
+        </ul>
+
+        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
+            <img src="assets/img/imagen11.png" alt="Tabla de prioridades" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
+            <p class="text-[0.8rem] text-slate-500 mt-[8px] font-medium">📌 Prioridad de operadores</p>
+        </div>
+
+        <!-- EVALUACIÓN DE EXPRESIÓN POSTFIJA -->
+        <div class="titulo-seccion">📊 EVALUACIÓN DE EXPRESIÓN POSTFIJA</div>
+
+        <ul class="list-decimal ml-[25px] text-slate-700 text-[0.95rem] mb-[12px]">
+            <li class="mb-[6px]">Recorrer la expresión de izquierda a derecha</li>
+            <li class="mb-[6px]">Si es un operando: almacenar el valor en la pila de valores</li>
+            <li class="mb-[6px]">Si es un operador:
+                <ul class="list-disc ml-[25px] mt-[4px]">
+                    <li>Obtener dos operandos de la pila</li>
+                    <li>Aplicar el operador</li>
+                    <li>Almacenar el resultado en la pila de valores</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="highlight-red text-center my-[20px] p-[12px]">
+            🔴 <strong>Al finalizar el recorrido, el resultado estará en la pila de valores.</strong>
+        </div>
+    </div>
 </section>
 
-<footer class="footer">
-    <div class="footer-content">
-        <h3>UPIICSA · IPN</h3>
-        <p>Unidad de Aprendizaje: Estructura de Datos</p>
-        <p>© 2026 Instituto Politécnico Nacional</p>
+<div class="flex flex-col md:flex-row justify-between items-center mt-[50px] max-w-[900px] mx-auto px-[20px] gap-[12px]">
+    <a href="index.html" class="bg-gradient-to-r from-ipn-blue to-ipn-dark-blue text-white px-[25px] py-[10px] rounded-[10px] font-bold min-w-[180px] text-center text-[0.9rem] btn-hover">
+        ⬅ Volver al Inicio
+    </a>
+    <a href="navuni4.html" class="bg-gradient-to-r from-ipn-blue to-ipn-dark-blue text-white px-[25px] py-[10px] rounded-[10px] font-bold min-w-[180px] text-center text-[0.9rem] btn-hover">
+        Siguiente Unidad ➡
+    </a>
+</div>
+
+<footer class="py-[30px] px-[20px] text-center bg-gradient-to-b from-[#f4faff] via-[#e6f3ff] to-white border-t-2 border-ipn-blue mt-[50px]">
+    <div>
+        <h3 class="text-ipn-primary text-[1.1rem] mb-[8px]">🏛️ UPIICSA · IPN</h3>
+        <p class="text-[0.85rem] text-slate-600 mb-[5px]">Unidad de Aprendizaje: Estructura de Datos</p>
+        <p class="text-[0.85rem] text-slate-600">© 2026 Instituto Politécnico Nacional</p>
     </div>
 </footer>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleButton = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (toggleButton && navLinks) {
-        toggleButton.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-        });
-    }
-});
-</script>
+
+<script src="js/ui.js"></script>
+</body>
 </html>
