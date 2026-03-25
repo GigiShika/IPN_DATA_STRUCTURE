@@ -253,19 +253,28 @@ body {
 .dropdown-btn {
     position: relative;
     width: 100%;
-    padding: 18px 25px 18px 55px;
-    font-size: 1.1rem;
+    
+    padding: 14px 20px 14px 70px; /* menos alto y mejor espacio */
+    
+    font-size: 0.95rem; /* más pequeño */
+    line-height: 1.2;   /* evita que se encime */
+    
     text-align: left;
-    padding-left: 80px;
     border: none;
     cursor: pointer;
+    
     color: var(--text-light);
     font-weight: 600;
-    letter-spacing: 2px;
-    transition: background 0.3s ease, padding-left 0.3s ease, transform 0.3s ease;
+    
+    letter-spacing: 1px; /* menos separación (antes 2px) */
+    
     border-radius: 2px;
     background: url("../assets/img/back1.png") center/cover no-repeat;
-    overflow: hidden;
+    
+    display: flex;
+    align-items: center; /* centra verticalmente el texto */
+    
+    gap: 10px; /* espacio entre icono y texto */
 }
 
 .dropdown-icon {

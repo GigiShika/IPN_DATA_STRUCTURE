@@ -1,53 +1,70 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const dropdowns = document.querySelectorAll(".dropdown");
+    const buttons = document.querySelectorAll(".dropdown-btn");
 
-    dropdowns.forEach(dropdown => {
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
 
-        const button = dropdown.querySelector(".dropdown-btn");
-        const content = dropdown.querySelector(".dropdown-content");
+            const dropdown = btn.parentElement;
+            const content = dropdown.querySelector(".dropdown-content");
 
-        button.addEventListener("click", function () {
+            const isOpen = content.style.maxHeight;
 
-            // Cerrar todos menos el actual
-            dropdowns.forEach(item => {
-                if (item !== dropdown) {
-                    const c = item.querySelector(".dropdown-content");
-                    c.style.height = "0px";  // fuerza altura 0
-                    item.classList.remove("active");
-                }
+            // Cerrar todos
+            document.querySelectorAll(".dropdown-content").forEach(el => {
+                el.style.maxHeight = null;
             });
 
-            // Alternar el actual
-            if (dropdown.classList.contains("active")) {
-                // cerrar
-                content.style.height = content.scrollHeight + "px"; // fuerza valor actual
-                requestAnimationFrame(() => {
-                    content.style.height = "0px";
-                });
-                dropdown.classList.remove("active");
-            } else {
-                // abrir
-                content.style.height = content.scrollHeight + "px";
-                dropdown.classList.add("active");
-                content.addEventListener(
-                    "transitionend",
-                    () => {
-                        content.style.height = "auto"; // deja que crezca naturalmente
-                    },
-                    { once: true }
-                );
+            // Abrir el seleccionado si estaba cerrado
+            if (!isOpen) {
+                content.style.maxHeight = content.scrollHeight + "px";
             }
 
         });
-
     });
 
-    const toggle = document.getElementById("toggleTheme");
-    if(toggle) {
-        toggle.addEventListener("change", () => {
-            document.body.classList.toggle("light-mode");
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (toggleButton && navLinks) {
+        toggleButton.addEventListener('click', function() {
+            // Alternar visibilidad del menú
+            navLinks.classList.toggle('flex');
+            navLinks.classList.toggle('hidden');
+            
+            // Agregar la clase de fondo cuando está visible
+            if (navLinks.classList.contains('flex')) {
+                navLinks.classList.add('mobile-nav-bg');
+            } else {
+                navLinks.classList.remove('mobile-nav-bg');
+            }
         });
     }
-
+    
+    // Cerrar menú al hacer clic en un enlace
+    const links = document.querySelectorAll('.nav-links a');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768 && navLinks && navLinks.classList.contains('flex')) {
+                navLinks.classList.remove('flex', 'mobile-nav-bg');
+                navLinks.classList.add('hidden');
+            }
+        });
+    });
+    
+    // En desktop, eliminar estilos móviles
+    function handleResize() {
+        if (window.innerWidth > 768 && navLinks) {
+            navLinks.classList.remove('hidden', 'flex', 'mobile-nav-bg', 'flex-col');
+            navLinks.classList.add('flex', 'justify-center', 'gap-[10px]', 'relative');
+        } else if (window.innerWidth <= 768 && navLinks && navLinks.classList.contains('flex')) {
+            navLinks.classList.add('mobile-nav-bg');
+        }
+    }
+    
+    window.addEventListener('resize', handleResize);
+    handleResize();
 });
