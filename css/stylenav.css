@@ -42,15 +42,49 @@ body {
 }
 
 /* ===== DROPDOWN ===== */
+/* ===== ESPACIO EXTRA EN DROPDOWNS ===== */
+/* Fuerza margen inferior a todos los elementos dentro del dropdown */
+.dropdown-content > * {
+    margin-bottom: 20px !important;
+}
+
+/* El último elemento no necesita margen porque el padding-bottom ya da espacio */
+.dropdown-content > :last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Espacio específico para el botón de descarga */
+.download-btn {
+    margin-bottom: 15px !important;
+}
+
+/* Espacio específico para la sección de contacto */
+.contacto-autores {
+    margin-bottom: 25px !important;
+}
+
+/* Asegura que el padding-bottom se respete */
+.dropdown.active .dropdown-content {
+    padding-bottom: 80px !important;
+}
+
+/* Solución alternativa con pseudo-elemento */
+.dropdown-content::after {
+    content: "";
+    display: block;
+    height: 30px;
+    visibility: hidden;
+}
 .dropdown-content {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0px 50px;  
 }
 
 .dropdown.active .dropdown-content {
     max-height: 2000px;
-    padding: 20px 24px !important;
+    padding: 40px 50px 80px 50px !important;  /* 80px abajo para más espacio */
     overflow-y: auto;
 }
 
