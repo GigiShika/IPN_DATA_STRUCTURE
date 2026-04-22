@@ -86,13 +86,6 @@
                 <h2 class="text-[1rem] md:text-[1.1rem] m-0 mt-2">Estructuras de datos estáticas</h2>
             </div>
         </div>
-
-        <!-- Imagen decorativa -->
-        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-            <img src="assets/img/imagen2.png" alt="Estructuras de datos estáticas" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
-            <p class="text-[0.8rem] text-slate-500 mt-[8px] font-medium">📌 Estructuras de datos estáticas</p>
-        </div>
-
         <!-- Unidad de competencia -->
         <h3 class="text-[1.2rem] text-ipn-blue mt-[25px] mb-[12px]">🎯 Unidad de competencia:</h3>
         <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
@@ -139,9 +132,15 @@
 
         <div class="code-simple">
             <pre><span style="color:#c792ea">int</span>     Arreglo_Unidimensional    [10];
-<span style="color:#6a9955">//  Tipo de dato    Nombre_Arreglo        Tamaño</span>
-<span style="color:#6a9955">//  puede ser char, int o float</span></pre>
+            <span style="color:#6a9955">//  Tipo de dato    Nombre_Arreglo        Tamaño</span>
+            <span style="color:#6a9955">//  puede ser char, int o float</span></pre>
         </div>
+
+        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
+        En un lenguaje de programación, los arreglos inician desde cero que es representado por un subíndice(i) para identificar la primera posición de memoria del arreglo unidimensional y si el
+        tamaño es, por ejemplo, en la definición del arreglo anterior int Arreglo_Unidimensional [10], es de 10, eso quiere decir que requerimos de 10 espacios de memoria y el subíndice(i) del 
+        último elemento es 9 (10 – 1) porque se inicia desde el subíndice i = 0, como se muestra en la siguiente figura:
+        </p>
 
         <div class="text-center my-[25px] p-[8px] md:p-[15px]">
             <img src="assets/img/imagen30.png" alt="Representación de arreglo unidimensional" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
@@ -196,7 +195,7 @@
 
         <!-- ACTIVIDAD UTII_A2 -->
         <div class="activity-box-bg border-l-[5px] border-ipn-blue p-[20px] my-[25px] rounded-[12px]">
-            <h3 class="text-[1.2rem] font-bold text-ipn-blue mb-[12px]">📝 ACTIVIDAD UTII_A2:</h3>
+            <h3 class="text-[1.2rem] font-bold text-ipn-blue mb-[12px]">📝 ACTIVIDAD UTII_A1:</h3>
             <p class="mb-[12px]"><strong>🎯 Propósito:</strong> Utilizar un lenguaje de programación para declarar el arreglo unidimensional definiéndolo con el tipo de dato string (cadena de caracteres) y en el que se puedan ingresar 6 nombres de jugadores.</p>
             <p class="mb-[12px]">La intención de esta actividad es que el estudiante comprenda las operaciones que se realizan sobre un arreglo unidimensional, para este caso es el de asignar valores al arreglo; así como recorrerlo para acceder y mostrar cada uno de sus elementos; por último, realizar una búsqueda.</p>
             
@@ -221,7 +220,7 @@
 
         <!-- ACTIVIDAD UTII_A3 -->
         <div class="activity-box-bg border-l-[5px] border-ipn-blue p-[20px] my-[25px] rounded-[12px]">
-            <h3 class="text-[1.2rem] font-bold text-ipn-blue mb-[12px]">📝 ACTIVIDAD UTII_A3:</h3>
+            <h3 class="text-[1.2rem] font-bold text-ipn-blue mb-[12px]">📝 ACTIVIDAD UTII_A2:</h3>
             <p class="mb-[12px]"><strong>🎯 Propósito:</strong> Utilizar un lenguaje de programación para declarar el arreglo unidimensional definiéndolo con el tipo de dato entero (int) y en el que se puedan ingresar 10 números pares.</p>
             <p class="mb-[12px]">La intención de esta actividad es que el estudiante comprenda las operaciones que se realizan sobre un arreglo unidimensional, para este caso es el de asignar valores al arreglo, así como recorrerlo para acceder y mostrar cada uno de sus elementos.</p>
             
@@ -244,8 +243,11 @@
 
         <!-- ==================== ARREGLOS BIDIMENSIONALES ==================== -->
         <div class="titulo-seccion"><strong>📊 2.2 Arreglos Bidimensionales (Matrices/Tablas)</strong></div>
+        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
+            Para continuar es necesario contestar la siguiente pregunta
+        </p>
 
-        <div class="subtitulo-negrita"><strong>¿Qué es un arreglo bidimensional?</strong></div>
+        <div class="subtitulo-negrita"><strong>¿Qué es un "Arreglo bidimensional"?</strong></div>
         <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
             Un arreglo bidimensional es un <strong>vector de vectores</strong>.
         </p>
@@ -253,16 +255,26 @@
             Es un conjunto de elementos, todos del mismo tipo, en los que el orden de los componentes es significativo y en el que se necesitan <strong>dos subíndices [i][j]</strong> para definir cualquier elemento. Donde el primer índice representa las <strong>filas</strong> y el segundo las <strong>columnas</strong>. También se le conoce como <strong>tabla o matriz</strong>.
         </p>
         <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            La diferencia que existe entre un arreglo unidimensional a un arreglo bidimensional, es que el primero solo necesita un subíndice [i] y el arreglo bidimensional requiere de dos subíndices [i][j].
+            La diferencia que existe entre un arreglo unidimensional a un arreglo bidimensional, que el primero solo necesita un subíndice [i] y el arreglo bidimensional requiere de dos subíndices [i][j]. El arreglo bidimensional se conoce también como matriz o tabla que consta de filas y columnas.
+            Haber, se menciona de una tabla, esto quiere decir que estamos hablando de una base de datos, así es, porque la estructura de datos que se utiliza para almacenar la información de una base de datos son tablas, donde se pueden guardar varios nombres por fila con sus respectivos atributos (columnas), en cambio en un arreglo unidimensional no se podría hacer.
+            Otra gran diferencia es que para recorrer un arreglo unidimensional se requiere de una estructura de control de un ciclo for, en cambio para recorrer un arreglo bidimensional se requiere de dos ciclos for. 
+            Si un arreglo bidimensional es distinto a un arreglo unidimensional, entonces cómo se declara un arreglo bidimensional
         </p>
 
         <div class="subtitulo-negrita"><strong>¿Cómo declarar un arreglo bidimensional?</strong></div>
-        <div class="code-simple">
-            <pre><span style="color:#c792ea">int</span>     Arreglo_Bidimensional    [4]     [3];
-<span style="color:#6a9955">//  Tipo de dato    Nombre_Arreglo      Filas   Columnas</span>
-<span style="color:#6a9955">//  puede ser char, int, float, etc</span></pre>
-        </div>
+        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
+            La sintaxis para declarar un arreglo bidimensional es la siguiente:        
+        </p>
 
+        <div class="code-simple">
+            <pre>
+            <span style="color:#c792ea">int</span>            Arreglo_Bidimensional          [4]            [3]
+
+            <span class="coment">// Tipo de dato       Nombre_Arreglo              Filas      Columnas</span>
+            <span class="coment">// puede ser char,</span>
+            <span class="coment">// float, int, etc.</span>
+            </pre>
+        </div>
         <div class="matriz-tabla">
             <table>
                 <thead>
@@ -307,7 +319,7 @@
 
         <!-- ACTIVIDAD UTII_A4 -->
         <div class="activity-box-bg border-l-[5px] border-ipn-blue p-[20px] my-[25px] rounded-[12px]">
-            <h3 class="text-[1.2rem] font-bold text-ipn-blue mb-[12px]">📝 ACTIVIDAD UTII_A4:</h3>
+            <h3 class="text-[1.2rem] font-bold text-ipn-blue mb-[12px]">📝 ACTIVIDAD UTII_A3:</h3>
             <p class="mb-[12px]"><strong>🎯 Propósito:</strong> Utilizar un lenguaje de programación para declarar el arreglo bidimensional (matriz identidad) definiéndola con el tipo de dato entero (int) y en el que se puedan asignar 16 elementos a la matriz identidad.</p>
             <p class="mb-[12px]">La intención de esta actividad es que el estudiante comprenda las operaciones que se realizan sobre un arreglo bidimensional, para este caso es el de asignar valores al arreglo bidimensional, así como recorrerlo para acceder y mostrar cada uno de sus elementos.</p>
             
@@ -347,7 +359,7 @@
 
         <!-- ACTIVIDAD UTII_A5 -->
         <div class="activity-box-bg border-l-[5px] border-ipn-blue p-[20px] my-[25px] rounded-[12px]">
-            <h3 class="text-[1.2rem] font-bold text-ipn-blue mb-[12px]">📝 ACTIVIDAD UTII_A5:</h3>
+            <h3 class="text-[1.2rem] font-bold text-ipn-blue mb-[12px]">📝 ACTIVIDAD UTII_A4:</h3>
             <p class="mb-[12px]"><strong>🎯 Propósito:</strong> Utilizar un lenguaje de programación para declarar el arreglo bidimensional Matriz A(2x3) definiéndola con el tipo de dato entero (int) y en el que se puedan asignar 6 elementos de forma automática. También declarar la matriz At (3x2) de 6 elementos de tipo de dato entero (int).</p>
             <p class="mb-[12px]">La intención de esta actividad es que el estudiante comprenda las operaciones que se realizan sobre un arreglo bidimensional, para este caso es el de asignar de forma automática los valores a la matriz A dentro de los dos primeros ciclos del For. Después realizar la transpuesta a la matriz At con los siguientes dos segundos ciclos del For, para pasar las filas de la matriz A a las columnas de la matriz At, así como recorrer ambas matrices para acceder y mostrar cada uno de sus elementos.</p>
             
