@@ -1,131 +1,143 @@
-<!DOCTYPE html>
-<html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Polilibro - Estructuras de Datos Dinámicas Lineales</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="icon" type="image/png" href="assets/img/hader.jpg">
+    <link rel="stylesheet" href="css/stylenav.css">
+    <title>Estructura de Datos | UPIICSA</title>
 
-<!-- Fuentes Google -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Press+Start+2P&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="assets/img/hader.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Tailwind CSS CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        p, li, .dropdown-content, .elegant-card p, .contacto-autores p, 
+        .dropdown-link-box p, .dropdown-content h3, .dropdown-content h4,
+        .dropdown-content .font-semibold, .dropdown-content .font-bold,
+        .units-grid .unit-card p, .unit-card h3, .unit-card p,
+        .icon-wrapper + p, .text-gray-700, .leading-relaxed {
+            text-align: justify !important;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            text-align: justify;
+        }
+        .dropdown-btn, .download-btn, .btn-primary, .nav-link-underline {
+            text-align: left !important;
+        }
+        .text-center, .text-center p, .text-center h1, .text-center h2, .text-center h3 {
+            text-align: center !important;
+        }
+        .header-text-overlay h1, .header-text-overlay p {
+            text-align: left !important;
+        }
+        .units-grid .unit-card p, .units-grid .unit-card h3 {
+            text-align: left !important;
+        }
+        .dropdown-content .flex, .dropdown-content .flex p {
+            text-align: left !important;
+        }
 
-<script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                fontFamily: {
-                    'inter': ['Inter', 'sans-serif'],
-                    'press-start': ['Press Start 2P', 'cursive'],
-                },
-                colors: {
-                    'ipn-blue': '#1e6ab3',
-                    'ipn-dark-blue': '#2c7fd4',
-                    'ipn-primary': '#0f2f57',
-                },
-                animation: {
-                    'fade-in': 'fadeIn 0.3s ease-in-out',
-                },
-                keyframes: {
-                    fadeIn: {
-                        '0%': { opacity: '0', transform: 'translateY(-10px)' },
-                        '100%': { opacity: '1', transform: 'translateY(0)' },
-                    }
+        /* ESTILO PARA LA BARRA SUPERIOR CON LOGOS (estilo UPIICSA) - VERSIÓN CORREGIDA */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 8px 20px;  
+            border-bottom: 1px solid #e2e8f0; 
+            flex-wrap: nowrap; 
+            gap: 12px;
+        }
+        .logo-left, .logo-right {
+            flex-shrink: 0;
+        }
+        .logo-left img, .logo-right img {
+            height: 70px;
+            width: auto;
+            transition: transform 0.2s ease;
+            background: transparent;
+            padding: 0;
+            box-shadow: none;
+            border-radius: 0;
+        }
+        .logo-left img, .logo-right img {
+            height: 60px;  /* Ajusta este valor según tu imagen de PC (si era 70px déjalo 70px) */
+            width: auto;
+            display: block; /* Evita espacios extra por inline */
+        }
+        .institution-text {
+            text-align: center;
+            flex: 1;
+            margin: 0 auto;
+        }
+        .institution-text h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #0a2f5a;
+            margin: 0;
+            letter-spacing: -0.5px;
+            text-align: center !important;
+        }
+        .institution-text p {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #2d3e5f;
+            margin: 8px 0 0;
+            text-align: center !important;
+        }
+        @media (max-width: 768px) {
+                .top-bar {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    padding: 6px 12px;
+                    gap: 8px;
+                }
+                .logo-left img, .logo-right img {
+                    height: 45px;               /* Ajusta el tamaño sin hacerlos muy pequeños */
+                    width: auto;
+                          
+                }
+                .institution-text {
+                    order: 3; /* Opcional: el texto al final si no cabe */
+                    flex-basis: 100%;
+                    text-align: center;
+                }
+
+                .institution-text p {
+                    font-size: 0.75rem;
+                    white-space: nowrap;
                 }
             }
+
+        /* Ocultar los logos viejos que estaban dentro del header-imagen */
+        .header-logos {
+            display: none !important;
         }
-    }
-</script>
-
-<!-- Estilos inline para asegurar la apariencia (complemento a los que ya tienes en stylenav.css) -->
-<style>
-    /* Se incluyen los estilos que me compartiste para que funcione sin archivo externo */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f4ff 0%, #e9eaff 100%); color: #1e293b; overflow-x: hidden; overflow-y: auto; }
-    .font-press { font-family: 'Press Start 2P', cursive; }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #e0e7ff; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #4f46e5, #8b5cf6); border-radius: 4px; }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .animated-item { animation: fadeInUp 0.5s ease-out forwards; opacity: 0; }
-    .dropdown-content > * { margin-bottom: 20px !important; }
-    .dropdown-content > :last-child { margin-bottom: 0 !important; }
-    .download-btn { margin-bottom: 15px !important; }
-    .contacto-autores { margin-bottom: 25px !important; }
-    .dropdown.active .dropdown-content { padding-bottom: 80px !important; }
-    .dropdown-content::after { content: ""; display: block; height: 30px; visibility: hidden; }
-    .dropdown-content { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); padding: 0px 50px; }
-    .dropdown.active .dropdown-content { max-height: 2000px; padding: 40px 50px 80px 50px !important; overflow-y: auto; }
-    .dropdown { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-    .dropdown:hover { transform: translateY(-2px); box-shadow: 0 8px 25px -5px rgba(79, 70, 229, 0.2); }
-    .unit-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; background: white; }
-    .unit-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: linear-gradient(90deg, #4f46e5, #8b5cf6, #6366f1); transition: width 0.4s ease; }
-    .unit-card:hover::after { width: 100%; }
-    .unit-card:hover { transform: translateY(-6px); box-shadow: 0 20px 30px -12px rgba(79, 70, 229, 0.25); }
-    .unit-card img { transition: transform 0.5s ease; }
-    .unit-card:hover img { transform: scale(1.05); }
-    .elegant-card { background: white; border-radius: 20px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); position: relative; overflow: hidden; }
-    .elegant-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #4f46e5, #8b5cf6, #6366f1); }
-    .download-btn { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; }
-    .download-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s ease; }
-    .download-btn:hover::before { left: 100%; }
-    .download-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4); }
-    .btn-primary { background: linear-gradient(135deg, #4f46e5, #8b5cf6); }
-    .btn-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .btn-hover:hover { transform: scale(1.03); box-shadow: 0 6px 15px rgba(30, 106, 179, 0.4); }
-    .btn-respuesta { background: linear-gradient(135deg, #1e6ab3, #2c7fd4); color: white; padding: 10px 24px; border-radius: 10px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; border: none; font-size: 0.9rem; margin-top: 15px; }
-    .btn-respuesta:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(30, 106, 179, 0.4); }
-    .header-logos { position: absolute; bottom: 60px; right: 25px; display: flex; gap: 12px; z-index: 20; }
-    .header-logos img { height: 55px; width: auto; background: rgba(0, 0, 0, 0.6); border-radius: 12px; padding: 6px 10px; backdrop-filter: blur(8px); transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.3); }
-    .header-logos img:hover { transform: scale(1.05); background: rgba(0, 0, 0, 0.8); }
-    @media (max-width: 768px) { .header-logos { bottom: 180px; right: 12px; gap: 8px; } .header-logos img { height: 40px; padding: 4px 8px; } }
-    .bg-radial-gradient { background: radial-gradient(circle at 20% 30%, rgba(86,163,255,0.15) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(47,128,237,0.15) 0%, transparent 40%), linear-gradient(135deg, #f4faff 0%, #e6f3ff 50%, #ffffff 100%); }
-    .bg-header { background: #f2f2f2; }
-    .text-shadow { text-shadow: 2px 2px 0 rgba(0,0,0,0.5); }
-    .banner-overlay { background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); }
-    .section-bar-bg { background: linear-gradient(135deg, #1e6ab3, #2c7fd4); }
-    .activity-box-bg { background: linear-gradient(135deg, #e8f0fe, #d9e8ff); }
-    .titulo-seccion { background: linear-gradient(135deg, #1e6ab3, #2c7fd4); color: white; padding: 12px 18px; border-radius: 10px; margin: 30px 0 20px; font-weight: bold; font-size: 1.1rem; }
-    @media (min-width: 768px) { .titulo-seccion { font-size: 1.2rem; } }
-    .subtitulo-negrita { font-weight: bold; font-size: 1rem; margin: 15px 0 8px; color: #1e6ab3; }
-    .lista-temas { list-style: none; padding-left: 0; }
-    .lista-temas li { margin-bottom: 8px; font-weight: 500; }
-    .lista-temas li strong { color: #1e6ab3; font-weight: bold; }
-    .code-simple { margin-top: -5px; background: #1e1e1e; padding: 10px; border-radius: 5px; font-family: monospace; color: white; overflow-x: auto; }
-    .code-simple pre { margin: 0; line-height: 1.5; font-family: 'Courier New', monospace; }
-    .notacion-box { background: #f8fafc; border-left: 4px solid #1e6ab3; padding: 16px; margin: 15px 0; border-radius: 12px; }
-    .ejercicio-box { background: linear-gradient(135deg, #fef9e6, #fff4e0); border-left: 5px solid #f59e0b; padding: 20px; margin: 25px 0; border-radius: 12px; }
-    .hover-scale { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .hover-scale:hover { transform: scale(1.02); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-    .nav-bg-custom { background-image: url('assets/img/back05.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative; border-radius: 0 0 10px 10px; }
-    .nav-bg-custom::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.6); border-radius: 0 0 10px 10px; z-index: 0; }
-    .nav-bg-custom .nav-toggle, .nav-bg-custom .nav-links { position: relative; z-index: 1; }
-    .nav-toggle-custom { background-image: url('assets/img/back05.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative; }
-    .nav-toggle-custom::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.65); border-radius: 0 0 10px 10px; z-index: 0; }
-    .nav-toggle-custom { position: relative; z-index: 1; }
-    @media (max-width: 768px) { .nav-links { position: absolute; top: 0%; left: 0; right: 0; width: 100%; flex-direction: column; gap: 0; border-radius: 0 0 10px 10px; margin: 0; padding: 0; display: none; z-index: 20; } .nav-links.flex { display: flex; } .nav-links li { width: 100%; } .nav-links li a { display: block; padding: 14px 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); } .nav-links li:last-child a { border-bottom: none; } }
-    .font-press-start { font-family: 'Press Start 2P', cursive; }
-    .custom-scrollbar::-webkit-scrollbar { width: 8px; }
-    .custom-scrollbar::-webkit-scrollbar-track { background: #e0e7ff; border-radius: 4px; }
-    .custom-scrollbar::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #1e6ab3, #2c7fd4); border-radius: 4px; }
-    p, li, .text-justify { text-align: justify; }
-    .text-justify { text-align: justify; }
-</style>
+    </style>
 </head>
-<body class="font-inter overflow-x-hidden custom-scrollbar bg-radial-gradient">
+<body>
 
-<header class="w-full bg-header">
-    <div class="relative w-full h-[80px] md:h-[80px]">
-        <img src="assets/img/titulo.avif" alt="Título" class="w-full h-full object-cover">
-        <div class="absolute bottom-0 left-0 right-0 banner-overlay p-[0.6rem_1rem_0.6rem_1rem] md:p-[1rem_1.5rem_0.8rem_1.5rem] text-left">
-            <p class="font-press-start text-[0.4rem] md:text-[0.55rem] text-white bg-gradient-to-r from-ipn-blue to-ipn-dark-blue inline-block px-[10px] py-[4px] rounded-[20px] mb-[6px]">📘 Unidad temática III</p>
-            <h1 class="font-press-start text-[1rem] md:text-[1.4rem] text-white text-shadow">Estructuras de datos dinámicas lineales</h1>
-        </div>
-        <div class="header-logos">
-            <img src="assets/img/ipn.jpg" alt="IPN">
-            <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
+<!-- BARRA SUPERIOR CON LOGOS Y TEXTO INSTITUCIONAL -->
+<div class="top-bar">
+    <div class="logo-left">
+        <img src="assets/img/ipn.jpg" alt="IPN">
+    </div>
+    <div class="institution-text">
+        <h2>Instituto Politécnico Nacional</h2>
+        <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
+    </div>
+    <div class="logo-right">
+        <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
+    </div>
+</div>
+
+<!-- Header con imagen del título (sin logos superpuestos) -->
+<header class="container mx-auto px-4 py-6 md:py-8">
+    <div class="relative max-w-6xl mx-auto">
+        <div class="header-image-container relative rounded-2xl overflow-hidden shadow-2xl">
+            <img src="assets/img/titulo.avif" alt="Estructura de Datos" class="w-full h-64 md:h-80 object-cover">
+            <div class="header-text-overlay">
+                <p class="polilibro">📘 Polilibro</p>
+                <h1>📊 Estructura de Datos</h1>
+            </div>
         </div>
     </div>
 </header>
@@ -207,6 +219,7 @@
             <strong>char</strong> 		es el tipo de dato<br>
             <strong>*Letra</strong>	es una variable que se declara apuntador, es importante considerar que para declarar el apuntador siempre debe de ir el * antes del nombre de la variable.
         </p>
+      
 
         <!-- ==================== 3.2 Pilas ==================== -->
         <div class="titulo-seccion"><strong>3.2 Pilas</strong></div>
@@ -218,6 +231,10 @@
         <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
             Relacionado con la vida real, existen varios ejemplos de pilas: de libros, como se muestra en la figura 1, de platos, de tortillas, etc.
         </p>
+          <div class="flex-1 text-left">
+                <img src="assets/img/imguni3-1.png" alt="Ejemplo de pila de libros" class="max-w-full rounded-lg shadow-md hover-scale">
+                <p class="text-[0.7rem] text-slate-500 mt-2">Figura 1 Ejemplo de una pila de libros</p>
+        </div>
 
         <!-- Texto izquierda + imagen derecha -->
         <div class="flex flex-col md:flex-row gap-6 items-start my-6">
@@ -230,10 +247,7 @@
                     <li>Utilizando el funcionamiento de una pila ¿Cómo sería la salida de los elementos de la figura 2?</li>
                 </ol>
             </div>
-            <div class="flex-1 text-center">
-                <img src="assets/img/imguni3-1.png" alt="Ejemplo de pila de libros" class="max-w-full rounded-lg shadow-md hover-scale">
-                <p class="text-[0.7rem] text-slate-500 mt-2">Figura 1 Ejemplo de una pila de libros</p>
-            </div>
+            
         </div>
 
         <div class="text-center my-[20px]">
@@ -428,7 +442,7 @@
             <p class="mb-[6px] font-semibold mt-4">3.- Denotar paso a paso la separación de los operadores y operando, llenar el siguiente cuadro: (en la columna de pila van los operadores (signos))</p>
             <table class="w-full border-collapse border border-slate-400 my-4">
                 <thead><tr class="bg-gray-200"><th class="border border-slate-300 p-2">Paso</th><th class="border border-slate-300 p-2">Expresión Infija</th><th class="border border-slate-300 p-2">Elemento para evaluar</th><th class="border border-slate-300 p-2">Pila</th><th class="border border-slate-300 p-2">Operando</th></tr></thead>
-                <tbody><tr><td class="border border-slate-300 p-2" colspan="5">(Completar)</td></tr></tbody>
+                <tbody><tr><td class="border border-slate-300 p-2" colspan="5"></td></tr></tbody>
             </table>
             <h4 class="font-bold text-[1rem] mt-[15px] mb-[8px]">📋 4.- Realizar el programa de la anterior expresión infija</h4>
             <p class="mb-[12px] text-justify">Pasos para realizar el programa</p>
@@ -506,7 +520,7 @@
         </div>
 
         <p class="font-bold mt-4">b) Cola vacía</p>
-        <p>(FRENTE ==FINAL==NULO)</p>
+       
         <div class="flex flex-col md:flex-row gap-6 items-start my-4">
             <div class="flex-1 text-center">
                 <img src="assets/img/imguni3-8.png" alt="Cola vacía" class="max-w-full rounded-lg shadow-md hover-scale">
@@ -526,7 +540,7 @@
                 FINAL tiene asignado 7, que indica que FINAL está en la posición 7 del Vector_Cola y la condición es que FRENTE es igual a MAX (que tiene asignado 7) se debe de mandar un mensaje que el Vector_Cola está lleno.</p>
             </div>
             <div class="flex-1 text-center">
-                <img src="assets/img/imguni3-8.png" alt="Cola llena" class="max-w-full rounded-lg shadow-md hover-scale">
+                <img src="assets/img/imguni3-9.png" alt="Cola llena" class="max-w-full rounded-lg shadow-md hover-scale">
             </div>
         </div>
 
@@ -569,21 +583,21 @@
             <li>Push (FINAL, DIA) Supongamos que se insertan en la cola los siguientes elementos en estricto orden: lunes, martes, miércoles, jueves y viernes. A continuación, se muestra la figura 6 de como quedaría la estructura de datos Cola después de haber insertado los días.</li>
         </ol>
         <div class="text-center my-[20px]">
-            <img src="assets/img/imguni3-6.png" alt="Aplicación Push Cola" class="max-w-[90%] mx-auto rounded-lg shadow-md hover-scale">
+            <img src="assets/img/imguni3-10.png" alt="Aplicación Push Cola" class="max-w-[90%] mx-auto rounded-lg shadow-md hover-scale">
             <p class="text-[0.7rem] text-slate-500 mt-2">Figura 6 Aplicación Push de una estructura de datos Cola</p>
         </div>
         <ol start="2" class="list-decimal ml-[25px] text-slate-700 text-[0.95rem] text-justify">
             <li>Primera Eliminación Pop (FRENTE) Si se ejecuta una operación de eliminación, el elemento «lunes» será el primero en salir, ya que fue el primero en llegar, cumpliendo así con el principio FIFO primero en llegar, primero en salir. La siguiente figura 7 muestra que sucede cuando se elimina el lunes:</li>
         </ol>
         <div class="text-center my-[20px]">
-            <img src="assets/img/imguni3-7.png" alt="Aplicación Pop Cola" class="max-w-[90%] mx-auto rounded-lg shadow-md hover-scale">
+            <img src="assets/img/imguni3-11.png" alt="Aplicación Pop Cola" class="max-w-[90%] mx-auto rounded-lg shadow-md hover-scale">
             <p class="text-[0.7rem] text-slate-500 mt-2">Figura 7 Aplicación Pop de una estructura de datos Cola</p>
         </div>
         <ol start="3" class="list-decimal ml-[25px] text-slate-700 text-[0.95rem] text-justify">
             <li>Nueva Inserción Push(FINAL, DIA) Si a continuación se inserta el elemento «sábado», este debe ingresar por el extremo posterior de la estructura. A continuación, se muestra la figura 8 de como quedaría la estructura de datos Cola después de haber insertado el sábado.</li>
         </ol>
         <div class="text-center my-[20px]">
-            <img src="assets/img/imguni3-8.png" alt="Nueva inserción Cola" class="max-w-[90%] mx-auto rounded-lg shadow-md hover-scale">
+            <img src="assets/img/imguni3-12.png" alt="Nueva inserción Cola" class="max-w-[90%] mx-auto rounded-lg shadow-md hover-scale">
             <p class="text-[0.7rem] text-slate-500 mt-2">Figura 8 Aplicación Push de una estructura de datos Cola</p>
         </div>
         <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
@@ -645,7 +659,7 @@
             La siguiente figura 9 ilustra como se enlazan los nodos de la lista utilizando un apuntador:
         </p>
         <div class="text-center my-[20px]">
-            <img src="assets/img/imguni3-9.png" alt="Lista sencillamente enlazada" class="max-w-[90%] mx-auto rounded-lg shadow-md hover-scale">
+            <img src="assets/img/imguni3-13.png" alt="Lista sencillamente enlazada" class="max-w-[90%] mx-auto rounded-lg shadow-md hover-scale">
             <p class="text-[0.7rem] text-slate-500 mt-2">Figura 9 Lista sencillamente enlazada</p>
         </div>
 
@@ -654,7 +668,7 @@
             Los elementos de la lista enlazada se almacenan en lugares no contiguo de la memoria, ¿esto que quiere decir?, que los elementos no son almacenados de manera secuencial (que están dispersos), en el caso de los arreglos unidimensionales si es de forma secuencial, la siguiente figura 10 muestra como es un almacenamiento de un arreglo unidimensional a una lista enlazada:
         </p>
         <div class="text-center my-[20px]">
-            <img src="assets/img/imguni3-10.png" alt="Comparación arreglo vs lista enlazada" class="max-w-[90%] mx-auto rounded-lg shadow-md hover-scale">
+            <img src="assets/img/imguni3-14.png" alt="Comparación arreglo vs lista enlazada" class="max-w-[90%] mx-auto rounded-lg shadow-md hover-scale">
         </div>
         <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
             Las diferencias que existen entre los arreglos unidimensionales y las listas en lazadas son:
@@ -671,15 +685,20 @@
             La estructura de datos dinámica lineal lista enlazada, se usa de diferentes formas, en el contenido anterior se trató de una lista sencillamente enlazada (que contiene un solo apuntador) nada más se puede ir de inicio a fin, pero no de fin a inicio, pero también existe la lista doblemente enlazada que, a diferencia de la lista sencillamente enlazada, tiene dos apuntadores *izq y *der que les permiten ir de inicio a fin o de fin a inicio, en donde el *izq contiene la dirección del predecesor y *der contiene la dirección del sucesor. En la siguiente figura 11 se demuestra como está constituido el nodo de una lista doblemente enlazada
         </p>
         <div class="text-center my-[20px]">
-            <img src="assets/img/imguni3-11.png" alt="Lista doblemente enlazada" class="max-w-[90%] mx-auto rounded-lg shadow-md hover-scale">
+            <img src="assets/img/imguni3-15.png" alt="Lista doblemente enlazada" class="max-w-[90%] mx-auto rounded-lg shadow-md hover-scale">
             <p class="text-[0.7rem] text-slate-500 mt-2">Figura 11 Lista doblemente enlazada</p>
         </div>
         <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            Realiza el siguiente ejercicio:
+            <strong>Realiza el siguiente ejercicio:</strong> 
+        </p>
+        <div class="text-center my-[20px]">
+            <img src="assets/img/imguni3-16.png" alt="Ejercicio lista doblemente ligada" class="max-w-[90%] mx-auto rounded-lg shadow-md hover-scale">
+        </div>
+        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
             De la lista anterior, donde las letras son la información del nodo y los números son las direcciones de memoria, represéntala como una lista doblemente ligada y que este en orden alfabético de forma ascendente, como se muestra a continuación
         </p>
         <div class="text-center my-[20px]">
-            <img src="assets/img/imguni3-12.png" alt="Ejercicio lista doblemente ligada" class="max-w-[90%] mx-auto rounded-lg shadow-md hover-scale">
+            <img src="assets/img/imguni3-17.png" alt="Ejercicio lista doblemente ligada" class="max-w-[90%] mx-auto rounded-lg shadow-md hover-scale">
         </div>
 
         <div class="subtitulo-negrita"><strong>3.4.3 Implementación</strong></div>
@@ -755,7 +774,7 @@ struct _Agenda_Telefonica *primero, *ultimo
     <a href="index.html" class="bg-gradient-to-r from-ipn-blue to-ipn-dark-blue text-white px-[25px] py-[10px] rounded-[10px] font-bold min-w-[180px] text-center text-[0.9rem] btn-hover">
         ⬅ Volver al Inicio
     </a>
-    <a href="navuni3.html" class="bg-gradient-to-r from-ipn-blue to-ipn-dark-blue text-white px-[25px] py-[10px] rounded-[10px] font-bold min-w-[180px] text-center text-[0.9rem] btn-hover">
+    <a href="navuni4.html" class="bg-gradient-to-r from-ipn-blue to-ipn-dark-blue text-white px-[25px] py-[10px] rounded-[10px] font-bold min-w-[180px] text-center text-[0.9rem] btn-hover">
         Siguiente Unidad ➡
     </a>
 </div>

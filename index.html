@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -10,22 +8,130 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <style>
+        p, li, .dropdown-content, .elegant-card p, .contacto-autores p, 
+        .dropdown-link-box p, .dropdown-content h3, .dropdown-content h4,
+        .dropdown-content .font-semibold, .dropdown-content .font-bold,
+        .units-grid .unit-card p, .unit-card h3, .unit-card p,
+        .icon-wrapper + p, .text-gray-700, .leading-relaxed {
+            text-align: justify !important;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            text-align: justify;
+        }
+        .dropdown-btn, .download-btn, .btn-primary, .nav-link-underline {
+            text-align: left !important;
+        }
+        .text-center, .text-center p, .text-center h1, .text-center h2, .text-center h3 {
+            text-align: center !important;
+        }
+        .header-text-overlay h1, .header-text-overlay p {
+            text-align: left !important;
+        }
+        .units-grid .unit-card p, .units-grid .unit-card h3 {
+            text-align: left !important;
+        }
+        .dropdown-content .flex, .dropdown-content .flex p {
+            text-align: left !important;
+        }
+
+        /* ESTILO PARA LA BARRA SUPERIOR CON LOGOS (estilo UPIICSA) - VERSIÓN CORREGIDA */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 8px 20px;  
+            border-bottom: 1px solid #e2e8f0; 
+            flex-wrap: nowrap; 
+            gap: 12px;
+        }
+        .logo-left, .logo-right {
+            flex-shrink: 0;
+        }
+        .logo-left img, .logo-right img {
+            height: 70px;
+            width: auto;
+            transition: transform 0.2s ease;
+            background: transparent;
+            padding: 0;
+            box-shadow: none;
+            border-radius: 0;
+        }
+        .logo-left img, .logo-right img {
+            height: 60px;  /* Ajusta este valor según tu imagen de PC (si era 70px déjalo 70px) */
+            width: auto;
+            display: block; /* Evita espacios extra por inline */
+        }
+        .institution-text {
+            text-align: center;
+            flex: 1;
+            margin: 0 auto;
+        }
+        .institution-text h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #0a2f5a;
+            margin: 0;
+            letter-spacing: -0.5px;
+            text-align: center !important;
+        }
+        .institution-text p {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #2d3e5f;
+            margin: 8px 0 0;
+            text-align: center !important;
+        }
+        @media (max-width: 768px) {
+                .top-bar {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    padding: 6px 12px;
+                    gap: 8px;
+                }
+                .logo-left img, .logo-right img {
+                    height: 45px;               /* Ajusta el tamaño sin hacerlos muy pequeños */
+                    width: auto;
+                          
+                }
+                .institution-text {
+                    order: 3; /* Opcional: el texto al final si no cabe */
+                    flex-basis: 100%;
+                    text-align: center;
+                }
+
+                .institution-text p {
+                    font-size: 0.75rem;
+                    white-space: nowrap;
+                }
+            }
+
+        /* Ocultar los logos viejos que estaban dentro del header-imagen */
+        .header-logos {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
 
-<!-- Header con imagen -->
+<!-- BARRA SUPERIOR CON LOGOS Y TEXTO INSTITUCIONAL -->
+<div class="top-bar">
+    <div class="logo-left">
+        <img src="assets/img/ipn.jpg" alt="IPN">
+    </div>
+    <div class="institution-text">
+        <h2>Instituto Politécnico Nacional</h2>
+        <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
+    </div>
+    <div class="logo-right">
+        <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
+    </div>
+</div>
+
+<!-- Header con imagen del título (sin logos superpuestos) -->
 <header class="container mx-auto px-4 py-6 md:py-8">
     <div class="relative max-w-6xl mx-auto">
-        <!-- Header top con títulos -->
-        <div class="text-center mb-6">
-            <p class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-800 to-purple-800 bg-clip-text text-transparent">Instituto Politécnico Nacional</p>
-            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mt-2">
-                Unidad Profesional Interdisciplinaria de Ingeniería y 
-                Ciencias Sociales y Administrativas
-            </p>
-        </div>
-
-        <!-- Imagen -->
         <div class="header-image-container relative rounded-2xl overflow-hidden shadow-2xl">
             <img src="assets/img/titulo.avif" alt="Estructura de Datos" class="w-full h-64 md:h-80 object-cover">
             <div class="header-text-overlay">
@@ -33,15 +139,8 @@
                 <h1>📊 Estructura de Datos</h1>
             </div>
         </div>
-        
-        <!-- Logos junto a la imagen -->
-        <div class="header-logos">
-            <img src="assets/img/ipn.jpg" alt="IPN">
-            <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
-        </div>
     </div>
 </header>
-
 <!-- Welcome section -->
 <section class="py-12 md:py-16 px-4">
     <div class="container mx-auto max-w-5xl">
