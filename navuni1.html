@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -5,384 +8,1388 @@
     <link rel="stylesheet" href="css/stylenav.css">
     <title>Estructura de Datos | UPIICSA</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
-<style>
-        p, li, .dropdown-content, .elegant-card p, .contacto-autores p, 
-        .dropdown-link-box p, .dropdown-content h3, .dropdown-content h4,
-        .dropdown-content .font-semibold, .dropdown-content .font-bold,
-        .units-grid .unit-card p, .unit-card h3, .unit-card p,
-        .icon-wrapper + p, .text-gray-700, .leading-relaxed {
-            text-align: justify !important;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            text-align: justify;
-        }
-        .dropdown-btn, .download-btn, .btn-primary, .nav-link-underline {
-            text-align: left !important;
-        }
-        .text-center, .text-center p, .text-center h1, .text-center h2, .text-center h3 {
-            text-align: center !important;
-        }
-        .header-text-overlay h1, .header-text-overlay p {
-            text-align: left !important;
-        }
-        .units-grid .unit-card p, .units-grid .unit-card h3 {
-            text-align: left !important;
-        }
-        .dropdown-content .flex, .dropdown-content .flex p {
-            text-align: left !important;
+    <style>
+        :root {
+            --ipn-burgundy: #6B0F1A;
+            --ipn-gold: #C8921A;
+            --ipn-blue-deep: #0a2f5a;
+            --ipn-blue-mid: #1a4a8a;
+            --ipn-blue-light: #2d6abf;
+            --section-teal: #0e5c6b;
+            --section-teal-2: #0d7a6e;
+            --section-navy: #1a2e4a;
+            --bg-page: #f6f8fc;
+            --card-bg: #ffffff;
+            --text-body: #2d3748;
+            --text-muted: #718096;
+            --border-subtle: #e2e8f0;
+            --accent-amber: #d97706;
+            --accent-teal: #0891b2;
         }
 
-        /* ESTILO PARA LA BARRA SUPERIOR CON LOGOS (estilo UPIICSA) - VERSIÓN CORREGIDA */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-page);
+            color: var(--text-body);
+            margin: 0;
+        }
+
+        /* ─── TOP BAR ─────────────────────────────────── */
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: white;
-            padding: 8px 20px;  
-            border-bottom: 1px solid #e2e8f0; 
-            flex-wrap: nowrap; 
+            padding: 8px 20px;
+            border-bottom: 3px solid var(--ipn-burgundy);
+            flex-wrap: nowrap;
             gap: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
         }
-        .logo-left, .logo-right {
+
+        .logo-left,
+        .logo-right {
             flex-shrink: 0;
         }
-        .logo-left img, .logo-right img {
-            height: 70px;
+
+        .logo-left img,
+        .logo-right img {
+            height: 60px;
             width: auto;
+            display: block;
             transition: transform 0.2s ease;
-            background: transparent;
-            padding: 0;
-            box-shadow: none;
-            border-radius: 0;
         }
-        .logo-left img, .logo-right img {
-            height: 60px;  /* Ajusta este valor según tu imagen de PC (si era 70px déjalo 70px) */
-            width: auto;
-            display: block; /* Evita espacios extra por inline */
+
+        .logo-left img:hover,
+        .logo-right img:hover {
+            transform: scale(1.05);
         }
+
         .institution-text {
             text-align: center;
             flex: 1;
             margin: 0 auto;
         }
-        .institution-text h2 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #0a2f5a;
-            margin: 0;
-            letter-spacing: -0.5px;
-            text-align: center !important;
-        }
-        .institution-text p {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #2d3e5f;
-            margin: 8px 0 0;
-            text-align: center !important;
-        }
-        @media (max-width: 768px) {
-                .top-bar {
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    padding: 6px 12px;
-                    gap: 8px;
-                }
-                .logo-left img, .logo-right img {
-                    height: 45px;               /* Ajusta el tamaño sin hacerlos muy pequeños */
-                    width: auto;
-                          
-                }
-                .institution-text {
-                    order: 3; /* Opcional: el texto al final si no cabe */
-                    flex-basis: 100%;
-                    text-align: center;
-                }
 
-                .institution-text p {
-                    font-size: 0.75rem;
-                    white-space: nowrap;
-                }
+        .institution-text h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--ipn-blue-deep);
+            margin: 0;
+            letter-spacing: -0.3px;
+            text-align: center !important;
+        }
+
+        .institution-text p {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4a5568;
+            margin: 4px 0 0;
+            text-align: center !important;
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 6px 12px;
+                gap: 8px;
             }
 
-        /* Ocultar los logos viejos que estaban dentro del header-imagen */
+            .logo-left img,
+            .logo-right img {
+                height: 45px;
+            }
+
+            .institution-text {
+                order: 3;
+                flex-basis: 100%;
+            }
+
+            .institution-text h2 {
+                font-size: 1rem;
+            }
+
+            .institution-text p {
+                font-size: 0.72rem;
+            }
+        }
+
         .header-logos {
             display: none !important;
         }
+
+        /* ─── HEADER ─────────────────────────────────── */
+        .header-image-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .header-text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(6, 20, 50, 0.92) 0%, rgba(6, 20, 50, 0.5) 60%, transparent 100%);
+            padding: 28px 32px 24px;
+        }
+
+        .header-text-overlay .polilibro {
+            display: inline-block;
+            background: var(--ipn-gold);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+
+        .header-text-overlay h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            margin: 0;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            text-align: left !important;
+        }
+
+        /* ─── NAV ─────────────────────────────────────── */
+        .nav-bg-custom {
+            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 100%);
+            border-bottom: 3px solid var(--ipn-gold);
+        }
+
+        .nav-link-underline {
+            position: relative;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            color: rgba(255, 255, 255, 0.92) !important;
+            padding: 13px 18px;
+            border-radius: 6px 6px 0 0;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: block;
+        }
+
+        .nav-link-underline:hover {
+            background: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            right: 50%;
+            height: 3px;
+            background: var(--ipn-gold);
+            border-radius: 2px;
+            transition: left 0.25s, right 0.25s;
+        }
+
+        .nav-link-underline:hover::after {
+            left: 8%;
+            right: 8%;
+        }
+
+        .nav-toggle-custom {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 12px 20px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ─── PAGE LAYOUT ─────────────────────────────── */
+        .page-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* ─── UNIT HEADER BANNER ──────────────────────── */
+        .unit-banner {
+            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 60%, var(--ipn-blue-light) 100%);
+            border-radius: 14px;
+            padding: 28px 32px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(10, 47, 90, 0.25);
+        }
+
+        .unit-banner::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 180px;
+            height: 180px;
+            background: rgba(200, 146, 26, 0.18);
+            border-radius: 50%;
+        }
+
+        .unit-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: 30%;
+            width: 240px;
+            height: 240px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .unit-banner h1,
+        .unit-banner h2 {
+            font-family: 'Outfit', sans-serif;
+            color: white;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            text-align: left !important;
+        }
+
+        .unit-banner h1 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ipn-gold);
+            margin-bottom: 6px;
+        }
+
+        .unit-banner h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+
+        .unit-banner .unit-label {
+            display: inline-block;
+            background: var(--ipn-gold);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ─── SECTION HEADERS ─────────────────────────── */
+        /* Style A: Gradient bar with accent line */
+        .section-header {
+            position: relative;
+            background: linear-gradient(135deg, var(--section-teal) 0%, var(--section-teal-2) 100%);
+            border-radius: 12px;
+            padding: 18px 24px 18px 64px;
+            margin: 36px 0 20px;
+            box-shadow: 0 4px 20px rgba(14, 92, 107, 0.22);
+            overflow: hidden;
+        }
+
+        .section-header::before {
+            content: attr(data-num);
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Space Mono', monospace;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.12);
+            line-height: 1;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--ipn-gold);
+            border-radius: 12px 0 0 12px;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+            line-height: 1.4;
+            text-align: left !important;
+            letter-spacing: 0.2px;
+        }
+
+        .section-header .section-emoji {
+            margin-right: 8px;
+        }
+
+        /* Style B: Dark navy for alternating sections */
+        .section-header.dark {
+            background: linear-gradient(135deg, var(--section-navy) 0%, #1e3a5f 100%);
+            box-shadow: 0 4px 20px rgba(26, 46, 74, 0.28);
+        }
+
+        /* Style C: Burgundy for operations */
+        .section-header.burgundy {
+            background: linear-gradient(135deg, #7a1020 0%, #a31528 100%);
+            box-shadow: 0 4px 20px rgba(107, 15, 26, 0.28);
+        }
+
+        /* ─── SUBSECTION HEADERS ─────────────────────── */
+        .subsection-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 28px 0 14px;
+        }
+
+        .subsection-header::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 28px;
+            background: linear-gradient(to bottom, var(--ipn-blue-light), var(--accent-teal));
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .subsection-header h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--ipn-blue-deep);
+            margin: 0;
+            text-align: left !important;
+        }
+
+        /* ─── BODY TEXT ──────────────────────────────── */
+        p.body-text,
+        .body-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.96rem;
+            line-height: 1.8;
+            color: var(--text-body);
+            margin-bottom: 14px;
+            text-align: justify;
+        }
+
+        /* ─── IMAGE CARDS ────────────────────────────── */
+        .img-card {
+            background: white;
+            border-radius: 14px;
+            padding: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-subtle);
+            transition: box-shadow 0.25s, transform 0.25s;
+            overflow: hidden;
+            display: inline-block;
+            /* shrink to content */
+            width: auto;
+        }
+
+        .img-card:hover {
+            box-shadow: 0 10px 36px rgba(0, 0, 0, 0.14);
+            transform: translateY(-3px);
+        }
+
+        .img-card img {
+            display: block;
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .img-card .img-caption {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        .img-card .img-caption::before {
+            content: '▸ ';
+            color: var(--accent-teal);
+        }
+
+        /* Centered wrapper — controls max-width of card */
+        .img-wrap {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .img-wrap.sm .img-card img {
+            max-height: 200px;
+            width: auto;
+        }
+
+        .img-wrap.md .img-card img {
+            max-height: 260px;
+            width: auto;
+        }
+
+        .img-wrap.lg .img-card img {
+            max-height: 340px;
+            width: auto;
+        }
+
+        /* Side-by-side pair */
+        .img-pair {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .img-pair .img-card img {
+            max-height: 220px;
+            width: auto;
+        }
+
+        /* Float image for inline text */
+        .float-img-wrapper {
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .float-img-card {
+            background: white;
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-subtle);
+            float: left;
+            margin: 0 20px 16px 0;
+            width: 180px;
+        }
+
+        .float-img-card img {
+            width: 100%;
+            border-radius: 6px;
+            display: block;
+        }
+
+        @media (max-width: 640px) {
+            .float-img-card {
+                float: none;
+                width: 100%;
+                margin: 0 0 16px 0;
+            }
+
+            .img-pair {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .img-wrap.sm .img-card img,
+            .img-wrap.md .img-card img,
+            .img-wrap.lg .img-card img {
+                max-height: none;
+                max-width: 100%;
+            }
+        }
+
+        /* ─── TOPIC LIST BOX ─────────────────────────── */
+        .topic-box {
+            background: white;
+            border-radius: 14px;
+            padding: 24px 28px;
+            margin: 24px 0;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--ipn-blue-deep), var(--ipn-blue-light), var(--accent-teal));
+            border-radius: 14px 14px 0 0;
+        }
+
+        .topic-box .topic-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--ipn-blue-deep);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .topic-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .topic-box ul li {
+            font-size: 0.92rem;
+            color: var(--text-body);
+            padding: 6px 0 6px 20px;
+            position: relative;
+            border-bottom: 1px dashed var(--border-subtle);
+            line-height: 1.5;
+        }
+
+        .topic-box ul li:last-child {
+            border-bottom: none;
+        }
+
+        .topic-box ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--accent-teal);
+            border-radius: 2px;
+        }
+
+        /* ─── COMPETENCIA BOX ────────────────────────── */
+        .competencia-box {
+            background: linear-gradient(135deg, #eef6ff 0%, #e8f4fd 100%);
+            border: 1px solid #c3dff7;
+            border-left: 5px solid var(--ipn-blue-light);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0 28px;
+        }
+
+        .competencia-box .comp-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--ipn-blue-light);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .competencia-box p {
+            font-size: 0.96rem;
+            line-height: 1.8;
+            color: var(--text-body);
+            margin: 0;
+            text-align: justify;
+        }
+
+        /* ─── ACTIVITY BOX ───────────────────────────── */
+        .activity-box {
+            background: white;
+            border-radius: 16px;
+            padding: 0;
+            margin: 32px 0;
+            box-shadow: 0 6px 32px rgba(107, 15, 26, 0.12);
+            overflow: hidden;
+            border: 1px solid rgba(107, 15, 26, 0.15);
+        }
+
+        .activity-box .act-header {
+            background: linear-gradient(135deg, var(--ipn-burgundy) 0%, #9b1426 100%);
+            padding: 18px 28px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .activity-box .act-header .act-badge {
+            background: var(--ipn-gold);
+            color: white;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .activity-box .act-header h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: white;
+            margin: 0;
+            text-align: left !important;
+        }
+
+        .activity-box .act-body {
+            padding: 24px 28px;
+        }
+
+        .activity-box .act-section-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--ipn-burgundy);
+            margin: 18px 0 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .activity-box .act-section-title:first-child {
+            margin-top: 0;
+        }
+
+        .activity-box ol,
+        .activity-box ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .activity-box li {
+            font-size: 0.93rem;
+            color: var(--text-body);
+            line-height: 1.7;
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        .activity-box .act-footer {
+            background: #fdf8f0;
+            border-top: 1px solid #f0e0c0;
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .activity-box .act-footer p {
+            font-size: 0.88rem;
+            color: #6b4c0a;
+            margin: 0;
+        }
+
+        .activity-box .act-points {
+            background: var(--ipn-gold);
+            color: white;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+        }
+
+        /* ─── EXERCISE BOX ───────────────────────────── */
+        .exercise-box {
+            background: linear-gradient(135deg, #f0f9f4 0%, #e6f5ec 100%);
+            border: 1px solid #b8e0c8;
+            border-left: 5px solid #10b981;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .exercise-box .ex-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #059669;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .exercise-box ol {
+            padding-left: 22px;
+            margin: 0;
+        }
+
+        .exercise-box li {
+            font-size: 0.93rem;
+            color: var(--text-body);
+            line-height: 1.7;
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+
+        /* ─── DATA TYPES LIST ────────────────────────── */
+        .datatypes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 18px 0;
+        }
+
+        .datatype-chip {
+            background: white;
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: var(--text-body);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            line-height: 1.5;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .datatype-chip:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .datatype-chip .chip-icon {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .datatype-chip .chip-name {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 2px;
+            color: var(--ipn-blue-deep);
+        }
+
+        /* ─── OPERATIONS LIST ────────────────────────── */
+        .operations-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 10px;
+        }
+
+        .operations-list li {
+            background: white;
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 0.93rem;
+            color: var(--text-body);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            line-height: 1.4;
+        }
+
+        /* ─── GENERAL LISTS ──────────────────────────── */
+        ul.styled-list,
+        ol.styled-list {
+            padding-left: 20px;
+            margin: 12px 0 16px;
+        }
+
+        ul.styled-list li,
+        ol.styled-list li {
+            font-size: 0.93rem;
+            line-height: 1.75;
+            color: var(--text-body);
+            margin-bottom: 5px;
+            text-align: justify;
+        }
+
+        /* ─── INLINE TEXT CONCEPT BOX ────────────────── */
+        .concept-highlight {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 1px solid #fcd34d;
+            border-left: 5px solid var(--accent-amber);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin: 20px 0;
+        }
+
+        .concept-highlight h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #92400e;
+            margin: 0 0 10px;
+            text-align: left !important;
+        }
+
+        .concept-highlight p {
+            font-size: 0.94rem;
+            line-height: 1.75;
+            color: #78350f;
+            margin: 0 0 8px;
+            text-align: justify;
+        }
+
+        .concept-highlight p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ─── DEFINITION POINTS ──────────────────────── */
+        .def-points {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 14px 0;
+        }
+
+        .def-point {
+            background: white;
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 12px 16px 12px 48px;
+            position: relative;
+            font-size: 0.93rem;
+            color: var(--text-body);
+            line-height: 1.65;
+            text-align: justify;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .def-point::before {
+            content: attr(data-icon);
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            font-size: 1.1rem;
+        }
+
+        /* ─── FOOTER ─────────────────────────────────── */
+        .page-footer {
+            background: linear-gradient(180deg, #f4faff 0%, #e6f3ff 50%, white 100%);
+            border-top: 3px solid var(--ipn-blue-deep);
+            padding: 32px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .page-footer h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            color: var(--ipn-blue-deep);
+            font-weight: 700;
+            margin: 0 0 6px;
+            text-align: center !important;
+        }
+
+        .page-footer p {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            margin: 3px 0;
+            text-align: center !important;
+        }
+
+        /* ─── NAV BUTTONS ────────────────────────────── */
+        .nav-btn {
+            background: linear-gradient(135deg, var(--ipn-blue-mid) 0%, var(--ipn-blue-deep) 100%);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 16px rgba(10, 47, 90, 0.25);
+            transition: all 0.25s;
+        }
+
+        .nav-btn:hover {
+            box-shadow: 0 8px 28px rgba(10, 47, 90, 0.35);
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--ipn-blue-light) 0%, var(--ipn-blue-mid) 100%);
+        }
+
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+
+        .nav-btn-home {
+            width: 52px;
+            height: 52px;
+            padding: 0;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+        /* Align fixes */
+        p,
+        li {
+            text-align: justify;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            text-align: left;
+        }
     </style>
 </head>
+
 <body>
 
-<!-- BARRA SUPERIOR CON LOGOS Y TEXTO INSTITUCIONAL -->
-<div class="top-bar">
-    <div class="logo-left">
-        <img src="assets/img/ipn.jpg" alt="IPN">
-    </div>
-    <div class="institution-text">
-        <h2>Instituto Politécnico Nacional</h2>
-        <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
-    </div>
-    <div class="logo-right">
-        <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
-    </div>
-</div>
-
-<!-- Header con imagen del título (sin logos superpuestos) -->
-<header class="container mx-auto px-4 py-6 md:py-8">
-    <div class="relative max-w-6xl mx-auto">
-        <div class="header-image-container relative rounded-2xl overflow-hidden shadow-2xl">
-            <img src="assets/img/titulo.avif" alt="Estructura de Datos" class="w-full h-64 md:h-80 object-cover">
-            <div class="header-text-overlay">
-                <p class="polilibro">📘 Polilibro</p>
-                <h1>📊 Estructura de Datos</h1>
-            </div>
+    <!-- BARRA SUPERIOR CON LOGOS Y TEXTO INSTITUCIONAL -->
+    <div class="top-bar">
+        <div class="logo-left">
+            <img src="assets/img/ipn.jpg" alt="IPN">
+        </div>
+        <div class="institution-text">
+            <h2>Instituto Politécnico Nacional</h2>
+            <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
+        </div>
+        <div class="logo-right">
+            <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
         </div>
     </div>
-</header>
 
-<section class="py-[40px] px-[20px]">
-    <div class="max-w-[900px] mx-auto text-left">
-        <div class="text-center my-[25px]">
-            <div class="section-bar-bg text-white p-[12px_18px] rounded-[10px] mb-[20px] font-bold">
-                <h1 class="text-[1.1rem] md:text-[1.3rem] m-0">📊 Unidad Temática I</h1>
-                <h2 class="text-[1.1rem] md:text-[1.3rem] m-0">Representación de datos</h2>
+    <!-- Header -->
+    <header style="padding: 24px 20px;">
+        <div style="max-width: 960px; margin: 0 auto;">
+            <div class="header-image-container">
+                <img src="assets/img/titulo.avif" alt="Estructura de Datos"
+                    style="width:100%; height:280px; object-fit:cover; display:block;">
+                <div class="header-text-overlay">
+                    <p class="polilibro">📘 Polilibro</p>
+                    <h1>📊 Estructura de Datos</h1>
+                </div>
             </div>
         </div>
+    </header>
 
-        <h3 class="text-[1.2rem] text-ipn-blue mt-[25px] mb-[12px]">🎯 Unidad de competencia:</h3>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            Emplea tipos y estructuras de datos en la memoria de una computadora a partir de su clasificación y propósito, así como un lenguaje de programación.
-        </p>
+    <!-- NAV -->
+    <div class="w-full nav-bg-custom shadow-md" style="border-radius: 0 0 10px 10px;">
+        <div class="flex justify-center">
+            <nav class="w-[90%] md:w-[75%] mx-auto">
+                <button
+                    class="nav-toggle md:hidden text-[1.8rem] text-white bg-none border-none cursor-pointer p-[12px_20px] w-full text-left font-bold nav-toggle-custom">☰
+                    MENÚ</button>
+                <ul class="nav-links hidden md:flex justify-center gap-[10px] list-none m-0 p-0">
+                    <li><a href="index.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🏠
+                            INICIO</a></li>
+                    <li><a href="navuni1.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📊
+                            Unidad I</a></li>
+                    <li><a href="navuni2.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📈
+                            Unidad II</a></li>
+                    <li><a href="navuni3.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🔗
+                            Unidad III</a></li>
+                    <li><a href="navuni4.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🌳
+                            Unidad IV</a></li>
+                    <li><a href="navuni5.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖
+                            Glosario</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- MAIN CONTENT -->
+    <div class="page-content">
 
-        <div class="activity-box-bg border-l-[5px] border-ipn-blue p-[20px] my-[25px] rounded-[12px]">
-            <p class="mb-[12px]"><strong>📚 Los siguientes temas se tratan en esta unidad:</strong></p>
-            <ul class="list-disc ml-[25px] text-slate-700 text-[0.95rem]">
-                <li class="mb-[6px]">1.1 Medios de almacenamiento y organización de la memoria en una computadora</li>
-                <li class="mb-[6px]">1.2 Organización de los datos en la memoria física y lógica</li>
-                <li class="mb-[6px]">1.2.1 Clasificación de datos simples y compuestos</li>
-                <li class="mb-[6px]">1.2.2 Operaciones permitidas con los datos</li>
-                <li class="mb-[6px]">1.3 Representación de las estructuras de datos</li>
-                <li class="mb-[6px]">1.3.1 Operaciones básicas sobre las estructuras de datos</li>
+        <!-- UNIT BANNER -->
+        <div class="unit-banner">
+            <span class="unit-label">Polilibro · UPIICSA</span>
+            <h1>📊 Unidad Temática I</h1>
+            <h2>Representación de datos</h2>
+        </div>
+
+        <!-- COMPETENCIA -->
+        <div class="competencia-box">
+            <div class="comp-label">🎯 Unidad de competencia</div>
+            <p>Emplea tipos y estructuras de datos en la memoria de una computadora a partir de su clasificación y
+                propósito, así como un lenguaje de programación.</p>
+        </div>
+
+        <!-- TEMAS DE LA UNIDAD -->
+        <div class="topic-box">
+            <div class="topic-title">📚 Los siguientes temas se tratan en esta unidad:</div>
+            <ul>
+                <strong>
+                    <li>1.1 Medios de almacenamiento y organización de la memoria en una computadora</li>
+                    <li>1.2 Organización de los datos en la memoria física y lógica</li>
+                </strong>
+                <li>1.2.1 Clasificación de datos simples y compuestos</li>
+                <li>1.2.2 Operaciones permitidas con los datos</li>
+                <strong>
+                    <li>1.3 Representación de las estructuras de datos</li>
+                </strong>
+                <li>1.3.1 Operaciones básicas sobre las estructuras de datos</li>
             </ul>
         </div>
 
-        <h2 class="section-bar-bg text-white p-[12px_18px] rounded-[10px] my-[30px] font-bold text-[1.1rem] md:text-[1.2rem]">💾 1.1 Medios de almacenamiento y organización de la memoria en una computadora</h2>
+        <!-- ════════════════════════════════════════════ -->
+        <div class="section-header" data-num="1.1">
+            <h2><span class="section-emoji">💾</span>1.1 Medios de almacenamiento y organización de la memoria en una
+                computadora</h2>
+        </div>
 
-       
-        <div class="my-[25px] space-y-[25px]">
-    
-             <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-                <img src="assets/img/imagen1.png" alt="Medio de almacenamiento 1"  class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
+        <div class="img-pair">
+            <div class="img-card">
+                <img src="assets/img/imagen1.png" alt="Medio de almacenamiento 1">
+                <div class="img-caption">Figura 1 Medios de almacenamiento y organización de la memoria en una
+                    computadora</div>
             </div>
+            <p class="body-text">La anterior figura 1 nos representa de manera gráfica como es el funcionamiento interno
+                de una computadora, como se encuentra organizada y los tipos de memoria que existen como son ROM
+                (memoria solo de lectura) y RAM (memoria de acceso aleatorio).
 
-            <!-- Imagen 2 -->
-            <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-                <img src="assets/img/imagen2.png" alt="Medio de almacenamiento 2" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
-                <p class="text-[0.8rem] text-slate-500 text-center mt-[8px] font-medium">Figura 2 - Medios de almacenamiento</p>
-            </div>
-        </div>
-
-        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-            <img src="assets/img/imagen3.png" alt="Figura 1 Medios de almacenamiento" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
-        </div>
-
-        <h2 class="section-bar-bg text-white p-[12px_18px] rounded-[10px] my-[30px] font-bold text-[1.1rem] md:text-[1.2rem]">🗂️ 1.2 Organización de los datos en la memoria física y lógica</h2>
-
-        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-            <img src="assets/img/imagen4.png" alt="Organización memoria física y lógica" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
-        </div>
-
-        <div class="my-[20px] overflow-hidden p-[15px]">
-            <img src="assets/img/imagen5.png" alt="Representación de bits" class="max-w-[85%] md:max-w-[250px] float-none md:float-left mx-auto md:mr-[18px] mb-[15px] rounded-[10px] shadow-md image-hover">
-            <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]"><strong>Representación binaria:</strong> La memoria (RAM) está físicamente formada por bits, componentes que pueden estar en uno de dos estados claramente definidos, encendido/apagado (0's y 1's).</p>
-            <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">Como se observa un bit puede representar dos valores, combinando grupos de bits se pueden representar más estados.</p>
-        </div>
-
-        <h3 class="text-[1.2rem] text-ipn-blue mt-[25px] mb-[12px]">✏️ Realizar el siguiente ejercicio:</h3>
-        <ol class="list-decimal ml-[25px] text-slate-700 text-[0.95rem] mb-[12px]">
-            <li class="mb-[6px]">Para almacenar el sexo de una persona ¿cuántos bits se requieren?</li>
-            <li class="mb-[6px]">¿Cuántos bits se requieren para almacenar los siete días de la semana?</li>
-            <li class="mb-[6px]">¿Cuántos bits se requieren para almacenar los meses del año?</li>
-            <li class="mb-[6px]">Para almacenar el código ASCII ¿cuántos bits se requieren?</li>
-        </ol>
-
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            La memoria física RAM está compuesta por casillas de memoria en las cuales se pueden almacenar datos que están organizados por direcciones de memoria. Cada celda en una dirección puede ser de 8, 16, 32 o 64 bits.
-        </p>
-
-        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-            <img src="assets/img/imagen6.png" alt="Casillas de memoria" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
-        </div>
-
-        <h2 class="section-bar-bg text-white p-[12px_18px] rounded-[10px] my-[30px] font-bold text-[1.1rem] md:text-[1.2rem]">📋 1.2.1 Clasificación de datos simples y compuestos</h2>
-
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            De acuerdo con la forma en que los datos se organizan, se clasifican en:
-        </p>
-        <ul class="list-disc ml-[25px] text-slate-700 text-[0.95rem] mb-[12px]">
-            <li class="mb-[6px]">a) Tipos de datos simples</li>
-            <li class="mb-[6px]">b) Tipos de datos compuestos o estructurados</li>
-        </ul>
-
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            a) Un tipo de dato simple (primitivo) es aquel que hace referencia a un único valor a la vez y que ocupan solo una casilla de memoria, por tanto, una variable simple hace referencia a un único valor a la vez. En este grupo se encuentran:
-        </p>
-        <ul class="list-disc ml-[25px] text-slate-700 text-[0.95rem] mb-[12px]">
-            <li class="mb-[6px]">🔢 Enteros (int): números sin decimales, como 10, -3 o 2025</li>
-            <li class="mb-[6px]">💧 Flotantes (float o double): números con punto decimal, como 3.14 o -0.25</li>
-            <li class="mb-[6px]">🔤 Caracter (char): un solo símbolo, como 'a', '9' o '$'</li>
-            <li class="mb-[6px]">✅ Booleanos (bool): representan valores lógicos: verdadero (true) o falso (false).</li>
-            <li class="mb-[6px]">✅ String (Cadena de caracteres):Luis .</li>
-        </ul>
-
-        <h3 class="text-[1.2rem] text-ipn-blue mt-[25px] mb-[12px]">📍 Direccionamiento de la memoria</h3>
-
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            La unidad de control se dirige a los distintos bytes de memoria por su posición.
-        </p>
-
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            Todos los lenguajes de programación permiten dar un nombre a las posiciones de memoria y se conocen como variables.
-        </p>
-
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            Entonces una variable son las posiciones de memorias asociadas a un nombre, por ejemplo: Area, Base y Altura.
-        </p>
-
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            Las variables pueden cambiar su contenido o pueden contener un valor constante, como es el caso del valor pi.
-        </p>
-
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            Usando un lenguaje de programación, se declaran las variables asignando un valor Base y Altura.
-        </p>
-
-        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-            <img src="assets/img/imagen7.png" alt="Declaración de variables" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
-        </div>
-
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            Automáticamente la unidad de control asigna a las casillas de memoria con sus direcciones a esas variables.
-        </p>
-
-        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-            <img src="assets/img/imagen8.png" alt="Asignación de memoria" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
-        </div>
-
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            Al momento de declarar las variables de tipo de dato entero esas casillas nada más van a permitir datos enteros, en el caso del ejemplo al momento de declararlas se les ASIGNÓ un valor de tipo de dato entero a las variables Base=3 y Altura=2.
-        </p>
-     
-
-        <div class="activity-box-bg border-l-[5px] border-ipn-blue p-[15px] md:p-[20px] my-[25px] rounded-[12px]">
-            <h3 class="text-[1.3rem] font-bold text-ipn-blue mt-[25px] mb-[12px]">📝 ACTIVIDAD UTI_A1:</h3>
-            <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-                <strong>🎯 Propósito:</strong> Utilizar un lenguaje de programación para declarar las variables que son las posiciones de memoria y que tienen un nombre, para este caso, son Base, Altura y Area definiéndolas con el tipo de dato simple que son los enteros.
+                También es importante identificar los dispositivos de entrada y salida de la unidad central de
+                procesamiento (CPU), como se demuestra en la siguiente figura 2
             </p>
 
-            <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-                La intención de esta actividad es que comprendan como declarar variables con su respectivo tipo de dato para reservar un espacio de memoria y también como asignarle valores, además de entender la entrada y salida de datos.
+            <div class="img-card">
+                <img src="assets/img/imagen2.png" alt="Medio de almacenamiento 2">
+                <div class="img-caption">Figura 2 Dispositivos de entrada y salida del CPU</div>
+            </div>
+            <p class="body-text">Se debe tener bien definidas las características de las memorias ROM y RAM, el
+                siguiente diagrama (figura 3) nos permite tener el acceso a esa información.
             </p>
+        </div>
 
-            <h4 class="font-bold text-[1rem] mt-[15px] mb-[8px]">📋 Instrucciones:</h4>
-            <ol class="list-decimal ml-[25px] text-slate-700 text-[0.95rem] mb-[12px]">
-                <li class="mb-[6px]">Declara las variables Base y Altura de tipo entero asignándoles los valores 3 y 2 respectivamente. También declara la variable Area del mismo tipo.</li>
-                <li class="mb-[6px]">Obtén el área con los valores de las variables base y altura.</li>
-                <li class="mb-[6px]">Manda a imprimir el resultado con el siguiente mensaje: "El valor del área del triángulo es: ".</li>
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imagen3.png" alt="Figura 1 Medios de almacenamiento">
+                <div class="img-caption">Figura 3 Diagrama de las memorias ROM y RAM</div>
+            </div>
+        </div>
+
+        <div class="section-header dark" data-num="1.2">
+            <h2><span class="section-emoji">🗂️</span>1.2 Organización de los datos en la memoria física y lógica</h2>
+        </div>
+        <p class="body-text">Es fundamental la organización de los datos en la memoria física y lógica porque permite,
+            la estabilidad, la velocidad y el rendimiento de un sistema de información. El siguiente diagrama (figura 4)
+            nos da una visión amplia de la organización de los datos.
+        </p>
+
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imagen4.png" alt="Organización memoria física y lógica">
+                <div class="img-caption">Figura 4 Organización de los datos</div>
+            </div>
+        </div>
+
+        <!-- Float image + text -->
+        <div class="float-img-wrapper">
+            <div class="float-img-card">
+                <img src="assets/img/imagen5.png" alt="Representación de bits">
+            </div>
+            <p class="body-text">La memoria (RAM) esta físicamente formada por bits, componentes que pueden estar en uno
+                de dos estados claramente definidos, encendido/apagado 0’s y 1’s.</p>
+            <p class="body-text">Como se observa un bit puede representar dos valores, combinando grupos de bits se
+                pueden representar más estados.</p>
+        </div>
+
+        <!-- Ejercicio -->
+        <div class="exercise-box">
+            <div class="ex-label">✏️ Realizar el siguiente ejercicio</div>
+            <ol>
+                <li>1)Para almacenar el sexo de una persona ¿cuántos bits se requieren?</li>
+                <li>2)¿Cuántos bits se requieren para almacenar los siete días de la semana?</li>
+                <li>3)¿Cuántos bits se requieren para almacenar los meses del año?</li>
+                <li>4)Para almacenar el código ASCII ¿cuántos bits se requieren?</li>
             </ol>
+        </div>
 
-            <h4 class="font-bold text-[1rem] mt-[15px] mb-[8px]">📎 Evidencia que entregar:</h4>
-            <ul class="list-disc ml-[25px] text-slate-700 text-[0.95rem] mb-[12px]">
-                <li class="mb-[6px]">Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el nombre del programa, por ejemplo, RBV_Programa_Variable.</li>
-                <li class="mb-[6px]">Programa ejecutable.</li>
-                <li class="mb-[6px]">Corrida del programa, en un archivo PDF.</li>
+        <p class="body-text">La memoria física RAM está compuesta por casillas de memoria en las cuales se pueden
+            almacenar datos que están organizados por direcciones de memoria. Cada celda en una dirección puede ser de
+            8, 16, 32 o 64 bits, para que quede claro, la siguiente figura 5 es un claro ejemplo..</p>
+
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imagen6.png" alt="Casillas de memoria">
+                <div class="img-caption">Figura 5 Casillas de memoria</div>
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════════════════ -->
+        <div class="section-header" data-num="1.2.1">
+            <h2><span class="section-emoji">📋</span>1.2.1 Clasificación de datos simples y compuestos</h2>
+        </div>
+
+        <p class="body-text">De acuerdo con la forma en que los datos se organizan, se clasifican en:</p>
+        <ul class="styled-list">
+            <li>a) Tipos de datos simples</li>
+            <li>b) Tipos de datos compuestos o estructurados</li>
+        </ul>
+
+        <p class="body-text">a) Un tipo de dato simple (primitivo) es aquel que hace referencia a un único valor a la
+            vez y que ocupan solo una casilla de memoria, por tanto, una variable simple hace referencia a un único
+            valor a la vez. En este grupo se encuentran:</p>
+
+        <div class="datatypes-grid">
+            <div class="datatype-chip">
+                <span class="chip-icon">🔢</span>
+                <div><span class="chip-name">Enteros (int)</span>números sin decimales, como 10, -3 o 2025</div>
+            </div>
+            <div class="datatype-chip">
+                <span class="chip-icon">💧</span>
+                <div><span class="chip-name">Flotantes (float/double)</span>números con punto decimal, como 3.14 o -0.25
+                </div>
+            </div>
+            <div class="datatype-chip">
+                <span class="chip-icon">🔤</span>
+                <div><span class="chip-name">Caracter (char)</span>un solo símbolo, como 'a', '9' o '$'</div>
+            </div>
+            <div class="datatype-chip">
+                <span class="chip-icon">✅</span>
+                <div><span class="chip-name">Booleanos (bool)</span>valores lógicos: verdadero (true) o falso (false)
+                </div>
+            </div>
+            <div class="datatype-chip">
+                <span class="chip-icon">📝</span>
+                <div><span class="chip-name">String</span>Cadena de caracteres: Luis</div>
+            </div>
+        </div>
+
+        <!-- DIRECCIONAMIENTO -->
+        <div class="subsection-header">
+            <h3>📍 Direccionamiento de la memoria</h3>
+        </div>
+
+        <p class="body-text">La unidad de control se dirige a los distintos bytes de memoria por su posición.</p>
+        <p class="body-text">Todos los lenguajes de programación permiten dar un nombre a las posiciones de memoria y se
+            conocen como variables.</p>
+        <p class="body-text">Entonces una variable son las posiciones de memorias asociadas a un nombre, por ejemplo:
+            Area, Base y Altura.</p>
+        <p class="body-text">Las variables pueden cambiar su contenido o pueden contener un valor constante, como es el
+            caso del valor pi.</p>
+        <p class="body-text">Usando un lenguaje de programación, se declaran las variables asignando un valor Base y
+            Altura.</p>
+
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imagen7.png" alt="Organización memoria física y lógica">
+            </div>
+
+        </div>
+
+        <p class="body-text">Automáticamente la unidad de control asigna a las casillas de memoria con sus
+            direcciones a esas variables, como se demuestra en la siguiente figura 6</p>
+        <div class="img-wrap md">
+
+            <div class="img-card">
+                <img src="assets/img/imagen8.png" alt="Organización memoria física y lógica">
+                <div class="img-caption">Figura 6 Asignación de variables</div>
+            </div>
+
+        </div>
+
+        <p class="body-text">Al momento de declarar las variables de tipo de dato entero esas casillas nada más van a
+            permitir datos enteros, en el caso del ejemplo al momento de declararlas se les ASIGNÓ un valor de tipo de
+            dato entero a las variables Base=3 y Altura=2.</p>
+
+        <!-- ACTIVIDAD -->
+        <div class="activity-box">
+            <div class="act-header">
+                <span class="act-badge">UTI_A1</span>
+                <h3>📝 Actividad UTI_A1_Programa_Variables:</h3>
+            </div>
+            <div class="act-body">
+                <div class="act-section-title">🎯 Propósito</div>
+                <p
+                    style="font-size:0.94rem; line-height:1.75; color:var(--text-body); margin:0 0 4px; text-align:justify;">
+                    Utilizar un lenguaje de programación para declarar las variables que son las posiciones de memoria y
+                    que tienen un nombre, para este caso, son Base, Altura y Area definiéndolas con el tipo de dato
+                    simple que son los enteros.
+                </p>
+                <p style="font-size:0.94rem; line-height:1.75; color:var(--text-body); margin:0; text-align:justify;">
+                    La intención de esta actividad es que comprendan como declarar variables con su respectivo tipo de
+                    dato para reservar un espacio de memoria y también como asignarle valores, además de entender la
+                    entrada y salida de datos.
+                </p>
+
+                <div class="act-section-title" style="margin-top:18px;">📋 Instrucciones</div>
+                <ol style="padding-left:20px; margin:0;">
+                    <li
+                        style="font-size:0.93rem; color:var(--text-body); line-height:1.7; margin-bottom:6px; text-align:justify;">
+                        1.- Declara las variables Base y Altura de tipo entero asignándoles los valores 3 y 2
+                        respectivamente. También declara la variable Area del mismo tipo
+                    <li
+                        style="font-size:0.93rem; color:var(--text-body); line-height:1.7; margin-bottom:6px; text-align:justify;">
+                        2.- Obtén el área con los valores de las variables base y altura
+                    <li style="font-size:0.93rem; color:var(--text-body); line-height:1.7; text-align:justify;">
+                        3.- Manda a imprimir el resultado con el siguiente mensaje:
+                        “El valor del área del triángulo es: “
+                </ol>
+
+                <div class="act-section-title" style="margin-top:18px;">📎 Evidencia que entregar</div>
+                <ul style="padding-left:20px; margin:0;">
+                    <li
+                        style="font-size:0.93rem; color:var(--text-body); line-height:1.7; margin-bottom:6px; text-align:justify;">
+                        a)Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
+                        nombre del programa, por ejemplo, RBV_Programa_Variable.</li>
+                    <li
+                        style="font-size:0.93rem; color:var(--text-body); line-height:1.7; margin-bottom:6px; text-align:justify;">
+                        b)Programa ejecutable.</li>
+                    <li style="font-size:0.93rem; color:var(--text-body); line-height:1.7; text-align:justify;">
+                        c)Corrida
+                        del programa, en un archivo PDF.</li>
+                </ul>
+
+                <p
+                    style="font-size:0.9rem; line-height:1.7; color:var(--text-body); margin:14px 0 0; text-align:justify;">
+            </div>
+            <div class="act-footer">
+                Subir esta evidencia a classroom en la hora y fecha indicada.</p>
+                <span class="act-points">⭐ VALOR:10 puntos</span>
+            </div>
+        </div>
+
+        <!-- DATOS COMPUESTOS -->
+        <p class="body-text">b) Los tipos de datos compuestos o estructurados (estructura de datos) se caracterizan por
+            el hecho de que, con un nombre, se hace referencia a un grupo de casillas. Es decir, que tiene varios
+            componentes, que son de un tipo de dato simple. Por ejemplo:</p>
+
+        <p class="body-text">
+            Arreglos (arrays): colecciones ordenadas
+            de elementos del mismo tipo, un ejemplo es la figura 7.</p>
+        <div class="img-pair">
+            <div class="img-card">
+                <img src="assets/img/imagen9.png" alt="Arreglos 1">
+                <div class="img-caption">Figura 7 Estructura de datos Arreglo</div>
+            </div>
+
+        </div>
+        <p class="body-text">Diferencia entre un tipo de dato simple y un tipo de dato estructurado (arreglo) al
+            momento de declararlos</p>
+
+        <div class="img-pair">
+            <div class="img-card">
+                <img src="assets/img/imagen10.png" alt="Arreglos 2">
+                <div class="img-caption">Arreglos — ejemplo 2</div>
+            </div>
+
+        </div>
+
+        <div class="img-card">
+
+
+            <!-- CONCEPTO ESTRUCTURA DE DATOS -->
+            <div class="concept-highlight">
+                <h3>🧑‍🎓 Para poder continuar es importante comprender qué es una estructura de datos</h3>
+                <p>Las estructuras de datos son fundamentales para las principales actividades para llegar al desarrollo
+                    de grandes sistemas de software.</p>
+                <p>Las estructuras de datos permiten organizar, almacenar y manipular datos en la memoria de una
+                    computadora.</p>
+            </div>
+
+            <div class="img-wrap md">
+                <div class="img-card">
+                    <img src="assets/img/imagen111.png" alt="Clasificación estructuras de datos">
+                </div>
+            </div>
+
+            <div class="section-header dark" data-num="1.3">
+                <h2><span class="section-emoji">📐</span>1.3 Representación de las estructuras de datos</h2>
+            </div>
+
+            <p class="body-text">Una estructura de datos nos va a permitir almacenar de forma organizada información en
+                la memoria, para que posteriormente se pueda manipular eficientemente.</p>
+            <p class="body-text">Una estructura de datos está definida por tres elementos:</p>
+
+            <div class="def-points">
+                <div class="def-point" data-icon="•">Un conjunto de tipos de datos simples (enteros, float, doble, char,
+                    cadenas, etc.).</div>
+                <div class="def-point" data-icon="•">La forma en que se encuentran relacionadas (ordenados a través de
+                    un subíndice, jerárquicos (apuntador) y en red (apuntador)).</div>
+                <div class="def-point" data-icon="•">Las operaciones que se pueden realizar entre esas estructuras de
+                    datos (insertar, eliminar, consultar y actualizar).</div>
+            </div>
+            <p class="body-text">El siguiente diagrama (figura 8) nos da una clara idea general de los tipos de
+                estructura de datos que existen.</p>
+
+            <div class="img-wrap md">
+                <div class="img-card">
+                    <img src="assets/img/imagen11.png" alt="Clasificación estructuras de datos">
+                    <div class="img-caption">Figura 8 Clasificación de las Estructura de Datos</div>
+                </div>
+            </div>
+
+            <!-- ════════════════════════════════════════════ -->
+            <div class="section-header burgundy" data-num="1.3.1">
+                <h2><span class="section-emoji">⚙️</span>1.3.1 Operaciones básicas sobre las estructuras de datos</h2>
+            </div>
+
+            <p class="body-text">Las operaciones que se pueden hacer con estructuras de datos son varias. Las más
+                básicas son:</p>
+
+            <ul class="operations-list">
+                <li>➕ <strong>Insertar:</strong>&nbsp; Agregar un valor a la estructura.</li>
+                <li>❌ <strong>Eliminar:</strong>&nbsp; Borrar un valor existente.</li>
+                <li>🔍 <strong>Buscar:</strong>&nbsp; Encontrar un valor específico.</li>
+                <li>✏️ <strong>Actualizar:</strong>&nbsp; Modificar un valor existente.</li>
+                <li>🔄 <strong>Recorrer:</strong>&nbsp; Acceder a cada elemento de la estructura.</li>
             </ul>
 
-            <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">Subir esta evidencia a classroom en la hora y fecha indicada.</p>
-            <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]"><strong>⭐ El valor de la actividad es de 10 puntos.</strong></p>
+        </div><!-- /page-content -->
+
+        <!-- NAVIGATION BUTTONS -->
+        <div
+            style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; max-width:900px; margin:0 auto; padding:16px 24px 48px;">
+            <a href="index.html" class="nav-btn">
+                <span>⬅️</span> Anterior
+            </a>
+            <a href="index.html" class="nav-btn nav-btn-home">🏠</a>
+            <a href="navuni2.html" class="nav-btn">
+                Siguiente <span>➡️</span>
+            </a>
         </div>
 
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            b) Los tipos de datos compuestos o estructurados (estructura de datos) se caracterizan por el hecho de que, con un nombre, se hace referencia a un grupo de casillas. Es decir, que tiene varios componentes, que son de un tipo de dato simple. Por ejemplo:
-        </p>
+        <!-- FOOTER -->
+        <footer class="page-footer">
+            <h3>🏛️ UPIICSA · IPN</h3>
+            <p>Unidad de Aprendizaje: Estructura de Datos</p>
+            <p>© 2026 Instituto Politécnico Nacional</p>
+        </footer>
 
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            Arreglos (arrays): colecciones ordenadas de elementos del mismo tipo.
-        </p>
-
-            <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-                <img src="assets/img/imagen9.png" alt="Arreglos 1" class="w-full rounded-[10px] shadow-sm">
-            </div>
-            <div class="text-center my-[25px] p-[8px] md:p-[15px]"></div>
-                <img src="assets/img/imagen10.png" alt="Arreglos 2" class="w-full rounded-[10px] shadow-sm">
-            </div>
-        </div>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-           <strong><h3 class="text-[1.3rem] font-bold text-ipn-black mt-[25px] mb-[12px]">🧑‍🎓Para poder continuar es importante comprender que es una estructura de datos</h3></strong>                                                                                                                                                         
-           Las estructuras de datos son fundamentales para las principales actividades para llegar al desarrollo de grandes sistemas de software. 
-           Las estructuras de datos permiten organizar, almacenar y manipular datos en la memoria de una computadora.
-     
-        </p>
-           <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-            <img src="assets/img/imagen111.png" alt="Clasificación estructuras de datos" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">/
-        </div>
-
-        <h2 class="section-bar-bg text-white p-[12px_18px] rounded-[10px] my-[30px] font-bold text-[1.1rem] md:text-[1.2rem]">📐 1.3 Representación de las estructuras de datos</h2>
-
-          <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-
-
-            Una estructura de datos nos va a permitir almacenar de forma organizada información en la memoria, para que posteriormente se pueda manipular eficientemente. 
-
-            Una estructura de datos está definida por tres elementos:
-            <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">•	Un conjunto de tipos de datos simples (enteros, float, doble, char, cadenas, etc.).</p> 
-            <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">•	La forma en que se encuentran relacionadas (ordenados a través de un subíndice, jerárquicos (apuntador) y en red (apuntador)).</p> 
-            <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]"></p> •	Las operaciones que se pueden realizar entre esas estructuras de datos (insertar, eliminar, consultar y actualizar).</p> 
-         </p>
-
-
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            Clasificación de las estructuras de datos:
-        </p>
-
-        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-            <img src="assets/img/imagen11.png" alt="Clasificación estructuras de datos" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
-        </div>
-
-        <h2 class="section-bar-bg text-white p-[12px_18px] rounded-[10px] my-[30px] font-bold text-[1.1rem] md:text-[1.2rem]">⚙️ 1.3.1 Operaciones básicas sobre las estructuras de datos</h2>
-
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem]">
-            Las operaciones que se pueden hacer con estructuras de datos son varias. Las más básicas son:
-        </p>
-        <ul class="list-disc ml-[25px] text-slate-700 text-[0.95rem] mb-[12px]">
-            <li class="mb-[6px]">➕ Insertar: Agregar un valor a la estructura.</li>
-            <li class="mb-[6px]">❌ Eliminar: Borrar un valor existente.</li>
-            <li class="mb-[6px]">🔍 Buscar: Encontrar un valor específico.</li>
-            <li class="mb-[6px]">✏️ Actualizar: Modificar un valor existente.</li>
-            <li class="mb-[6px]">🔄 Recorrer: Acceder a cada elemento de la estructura.</li>
-        </ul>
-    </div>
-</section>
-
-<div class="flex flex-col md:flex-row justify-between items-center mt-[50px] max-w-[900px] mx-auto px-[20px] gap-[12px]">
-    <a href="index.html" class="bg-gradient-to-r from-ipn-blue to-ipn-dark-blue text-white px-[25px] py-[10px] rounded-[10px] font-bold min-w-[180px] text-center text-[0.9rem] btn-hover">
-        ⬅ Volver al Inicio
-    </a>
-    <a href="navuni2.html" class="bg-gradient-to-r from-ipn-blue to-ipn-dark-blue text-white px-[25px] py-[10px] rounded-[10px] font-bold min-w-[180px] text-center text-[0.9rem] btn-hover">
-        Siguiente Unidad ➡
-    </a>
-</div>
-
-<footer class="py-[30px] px-[20px] text-center bg-gradient-to-b from-[#f4faff] via-[#e6f3ff] to-white border-t-2 border-ipn-blue mt-[50px]">
-    <div>
-        <h3 class="text-ipn-primary text-[1.1rem] mb-[8px]">🏛️ UPIICSA · IPN</h3>
-        <p class="text-[0.85rem] text-slate-600 mb-[5px]">Unidad de Aprendizaje: Estructura de Datos</p>
-        <p class="text-[0.85rem] text-slate-600">© 2026 Instituto Politécnico Nacional</p>
-    </div>
-</footer>
-<script src="js/ui.js"></script>
-
+        <script src="js/ui.js"></script>
 </body>
+
 </html>

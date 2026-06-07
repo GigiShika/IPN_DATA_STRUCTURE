@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -5,511 +8,1616 @@
     <link rel="stylesheet" href="css/stylenav.css">
     <title>Estructura de Datos | UPIICSA</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        p, li, .dropdown-content, .elegant-card p, .contacto-autores p, 
-        .dropdown-link-box p, .dropdown-content h3, .dropdown-content h4,
-        .dropdown-content .font-semibold, .dropdown-content .font-bold,
-        .units-grid .unit-card p, .unit-card h3, .unit-card p,
-        .icon-wrapper + p, .text-gray-700, .leading-relaxed {
-            text-align: justify !important;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            text-align: justify;
-        }
-        .dropdown-btn, .download-btn, .btn-primary, .nav-link-underline {
-            text-align: left !important;
-        }
-        .text-center, .text-center p, .text-center h1, .text-center h2, .text-center h3 {
-            text-align: center !important;
-        }
-        .header-text-overlay h1, .header-text-overlay p {
-            text-align: left !important;
-        }
-        .units-grid .unit-card p, .units-grid .unit-card h3 {
-            text-align: left !important;
-        }
-        .dropdown-content .flex, .dropdown-content .flex p {
-            text-align: left !important;
+        :root {
+            --ipn-burgundy: #6B0F1A;
+            --ipn-gold: #C8921A;
+            --ipn-blue-deep: #0a2f5a;
+            --ipn-blue-mid: #1a4a8a;
+            --ipn-blue-light: #2d6abf;
+            --section-teal: #0e5c6b;
+            --section-teal-2: #0d7a6e;
+            --section-navy: #1a2e4a;
+            --bg-page: #f6f8fc;
+            --card-bg: #ffffff;
+            --text-body: #2d3748;
+            --text-muted: #718096;
+            --border-subtle: #e2e8f0;
+            --accent-amber: #d97706;
+            --accent-teal: #0891b2;
         }
 
-        /* ESTILO PARA LA BARRA SUPERIOR CON LOGOS (estilo UPIICSA) - VERSIÓN CORREGIDA */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-page);
+            color: var(--text-body);
+            margin: 0;
+        }
+
+        /* ─── TOP BAR (estilo navuni1) ─────────────────── */
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: white;
-            padding: 8px 20px;  
-            border-bottom: 1px solid #e2e8f0; 
-            flex-wrap: nowrap; 
+            padding: 8px 20px;
+            border-bottom: 3px solid var(--ipn-burgundy);
+            flex-wrap: nowrap;
             gap: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
         }
-        .logo-left, .logo-right {
+
+        .logo-left,
+        .logo-right {
             flex-shrink: 0;
         }
-        .logo-left img, .logo-right img {
-            height: 70px;
+
+        .logo-left img,
+        .logo-right img {
+            height: 60px;
             width: auto;
+            display: block;
             transition: transform 0.2s ease;
-            background: transparent;
-            padding: 0;
-            box-shadow: none;
-            border-radius: 0;
         }
-        .logo-left img, .logo-right img {
-            height: 60px;  /* Ajusta este valor según tu imagen de PC (si era 70px déjalo 70px) */
-            width: auto;
-            display: block; /* Evita espacios extra por inline */
+
+        .logo-left img:hover,
+        .logo-right img:hover {
+            transform: scale(1.05);
         }
+
         .institution-text {
             text-align: center;
             flex: 1;
             margin: 0 auto;
         }
-        .institution-text h2 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #0a2f5a;
-            margin: 0;
-            letter-spacing: -0.5px;
-            text-align: center !important;
-        }
-        .institution-text p {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #2d3e5f;
-            margin: 8px 0 0;
-            text-align: center !important;
-        }
-        @media (max-width: 768px) {
-                .top-bar {
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    padding: 6px 12px;
-                    gap: 8px;
-                }
-                .logo-left img, .logo-right img {
-                    height: 45px;               /* Ajusta el tamaño sin hacerlos muy pequeños */
-                    width: auto;
-                          
-                }
-                .institution-text {
-                    order: 3; /* Opcional: el texto al final si no cabe */
-                    flex-basis: 100%;
-                    text-align: center;
-                }
 
-                .institution-text p {
-                    font-size: 0.75rem;
-                    white-space: nowrap;
-                }
+        .institution-text h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--ipn-blue-deep);
+            margin: 0;
+            letter-spacing: -0.3px;
+            text-align: center !important;
+        }
+
+        .institution-text p {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4a5568;
+            margin: 4px 0 0;
+            text-align: center !important;
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 6px 12px;
+                gap: 8px;
             }
 
-        /* Ocultar los logos viejos que estaban dentro del header-imagen */
+            .logo-left img,
+            .logo-right img {
+                height: 45px;
+            }
+
+            .institution-text {
+                order: 3;
+                flex-basis: 100%;
+            }
+
+            .institution-text h2 {
+                font-size: 1rem;
+            }
+
+            .institution-text p {
+                font-size: 0.72rem;
+            }
+        }
+
         .header-logos {
             display: none !important;
         }
+
+        /* ─── HEADER ─────────────────────────────────── */
+        .header-image-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .header-text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(6, 20, 50, 0.92) 0%, rgba(6, 20, 50, 0.5) 60%, transparent 100%);
+            padding: 28px 32px 24px;
+        }
+
+        .header-text-overlay .polilibro {
+            display: inline-block;
+            background: var(--ipn-gold);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+
+        .header-text-overlay h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            margin: 0;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            text-align: left !important;
+        }
+
+        /* ─── NAV ─────────────────────────────────────── */
+        .nav-bg-custom {
+            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 100%);
+            border-bottom: 3px solid var(--ipn-gold);
+        }
+
+        .nav-link-underline {
+            position: relative;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            color: rgba(255, 255, 255, 0.92) !important;
+            padding: 13px 18px;
+            border-radius: 6px 6px 0 0;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: block;
+        }
+
+        .nav-link-underline:hover {
+            background: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            right: 50%;
+            height: 3px;
+            background: var(--ipn-gold);
+            border-radius: 2px;
+            transition: left 0.25s, right 0.25s;
+        }
+
+        .nav-link-underline:hover::after {
+            left: 8%;
+            right: 8%;
+        }
+
+        .nav-toggle-custom {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 12px 20px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ─── PAGE LAYOUT ─────────────────────────────── */
+        .page-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* ─── UNIT HEADER BANNER ──────────────────────── */
+        .unit-banner {
+            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 60%, var(--ipn-blue-light) 100%);
+            border-radius: 14px;
+            padding: 28px 32px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(10, 47, 90, 0.25);
+        }
+
+        .unit-banner::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 180px;
+            height: 180px;
+            background: rgba(200, 146, 26, 0.18);
+            border-radius: 50%;
+        }
+
+        .unit-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: 30%;
+            width: 240px;
+            height: 240px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .unit-banner h1,
+        .unit-banner h2 {
+            font-family: 'Outfit', sans-serif;
+            color: white;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            text-align: left !important;
+        }
+
+        .unit-banner h1 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ipn-gold);
+            margin-bottom: 6px;
+        }
+
+        .unit-banner h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+
+        .unit-banner .unit-label {
+            display: inline-block;
+            background: var(--ipn-gold);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ─── SECTION HEADERS ─────────────────────────── */
+        .section-header {
+            position: relative;
+            background: linear-gradient(135deg, var(--section-teal) 0%, var(--section-teal-2) 100%);
+            border-radius: 12px;
+            padding: 18px 24px 18px 64px;
+            margin: 36px 0 20px;
+            box-shadow: 0 4px 20px rgba(14, 92, 107, 0.22);
+            overflow: hidden;
+        }
+
+        .section-header::before {
+            content: attr(data-num);
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Space Mono', monospace;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.12);
+            line-height: 1;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--ipn-gold);
+            border-radius: 12px 0 0 12px;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+            line-height: 1.4;
+            text-align: left !important;
+            letter-spacing: 0.2px;
+        }
+
+        .section-header .section-emoji {
+            margin-right: 8px;
+        }
+
+        .section-header.dark {
+            background: linear-gradient(135deg, var(--section-navy) 0%, #1e3a5f 100%);
+            box-shadow: 0 4px 20px rgba(26, 46, 74, 0.28);
+        }
+
+        .section-header.burgundy {
+            background: linear-gradient(135deg, #7a1020 0%, #a31528 100%);
+            box-shadow: 0 4px 20px rgba(107, 15, 26, 0.28);
+        }
+
+        /* ─── SUBSECTION HEADERS ─────────────────────── */
+        .subsection-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 28px 0 14px;
+        }
+
+        .subsection-header::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 28px;
+            background: linear-gradient(to bottom, var(--ipn-blue-light), var(--accent-teal));
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .subsection-header h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--ipn-blue-deep);
+            margin: 0;
+            text-align: left !important;
+        }
+
+        /* ─── BODY TEXT ──────────────────────────────── */
+        p.body-text,
+        .body-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.96rem;
+            line-height: 1.8;
+            color: var(--text-body);
+            margin-bottom: 14px;
+            text-align: justify;
+        }
+
+        /* ─── IMAGE CARDS ────────────────────────────── */
+        .img-card {
+            background: white;
+            border-radius: 14px;
+            padding: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-subtle);
+            transition: box-shadow 0.25s, transform 0.25s;
+            overflow: hidden;
+            display: inline-block;
+            width: auto;
+        }
+
+        .img-card:hover {
+            box-shadow: 0 10px 36px rgba(0, 0, 0, 0.14);
+            transform: translateY(-3px);
+        }
+
+        .img-card img {
+            display: block;
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .img-card .img-caption {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        .img-card .img-caption::before {
+            content: '▸ ';
+            color: var(--accent-teal);
+        }
+
+        .img-wrap {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .img-wrap.sm .img-card img {
+            max-height: 200px;
+            width: auto;
+        }
+
+        .img-wrap.md .img-card img {
+            max-height: 260px;
+            width: auto;
+        }
+
+        .img-wrap.lg .img-card img {
+            max-height: 340px;
+            width: auto;
+        }
+
+        .img-pair {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .img-pair .img-card img {
+            max-height: 220px;
+            width: auto;
+        }
+
+        @media (max-width: 640px) {
+            .img-pair {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .img-wrap.sm .img-card img,
+            .img-wrap.md .img-card img,
+            .img-wrap.lg .img-card img {
+                max-height: none;
+                max-width: 100%;
+            }
+        }
+
+        /* ─── TOPIC LIST BOX ─────────────────────────── */
+        .topic-box {
+            background: white;
+            border-radius: 14px;
+            padding: 24px 28px;
+            margin: 24px 0;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--ipn-blue-deep), var(--ipn-blue-light), var(--accent-teal));
+            border-radius: 14px 14px 0 0;
+        }
+
+        .topic-box .topic-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--ipn-blue-deep);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .topic-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .topic-box ul li {
+            font-size: 0.92rem;
+            color: var(--text-body);
+            padding: 6px 0 6px 20px;
+            position: relative;
+            border-bottom: 1px dashed var(--border-subtle);
+            line-height: 1.5;
+        }
+
+        .topic-box ul li:last-child {
+            border-bottom: none;
+        }
+
+        .topic-box ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--accent-teal);
+            border-radius: 2px;
+        }
+
+        /* ─── COMPETENCIA BOX ────────────────────────── */
+        .competencia-box {
+            background: linear-gradient(135deg, #eef6ff 0%, #e8f4fd 100%);
+            border: 1px solid #c3dff7;
+            border-left: 5px solid var(--ipn-blue-light);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0 28px;
+        }
+
+        .competencia-box .comp-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--ipn-blue-light);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .competencia-box p {
+            font-size: 0.96rem;
+            line-height: 1.8;
+            color: var(--text-body);
+            margin: 0;
+            text-align: justify;
+        }
+
+        /* ─── ACTIVITY BOX (estilo navuni1) ───────────── */
+        .activity-box {
+            background: white;
+            border-radius: 16px;
+            margin: 32px 0;
+            box-shadow: 0 6px 32px rgba(107, 15, 26, 0.12);
+            overflow: hidden;
+            border: 1px solid rgba(107, 15, 26, 0.15);
+        }
+
+        .activity-box .act-header {
+            background: linear-gradient(135deg, var(--ipn-burgundy) 0%, #9b1426 100%);
+            padding: 18px 28px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .activity-box .act-header .act-badge {
+            background: var(--ipn-gold);
+            color: white;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .activity-box .act-header h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: white;
+            margin: 0;
+            text-align: left !important;
+        }
+
+        .activity-box .act-body {
+            padding: 24px 28px;
+        }
+
+        .activity-box .act-section-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--ipn-burgundy);
+            margin: 18px 0 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .activity-box .act-section-title:first-child {
+            margin-top: 0;
+        }
+
+        .activity-box ol,
+        .activity-box ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .activity-box li {
+            font-size: 0.93rem;
+            color: var(--text-body);
+            line-height: 1.7;
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        .activity-box .act-footer {
+            background: #fdf8f0;
+            border-top: 1px solid #f0e0c0;
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .activity-box .act-footer p {
+            font-size: 0.88rem;
+            color: #6b4c0a;
+            margin: 0;
+        }
+
+        .activity-box .act-points {
+            background: var(--ipn-gold);
+            color: white;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+        }
+
+        /* ─── EXERCISE BOX ───────────────────────────── */
+        .exercise-box {
+            background: linear-gradient(135deg, #f0f9f4 0%, #e6f5ec 100%);
+            border: 1px solid #b8e0c8;
+            border-left: 5px solid #10b981;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .exercise-box .ex-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #059669;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .exercise-box ol {
+            padding-left: 22px;
+            margin: 0;
+        }
+
+        .exercise-box li {
+            font-size: 0.93rem;
+            color: var(--text-body);
+            line-height: 1.7;
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+
+        /* ─── CONCEPT HIGHLIGHT ──────────────────────── */
+        .concept-highlight {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 1px solid #fcd34d;
+            border-left: 5px solid var(--accent-amber);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin: 20px 0;
+        }
+
+        .concept-highlight h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #92400e;
+            margin: 0 0 10px;
+            text-align: left !important;
+        }
+
+        .concept-highlight p {
+            font-size: 0.94rem;
+            line-height: 1.75;
+            color: #78350f;
+            margin: 0 0 8px;
+            text-align: justify;
+        }
+
+        .concept-highlight p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ─── CODE BLOCKS ────────────────────────────── */
+        .code-simple {
+            background: #1e1e2e;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            overflow-x: auto;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: #f8f8f2;
+            border-left: 4px solid var(--ipn-gold);
+        }
+
+        .code-simple pre {
+            margin: 0;
+            font-family: inherit;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /* ─── TABLES ────────────────────────────────── */
+        .matriz-tabla {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .matriz-tabla table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .matriz-tabla th,
+        .matriz-tabla td {
+            border: 1px solid var(--border-subtle);
+            padding: 10px 12px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .matriz-tabla th {
+            background: var(--ipn-blue-deep);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* ─── NAV BUTTONS ────────────────────────────── */
+        .nav-btn {
+            background: linear-gradient(135deg, var(--ipn-blue-mid) 0%, var(--ipn-blue-deep) 100%);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 16px rgba(10, 47, 90, 0.25);
+            transition: all 0.25s;
+        }
+
+        .nav-btn:hover {
+            box-shadow: 0 8px 28px rgba(10, 47, 90, 0.35);
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--ipn-blue-light) 0%, var(--ipn-blue-mid) 100%);
+        }
+
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+
+        .nav-btn-home {
+            width: 52px;
+            height: 52px;
+            padding: 0;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+        /* ─── FOOTER ─────────────────────────────────── */
+        .page-footer {
+            background: linear-gradient(180deg, #f4faff 0%, #e6f3ff 50%, white 100%);
+            border-top: 3px solid var(--ipn-blue-deep);
+            padding: 32px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .page-footer h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            color: var(--ipn-blue-deep);
+            font-weight: 700;
+            margin: 0 0 6px;
+            text-align: center !important;
+        }
+
+        .page-footer p {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            margin: 3px 0;
+            text-align: center !important;
+        }
+
+        /* Utilidades */
+        p,
+        li {
+            text-align: justify;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            text-align: left;
+        }
+
+        .text-justify {
+            text-align: justify !important;
+        }
     </style>
 </head>
+
 <body>
 
-<!-- BARRA SUPERIOR CON LOGOS Y TEXTO INSTITUCIONAL -->
-<div class="top-bar">
-    <div class="logo-left">
-        <img src="assets/img/ipn.jpg" alt="IPN">
-    </div>
-    <div class="institution-text">
-        <h2>Instituto Politécnico Nacional</h2>
-        <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
-    </div>
-    <div class="logo-right">
-        <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
-    </div>
-</div>
-
-<!-- Header con imagen del título (sin logos superpuestos) -->
-<header class="container mx-auto px-4 py-6 md:py-8">
-    <div class="relative max-w-6xl mx-auto">
-        <div class="header-image-container relative rounded-2xl overflow-hidden shadow-2xl">
-            <img src="assets/img/titulo.avif" alt="Estructura de Datos" class="w-full h-64 md:h-80 object-cover">
-            <div class="header-text-overlay">
-                <p class="polilibro">📘 Polilibro</p>
-                <h1>📊 Estructura de Datos</h1>
-            </div>
+    <div class="top-bar">
+        <div class="logo-left">
+            <img src="assets/img/ipn.jpg" alt="IPN">
+        </div>
+        <div class="institution-text">
+            <h2>Instituto Politécnico Nacional</h2>
+            <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
+        </div>
+        <div class="logo-right">
+            <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
         </div>
     </div>
-</header>
 
-<div class="w-full nav-bg-custom shadow-md" style="border-radius: 0 0 10px 10px;">
-    <div class="flex justify-center">
-        <nav class="w-[90%] md:w-[75%] mx-auto">
-            <button class="nav-toggle md:hidden text-[1.8rem] text-white bg-none border-none cursor-pointer p-[12px_20px] w-full text-left font-bold nav-toggle-custom">☰ MENÚ</button>
-            <ul class="nav-links hidden md:flex justify-center gap-[10px] list-none m-0 p-0">
-                <li><a href="index.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🏠 INICIO</a></li>
-                <li><a href="navuni1.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📊 Unidad I</a></li>
-                <li><a href="navuni2.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📈 Unidad II</a></li>
-                <li><a href="navuni3.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🔗 Unidad III</a></li>
-                <li><a href="navuni4.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🌳 Unidad IV</a></li>
-                <li><a href="navuni5.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📚 Bibliografia</a></li>
-                <li><a href="glosario.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖 GLOSARIO</a></li>
-            </ul>
-        </nav>
-    </div>
-</div>
-
-<section class="py-[40px] px-[20px]">
-    <div class="max-w-[900px] mx-auto text-left">
-        <!-- Título principal -->
-        <div class="text-center my-[25px]">
-            <div class="section-bar-bg text-white p-[12px_18px] rounded-[10px] mb-[20px] font-bold">
-                <h1 class="text-[1.1rem] md:text-[1.3rem] m-0">📊 Unidad Temática II</h1>
-                <h2 class="text-[1rem] md:text-[1.1rem] m-0 mt-2">Estructuras de datos estáticas</h2>
+    <!-- Header con imagen -->
+    <header style="padding: 24px 20px;">
+        <div style="max-width: 960px; margin: 0 auto;">
+            <div class="header-image-container">
+                <img src="assets/img/titulo.avif" alt="Estructura de Datos"
+                    style="width:100%; height:280px; object-fit:cover; display:block;">
+                <div class="header-text-overlay">
+                    <p class="polilibro">📘 Polilibro</p>
+                    <h1>📊 Estructura de Datos</h1>
+                </div>
             </div>
         </div>
-        <!-- Unidad de competencia -->
-        <h3 class="text-[1.2rem] text-ipn-blue mt-[25px] mb-[12px]">🎯 Unidad de competencia:</h3>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            Implementa estructuras de datos estáticas en la memoria de una computadora a partir del uso de arreglos, su representación y sus posibilidades, así como un lenguaje de programación.
-        </p>
+    </header>
 
-        <!-- Temas de la unidad -->
-        <div class="activity-box-bg border-l-[5px] border-ipn-blue p-[20px] my-[25px] rounded-[12px]">
-            <p class="mb-[12px] text-justify"><strong>📚 Los siguientes temas se tratan en esta unidad:</strong></p>
-            <ul class="lista-temas ml-[25px] text-slate-700 text-[0.95rem] text-justify">
+    <!-- NAV (exactamente el mismo que navuni1) -->
+    <div class="w-full nav-bg-custom shadow-md" style="border-radius: 0 0 10px 10px;">
+        <div class="flex justify-center">
+            <nav class="w-[90%] md:w-[75%] mx-auto">
+                <button
+                    class="nav-toggle md:hidden text-[1.8rem] text-white bg-none border-none cursor-pointer p-[12px_20px] w-full text-left font-bold nav-toggle-custom">☰
+                    MENÚ</button>
+                <ul class="nav-links hidden md:flex justify-center gap-[10px] list-none m-0 p-0">
+                    <li><a href="index.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🏠
+                            INICIO</a></li>
+                    <li><a href="navuni1.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📊
+                            Unidad I</a></li>
+                    <li><a href="navuni2.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📈
+                            Unidad II</a></li>
+                    <li><a href="navuni3.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🔗
+                            Unidad III</a></li>
+                    <li><a href="navuni4.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🌳
+                            Unidad IV</a></li>
+                    <li><a href="navuni5.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖
+                            Glosario</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="page-content">
+
+        <!-- UNIT BANNER (estilo navuni1) -->
+        <div class="unit-banner">
+            <span class="unit-label">Polilibro · UPIICSA</span>
+            <h1>📊 Unidad Temática II</h1>
+            <h2>Estructuras de datos estáticas</h2>
+        </div>
+
+        <!-- COMPETENCIA -->
+        <div class="competencia-box">
+            <div class="comp-label">🎯 Unidad de competencia</div>
+            <p>Implementa estructuras de datos estáticas en la memoria de una computadora a partir del uso de arreglos,
+                su representación y sus posibilidades, así como un lenguaje de programación.</p>
+        </div>
+
+        <!-- TEMAS DE LA UNIDAD -->
+        <div class="topic-box">
+            <div class="topic-title">📚 Los siguientes temas se tratan en esta unidad:</div>
+            <ul>
                 <li><strong>2.1 Arreglos unidimensionales</strong></li>
-                <li><strong>2.1.1 Representación</strong></li>
-                <li><strong>2.1.2 Formas de uso</strong></li>
-                <li><strong>2.1.3 Implementación</strong></li>
-                <li><strong>2.1.4 Operaciones permitidas</strong></li>
+                <li>2.1.1 Representación</li>
+                <li>2.1.2 Formas de uso</li>
+                <li>2.1.3 Implementación</li>
+                <li>2.1.4 Operaciones permitidas</li>
                 <li><strong>2.2 Arreglos bidimensionales</strong></li>
-                <li><strong>2.2.1 Representación</strong></li>
-                <li><strong>2.2.2 Formas de uso</strong></li>
-                <li><strong>2.2.3 Implementación</strong></li>
-                <li><strong>2.2.4 Operaciones permitidas</strong></li>
+                <li>2.2.1 Representación</li>
+                <li>2.2.2 Formas de uso</li>
+                <li>2.2.3 Implementación</li>
+                <li>2.2.4 Operaciones permitidas</li>
                 <li><strong>2.3 Arreglos multidimensionales</strong></li>
-                <li><strong>2.3.1 Representación</strong></li>
-                <li><strong>2.3.2 Formas de uso</strong></li>
+                <li>2.3.1 Representación</li>
+                <li>2.3.2 Formas de uso</li>
             </ul>
         </div>
 
-        <!-- ==================== ARREGLOS UNIDIMENSIONALES ==================== -->
-        <div class="titulo-seccion"><strong>📊 2.1 Arreglos unidimensionales</strong></div>
+        <!-- ════════════════════════════════════════════ -->
+        <!-- SECCIÓN 2.1 Arreglos unidimensionales -->
+        <div class="section-header" data-num="2.1">
+            <h2><span class="section-emoji">📊</span>2.1 Arreglos unidimensionales</h2>
+        </div>
 
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            Un arreglo unidimensional es un tipo de estructuras de datos que consta de un número fijo de elementos de un mismo tipo.
-        </p>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            También se considera como una colección finita, es decir, se debe de determinar cuál será el número máximo de elementos que formarán parte del arreglo unidimensional (tamaño del arreglo), donde todos los elementos son del mismo tipo.
-        </p>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            Los arreglos unidimensionales se consideran <strong>estructuras de datos estáticas</strong>, ya que al momento de declarar se les asigna un tamaño, el cual no puede ser modificado durante la ejecución del programa.
-        </p>
+        <p class="body-text">Un arreglo unidimensional es un tipo de estructuras de datos que consta de un número fijo
+            de elementos de un mismo tipo.</p>
+        <p class="body-text">También se considera como una colección finita, es decir, se debe de determinar cuál será
+            el número máximo de elementos que formarán parte del arreglo unidimensional (tamaño del arreglo), donde
+            todos los elementos son del mismo tipo.</p>
+        <p class="body-text">Los arreglos unidimensionales se consideran <strong>estructuras de datos
+                estáticas</strong>, ya que al momento de declarar se les asigna un tamaño, el cual no puede ser
+            modificado durante la ejecución del programa.</p>
 
-        <div class="subtitulo-negrita"><strong>¿Cómo se declara un arreglo unidimensional?</strong></div>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            Utilizando cualquier lenguaje de programación un vector se declara de la siguiente forma:
+        <div class="subsection-header">
+            <h3>Nos preguntamos ¿cómo se declara un arreglo unidimensional?</h3>
+        </div>
+        <p class="body-text">Utilizando cualquier lenguaje de programación un vector se declara de la siguiente forma:
         </p>
 
         <div class="code-simple">
-            <pre><span style="color:#c792ea">int</span>     Arreglo_Unidimensional    [10];
-            <span style="color:#6a9955">//  Tipo de dato    Nombre_Arreglo        Tamaño</span>
-            <span style="color:#6a9955">//  puede ser char, int o float</span></pre>
+            <pre><span style="color:#c792ea">int</span>           Arreglo_Unidimensional         [10];
+<span style="color:#6a9955">Tipo de dato      Nombre_Arreglo            Tamaño</span>
+<span style="color:#6a9955">puede ser</span></pre>
+            <span style="color:#6a9955">char, int o float</span></pre>
+        </div>
+        <div class="section-header" data-num="2.1.1">
+            <h2><span class="section-emoji">📊</span>2.1.1. Representación</h2>
         </div>
 
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-        En un lenguaje de programación, los arreglos inician desde cero que es representado por un subíndice(i) para identificar la primera posición de memoria del arreglo unidimensional y si el
-        tamaño es, por ejemplo, en la definición del arreglo anterior int Arreglo_Unidimensional [10], es de 10, eso quiere decir que requerimos de 10 espacios de memoria y el subíndice(i) del 
-        último elemento es 9 (10 – 1) porque se inicia desde el subíndice i = 0, como se muestra en la siguiente figura:
-        </p>
+        <p class="body-text">La manera de representar un arreglo unidimensional en la memoria es a través de un vector,
+            como se muestra en la figura1, donde se define los espacios de memoria a ocupar, por ejemplo en un lenguaje
+            de programación, los arreglos inician desde cero que es representado por un subíndice(i) para identificar la
+            primera posición de memoria del arreglo unidimensional y si el tamaño es, por ejemplo, en la definición del
+            arreglo anterior int Arreglo_Unidimensional [10], es de 10, eso quiere decir que requerimos de 10 espacios
+            de memoria y el subíndice(i) del último elemento es 9 (10 – 1) porque se inicia desde el subíndice i = 0,
+            como se muestra en la siguiente figura 1:</p>
 
-        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-            <img src="assets/img/imagen30.png" alt="Representación de arreglo unidimensional" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
-            <p class="text-[0.8rem] text-slate-500 mt-[8px] font-medium text-center">📌 Representación de un arreglo unidimensional en memoria</p>
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imagen30.png" alt="Representación de arreglo unidimensional">
+                <div class="img-caption">Figura 1 Ejemplo de un arreglo unidimensional</div>
+            </div>
         </div>
-
-        <!-- Formas de asignación -->
-        <div class="subtitulo-negrita"><strong>Formas de asignar valores a un arreglo</strong></div>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            Una de las operaciones que se pueden realizar sobre un arreglo unidimensional es la asignación. Existen tres formas para asignar valores a un arreglo unidimensional o a un arreglo bidimensional:
+        <div class="exercise-box">
+            <div class="ex-label">✏️ Realizar el siguiente ejercicio:</div>
+            <ol>
+                <li>1)Declara un vector de tipo char de tamaño 12, represéntalo como quedaría en memoria utilizando un
+                    subíndice (i).</li>
+                <li>2)Declara un arreglo unidimensional de tipo entero de tamaño 10, represéntalo como quedaría en
+                    memoria
+                    utilizando un subíndice (i).</li>
+                <li>3)Declara un array de tipo flotante de tamaño 8, represéntalo como quedaría en memoria utilizando un
+                    subíndice (i).</li>
+                <li>4)Declara un arreglo unidimensional de tipo string de tamaño 15, represéntalo como quedaría en
+                    memoria
+                    utilizando un subíndice (i).</li>
+            </ol>
+        </div>
+        <div class="section-header" data-num="2.1.2">
+            <h2><span class="section-emoji">📊</span> Formas de uso</h2>
+        </div>
+        <p class="body-text">Existen varias maneras de usar los vectores, una es almacenar una colección de datos
+            secuenciales como, por ejemplo, los nombres de jugadores, otra forma es hacer una búsqueda, esto se realiza
+            recorriendo a cada uno de los elementos hasta encontrar el elemento buscado. También se pueden ordenar los
+            elementos del arreglo ya sea de forma del menor al mayor o viceversa
         </p>
+        <div class="activity-box">
+            <div class="act-header">
+                <span class="act-badge">UTII_A1</span>
+                <h3>📝 Actividad UTII_A1 Nombre_Jugadores</h3>
+            </div>
+            <div class="act-body">
+                <div class="act-section-title">🎯 Propósito</div>
+                <p style="font-size:0.94rem; line-height:1.75; margin:0 0 4px; text-align:justify;">Utilizar un lenguaje
+                    de programación para declarar el arreglo unidimensional definiéndolo con el tipo de dato string
+                    (cadena de caracteres) y en el que se puedan ingresar 6 nombres de jugadores.</p>
+                <p style="font-size:0.94rem; line-height:1.75; margin:0; text-align:justify;">La intención de esta
+                    actividad es que el estudiante comprenda las operaciones que se realizan sobre un arreglo
+                    unidimensional, para este caso es el de asignar valores al arreglo; así como recorrerlo para acceder
+                    y mostrar cada uno de sus elementos; por último, realizar una búsqueda.</p>
 
-        <div class="notacion-box">
-            <p class="font-bold text-ipn-blue mb-[8px] text-justify">1. Al momento de declarar el arreglo unidimensional o bidimensional se le asignan los valores:</p>
-            <div class="code-simple" style="background:#1e1e2e; margin-top:8px;">
-                <pre><span style="color:#c792ea">int</span> Arreglo_Unidimensional[10] = {2,4,6,8,10,12,14,16,18,20};</pre>
+                <div class="act-section-title">📋 Instrucciones</div>
+                <ol>
+                    <li>1.- Declara el arreglo unidimensional de tipo string que se llame Jugador de tamaño [6], también
+                        declara una variable de tipo string que se llame Buscar_Jugador.
+                    </li>
+                    <li>2.- La forma de asignar los nombres de los jugadores al arreglo unidimensional, será
+                        solicitándole el nombre del jugador al usuario. Se tendrá que utilizar una estructura de control
+                        como es el For.
+                    </li>
+                    <li>3.- Al recibir el nombre tendrá que almacenarse en la posición de memoria que está representada
+                        por el subíndice (i) del arreglo unidimensional.
+                    </li>
+                    <li>4.- Después de haber almacenado los nombres de los jugadores en el arreglo, a través de la
+                        estructura de control For, se recorrerá para mostrar el siguiente mensaje: “En la posición TAL
+                        del arreglo, se encuentra el jugador TAL”
+                    </li>
+                    <li>5.- Posteriormente, volver a recorrer el arreglo con la estructura de control For para realizar
+                        la tercera operación que es la de búsqueda. Para llevar a cabo esta parte, se le pedirá al
+                        usuario el nombre del jugador a buscar, el cual será almacenado en la variable Buscar_Jugador,
+                        después se tendrá que recorrer cada uno de los elementos del vector para compararlo con la
+                        variable Buscar_Jugador, y si hay coincidencia se deberá mandar un mensaje “El nombre del
+                        jugador se encuentre en la posición TAL del arreglo unidimensional” y en dado caso que no se
+                        encuentre, enviar el mensaje “El nombre del jugador no se encuentra en el arreglo
+                        unidimensional”
+                    </li>
+                </ol>
+
+                <div class="act-section-title">📎 Evidencia que entregar</div>
+                <ul>
+                    <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
+                        nombre del programa, por ejemplo, RBV_Programa_Jugador</li>
+                    <li>b) Programa executable</li>
+                    <li>c) Corrida del programa, en un archivo PDF</li>
+                </ul>
+                <p style="margin-top:12px;">Subir esta evidencia a classroom en la hora y fecha indicada</p>
+            </div>
+            <div class="act-footer">
+                <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
+                <span class="act-points">⭐ VALOR:10 puntos</span>
             </div>
         </div>
 
-        <div class="notacion-box">
-            <p class="font-bold text-ipn-blue mb-[8px] text-justify">2. Cuando se les piden los valores a los usuarios:</p>
-            <div class="code-simple" style="background:#1e1e2e; margin-top:8px;">
-                <pre><span style="color:#c792ea">for</span> (<span style="color:#c792ea">int</span> i=0; i < 10; i++) {
+        <div class="section-header" data-num="2.1.3">
+            <h2><span class="section-emoji">📊</span>2.1.3 Implementación</h2>
+        </div>
+        <p class="body-text">
+            Como ya se menciono para poder hacer uso de un arreglo es necesario reservar un espacio de
+            memoria, dependiendo del tamaño del arreglo, para guardar una lista de elementos que son del mismo tipo.
+            Para acceder a la lista de elementos del arreglo, es necesario utilizar una estructura de control conocida
+            como el FOR.
+            ¿En que consiste esa estructura de control? en repetir un bloque de código varias veces de forma automática
+            mientras se cumpla una condición. El for se conforma de tres partes
+            For (inicialización; condición; incremento)
+        </p>
+        <p class="body-text"><strong>Inicialización:</strong> es una variable que es un contador, se debe de definir
+            donde se va a empezar, por ejemplo,
+            i=0
+        </p>
+        <p class="body-text"><strong>Condición:</strong> El ciclo se va a repetir mientras se cumpla una condición, por
+            ejemplo, que se realice el ciclo
+            mientras i sea menor a 10 i<10 </p>
+                <p class="body-text"><strong>Incremento:</strong> Caca ves que se ejecute un ciclo, en este caso i se
+                    incrementa ya
+                    sea de 1 en 1, etc., por ejemplo, i++.
+                </p>
+                <div class="section-header" data-num="2.1.4">
+                    <h2><span class="section-emoji">📊</span>2.1.4 Operaciones permitidas </h2>
+                </div>
+                <p class="body-text">
+                    a) Recorrido
+                    Se recorre el arreglo para consulta los elementos del arreglo unidimensional.
+                </p>
+                <p class="body-text">
+                    b) Asignación
+                    Existen tres formas para asignar valores a un arreglo unidimensional
+                </p>
+                <div class="concept-highlight">
+                    <h3>1. Al momento de declarar el arreglo unidimensional o bidimensional se le asignan los valores:
+                    </h3>
+                    <div class="code-simple" style="margin-top:8px;">
+                        <pre><span style="color:#c792ea">int</span> Arreglo_Unidimensional[10] = {2,4,6,8,10,12,14,16,18,20};</pre>
+                    </div>
+                </div>
+                <div class="concept-highlight">
+                    <h3>2. Cuando se les piden los valores a los usuarios:</h3>
+                    <div class="code-simple" style="margin-top:8px;">
+                        <pre><span style="color:#c792ea">for</span> (<span style="color:#c792ea">int</span> i=0; i < 10; i++) {
     cout << <span style="color:#6a9955">"Ingrese el valor del Arreglo_Unidimensional["</span> << i << <span style="color:#6a9955">"]: "</span>;
     cin >> Arreglo_Unidimensional[i];
 }</pre>
-            </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="notacion-box">
-            <p class="font-bold text-ipn-blue mb-[8px] text-justify">3. Asignación automática:</p>
-            <div class="code-simple" style="background:#1e1e2e; margin-top:8px;">
-                <pre><span style="color:#c792ea">int</span> Arreglo_Unidimensional[10];
+                <div class="concept-highlight">
+                    <h3>3. Asignación automática:</h3>
+                    <div class="code-simple" style="margin-top:8px;">
+                        <pre><span style="color:#c792ea">int</span> Arreglo_Unidimensional[10];
 <span style="color:#c792ea">int</span> Acumulador = 2;
 <span style="color:#c792ea">for</span> (<span style="color:#c792ea">int</span> i=0; i < 10; i++) {
     Arreglo_Unidimensional[i] = Acumulador;
     Acumulador = Acumulador + 2;
 }</pre>
+                    </div>
+                </div>
+                <p class="body-text">
+                    c) Búsqueda
+                    Recorrer el arreglo unidimensional para encontrar un elemento
+
+                </p>
+                <p class="body-text">
+                    d) Ordenamiento
+                    Se pueden ordenar los elementos del vector ya sea del menor al mayor o del mayor al menor o de la A
+                    a la Z o de la Z a la A
+
+                </p>
+                <!-- ACTIVIDAD UTII_A1 (originalmente UTII_A1 en el código, pero aparece como UTII_A1? En tu original dice "ACTIVIDAD UTII_A1" y luego "ACTIVIDAD UTII_A2" etc. Respeto los títulos originales) -->
+                <div class="activity-box">
+                    <div class="act-header">
+                        <span class="act-badge">UTII_A2</span>
+                        <h3>📝 Actividad UTII_A2_Asignación_Automática</h3>
+                    </div>
+                    <div class="act-body">
+                        <div class="act-section-title">🎯 Propósito</div>
+                        <p style="font-size:0.94rem; line-height:1.75; margin:0 0 4px; text-align:justify;">Utilizar un
+                            lenguaje
+                            de programación para declarar el arreglo unidimensional definiéndolo con el tipo de dato
+                            entero
+                            (int) y en el que se puedan ingresar 10 números pares.</p>
+                        <p style="font-size:0.94rem; line-height:1.75; margin:0; text-align:justify;">La intención de
+                            esta
+                            actividad es que el estudiante comprenda las operaciones que se realizan sobre un arreglo
+                            unidimensional, para este caso es el de asignar valores al arreglo, así como recorrerlo para
+                            acceder
+                            y mostrar cada uno de sus elementos.</p>
+
+                        <div class="act-section-title">📋 Instrucciones</div>
+                        <ol>
+                            <li>1.- Declara el arreglo unidimensional de tipo int que se llame Numeros_Pares [10],
+                                también declara dos variables de tipo int que se llamen Acumulador y Suma_Total
+                                (asignándoles 0)
+                            </li>
+                            <li>
+                                2.- Para asignar los números pares (2,4,6,8,10, 12, 14, 16, 18 y 20) al arreglo
+                                unidimensional, será utilizando una estructura de control For y de forma automática
+                                asignándole la variable Acumulador, la cual se ira acumulando de dos en dos
+                            </li>
+                            <li>3.- Después de haber almacenado los números al arreglo, a través de la estructura de
+                                control For, se recorrerá para mostrar el siguiente mensaje: “En la posición TAL del
+                                arreglo, se encuentra el valor TAL”. También deberán mostrar “La suma total de los
+                                elementos del vector es:”
+                            </li>
+                        </ol>
+
+                        <div class="act-section-title">📎 Evidencia que entregar</div>
+                        <ul>
+                            <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su
+                                nombre y el nombre del programa, por ejemplo, RBV_Programa_Numeros_Pares</li>
+                            <li>b) Programa executable</li>
+                            <li>c)Corrida del programa, en un archivo PDF</li>
+                        </ul>
+                    </div>
+                    <div class="act-footer">
+                        <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
+                        <span class="act-points">⭐ VALOR:10 puntos</span>
+                    </div>
+                </div>
+                <!-- ════════════════════════════════════════════ -->
+                <!-- SECCIÓN 2.2 Arreglos bidimensionales -->
+                <div class="section-header dark" data-num="2.2">
+                    <h2><span class="section-emoji">📊</span>2.2 Arreglos Bidimensionales (Matrices/Tablas)</h2>
+                </div>
+
+                <p class="body-text">Para continuar es necesario contestar la siguiente pregunta</p>
+
+                <div class="concept-highlight">
+                    <h3>¿Qué es un "Arreglo bidimensional"?</h3>
+                    <p>Un arreglo bidimensional es un <strong>vector de vectores</strong>.</p>
+                    <p>Es un conjunto de elementos, todos del mismo tipo, en los que el orden de los componentes es
+                        significativo y en el que se necesitan <strong>dos subíndices [i][j]</strong> para definir
+                        cualquier
+                        elemento. Donde el primer índice representa las <strong>filas</strong> y el segundo las
+                        <strong>columnas</strong>. También se le conoce como <strong>tabla o matriz</strong>.
+                    </p>
+                    <p>La diferencia que existe entre un arreglo unidimensional a un arreglo bidimensional, que el
+                        primero solo
+                        necesita un subíndice [i] y el arreglo bidimensional requiere de dos subíndices [i][j]. El
+                        arreglo
+                        bidimensional se conoce también como matriz o tabla que consta de filas y columnas.
+                        Haber, se menciona de una tabla, esto quiere decir que estamos hablando de una base de datos,
+                        así es,
+                        porque la estructura de datos que se utiliza para almacenar la información de una base de datos
+                        son
+                        tablas, donde se pueden guardar varios nombres por fila con sus respectivos atributos
+                        (columnas), en
+                        cambio en un arreglo unidimensional no se podría hacer.
+                        Otra gran diferencia es que para recorrer un arreglo unidimensional se requiere de una
+                        estructura de
+                        control de un ciclo for, en cambio para recorrer un arreglo bidimensional se requiere de dos
+                        ciclos for.
+                        Si un arreglo bidimensional es distinto a un arreglo unidimensional, entonces cómo se declara un
+                        arreglo
+                        bidimensional</p>
+                </div>
+
+                <div class="subsection-header">
+                    <h3>¿Cómo declarar un arreglo bidimensional?</h3>
+                </div>
+                <p class="body-text">La sintaxis para declarar un arreglo bidimensional es la siguiente:</p>
+
+                <div class="code-simple">
+                    <pre>
+<span style="color:#c792ea">int</span>            Arreglo_Bidimensional          [4]            [3]
+
+<span style="color:#6a9955">// Tipo de dato       Nombre_Arreglo              Filas      Columnas</span>
+<span style="color:#6a9955">// puede ser char, float, int, etc.</span></pre>
+                </div>
+
+                <div class="section-header" data-num="2.2.1">
+                    <h2><span class="section-emoji">📊</span>2.2.1 Formas de uso</h2>
+                </div>
+                <p class="body-text">
+                    Si se desea declarar un arreglo bidimensional (matriz) de 3 filas y 4 columnas de tipo char,
+                    quedaría de la siguiente forma:
+                </p>
+                <p class="body-text">
+                <h5><strong>char Matriz [3] [4]</strong></h5>
+        </p>
+        <p class="body-text">
+            Este arreglo bidimensional (matriz) tendría 12 (3x4) espacios de memoria para guardar 12 elementos del
+            arreglo. Quedando la matriz de la siguiente forma (figura 2):
+        </p>
+        <div class="img-wrap md">
+            <div class="matriz-tabla">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Columna 0</th>
+                            <th>Columna 1</th>
+                            <th>Columna 2</th>
+                            <th>Columna 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Fila 0</strong></td>
+                            <td>Matriz[0][0]</td>
+                            <td>Matriz[0][1]</td>
+                            <td>Matriz[0][2]</td>
+                            <td>Matriz[0][3]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fila 1</strong></td>
+                            <td>Matriz[1][0]</td>
+                            <td>Matriz[1][1]</td>
+                            <td>Matriz[1][2]</td>
+                            <td>Matriz[1][3]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fila 2</strong></td>
+                            <td>Matriz[2][0]</td>
+                            <td>Matriz[2][1]</td>
+                            <td>Matriz[2][2]</td>
+                            <td>Matriz[2][3]</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="img-caption">
+                    <pre><span>                   Figura 2 Matriz_1</span></pre>
+                </div>
+            </div>
+
+        </div>
+        <p class="body-text">
+            La siguiente figura 3 es otro ejemplo de una matriz de tamaño 4x3
+        </p>
+
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imagen31.png" alt="Ejemplo de matriz 4x3">
+                <div class="img-caption">Figura 3 Matriz_2</div>
             </div>
         </div>
 
-        <!-- Ejercicio -->
-        <div class="ejercicio-box">
-            <p class="font-bold text-amber-700 text-[1rem] mb-[8px] text-justify">✏️ Realizar el siguiente ejercicio:</p>
-            <ol class="list-decimal ml-[25px] text-slate-700 text-[0.95rem] text-justify">
-                <li class="mb-[6px]">Declara un vector de tipo char de tamaño 12, represéntalo como quedaría en memoria utilizando un subíndice (i).</li>
-                <li class="mb-[6px]">Declara un arreglo unidimensional de tipo entero de tamaño 10, represéntalo como quedaría en memoria utilizando un subíndice (i).</li>
-                <li class="mb-[6px]">Declara un array de tipo flotante de tamaño 8, represéntalo como quedaría en memoria utilizando un subíndice (i).</li>
-                <li class="mb-[6px]">Declara un arreglo unidimensional de tipo string de tamaño 15, represéntalo como quedaría en memoria utilizando un subíndice (i).</li>
-            </ol>
-        </div>
-
-        <!-- ACTIVIDAD UTII_A2 -->
-        <div class="activity-box-bg border-l-[5px] border-ipn-blue p-[20px] my-[25px] rounded-[12px]">
-            <h3 class="text-[1.2rem] font-bold text-ipn-blue mb-[12px] text-justify">📝 ACTIVIDAD UTII_A1:</h3>
-            <p class="mb-[12px] text-justify"><strong>🎯 Propósito:</strong> Utilizar un lenguaje de programación para declarar el arreglo unidimensional definiéndolo con el tipo de dato string (cadena de caracteres) y en el que se puedan ingresar 6 nombres de jugadores.</p>
-            <p class="mb-[12px] text-justify">La intención de esta actividad es que el estudiante comprenda las operaciones que se realizan sobre un arreglo unidimensional, para este caso es el de asignar valores al arreglo; así como recorrerlo para acceder y mostrar cada uno de sus elementos; por último, realizar una búsqueda.</p>
-            
-            <h4 class="font-bold text-[1rem] mt-[15px] mb-[8px] text-justify">📋 Instrucciones:</h4>
-            <ol class="list-decimal ml-[25px] text-slate-700 text-[0.95rem] mb-[12px] text-justify">
-                <li class="mb-[6px]">Declara el arreglo unidimensional de tipo string que se llame Jugador de tamaño [6], también declara una variable de tipo string que se llame Buscar_Jugador.</li>
-                <li class="mb-[6px]">La forma de asignar los nombres de los jugadores al arreglo unidimensional, será solicitándole el nombre del jugador al usuario. Se tendrá que utilizar una estructura de control como es el For.</li>
-                <li class="mb-[6px]">Al recibir el nombre tendrá que almacenarse en la posición de memoria que está representada por el subíndice (i) del arreglo unidimensional.</li>
-                <li class="mb-[6px]">Después de haber almacenado los nombres de los jugadores en el arreglo, a través de la estructura de control For, se recorrerá para mostrar el siguiente mensaje: "En la posición TAL del arreglo, se encuentra el jugador TAL"</li>
-                <li class="mb-[6px]">Posteriormente, volver a recorrer el arreglo con la estructura de control For para realizar la tercera operación que es la de búsqueda. Para llevar a cabo esta parte, se le pedirá al usuario el nombre del jugador a buscar, el cual será almacenado en la variable Buscar_Jugador, después se tendrá que recorrer cada uno de los elementos del vector para compararlo con la variable Buscar_Jugador, y si hay coincidencia se deberá mandar un mensaje "El nombre del jugador se encuentre en la posición TAL del arreglo unidimensional" y en dado caso que no se encuentre, enviar el mensaje "El nombre del jugador no se encuentra en el arreglo unidimensional"</li>
-            </ol>
-            
-            <h4 class="font-bold text-[1rem] mt-[15px] mb-[8px] text-justify">📎 Evidencia que entregar:</h4>
-            <ul class="list-disc ml-[25px] text-slate-700 text-[0.95rem] mb-[12px] text-justify">
-                <li class="mb-[6px]">Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el nombre del programa, por ejemplo, RBV_Programa_Jugador</li>
-                <li class="mb-[6px]">Programa ejecutable</li>
-                <li class="mb-[6px]">Corrida del programa, en un archivo PDF</li>
-            </ul>
-            <p class="mb-[12px] text-justify">Subir esta evidencia a classroom en la hora y fecha indicada</p>
-            <p class="text-justify"><strong>⭐ El valor de la actividad es de 10 puntos.</strong></p>
-        </div>
-
-        <!-- ACTIVIDAD UTII_A3 -->
-        <div class="activity-box-bg border-l-[5px] border-ipn-blue p-[20px] my-[25px] rounded-[12px]">
-            <h3 class="text-[1.2rem] font-bold text-ipn-blue mb-[12px] text-justify">📝 ACTIVIDAD UTII_A2:</h3>
-            <p class="mb-[12px] text-justify"><strong>🎯 Propósito:</strong> Utilizar un lenguaje de programación para declarar el arreglo unidimensional definiéndolo con el tipo de dato entero (int) y en el que se puedan ingresar 10 números pares.</p>
-            <p class="mb-[12px] text-justify">La intención de esta actividad es que el estudiante comprenda las operaciones que se realizan sobre un arreglo unidimensional, para este caso es el de asignar valores al arreglo, así como recorrerlo para acceder y mostrar cada uno de sus elementos.</p>
-            
-            <h4 class="font-bold text-[1rem] mt-[15px] mb-[8px] text-justify">📋 Instrucciones:</h4>
-            <ol class="list-decimal ml-[25px] text-slate-700 text-[0.95rem] mb-[12px] text-justify">
-                <li class="mb-[6px]">Declara el arreglo unidimensional de tipo int que se llame Numeros_Pares [10], también declara dos variables de tipo int que se llamen Acumulador y Suma_Total (asignándoles 0)</li>
-                <li class="mb-[6px]">Para asignar los números pares (2,4,6,8,10,12,14,16,18 y 20) al arreglo unidimensional, será utilizando una estructura de control For y de forma automática asignándole la variable Acumulador, la cual se ira acumulando de dos en dos.</li>
-                <li class="mb-[6px]">Después de haber almacenado los números al arreglo, a través de la estructura de control For, se recorrerá para mostrar el siguiente mensaje: "En la posición TAL del arreglo, se encuentra el valor TAL". También deberán mostrar "La suma total de los elementos del vector es:"</li>
-            </ol>
-            
-            <h4 class="font-bold text-[1rem] mt-[15px] mb-[8px] text-justify">📎 Evidencia que entregar:</h4>
-            <ul class="list-disc ml-[25px] text-slate-700 text-[0.95rem] mb-[12px] text-justify">
-                <li class="mb-[6px]">Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el nombre del programa, por ejemplo, RBV_Programa_Numeros_Pares</li>
-                <li class="mb-[6px]">Programa ejecutable</li>
-                <li class="mb-[6px]">Corrida del programa, en un archivo PDF</li>
-            </ul>
-            <p class="mb-[12px] text-justify">Subir esta evidencia a classroom en la hora y fecha indicada</p>
-            <p class="text-justify"><strong>⭐ El valor de la actividad es de 10 puntos.</strong></p>
-        </div>
-
-        <!-- ==================== ARREGLOS BIDIMENSIONALES ==================== -->
-        <div class="titulo-seccion"><strong>📊 2.2 Arreglos Bidimensionales (Matrices/Tablas)</strong></div>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            Para continuar es necesario contestar la siguiente pregunta
-        </p>
-
-        <div class="subtitulo-negrita"><strong>¿Qué es un "Arreglo bidimensional"?</strong></div>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            Un arreglo bidimensional es un <strong>vector de vectores</strong>.
-        </p>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            Es un conjunto de elementos, todos del mismo tipo, en los que el orden de los componentes es significativo y en el que se necesitan <strong>dos subíndices [i][j]</strong> para definir cualquier elemento. Donde el primer índice representa las <strong>filas</strong> y el segundo las <strong>columnas</strong>. También se le conoce como <strong>tabla o matriz</strong>.
-        </p>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            La diferencia que existe entre un arreglo unidimensional a un arreglo bidimensional, que el primero solo necesita un subíndice [i] y el arreglo bidimensional requiere de dos subíndices [i][j]. El arreglo bidimensional se conoce también como matriz o tabla que consta de filas y columnas.
-            Haber, se menciona de una tabla, esto quiere decir que estamos hablando de una base de datos, así es, porque la estructura de datos que se utiliza para almacenar la información de una base de datos son tablas, donde se pueden guardar varios nombres por fila con sus respectivos atributos (columnas), en cambio en un arreglo unidimensional no se podría hacer.
-            Otra gran diferencia es que para recorrer un arreglo unidimensional se requiere de una estructura de control de un ciclo for, en cambio para recorrer un arreglo bidimensional se requiere de dos ciclos for. 
-            Si un arreglo bidimensional es distinto a un arreglo unidimensional, entonces cómo se declara un arreglo bidimensional
-        </p>
-
-        <div class="subtitulo-negrita"><strong>¿Cómo declarar un arreglo bidimensional?</strong></div>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            La sintaxis para declarar un arreglo bidimensional es la siguiente:        
-        </p>
-
-        <div class="code-simple">
-            <pre>
-            <span style="color:#c792ea">int</span>            Arreglo_Bidimensional          [4]            [3]
-
-            <span class="coment">// Tipo de dato       Nombre_Arreglo              Filas      Columnas</span>
-            <span class="coment">// puede ser char,</span>
-            <span class="coment">// float, int, etc.</span>
-            </pre>
-        </div>
-        <div class="matriz-tabla">
-            <table>
-                <thead>
-                    <tr><th></th><th>Columna 0</th><th>Columna 1</th><th>Columna 2</th><th>Columna 3</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td><strong>Fila 0</strong></td><td>Matriz[0][0]</td><td>Matriz[0][1]</td><td>Matriz[0][2]</td><td>Matriz[0][3]</td></tr>
-                    <tr><td><strong>Fila 1</strong></td><td>Matriz[1][0]</td><td>Matriz[1][1]</td><td>Matriz[1][2]</td><td>Matriz[1][3]</td></tr>
-                    <tr><td><strong>Fila 2</strong></td><td>Matriz[2][0]</td><td>Matriz[2][1]</td><td>Matriz[2][2]</td><td>Matriz[2][3]</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-            <img src="assets/img/imagen31.png" alt="Ejemplo de matriz 4x3" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
-            <p class="text-[0.8rem] text-slate-500 mt-[8px] font-medium text-center">📌 Ejemplo de matriz de tamaño 4x3</p>
-        </div>
-
         <!-- Ejercicio arreglos bidimensionales -->
-        <div class="ejercicio-box">
-            <p class="font-bold text-amber-700 text-[1rem] mb-[8px] text-justify">✏️ Realizar el siguiente ejercicio:</p>
-            <ol class="list-decimal ml-[25px] text-slate-700 text-[0.95rem] text-justify">
-                <li class="mb-[6px]">Declara un arreglo bidimensional de tipo char de tamaño (5x4), represéntalo como quedaría en memoria utilizando dos subíndices[i][j].</li>
-                <li class="mb-[6px]">Declara un arreglo bidimensional de tipo entero de tamaño (3x6), represéntalo como quedaría en memoria utilizando dos subíndices[i][j].</li>
-                <li class="mb-[6px]">Declara un arreglo bidimensional de tipo flotante de tamaño (2x4), represéntalo como quedaría en memoria utilizando dos subíndices[i][j].</li>
+        <div class="exercise-box">
+            <div class="ex-label">✏️ Realizar el siguiente ejercicio:</div>
+            <ol>
+                <li>1)Declara un arreglo bidimensional de tipo char de tamaño (5x4), represéntalo como quedaría en
+                    memoria
+                    utilizando dos subíndices[i][j].</li>
+                <li>2)Declara un arreglo bidimensional de tipo entero de tamaño (3x6), represéntalo como quedaría
+                    en
+                    memoria utilizando dos subíndices[i][j].</li>
+                <li>3)Declara un arreglo bidimensional de tipo flotante de tamaño (2x4), represéntalo como
+                    quedaría en
+                    memoria utilizando dos subíndices[i][j].</li>
             </ol>
         </div>
+        <div class="section-header" data-num="2.2.2">
+            <h2><span class="section-emoji">📊</span>2.2.2 Formas de uso</h2>
+        </div>
+        <p class="body-text">Existen varios tipos de arreglos bidimensionales, por ejemplo, el arreglo
+            bidimensional
+            identidad o matriz identidad.</p>
+        <p class="body-text">La matriz identidad es una matriz cuadrada (el número de filas es igual al número
+            de
+            columnas), donde todos sus elementos son ceros (0) menos los elementos de la diagonal principal que
+            son unos
+            (1). Por ejemplo, la figura 4 es una matriz identidad de (4x4) 16 elementos:</p>
 
-        <!-- Matriz Identidad -->
-        <div class="subtitulo-negrita"><strong>Matriz Identidad</strong></div>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            Existen varios tipos de arreglos bidimensionales, por ejemplo, el arreglo bidimensional identidad o matriz identidad.
-        </p>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            La matriz identidad es una matriz cuadrada (el número de filas es igual al número de columnas), donde todos sus elementos son ceros (0) menos los elementos de la diagonal principal que son unos (1). Por ejemplo, la siguiente matriz identidad de (4x4) 16 elementos:
-        </p>
-
-        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-            <img src="assets/img/imagen32.png" alt="Matriz identidad 4x4" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
-            <p class="text-[0.8rem] text-slate-500 mt-[8px] font-medium text-center">📌 Matriz Identidad de 4x4</p>
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imagen32.png" alt="Matriz identidad 4x4">
+                <div class="img-caption">Figura 4 Matriz_Identidad</div>
+            </div>
         </div>
 
-        <!-- ACTIVIDAD UTII_A4 -->
-        <div class="activity-box-bg border-l-[5px] border-ipn-blue p-[20px] my-[25px] rounded-[12px]">
-            <h3 class="text-[1.2rem] font-bold text-ipn-blue mb-[12px] text-justify">📝 ACTIVIDAD UTII_A3:</h3>
-            <p class="mb-[12px] text-justify"><strong>🎯 Propósito:</strong> Utilizar un lenguaje de programación para declarar el arreglo bidimensional (matriz identidad) definiéndola con el tipo de dato entero (int) y en el que se puedan asignar 16 elementos a la matriz identidad.</p>
-            <p class="mb-[12px] text-justify">La intención de esta actividad es que el estudiante comprenda las operaciones que se realizan sobre un arreglo bidimensional, para este caso es el de asignar valores al arreglo bidimensional, así como recorrerlo para acceder y mostrar cada uno de sus elementos.</p>
-            
-            <h4 class="font-bold text-[1rem] mt-[15px] mb-[8px] text-justify">📋 Instrucciones:</h4>
-            <ol class="list-decimal ml-[25px] text-slate-700 text-[0.95rem] mb-[12px] text-justify">
-                <li class="mb-[6px]">Declara el arreglo bidimensional que se llame Matriz_Identidad de tipo de dato entero de tamaño (4x4).</li>
-                <li class="mb-[6px]">La forma de asignar los elementos a la matriz identidad, será de forma automática, utilizando dos estructuras de control For, el primer For está representado por el subíndice [i] que son las filas y el segundo For está representado por el subíndice [j] que son las columnas, dentro de este For se debe utilizar una condición para llenar los elementos de la matriz identidad.</li>
-                <li class="mb-[6px]">Después de haber asignado los elementos a la matriz identidad, nuevamente se tiene que recorrer con doble For para mostrar el siguiente mensaje: "En la posición TAL de la matriz identidad, se encuentra el valor TAL"</li>
-            </ol>
-            
-            <h4 class="font-bold text-[1rem] mt-[15px] mb-[8px] text-justify">📎 Evidencia que entregar:</h4>
-            <ul class="list-disc ml-[25px] text-slate-700 text-[0.95rem] mb-[12px] text-justify">
-                <li class="mb-[6px]">Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el nombre del programa, por ejemplo, RBV_Programa_Matriz_Identidad</li>
-                <li class="mb-[6px]">Programa ejecutable</li>
-                <li class="mb-[6px]">Corrida del programa, en un archivo PDF</li>
-            </ul>
-            <p class="mb-[12px] text-justify">Subir esta evidencia a classroom en la hora y fecha indicada</p>
-            <p class="text-justify"><strong>⭐ El valor de la actividad es de 10 puntos.</strong></p>
+        <!-- ACTIVIDAD UTII_A3 (Matriz Identidad) -->
+        <div class="activity-box">
+            <div class="act-header">
+                <span class="act-badge">UTII_A3</span>
+                <h3>📝 Actividad UTII_A3_Matriz_Identidad</h3>
+            </div>
+            <div class="act-body">
+                <div class="act-section-title">🎯 Propósito</div>
+                <p style="font-size:0.94rem; line-height:1.75; margin:0 0 4px; text-align:justify;">
+                    Utilizar un
+                    lenguaje
+                    de programación para declarar el arreglo bidimensional (matriz identidad) definiéndola con
+                    el tipo
+                    de dato entero (int) y en el que se puedan asignar 16 elementos a la matriz identidad.
+                </p>
+                <p style="font-size:0.94rem; line-height:1.75; margin:0; text-align:justify;">
+                    La intención de
+                    esta
+                    actividad es que el estudiante comprenda las operaciones que se realizan sobre un arreglo
+                    bidimensional, para este caso es el de asignar valores al arreglo bidimensional, así como
+                    recorrerlo
+                    para acceder y mostrar cada uno de sus elementos.
+                </p>
+
+                <div class="act-section-title">📋 Instrucciones</div>
+                <ol>
+                    <li>1.-Declara el arreglo bidimensional que se llame Matriz_Identidad de tipo de dato entero de
+                        tamaño
+                        (4x4).
+                    </li>
+                    <li>2.-La forma de asignar los elementos a la matriz identidad, será de forma automática,
+                        utilizando
+                        dos estructuras de control For, el primer For está representado por el subíndice [i] que
+                        son las
+                        filas y el segundo For está representado por el subíndice [j] que son las columnas,
+                        dentro de
+                        este For se debe utilizar una condición para llenar los elementos de la matriz
+                        identidad.</li>
+                    <li>3.-Después de haber asignado los elementos a la matriz identidad, nuevamente se tiene que
+                        recorrer
+                        con doble For para mostrar el siguiente mensaje: "En la posición TAL de la matriz
+                        identidad, se
+                        encuentra el valor TAL"</li>
+                </ol>
+
+                <div class="act-section-title">📎 Evidencia que entregar</div>
+                <ul>
+                    <li>Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre
+                        y el
+                        nombre del programa, por ejemplo, RBV_Programa_Matriz_Identidad</li>
+                    <li>Programa ejecutable</li>
+                    <li>Corrida del programa, en un archivo PDF</li>
+                </ul>
+            </div>
+            <div class="act-footer">
+                <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
+                <span class="act-points">⭐ VALOR:10 puntos</span>
+            </div>
+        </div>
+        <div class="section-header" data-num="2.2.3">
+            <h2><span class="section-emoji">📊</span>2.2.3 Implementación</h2>
+        </div>
+        <p class="body-text">La matriz traspuesta es un claro ejemplo de implementación de un arreglo bidimensional.</p>
+        <p class="body-text">La matriz traspuesta se obtiene al intercambiar de manera ordenada las filas de la
+            matriz
+            por sus columnas.</p>
+        <p class="body-text">No comprendo, para que entiendas vamos a utilizar dos matrices, la primera la vamos a
+            llamar matriz A de tamaño (2x3) y la segunda la vamos a llamar Matriz At de (3x2), como se puede observar y
+            para realizar la traspuesta, el tamaño de las filas de la matriz A que es 2
+            debe ser igual al tamaño de las columnas de At que es 2, esto es porque las filas de A van a pasar como
+            columnas de At. De manera que cada fila pasa a ser una columna y, asimismo, cada columna pasa a ser una
+            fila. A continuación, la figura 5 es un claro ejemplo de la matriz traspuesta:
+        </p>
+
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imagen33.png" alt="Matriz A y su traspuesta">
+                <div class="img-caption">Figura 5 Ejemplo Matriz_Traspuesta</div>
+            </div>
+        </div>
+        <div class="section-header" data-num="2.2.4">
+            <h2><span class="section-emoji">📊</span>2.2.4 Operaciones permitidas </h2>
+        </div>
+        <p class="body-text">a) Recorrido
+            Se recorre el arreglo para consulta los elementos del arreglo bidimensional.
+        </p>
+        <p class="body-text">b) Asignación
+            Existen tres formas para asignar valores a un arreglo bidimensional
+        </p>
+        <div class="concept-highlight">
+                    <h3>3)	Al momento de declarar el arreglo bidimensional  
+                        se le asignan los valores
+                    </h3>
+                    <div class="code-simple" style="margin-top:8px;">
+                        <pre><span style="color:#c792ea">int</span> int Arreglo_Bidimensional [2][3]={1,2,3,4,5,6}</pre>
+                    </div>
+                </div>
+                <div class="concept-highlight">
+                    <h3>4)	Cuando se les piden los valores a los usuarios</h3>
+                    <div class="code-simple" style="margin-top:8px;">
+                        <pre><span style="color:#c792ea">for</span> (<span style="color:#c792ea">int</span> i=0; i < 10; i++) {
+    cout << <span style="color:#6a9955">"Ingrese el valor del Arreglo_Bidimensional“</span>
+    cin >>  Arreglo_Bidimensional[i][j]
+}</pre>
+                    </div>
+                </div>
+
+                <div class="concept-highlight">
+                    <h3>5) Asignación automática:</h3>
+                    <div class="code-simple" style="margin-top:8px;">
+                        <pre><span style="color:#c792ea">int</span> Arreglo Bidimensiona [2][3];
+<span style="color:#c792ea">int</span> Acumulador = 2;
+<span style="color:#c792ea">for</span> (<span style="color:#c792ea">int</span> i=0; i<	2; i++) 
+    <span style="color:#c792ea">for</span> (<span style="color:#c792ea">int</span> j=0; i<3; j++) 
+
+    Arreglo_Bidimensional[i]=Acumulador
+    Acumulador=Acumulador + 2
+
+</pre>
+                    </div>
+                </div>
+                <p class="body-text">
+                    c) Búsqueda
+                    Recorrer el arreglo unidimensional para encontrar un elemento
+
+                </p>
+
+
+        <!-- ACTIVIDAD UTII_A4 (Matriz Traspuesta) -->
+        <div class="activity-box">
+            <div class="act-header">
+                <span class="act-badge">UTII_A4</span>
+                <h3>📝 Actividad UTII_A4_Matriz_Traspuesta</h3>
+            </div>
+            <div class="act-body">
+                <div class="act-section-title">🎯 Propósito</div>
+                <p style="font-size:0.94rem; line-height:1.75; margin:0 0 4px; text-align:justify;">Utilizar un
+                    lenguaje
+                    de programación para declarar el arreglo bidimensional Matriz A(2x3) definiéndola con el
+                    tipo de
+                    dato entero (int) y en el que se puedan asignar 6 elementos de forma automática. También
+                    declarar la
+                    matriz At (3x2) de 6 elementos de tipo de dato entero (int).</p>
+                <p style="font-size:0.94rem; line-height:1.75; margin:0; text-align:justify;">La intención de
+                    esta
+                    actividad es que el estudiante comprenda las operaciones que se realizan sobre un arreglo
+                    bidimensional, para este caso es el de asignar de forma automática los valores a la matriz A
+                    dentro
+                    de los dos primeros ciclos del For. Después realizar la transpuesta a la matriz At con los
+                    siguientes dos segundos ciclos del For, para pasar las filas de la matriz A a las columnas
+                    de la
+                    matriz At, así como recorrer ambas matrices para acceder y mostrar cada uno de sus
+                    elementos.</p>
+
+                <div class="act-section-title">📋 Instrucciones</div>
+                <ol>
+                    <li>1.-Declarar dos matrices A de (2x3) de tipo de dato entero (int), At de (3x2) de tipo de
+                        dato
+                        entero (int).</li>
+                    <li>2.-La forma de asignar los elementos a la matriz A, será de forma automática, utilizando la
+                        estructura de control For para los dos primeros ciclos utilizando el subíndice [i] que
+                        representan las filas y el subíndice (j) para las columnas. Los valores que va a
+                        contener la
+                        matriz A son 1,2,3,4,5,6.</li>
+                    <li>3.-Los siguientes dos For serán para realizar la traspuesta, donde las filas de la matriz A
+                        van a
+                        pasar como columnas a la matriz At.</li>
+                    <li>4.-Después nuevamente se tendrá que utilizar la estructura de control For para realizar el
+                        recorrido de los elementos de ambas matrices para mostrar el siguiente mensaje: "En la
+                        posición
+                        TAL de la matriz A, se encuentra el valor TAL". Así será de igual forma para la matriz
+                        At.</li>
+                </ol>
+
+                <div class="act-section-title">📎 Evidencia que entregar</div>
+                <ul>
+                    <li>Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre
+                        y el
+                        nombre del programa, por ejemplo, RBV_Programa_Matriz_Traspuesta</li>
+                    <li>Programa ejecutable</li>
+                    <li>Corrida del programa, en un archivo PDF</li>
+                </ul>
+            </div>
+            <div class="act-footer">
+                <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
+                <span class="act-points">⭐VALOR:10 puntos</span>
+            </div>
         </div>
 
-        <!-- Matriz Traspuesta -->
-        <div class="subtitulo-negrita"><strong>Matriz Traspuesta</strong></div>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            Otro tipo de arreglo bidimensional que existe es la matriz traspuesta.
-        </p>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            La matriz traspuesta se obtiene al intercambiar de manera ordenada las filas de la matriz por sus columnas.
-        </p>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            Para que entiendas vamos a utilizar dos matrices, la primera la vamos a llamar matriz A de tamaño (2x3) y la segunda la vamos a llamar Matriz At de (3x2), como se puede observar y para realizar la traspuesta, el tamaño de las filas de la matriz A que es 2 debe ser igual al tamaño de las columnas de At que es 2, esto es porque las filas de A van a pasar como columnas de At. De manera que cada fila pasa a ser una columna y, asimismo, cada columna pasa a ser una fila.
-        </p>
-
-        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-            <img src="assets/img/imagen33.png" alt="Matriz A y su traspuesta" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
-            <p class="text-[0.8rem] text-slate-500 mt-[8px] font-medium text-center">📌 Matriz A (2x3) y su traspuesta At (3x2)</p>
+        <!-- ════════════════════════════════════════════ -->
+        <!-- SECCIÓN 2.3 Arreglos multidimensionales -->
+        <div class="section-header burgundy" data-num="2.3">
+            <h2><span class="section-emoji">📊</span>2.3 Arreglos Multidimensionales (Data Warehouse)</h2>
         </div>
 
-        <!-- ACTIVIDAD UTII_A5 -->
-        <div class="activity-box-bg border-l-[5px] border-ipn-blue p-[20px] my-[25px] rounded-[12px]">
-            <h3 class="text-[1.2rem] font-bold text-ipn-blue mb-[12px] text-justify">📝 ACTIVIDAD UTII_A4:</h3>
-            <p class="mb-[12px] text-justify"><strong>🎯 Propósito:</strong> Utilizar un lenguaje de programación para declarar el arreglo bidimensional Matriz A(2x3) definiéndola con el tipo de dato entero (int) y en el que se puedan asignar 6 elementos de forma automática. También declarar la matriz At (3x2) de 6 elementos de tipo de dato entero (int).</p>
-            <p class="mb-[12px] text-justify">La intención de esta actividad es que el estudiante comprenda las operaciones que se realizan sobre un arreglo bidimensional, para este caso es el de asignar de forma automática los valores a la matriz A dentro de los dos primeros ciclos del For. Después realizar la transpuesta a la matriz At con los siguientes dos segundos ciclos del For, para pasar las filas de la matriz A a las columnas de la matriz At, así como recorrer ambas matrices para acceder y mostrar cada uno de sus elementos.</p>
-            
-            <h4 class="font-bold text-[1rem] mt-[15px] mb-[8px] text-justify">📋 Instrucciones:</h4>
-            <ol class="list-decimal ml-[25px] text-slate-700 text-[0.95rem] mb-[12px] text-justify">
-                <li class="mb-[6px]">Declarar dos matrices A de (2x3) de tipo de dato entero (int), At de (3x2) de tipo de dato entero (int).</li>
-                <li class="mb-[6px]">La forma de asignar los elementos a la matriz A, será de forma automática, utilizando la estructura de control For para los dos primeros ciclos utilizando el subíndice [i] que representan las filas y el subíndice (j) para las columnas. Los valores que va a contener la matriz A son 1,2,3,4,5,6.</li>
-                <li class="mb-[6px]">Los siguientes dos For serán para realizar la traspuesta, donde las filas de la matriz A van a pasar como columnas a la matriz At.</li>
-                <li class="mb-[6px]">Después nuevamente se tendrá que utilizar la estructura de control For para realizar el recorrido de los elementos de ambas matrices para mostrar el siguiente mensaje: "En la posición TAL de la matriz A, se encuentra el valor TAL". Así será de igual forma para la matriz At.</li>
-            </ol>
-            
-            <h4 class="font-bold text-[1rem] mt-[15px] mb-[8px] text-justify">📎 Evidencia que entregar:</h4>
-            <ul class="list-disc ml-[25px] text-slate-700 text-[0.95rem] mb-[12px] text-justify">
-                <li class="mb-[6px]">Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el nombre del programa, por ejemplo, RBV_Programa_Matriz_Traspuesta</li>
-                <li class="mb-[6px]">Programa ejecutable</li>
-                <li class="mb-[6px]">Corrida del programa, en un archivo PDF</li>
-            </ul>
-            <p class="mb-[12px] text-justify">Subir esta evidencia a classroom en la hora y fecha indicada</p>
-            <p class="text-justify"><strong>⭐ El valor de la actividad es de 10 puntos.</strong></p>
+        <div class="subsection-header">
+            <h3>¿Qué son los arreglos multidimensionales?</h3>
         </div>
-
-        <!-- ==================== ARREGLOS MULTIDIMENSIONALES ==================== -->
-        <div class="titulo-seccion"><strong>📊 2.3 Arreglos Multidimensionales (Data Warehouse)</strong></div>
-
-        <div class="subtitulo-negrita"><strong>¿Qué son los arreglos multidimensionales?</strong></div>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            En los dos contenidos anteriores se vio que los arreglos unidimensionales son de una dimensión, los arreglos bidimensionales de dos dimensiones, entonces los arreglos multidimensionales son de más de dos dimensiones, como son los <strong>data warehouse</strong>. A diferencia de los arreglos unidimensionales y bidimensionales, son una colección finita, homogénea y ordenada de elementos de <strong>n dimensiones</strong>, por lo que se puede trabajar con grandes volúmenes de información de manera organizada y eficiente.
+        <p class="body-text">En los dos contenidos anteriores se vio que los arreglos unidimensionales son de
+            una
+            dimensión, los arreglos bidimensionales de dos dimensiones, entonces los arreglos multidimensionales
+            son de
+            más de dos dimensiones, como son los <strong>data warehouse</strong>. A diferencia de los arreglos
+            unidimensionales y bidimensionales, son una colección finita, homogénea y ordenada de elementos de
+            <strong>n
+                dimensiones</strong>, por lo que se puede trabajar con grandes volúmenes de información de
+            manera
+            organizada y eficiente.
         </p>
-        <p class="mb-[12px] leading-relaxed text-slate-700 text-[0.95rem] text-justify">
-            Para hacer referencia a cada componente de un arreglo multidimensional, se usarán <strong>n dimensiones</strong>, uno para cada dimensión.
+        <p class="body-text">Para hacer referencia a cada componente de un arreglo multidimensional, se usarán
+            <strong>n
+                dimensiones</strong>, uno para cada dimensión.
         </p>
 
-        <div class="text-center my-[25px] p-[8px] md:p-[15px]">
-            <img src="assets/img/imagen35.png" alt="Data warehouse - arreglo multidimensional" class="max-w-[95%] md:max-w-[85%] mx-auto rounded-[10px] shadow-md hover-scale">
-            <p class="text-[0.8rem] text-slate-500 mt-[8px] font-medium text-center">📌 Arreglo multidimensional - Data Warehouse</p>
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imagen35.png" alt="Data warehouse - arreglo multidimensional">
+            </div>
         </div>
 
-        <div class="notacion-box">
-            <h4 class="text-ipn-blue font-bold text-justify">📌 Características de los arreglos multidimensionales:</h4>
-            <ul class="list-disc ml-[20px] mt-[8px] text-slate-700 text-justify">
-                <li>Colección finita de elementos</li>
-                <li>Homogénea (todos del mismo tipo de dato)</li>
-                <li>Ordenada (se accede mediante índices)</li>
-                <li>N dimensiones (más de dos)</li>
-                <li>Ideal para grandes volúmenes de información</li>
-                <li>Base de los Data Warehouse</li>
-            </ul>
-        </div>
+    </div><!-- /page-content -->
+
+    <!-- NAVIGATION BUTTONS (estilo navuni1) -->
+    <div
+        style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; max-width:900px; margin:0 auto; padding:16px 24px 48px;">
+        <a href="navuni1.html" class="nav-btn">
+            <span>⬅️</span> Anterior
+        </a>
+        <a href="index.html" class="nav-btn nav-btn-home">🏠</a>
+        <a href="navuni3.html" class="nav-btn">
+            Siguiente <span>➡️</span>
+        </a>
     </div>
-</section>
 
-<div class="flex flex-col md:flex-row justify-between items-center mt-[50px] max-w-[900px] mx-auto px-[20px] gap-[12px]">
-    <a href="index.html" class="bg-gradient-to-r from-ipn-blue to-ipn-dark-blue text-white px-[25px] py-[10px] rounded-[10px] font-bold min-w-[180px] text-center text-[0.9rem] btn-hover">
-        ⬅ Volver al Inicio
-    </a>
-    <a href="navuni3.html" class="bg-gradient-to-r from-ipn-blue to-ipn-dark-blue text-white px-[25px] py-[10px] rounded-[10px] font-bold min-w-[180px] text-center text-[0.9rem] btn-hover">
-        Siguiente Unidad ➡
-    </a>
-</div>
+    <!-- FOOTER -->
+    <footer class="page-footer">
+        <h3>🏛️ UPIICSA · IPN</h3>
+        <p>Unidad de Aprendizaje: Estructura de Datos</p>
+        <p>© 2026 Instituto Politécnico Nacional</p>
+    </footer>
 
-<footer class="py-[30px] px-[20px] text-center bg-gradient-to-b from-[#f4faff] via-[#e6f3ff] to-white border-t-2 border-ipn-blue mt-[50px]">
-    <div>
-        <h3 class="text-ipn-primary text-[1.1rem] mb-[8px]">🏛️ UPIICSA · IPN</h3>
-        <p class="text-[0.85rem] text-slate-600 mb-[5px]">Unidad de Aprendizaje: Estructura de Datos</p>
-        <p class="text-[0.85rem] text-slate-600">© 2026 Instituto Politécnico Nacional</p>
-    </div>
-</footer>
-
-<script src="js/ui.js"></script>
+    <script src="js/ui.js"></script>
 </body>
+
 </html>

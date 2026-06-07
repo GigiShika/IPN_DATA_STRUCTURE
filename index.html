@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -5,51 +8,114 @@
     <link rel="stylesheet" href="css/stylenav.css">
     <title>Estructura de Datos | UPIICSA</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        p, li, .dropdown-content, .elegant-card p, .contacto-autores p, 
-        .dropdown-link-box p, .dropdown-content h3, .dropdown-content h4,
-        .dropdown-content .font-semibold, .dropdown-content .font-bold,
-        .units-grid .unit-card p, .unit-card h3, .unit-card p,
-        .icon-wrapper + p, .text-gray-700, .leading-relaxed {
-            text-align: justify !important;
+        .institution-text {
+            text-align: center;
+            flex: 1;
+            margin: 0 auto;
         }
-        h1, h2, h3, h4, h5, h6 {
-            text-align: justify;
-        }
-        .dropdown-btn, .download-btn, .btn-primary, .nav-link-underline {
-            text-align: left !important;
-        }
-        .text-center, .text-center p, .text-center h1, .text-center h2, .text-center h3 {
+
+        .institution-text h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--ipn-blue-deep);
+            margin: 0;
+            letter-spacing: -0.3px;
             text-align: center !important;
         }
-        .header-text-overlay h1, .header-text-overlay p {
-            text-align: left !important;
+
+        .institution-text p {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4a5568;
+            margin: 4px 0 0;
+            text-align: center !important;
         }
-        .units-grid .unit-card p, .units-grid .unit-card h3 {
-            text-align: left !important;
+
+        p,
+        li,
+        .dropdown-content,
+        .elegant-card p,
+        .contacto-autores p,
+        .dropdown-link-box p,
+        .dropdown-content h3,
+        .dropdown-content h4,
+        .dropdown-content .font-semibold,
+        .dropdown-content .font-bold,
+        .units-grid .unit-card p,
+        .unit-card h3,
+        .unit-card p,
+        .icon-wrapper+p,
+        .text-gray-700,
+        .leading-relaxed {
+            text-align: justify !important;
         }
-        .dropdown-content .flex, .dropdown-content .flex p {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            text-align: justify;
+        }
+
+        .dropdown-btn,
+        .download-btn,
+        .btn-primary,
+        .nav-link-underline {
             text-align: left !important;
         }
 
-        /* ESTILO PARA LA BARRA SUPERIOR CON LOGOS (estilo UPIICSA) - VERSIÓN CORREGIDA */
+        .text-center,
+        .text-center p,
+        .text-center h1,
+        .text-center h2,
+        .text-center h3 {
+            text-align: center !important;
+        }
+
+        .header-text-overlay h1,
+        .header-text-overlay p {
+            text-align: left !important;
+        }
+
+        .units-grid .unit-card p,
+        .units-grid .unit-card h3 {
+            text-align: left !important;
+        }
+
+        .dropdown-content .flex,
+        .dropdown-content .flex p {
+            text-align: left !important;
+        }
+
+        /* ESTILO PARA LA BARRA SUPERIOR CON LOGOS - VERSIÓN CORREGIDA */
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: white;
-            padding: 8px 20px;  
-            border-bottom: 1px solid #e2e8f0; 
-            flex-wrap: nowrap; 
+            padding: 8px 20px;
+            /* === MODIFICACIÓN: línea roja guinda (burdeos) === */
+            border-bottom: 3px solid #6B0F1A;
+            flex-wrap: nowrap;
             gap: 12px;
         }
-        .logo-left, .logo-right {
+
+        .logo-left,
+        .logo-right {
             flex-shrink: 0;
         }
-        .logo-left img, .logo-right img {
+
+        .logo-left img,
+        .logo-right img {
             height: 70px;
             width: auto;
             transition: transform 0.2s ease;
@@ -58,16 +124,20 @@
             box-shadow: none;
             border-radius: 0;
         }
-        .logo-left img, .logo-right img {
-            height: 60px;  /* Ajusta este valor según tu imagen de PC (si era 70px déjalo 70px) */
+
+        .logo-left img,
+        .logo-right img {
+            height: 60px;
             width: auto;
-            display: block; /* Evita espacios extra por inline */
+            display: block;
         }
+
         .institution-text {
             text-align: center;
             flex: 1;
             margin: 0 auto;
         }
+
         .institution-text h2 {
             font-size: 1.6rem;
             font-weight: 800;
@@ -76,6 +146,7 @@
             letter-spacing: -0.5px;
             text-align: center !important;
         }
+
         .institution-text p {
             font-size: 1rem;
             font-weight: 500;
@@ -83,482 +154,676 @@
             margin: 8px 0 0;
             text-align: center !important;
         }
-        @media (max-width: 768px) {
-                .top-bar {
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    padding: 6px 12px;
-                    gap: 8px;
-                }
-                .logo-left img, .logo-right img {
-                    height: 45px;               /* Ajusta el tamaño sin hacerlos muy pequeños */
-                    width: auto;
-                          
-                }
-                .institution-text {
-                    order: 3; /* Opcional: el texto al final si no cabe */
-                    flex-basis: 100%;
-                    text-align: center;
-                }
 
-                .institution-text p {
-                    font-size: 0.75rem;
-                    white-space: nowrap;
-                }
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 6px 12px;
+                gap: 8px;
             }
+
+            .logo-left img,
+            .logo-right img {
+                height: 45px;
+                width: auto;
+            }
+
+            .institution-text {
+                order: 3;
+                flex-basis: 100%;
+                text-align: center;
+            }
+
+            .institution-text p {
+                font-size: 0.75rem;
+                white-space: nowrap;
+            }
+        }
 
         /* Ocultar los logos viejos que estaban dentro del header-imagen */
         .header-logos {
             display: none !important;
         }
+
+        /* ===== ESTILO PARA EL BANNER DE TÍTULO (como en navuni1) ===== */
+        .unit-banner {
+            background: linear-gradient(135deg, #0a2f5a 0%, #1a4a8a 60%, #2d6abf 100%);
+            border-radius: 14px;
+            padding: 28px 32px;
+            margin: 30px auto 30px auto;
+            max-width: 900px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(10, 47, 90, 0.25);
+        }
+
+        .unit-banner::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 180px;
+            height: 180px;
+            background: rgba(200, 146, 26, 0.18);
+            border-radius: 50%;
+        }
+
+        .unit-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: 30%;
+            width: 240px;
+            height: 240px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .unit-banner h1,
+        .unit-banner h2 {
+            font-family: 'Inter', sans-serif;
+            color: white;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            text-align: left !important;
+        }
+
+        .unit-banner h1 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #C8921A;
+            margin-bottom: 6px;
+        }
+
+        .unit-banner h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+
+        .unit-banner .unit-label {
+            display: inline-block;
+            background: #C8921A;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
+
 <body>
 
-<!-- BARRA SUPERIOR CON LOGOS Y TEXTO INSTITUCIONAL -->
-<div class="top-bar">
-    <div class="logo-left">
-        <img src="assets/img/ipn.jpg" alt="IPN">
+    <!-- BARRA SUPERIOR CON LOGOS Y TEXTO INSTITUCIONAL -->
+    <div class="top-bar">
+        <div class="logo-left">
+            <img src="assets/img/ipn.jpg" alt="IPN">
+        </div>
+        <div class="institution-text">
+            <h2>Instituto Politécnico Nacional</h2>
+            <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
+        </div>
+        <div class="logo-right">
+            <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
+        </div>
     </div>
-    <div class="institution-text">
-        <h2>Instituto Politécnico Nacional</h2>
-        <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
-    </div>
-    <div class="logo-right">
-        <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
-    </div>
-</div>
 
-<!-- Header con imagen del título (sin logos superpuestos) -->
-<header class="container mx-auto px-4 py-6 md:py-8">
-    <div class="relative max-w-6xl mx-auto">
-        <div class="header-image-container relative rounded-2xl overflow-hidden shadow-2xl">
-            <img src="assets/img/titulo.avif" alt="Estructura de Datos" class="w-full h-64 md:h-80 object-cover">
-            <div class="header-text-overlay">
-                <p class="polilibro">📘 Polilibro</p>
-                <h1>📊 Estructura de Datos</h1>
+    <!-- Header con imagen del título (sin logos superpuestos) -->
+    <header class="container mx-auto px-4 py-6 md:py-8">
+        <div class="relative max-w-6xl mx-auto">
+            <div class="header-image-container relative rounded-2xl overflow-hidden shadow-2xl">
+                <img src="assets/img/titulo.avif" alt="Estructura de Datos" class="w-full h-64 md:h-80 object-cover">
+                <div class="header-text-overlay">
+                    <p class="polilibro">📘 Polilibro</p>
+                    <h1>📊 Estructura de Datos</h1>
+                </div>
             </div>
         </div>
-    </div>
-</header>
-<!-- Welcome section -->
-<section class="py-12 md:py-16 px-4">
-    <div class="container mx-auto max-w-5xl">
-        <div class="grid md:grid-cols-2 gap-6 mb-8">
-            <div class="elegant-card p-6 animated-item" style="animation-delay: 0.1s">
-                <div class="icon-wrapper w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                    <img src="assets/img/drop1.png" alt="icono" class="w-6 h-6 object-contain">
-                </div>
-                <p class="text-gray-700 leading-relaxed text-sm md:text-base">
-                    Bienvenidos a este recurso digital correspondiente a la unidad de aprendizaje 
-                    Estructura de Datos que se imparte en el segundo semestre del programa académico 
-                    de la Licenciatura en Ingeniería en Informática de la UPIICSA del Instituto Politécnico Nacional.
-                    El propósito de este recurso es fomentar la habilidad en el manejo e implementación 
-                    de la información utilizando diferentes estructuras de datos en la memoria principal
-                </p>
-            </div>
-            <div class="elegant-card p-6 animated-item" style="animation-delay: 0.2s">
-                <div class="icon-wrapper w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                    <img src="assets/img/drop2.jpg" alt="icono" class="w-6 h-6 object-contain rounded">
-                </div>
-                <p class="text-gray-700 leading-relaxed text-sm md:text-base">
-                    con el apoyo de la fundamentación, con la utilización de un lenguaje de programación 
-                    y con la realización de ejercicios y actividades.Con la finalidad de que los estudiantes 
-                    comprendan los conceptos que tienen un alto nivel de abstracción.
-                    La elaboración de las actividades va a permitir a los estudiantes fomentar, analizar 
-                    y comprender la información, además de la comunicación y del trabajo colaborativo.
-                </p>
-            </div>
-        </div>
-        
-        <div class="elegant-card p-6 animated-item" style="animation-delay: 0.3s">
-            <div class="flex items-start gap-4">
-                <div class="icon-wrapper w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <img src="assets/img/drop4.jpg" alt="icono" class="w-6 h-6 object-contain rounded">
-                </div>
-                <div class="flex-1">
-                    <p class="text-gray-700 leading-relaxed text-sm md:text-base mb-2">
-                        Es muy importante generar un ambiente de respeto y confianza para lograr la comunicación entre el alumno y el profesor, 
-                        quien será tu guía para facilitarte tu aprendizaje.
-                    </p>
+    </header>
+    <!-- Welcome section -->
+    <section class="py-12 md:py-16 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="elegant-card p-6 animated-item" style="animation-delay: 0.3s">
+                <div class="flex items-start gap-4">
+                    <div class="icon-wrapper w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <img src="assets/img/drop1.png" alt="icono" class="w-6 h-6 object-contain">
+                    </div>
                     <p class="text-gray-700 leading-relaxed text-sm md:text-base">
-                        Para dar inicio, te solicito que realices la actividad diagnóstica; posteriormente, es necesario que hagas la revisión 
-                        de las siguientes secciones: metodología, te conviene saber, tareas de aprendizaje y, por último, continúa con el contenido 
-                        de las unidades, la realización de los ejercicios y de las actividades.
+                        Bienvenidos a este recurso digital correspondiente a la unidad de aprendizaje Estructura de
+                        Datos que se imparte en el segundo semestre del programa académico de la Licenciatura en
+                        Ingeniería en Informática de la UPIICSA del Instituto Politécnico Nacional.
+
+                        El propósito de este recurso es fomentar la habilidad en el manejo e implementación de la
+                        información, utilizando diferentes estructuras de datos en la memoria principal, con el apoyo
+                        de: la fundamentación teórica, aplicación de un lenguaje de programación y la realización de
+                        ejercicios y actividades. La intención de lo antes mencionado es que los estudiantes logren
+                        comprender los conceptos que tienen un alto nivel de abstracción.
+
+                        La elaboración de las actividades va a permitir a los estudiantes fomentar, analizar y
+                        comprender la información, además de la comunicación y del trabajo colaborativo.
+
                     </p>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
 
-<!-- Dropdowns section con imágenes de fondo originales -->
-<section class="py-12 px-4 bg-white/80 backdrop-blur-sm">
-    <div class="dropdown-container max-w-3xl mx-auto">
-        <!-- Section header -->
-        <div class="text-center mb-8">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-full mb-3">
-                <span class="text-lg">📚</span>
-                <span class="text-xs font-medium text-indigo-700">RECURSOS ACADÉMICOS</span>
-            </div>
-            <h2 class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">Contenido Digital</h2>
-            <div class="w-16 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full"></div>
-        </div>
-        
-        <!-- Actividad Diagnóstica con imagen de fondo -->
-        <div class="dropdown dropdown-bg-1 mb-4 rounded-xl overflow-hidden border border-indigo-200 bg-white shadow-sm">
-            <button class="dropdown-btn w-full py-3.5 px-5 text-left font-semibold text-gray-700 text-base flex items-center justify-between group" aria-expanded="false">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg flex items-center justify-center">
-                        <img src="assets/img/drop1.png" alt="Actividad Diagnóstica" class="w-5 h-5 object-contain">
+            <div class="elegant-card p-6 animated-item" style="animation-delay: 0.3s">
+                <div class="flex items-start gap-4">
+                    <div class="icon-wrapper w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <img src="assets/img/drop4.jpg" alt="icono" class="w-6 h-6 object-contain rounded">
                     </div>
-                    <span>Actividad Diagnóstica</span>
-                </div>
-                <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </button>
-            <div class="dropdown-content bg-gradient-to-br from-indigo-50/80 to-purple-50/80 border-t border-indigo-100 leading-relaxed text-gray-700 text-sm">
-                <p class="mb-3">🎯 El objetivo de esta actividad es identificar los conocimientos previos de la unidad de aprendizaje, las necesidades, debilidades y fortalezas de los alumnos, para mejorar el aprendizaje.</p>
-                <p class="mb-3">✍️ Te pido de favor que al momento de contestar sea de forma sincera y con respeto, ya que será considerada para adecuar la planificación del docente. Te recuerdo que esta actividad no será considerada como parte de tu evaluación.</p>
-                <p class="mb-4">📥 Te solicito que des clic en el siguiente botón para descargar la actividad diagnóstica. Es necesario terminar la actividad para que posteriormente el docente pueda revisar la información.</p>
-                <div class="flex justify-center">
-                    <a href="https://forms.gle/6d5qADg6vDE6httf7" target="_blank" 
-                         class="download-btn btn-primary inline-block py-2.5 px-6 text-white font-semibold rounded-lg text-sm shadow-md transition-all">
-                        ➡️ IR AL FORMULARIO
-                    </a>
+                    <div class="flex-1">
+                        <p class="text-gray-700 leading-relaxed text-sm md:text-base mb-2">
+                            Es muy importante generar un ambiente de respeto y confianza para lograr la comunicación
+                            entre el alumno y el profesor,
+                            quien será tu guía para facilitarte tu aprendizaje.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed text-sm md:text-base">
+                            Para dar inicio, te solicito que realices la actividad diagnóstica; posteriormente, es
+                            necesario que hagas la revisión
+                            de las siguientes secciones: metodología, te conviene saber, tareas de aprendizaje y, por
+                            último, continúa con el contenido
+                            de las unidades, la realización de los ejercicios y de las actividades.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Metodología con imagen de fondo -->
-        <div class="dropdown dropdown-bg-2 mb-4 rounded-xl overflow-hidden border border-indigo-200 bg-white shadow-sm">
-            <button class="dropdown-btn w-full py-3.5 px-5 text-left font-semibold text-gray-700 text-base flex items-center justify-between group" aria-expanded="false">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg flex items-center justify-center">
-                        <img src="assets/img/drop2.jpg" alt="Metodología" class="w-5 h-5 object-contain rounded">
-                    </div>
-                    <span>Metodología</span>
-                </div>
-                <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </button>
-            <div class="dropdown-content bg-gradient-to-br from-indigo-50/80 to-purple-50/80 border-t border-indigo-100 leading-relaxed text-gray-700 text-sm">
-                <p class="mb-3">🎯 La intención de este recurso digital Estructura de Datos es para apoyar a los estudiantes para que adquieran los conocimientos y la habilidad de manipular la información, a través del uso de las diferentes estructuras de datos utilizando un lenguaje de programación. Para lograrlo se basará en la metodología aprendizaje invertido en el aula. Para implementar esta metodología, se utilizarán videos educativos para que los estudiantes los vean y realicen los programas un día antes de la clase, para que posteriormente, en clase, estén preparados para aplicar lo que han aprendido.</p>
-                <p class="mb-3">⏱️ La unidad de aprendizaje de Estructura de Datos está diseñada para cursarse de manera presencial en 18 semanas con cuatro horas a la semana. Las horas totales por semestre son 72, de las cuales 36 son horas teoría y 36 son horas prácticas.</p>
-                <p class="mb-3">🧠 El estudiante tiene 21 horas para dedicar al aprendizaje autónomo para administrar su tiempo, identificar áreas de mejora y planificación de estrategias para la resolución de casos. Una propuesta para la resolución de casos es la aplicación de la herramienta de programación visual y gráfica que son los diagramas de flujo. Estos diagramas permiten a los estudiantes entender un proceso de principio a fin, organizan los elementos de manera que tengan sentido y sean fáciles de comprender por la fluidez lógica de las actividades, además de que se utilizan símbolos gráficos. La elaboración de estos diagramas forma parte de la evaluación continua.</p>
-                <p class="mb-3">💻 Al basarse en una metodología de aprendizaje invertido en el aula, el estudiante un día antes de la clase realizará, mediante la utilización de un lenguaje de programación, programas para la manipulación de las estructuras de datos.</p>
-                <div class="dropdown-link-box mb-3">
-                    <p class="mb-1 font-semibold text-indigo-700 text-sm">📺 La herramienta de apoyo para hacer los programas será a través del canal de YouTube:</p>
-                    <a href="https://www.youtube.com/watch?v=ld4nzao5XAc&list=PLWtYZ2ejMVJlUu1rEHLC0i_oibctkl0Vh&index=2" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 text-sm">
-                        ▶ Ver canal de YouTube →
-                    </a>
-                </div>
-                <p class="mb-3">🏫 Después, en el laboratorio de cómputo aplicarán los conocimientos adquiridos un día antes; apoyados por el docente realizarán nuevos programas para resolver casos en el ámbito del almacenamiento y manejo de las estructuras de datos. Los alumnos, primeramente, realizarán una práctica donde trabajarán colaborativamente, comprenderán y analizarán el caso para posteriormente, de forma individual, utilizando una computadora con un lenguaje de programación, realizar un programa para dar solución al caso propuesto. Tendrán que aplicar las distintas operaciones que se realizan sobre una estructura de datos. Estas actividades serán consideradas en la evaluación continua.</p>
-                <p class="mb-3">🔄 Con la aplicación de estrategias de aprendizaje, el estudiante deberá estudiar las unidades temáticas incluidas en este recurso digital, como la interpretación del enunciado, la solución de casos creando diagramas de flujo que resuelvan el problema con la estrategia elegida y, por último, codificar en un lenguaje de programación. La herramienta para lograr lo anterior es el uso de un lenguaje de programación y el canal de YouTube que proporciona apoyo al estudiante para aprender a programar desde cero.</p>
-                <p class="mb-3">📊 Este recurso didáctico permite identificar la repartición de los contenidos de la unidad de aprendizaje de Estructura de Datos. Es importante identificar una distribución de los temas a estudiar con base en el tiempo.</p>
-                <p class="mb-3">👨‍🏫 El docente debe dar a conocer a los estudiantes el programa sintético de la unidad de aprendizaje de Estructura de Datos en la modalidad presencial, así como las indicaciones para la implementación de este recurso. Debido a que este recurso didáctico es de apoyo a la modalidad escolarizada, el acompañamiento del docente permitirá a los estudiantes lograr adquirir los conocimientos y habilidades. También va a ofrecer apoyo para resolver las dudas, las actividades, ejercicios e identificar aspectos de incomprensión de los temas que contienen un alto nivel de abstracción. Por lo anterior, es importante contar con el apoyo de este recurso didáctico Estructura de Datos.</p>
-            </div>
         </div>
+    </section>
 
-        <!-- Te conviene saber con imagen de fondo -->
-        <div class="dropdown dropdown-bg-3 mb-4 rounded-xl overflow-hidden border border-indigo-200 bg-white shadow-sm">
-            <button class="dropdown-btn w-full py-3.5 px-5 text-left font-semibold text-gray-700 text-base flex items-center justify-between group" aria-expanded="false">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg flex items-center justify-center">
-                        <img src="assets/img/drop4.jpg" alt="Te conviene saber" class="w-5 h-5 object-contain rounded">
+    <!-- Dropdowns section con imágenes de fondo originales -->
+    <section class="py-12 px-4 bg-white/80 backdrop-blur-sm">
+        <div class="dropdown-container max-w-3xl mx-auto">
+            <!-- Section header -->
+            <div class="text-center mb-8">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-full mb-3">
+                    <span class="text-lg">📚</span>
+                    <span class="text-xs font-medium text-indigo-700">RECURSOS ACADÉMICOS</span>
+                </div>
+                <h2
+                    class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                    Contenido Digital</h2>
+                <div class="w-16 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Actividad Diagnóstica con imagen de fondo -->
+            <div
+                class="dropdown dropdown-bg-1 mb-4 rounded-xl overflow-hidden border border-indigo-200 bg-white shadow-sm">
+                <button
+                    class="dropdown-btn w-full py-3.5 px-5 text-left font-semibold text-gray-700 text-base flex items-center justify-between group"
+                    aria-expanded="false">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg flex items-center justify-center">
+                            <img src="assets/img/drop1.png" alt="Actividad Diagnóstica" class="w-5 h-5 object-contain">
+                        </div>
+                        <span>Actividad Diagnóstica</span>
                     </div>
-                    <span>Te conviene saber</span>
-                </div>
-                <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </button>
-            <div class="dropdown-content bg-gradient-to-br from-indigo-50/80 to-purple-50/80 border-t border-indigo-100 leading-relaxed text-gray-700 text-sm">
-                <h3 class="font-bold text-indigo-700 text-base mb-2">📖 Introducción:</h3>
-                <p class="mb-3">El recurso digital se basa en el programa académico Plan 06/2021 de la unidad de aprendizaje: Estructura de Datos del programa académico de la Licenciatura en Ingeniería en Informática de la UPIICSA, que contiene el siguiente propósito con sus unidades temáticas y con sus respectivas unidades de competencia.</p>
-
-                <h3 class="font-bold text-indigo-700 text-base mb-2">🎯 Propósito de la Unidad de aprendizaje:</h3>
-                <p class="mb-3">Implementa soluciones a problemas en el ámbito del almacenamiento y manejo de la información en la memoria principal, a partir de estructuras de datos, su representación y sus posibilidades, así como estrategias de almacenamiento y lenguajes de programación de alto nivel.</p>
-
-                <h3 class="font-bold text-indigo-700 text-base mb-1">📊 Unidad Temática I: Representación de datos</h3>
-                <h4 class="font-semibold text-purple-600 text-sm mb-1">🎯 Unidad de competencia:</h4>
-                <p class="mb-2">Emplea tipos y estructuras de datos en la memoria de una computadora a partir de su clasificación y propósito, así como un lenguaje de programación.</p>
-                <p class="mb-1"><strong>1.1</strong> 💾 Medios de almacenamiento y organización de la memoria en una computadora</p>
-                <p class="mb-1"><strong>1.2</strong> 🗂️ Organización de los datos en la memoria física y lógica</p>
-                <p class="mb-1 ml-4">1.2.1 📋 Clasificación de datos simples y compuestos</p>
-                <p class="mb-1 ml-4">1.2.2 ⚙️ Operaciones permitidas con los datos</p>
-                <p class="mb-1"><strong>1.3</strong> 📐 Representación de las estructuras de datos</p>
-                <p class="mb-3 ml-4">1.3.1 🔧 Operaciones básicas sobre las estructuras de datos</p>
-
-                <h3 class="font-bold text-indigo-700 text-base mb-1">📈 Unidad Temática II: Estructura de datos estáticas</h3>
-                <h4 class="font-semibold text-purple-600 text-sm mb-1">🎯 Unidad de competencia:</h4>
-                <p class="mb-2">Implementa estructuras de datos estáticas en la memoria de una computadora a partir del uso de arreglos, su representación y sus posibilidades, así como un lenguaje de programación.</p>
-                <p class="mb-1"><strong>2.1</strong> 📊 Arreglos unidimensionales</p>
-                <p class="mb-1 ml-4">2.1.1 🔍 Representación</p>
-                <p class="mb-1 ml-4">2.1.2 📝 Formas de uso</p>
-                <p class="mb-1 ml-4">2.1.3 💻 Implementación</p>
-                <p class="mb-1 ml-4">2.1.4 ⚙️ Operaciones permitidas</p>
-                <p class="mb-1"><strong>2.2</strong> 📊 Arreglos bidimensionales</p>
-                <p class="mb-1 ml-4">2.2.1 🔍 Representación</p>
-                <p class="mb-1 ml-4">2.2.2 📝 Formas de uso</p>
-                <p class="mb-1 ml-4">2.2.3 💻 Implementación</p>
-                <p class="mb-1 ml-4">2.2.4 ⚙️ Operaciones permitidas</p>
-                <p class="mb-1"><strong>2.3</strong> 📊 Arreglos multidimensionales</p>
-                <p class="mb-1 ml-4">2.3.1 🔍 Representación</p>
-                <p class="mb-3 ml-4">2.3.2 📝 Formas de uso</p>
-
-                <h3 class="font-bold text-indigo-700 text-base mb-1">🔗 Unidad Temática III: Estructura de datos dinámicas lineales</h3>
-                <h4 class="font-semibold text-purple-600 text-sm mb-1">🎯 Unidad de competencia:</h4>
-                <p class="mb-2">Implementa estructuras de datos dinámicas lineales en la memoria de una computadora a partir del uso de pilas, colas y listas enlazadas, su representación y sus posibilidades, así como un lenguaje de programación.</p>
-                <p class="mb-1"><strong>3.1</strong> 🎯 Apuntadores</p>
-                <p class="mb-1"><strong>3.2</strong> 📚 Pilas</p>
-                <p class="mb-1 ml-4">3.2.1 🔍 Representación</p>
-                <p class="mb-1 ml-4">3.2.2 📝 Formas de uso</p>
-                <p class="mb-1 ml-4">3.2.3 💻 Implementación</p>
-                <p class="mb-1 ml-4">3.2.4 ⚙️ Operaciones permitidas</p>
-                <p class="mb-1"><strong>3.3</strong> 🚶 Colas</p>
-                <p class="mb-1 ml-4">3.3.1 🔍 Representación</p>
-                <p class="mb-1 ml-4">3.3.2 📝 Formas de uso</p>
-                <p class="mb-1 ml-4">3.3.3 💻 Implementación</p>
-                <p class="mb-1 ml-4">3.3.4 ⚙️ Operaciones permitidas</p>
-                <p class="mb-1"><strong>3.4</strong> 🔗 Listas enlazadas</p>
-                <p class="mb-1 ml-4">3.4.1 🔍 Representación</p>
-                <p class="mb-1 ml-4">3.4.2 📝 Formas de uso</p>
-                <p class="mb-1 ml-4">3.4.3 💻 Implementación</p>
-                <p class="mb-3 ml-4">3.4.4 ⚙️ Operaciones permitidas</p>
-
-                <h3 class="font-bold text-indigo-700 text-base mb-1">🌳 Unidad Temática IV: Estructura de datos dinámicas no lineales</h3>
-                <h4 class="font-semibold text-purple-600 text-sm mb-1">🎯 Unidad de competencia:</h4>
-                <p class="mb-2">Implementa estructuras de datos dinámicas no lineales en la memoria de una computadora a partir del uso de árboles y grafos, su representación y sus posibilidades, así como un lenguaje de programación.</p>
-                <p class="mb-1"><strong>4.1</strong> 🌲 Árboles</p>
-                <p class="mb-1 ml-4">4.1.1 🔍 Representación</p>
-                <p class="mb-1 ml-4">4.1.2 📝 Formas de uso</p>
-                <p class="mb-1 ml-4">4.1.3 💻 Implementación</p>
-                <p class="mb-1 ml-4">4.1.4 ⚙️ Operaciones permitidas</p>
-                <p class="mb-1"><strong>4.2</strong> 🕸️ Grafos</p>
-                <p class="mb-1 ml-4">4.2.1 🔍 Representación</p>
-                <p class="mb-1 ml-4">4.2.2 📝 Formas de uso</p>
-                <p class="mb-1 ml-4">4.2.3 💻 Implementación</p>
-                <p class="mb-3 ml-4">4.2.4 ⚙️ Operaciones permitidas</p>
-
-                <h3 class="font-bold text-indigo-700 text-base mb-2">🛠️ Herramienta de apoyo: Lenguaje de programación de alto nivel</h3>
-                <p class="mb-2">💻 El uso de un lenguaje de programación es elemental para la manipulación de las estructuras de datos.</p>
-                <p class="mb-2">📺 Consulta el siguiente canal de apoyo educativo de YouTube:</p>
-                <div class="dropdown-link-box mb-3">
-                    <a href="https://www.youtube.com/watch?v=ld4nzao5XAc&list=PLWtYZ2ejMVJlUu1rEHLC0i_oibctkl0Vh&index=2" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800">
-                        ▶ Ver canal de YouTube →
-                    </a>
-                </div>
-                <p class="mb-3">📚 Es un tutorial accesible del lenguaje de programación C++ y estructura de datos, que te permite aprender paso a paso a programar desde cero.</p>
-
-                <h3 class="font-bold text-indigo-700 text-base mb-2">📧 Contacto con los autores:</h3>
-                <div class="dropdown-link-box contacto-autores">
-                    <p><strong>👩‍🏫 M. en E. Ruth Blas Vázquez</strong></p>
-                    <p class="mb-1">📧 Email: 
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rblas@ipn.mx" target="_blank" class="text-indigo-600 hover:text-indigo-800">
-                            rblas@ipn.mx
+                    <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div
+                    class="dropdown-content bg-gradient-to-br from-indigo-50/80 to-purple-50/80 border-t border-indigo-100 leading-relaxed text-gray-700 text-sm">
+                    <p class="mb-3">🎯 El objetivo de esta actividad es identificar los conocimientos previos de la
+                        unidad de aprendizaje, las necesidades, debilidades y fortalezas de los alumnos, para mejorar el
+                        aprendizaje.
+                    </p>
+                    <p class="mb-3">✍️ Te pido de favor que al momento de contestar sea de forma sincera y con respeto,
+                        ya que será considerada para adecuar la planificación del docente. Te recuerdo que esta
+                        actividad no será tomada en cuenta como parte de tu evaluación.
+                    </p>
+                    <p class="mb-4">📥 Te solicito que des clic en el siguiente botón para descargar la actividad
+                        diagnóstica. Es necesario terminar la actividad para que posteriormente el docente pueda revisar
+                        la información.
+                    </p>
+                    <div class="flex justify-center">
+                        <a href="https://forms.gle/6d5qADg6vDE6httf7" target="_blank"
+                            class="download-btn btn-primary inline-block py-2.5 px-6 text-white font-semibold rounded-lg text-sm shadow-md transition-all">
+                            ➡️ IR AL FORMULARIO
                         </a>
+                    </div>
+                    <p class="mb-5">🧠 El usuario de este recurso didáctico definirá la forma de compartirlo, también
+                        determinará que hacer con las respuestas, si las va a mandar a imprimir, o si las va a
+                        distribuir con docentes o con los alumnos.
                     </p>
                 </div>
             </div>
-        </div>
 
-        <!-- Herramienta de apoyo con imagen de fondo -->
-        <div class="dropdown dropdown-bg-4 mb-4 rounded-xl overflow-hidden border border-indigo-200 bg-white shadow-sm">
-            <button class="dropdown-btn w-full py-3.5 px-5 text-left font-semibold text-gray-700 text-base flex items-center justify-between group" aria-expanded="false">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg flex items-center justify-center">
-                        <img src="assets/img/drop5.jpg" alt="Herramienta de apoyo" class="w-5 h-5 object-contain rounded">
+            <!-- Metodología con imagen de fondo -->
+            <div
+                class="dropdown dropdown-bg-2 mb-4 rounded-xl overflow-hidden border border-indigo-200 bg-white shadow-sm">
+                <button
+                    class="dropdown-btn w-full py-3.5 px-5 text-left font-semibold text-gray-700 text-base flex items-center justify-between group"
+                    aria-expanded="false">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg flex items-center justify-center">
+                            <img src="assets/img/drop2.jpg" alt="Metodología" class="w-5 h-5 object-contain rounded">
+                        </div>
+                        <span>Metodología</span>
                     </div>
-                    <span>Herramienta de apoyo</span>
-                </div>
-                <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </button>
-            <div class="dropdown-content bg-gradient-to-br from-indigo-50/80 to-purple-50/80 border-t border-indigo-100 leading-relaxed text-gray-700 text-sm">
-                <h3 class="font-bold text-indigo-700 text-base mb-2">🛠️ Lenguaje de programación de alto nivel:</h3>
-                <p class="mb-3">💻 El uso de un lenguaje de programación es elemental para la manipulación de las estructuras de datos.</p>
-
-                <h3 class="font-bold text-indigo-700 text-base mb-2">📺 Canal de apoyo educativo:</h3>
-                <p class="mb-2">Consulta el siguiente canal de YouTube:</p>
-                <div class="dropdown-link-box mb-3">
-                    <a href="https://www.youtube.com/watch?v=ld4nzao5XAc&list=PLWtYZ2ejMVJlUu1rEHLC0i_oibctkl0Vh&index=2" target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800">
-                        ▶ Ver canal de YouTube →
-                    </a>
-                </div>
-                <p class="mb-3">📚 Es un tutorial accesible del lenguaje de programación C++ y estructura de datos, que te permite aprender paso a paso a programar desde cero.</p>
-
-                <h3 class="font-bold text-indigo-700 text-base mb-2">📧 Contacto con los autores:</h3>
-                <div class="dropdown-link-box contacto-autores">
-                    <p><strong>👩‍🏫 M. en E. Ruth Blas Vázquez</strong></p>
-                    <p class="mb-1">📧 Email: 
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rblas@ipn.mx" target="_blank" class="text-indigo-600 hover:text-indigo-800">
-                            rblas@ipn.mx
+                    <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div
+                    class="dropdown-content bg-gradient-to-br from-indigo-50/80 to-purple-50/80 border-t border-indigo-100 leading-relaxed text-gray-700 text-sm">
+                    <p class="mb-3">🎯 La intención de este recurso digital Estructura de Datos es para apoyar a los
+                        estudiantes para que adquieran los conocimientos y la habilidad de manipular la información, a
+                        través del uso de las diferentes estructuras de datos utilizando un lenguaje de programación.
+                        Para lograrlo se basará en la metodología aprendizaje invertido en el aula. Para implementar
+                        esta metodología, se utilizarán videos educativos para que los estudiantes los vean y realicen
+                        los programas un día antes de la clase, para que posteriormente, en clase, estén preparados para
+                        aplicar lo que han aprendido.</p>
+                    <p class="mb-3">⏱️ La unidad de aprendizaje de Estructura de Datos está diseñada para cursarse de
+                        manera presencial en 18 semanas con cuatro horas a la semana. Las horas totales por semestre son
+                        72, de las cuales 36 son horas teoría y 36 son horas prácticas.</p>
+                    <p class="mb-3">🧠 El estudiante tiene 21 horas para dedicar al aprendizaje autónomo para
+                        administrar su tiempo, identificar áreas de mejora y planificación de estrategias para la
+                        resolución de casos. Una propuesta para la resolución de casos es la aplicación de la
+                        herramienta de programación visual y gráfica que son los diagramas de flujo. Estos diagramas
+                        permiten a los estudiantes entender un proceso de principio a fin, organizan los elementos de
+                        manera que tengan sentido y sean fáciles de comprender por la fluidez lógica de las actividades,
+                        además de que se utilizan símbolos gráficos. La elaboración de estos diagramas forma parte de la
+                        evaluación continua.</p>
+                    <p class="mb-3">💻 Al basarse en una metodología de aprendizaje invertido en el aula, el estudiante
+                        un día antes de la clase realizará, mediante la utilización de un lenguaje de programación,
+                        programas para la manipulación de las estructuras de datos.</p>
+                    <div class="dropdown-link-box mb-3">
+                        <p class="mb-1 font-semibold text-indigo-700 text-sm">📺 La herramienta de apoyo para hacer los
+                            programas será a través del canal de YouTube:</p>
+                        <a href="https://www.youtube.com/watch?v=ld4nzao5XAc&list=PLWtYZ2ejMVJlUu1rEHLC0i_oibctkl0Vh&index=2"
+                            target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800 text-sm">
+                            ▶ Ver canal de YouTube →
                         </a>
+                    </div>
+                    <p class="mb-3">💻 Este es un canal externo al cual se hace referencia para apoyar a los estudiantes
+                        en la realización de los programas.
                     </p>
+
+                    <p class="mb-3">🏫 Después, en el laboratorio de cómputo aplicaran los conocimientos adquiridos un
+                        día antes, apoyados por el docente realizaran nuevos programas para resolver casos en el ámbito
+                        del almacenamiento y manejo de las estructuras de datos. Los alumnos, primeramente, elaborarán
+                        una práctica, donde trabajarán colaborativamente, comprenderán y analizaran el caso </p>
+
+                    <p class="mb-3">🔄 Con la aplicación de estrategias de aprendizaje, el estudiante deberá estudiar
+                        las unidades temáticas incluidas en este recurso digital, como la interpretación del enunciado,
+                        la solución de casos creando diagramas de flujo que resuelvan el problema con la estrategia
+                        elegida y, por último, codificar en un lenguaje de programación. La herramienta para lograr lo
+                        anterior es el uso de un lenguaje de programación y el canal de YouTube que proporciona apoyo al
+                        estudiante para aprender a programar desde cero.</p>
+                    <p class="text-indigo-600 font-medium hover:text-indigo-800 text-sm">✍️ Se sugiere hacer uso de la
+                        herramienta LucidChart para elaborar los diagramas de
+                        flujo, que les servirá de apoyo a los estudiantes para realizar un programa.
+                    </p>
+                    <p class="mb-3">📊 Este recurso didáctico permite identificar la repartición de los contenidos de la
+                        unidad de aprendizaje de Estructura de Datos. Es importante identificar una distribución de los
+                        temas a estudiar con base en el tiempo.</p>
+                    <p class="mb-3">👨‍🏫 El docente debe dar a conocer a los estudiantes el programa sintético de la
+                        unidad de aprendizaje de Estructura de Datos en la modalidad presencial, así como las
+                        indicaciones para la implementación de este recurso. Debido a que este recurso didáctico es de
+                        apoyo a la modalidad escolarizada, el acompañamiento del docente permitirá a los estudiantes
+                        lograr adquirir los conocimientos y habilidades. También va a ofrecer apoyo para resolver las
+                        dudas, las actividades, ejercicios e identificar aspectos de incomprensión de los temas que
+                        contienen un alto nivel de abstracción. Por lo anterior, es importante contar con el apoyo de
+                        este recurso didáctico Estructura de Datos.
+                    </p>
+                    <p class="mb-3">Para finalizar, el docente tomará la decisión si considera la evaluación de las
+                        actividades que forman parte de la unidad de aprendizaje.
+                    </p>
+
                 </div>
             </div>
-        </div>
 
-        <!-- Actividades de aprendizaje - PRIMERA INSTANCIA con imagen de fondo -->
-        <div class="dropdown dropdown-bg-5 mb-4 rounded-xl overflow-hidden border border-indigo-200 bg-white shadow-sm">
-            <button class="dropdown-btn w-full py-3.5 px-5 text-left font-semibold text-gray-700 text-base flex items-center justify-between group" aria-expanded="false">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg flex items-center justify-center">
-                        <img src="assets/img/drop3.png" alt="Actividades de aprendizaje" class="w-5 h-5 object-contain">
+            <!-- Te conviene saber con imagen de fondo -->
+            <div
+                class="dropdown dropdown-bg-3 mb-4 rounded-xl overflow-hidden border border-indigo-200 bg-white shadow-sm">
+                <button
+                    class="dropdown-btn w-full py-3.5 px-5 text-left font-semibold text-gray-700 text-base flex items-center justify-between group"
+                    aria-expanded="false">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg flex items-center justify-center">
+                            <img src="assets/img/drop4.jpg" alt="Te conviene saber"
+                                class="w-5 h-5 object-contain rounded">
+                        </div>
+                        <span>Te conviene saber</span>
                     </div>
-                    <span>Actividades de aprendizaje</span>
-                </div>
-                <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </button>
-            <div class="dropdown-content bg-gradient-to-br from-indigo-50/80 to-purple-50/80 border-t border-indigo-100 leading-relaxed text-gray-700 text-sm">
-                <p class="mb-3">📚 Recurso digital de apoyo para el aprendizaje de Estructura de Datos, enfocado en el autoestudio y reforzamiento en clase.</p>
-                <p class="mb-3">📋 Las actividades, los ejercicios y las prácticas se encuentran por unidad temática en este recurso didáctico. La intención de estas actividades es lograr el objetivo educativo y fortalecer la habilidad en la implementación de las estructuras de datos. El acompañamiento del docente es esencial, ya que es la guía para la realización de estas actividades. Las evidencias de las actividades las entregarás en las sesiones presenciales y por los medios electrónicos que te indique tu profesor.</p>
-                <p class="mb-3">✅ Es importante hacer mención que las tareas forman parte de la evaluación continua. Los ejercicios y actividades se realizarán de forma individual. Las prácticas se realizarán en trabajo colaborativo en la sala de cómputo.</p>
-                <p>💬 Los medios de comunicación serán establecidos por el profesor.</p>
-            </div>
-        </div>
-    </div>
-</section>
+                    <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div
+                    class="dropdown-content bg-gradient-to-br from-indigo-50/80 to-purple-50/80 border-t border-indigo-100 leading-relaxed text-gray-700 text-sm">
+                    <h3 class="font-bold text-indigo-700 text-base mb-2">📖 Introducción:</h3>
+                    <p class="mb-3">El recurso digital se basa en el programa académico Plan 06/2021 de la unidad de
+                        aprendizaje: Estructura de Datos del programa académico de la Licenciatura en Ingeniería en
+                        Informática de la UPIICSA, que contiene el siguiente propósito con sus unidades temáticas y con
+                        sus respectivas unidades de competencia.</p>
 
-<!-- Units section -->
-<section class="py-12 md:py-16 px-4 bg-gradient-to-br from-indigo-50/30 to-purple-50/30">
-    <div class="container mx-auto max-w-6xl">
-        <div class="text-center mb-8">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white rounded-full shadow-sm mb-3">
-                <span class="text-lg">📚</span>
-                <span class="text-xs font-medium text-indigo-600">CURRÍCULUM ACADÉMICO</span>
-            </div>
-            <h2 class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">Unidades Temáticas</h2>
-            <div class="w-16 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full"></div>
-            <p class="text-gray-500 text-sm mt-3 max-w-2xl mx-auto">📖 Explora cada unidad para dominar las estructuras de datos</p>
-        </div>
-        
-        <div class="units-grid">
-            <a href="navuni1.html" class="unit-card bg-white rounded-xl overflow-hidden shadow-md border border-indigo-100 group">
-                <img src="assets/img/back01.jpg" alt="Unidad I" class="w-full h-32 md:h-40 object-cover">
-                <div class="p-3 md:p-4">
-                    <h3 class="font-bold text-gray-800 text-sm md:text-base">📊 Unidad temática I</h3>
-                    <p class="text-xs text-gray-500 mt-1">Representación de datos</p>
-                </div>
-            </a>
-            <a href="navuni2.html" class="unit-card bg-white rounded-xl overflow-hidden shadow-md border border-indigo-100 group">
-                <img src="assets/img/back02.jpg" alt="Unidad II" class="w-full h-32 md:h-40 object-cover">
-                <div class="p-3 md:p-4">
-                    <h3 class="font-bold text-gray-800 text-sm md:text-base">📈 Unidad temática II</h3>
-                    <p class="text-xs text-gray-500 mt-1">Estructuras de datos estáticas</p>
-                </div>
-            </a>
-            <a href="navuni3.html" class="unit-card bg-white rounded-xl overflow-hidden shadow-md border border-indigo-100 group">
-                <img src="assets/img/back03.jpg" alt="Unidad III" class="w-full h-32 md:h-40 object-cover">
-                <div class="p-3 md:p-4">
-                    <h3 class="font-bold text-gray-800 text-sm md:text-base">🔗 Unidad temática III</h3>
-                    <p class="text-xs text-gray-500 mt-1">Estructuras dinámicas lineales</p>
-                </div>
-            </a>
-            <a href="navuni4.html" class="unit-card bg-white rounded-xl overflow-hidden shadow-md border border-indigo-100 group">
-                <img src="assets/img/back04.jpg" alt="Unidad IV" class="w-full h-32 md:h-40 object-cover">
-                <div class="p-3 md:p-4">
-                    <h3 class="font-bold text-gray-800 text-sm md:text-base">🌳 Unidad temática IV</h3>
-                    <p class="text-xs text-gray-500 mt-1">Estructuras dinámicas no lineales</p>
-                </div>
-            </a>
-            <a href="navuni5.html" class="unit-card bg-white rounded-xl overflow-hidden shadow-md border border-indigo-100 group">
-                <img src="assets/img/back05.jpg" alt="Bibliografía" class="w-full h-32 md:h-40 object-cover">
-                <div class="p-3 md:p-4">
-                    <h3 class="font-bold text-gray-800 text-sm md:text-base">📚 Bibliografía</h3>
-                    <p class="text-xs text-gray-500 mt-1">Fuentes y referencias académicas</p>
-                </div>
-            </a>
-        </div>
-    </div>
-</section>
+                    <h3 class="font-bold text-indigo-700 text-base mb-2">🎯 Propósito de la Unidad de aprendizaje:</h3>
+                    <p class="mb-3">Implementa soluciones a problemas en el ámbito del almacenamiento y manejo de la
+                        información en la memoria principal, a partir de estructuras de datos, su representación y sus
+                        posibilidades, así como estrategias de almacenamiento y lenguajes de programación de alto nivel.
+                    </p>
 
-<!-- SEGUNDO dropdown de Actividades de aprendizaje con imagen de fondo -->
-<section class="py-6 px-4 bg-white/80 backdrop-blur-sm">
-    <div class="dropdown-container max-w-3xl mx-auto">
-        <div class="dropdown dropdown-bg-6 mb-4 rounded-xl overflow-hidden border border-indigo-200 bg-white shadow-sm">
-            <button class="dropdown-btn w-full py-3.5 px-5 text-left font-semibold text-gray-700 text-base flex items-center justify-between group" aria-expanded="false">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg flex items-center justify-center">
-                        <img src="assets/img/drop3.png" alt="Actividades de aprendizaje" class="w-5 h-5 object-contain">
+                    <h3 class="font-bold text-indigo-700 text-base mb-1">📊 Unidad Temática I: Representación de datos
+                    </h3>
+                    <h4 class="font-semibold text-purple-600 text-sm mb-1">🎯 Unidad de competencia:</h4>
+                    <p class="mb-2">Emplea tipos y estructuras de datos en la memoria de una computadora a partir de su
+                        clasificación y propósito, así como un lenguaje de programación.</p>
+                    <p class="mb-1"><strong>1.1</strong> 💾 Medios de almacenamiento y organización de la memoria en una
+                        computadora</p>
+                    <p class="mb-1"><strong>1.2</strong> 🗂️ Organización de los datos en la memoria física y lógica</p>
+                    <p class="mb-1 ml-4">1.2.1 📋 Clasificación de datos simples y compuestos</p>
+                    <p class="mb-1 ml-4">1.2.2 ⚙️ Operaciones permitidas con los datos</p>
+                    <p class="mb-1"><strong>1.3</strong> 📐 Representación de las estructuras de datos</p>
+                    <p class="mb-3 ml-4">1.3.1 🔧 Operaciones básicas sobre las estructuras de datos</p>
+
+                    <h3 class="font-bold text-indigo-700 text-base mb-1">📈 Unidad Temática II: Estructura de datos
+                        estáticas</h3>
+                    <h4 class="font-semibold text-purple-600 text-sm mb-1">🎯 Unidad de competencia:</h4>
+                    <p class="mb-2">Implementa estructuras de datos estáticas en la memoria de una computadora a partir
+                        del uso de arreglos, su representación y sus posibilidades, así como un lenguaje de
+                        programación.</p>
+                    <p class="mb-1"><strong>2.1</strong> 📊 Arreglos unidimensionales</p>
+                    <p class="mb-1 ml-4">2.1.1 🔍 Representación</p>
+                    <p class="mb-1 ml-4">2.1.2 📝 Formas de uso</p>
+                    <p class="mb-1 ml-4">2.1.3 💻 Implementación</p>
+                    <p class="mb-1 ml-4">2.1.4 ⚙️ Operaciones permitidas</p>
+                    <p class="mb-1"><strong>2.2</strong> 📊 Arreglos bidimensionales</p>
+                    <p class="mb-1 ml-4">2.2.1 🔍 Representación</p>
+                    <p class="mb-1 ml-4">2.2.2 📝 Formas de uso</p>
+                    <p class="mb-1 ml-4">2.2.3 💻 Implementación</p>
+                    <p class="mb-1 ml-4">2.2.4 ⚙️ Operaciones permitidas</p>
+                    <p class="mb-1"><strong>2.3</strong> 📊 Arreglos multidimensionales</p>
+                    <p class="mb-1 ml-4">2.3.1 🔍 Representación</p>
+                    <p class="mb-3 ml-4">2.3.2 📝 Formas de uso</p>
+
+                    <h3 class="font-bold text-indigo-700 text-base mb-1">🔗 Unidad Temática III: Estructura de datos
+                        dinámicas lineales</h3>
+                    <h4 class="font-semibold text-purple-600 text-sm mb-1">🎯 Unidad de competencia:</h4>
+                    <p class="mb-2">Implementa estructuras de datos dinámicas lineales en la memoria de una computadora
+                        a partir del uso de pilas, colas y listas enlazadas, su representación y sus posibilidades, así
+                        como un lenguaje de programación.</p>
+                    <p class="mb-1"><strong>3.1</strong> 🎯 Apuntadores</p>
+                    <p class="mb-1"><strong>3.2</strong> 📚 Pilas</p>
+                    <p class="mb-1 ml-4">3.2.1 🔍 Representación</p>
+                    <p class="mb-1 ml-4">3.2.2 📝 Formas de uso</p>
+                    <p class="mb-1 ml-4">3.2.3 💻 Implementación</p>
+                    <p class="mb-1 ml-4">3.2.4 ⚙️ Operaciones permitidas</p>
+                    <p class="mb-1"><strong>3.3</strong> 🚶 Colas</p>
+                    <p class="mb-1 ml-4">3.3.1 🔍 Representación</p>
+                    <p class="mb-1 ml-4">3.3.2 📝 Formas de uso</p>
+                    <p class="mb-1 ml-4">3.3.3 💻 Implementación</p>
+                    <p class="mb-1 ml-4">3.3.4 ⚙️ Operaciones permitidas</p>
+                    <p class="mb-1"><strong>3.4</strong> 🔗 Listas enlazadas</p>
+                    <p class="mb-1 ml-4">3.4.1 🔍 Representación</p>
+                    <p class="mb-1 ml-4">3.4.2 📝 Formas de uso</p>
+                    <p class="mb-1 ml-4">3.4.3 💻 Implementación</p>
+                    <p class="mb-3 ml-4">3.4.4 ⚙️ Operaciones permitidas</p>
+
+                    <h3 class="font-bold text-indigo-700 text-base mb-1">🌳 Unidad Temática IV: Estructura de datos
+                        dinámicas no lineales</h3>
+                    <h4 class="font-semibold text-purple-600 text-sm mb-1">🎯 Unidad de competencia:</h4>
+                    <p class="mb-2">Implementa estructuras de datos dinámicas no lineales en la memoria de una
+                        computadora a partir del uso de árboles y grafos, su representación y sus posibilidades, así
+                        como un lenguaje de programación.</p>
+                    <p class="mb-1"><strong>4.1</strong> 🌲 Árboles</p>
+                    <p class="mb-1 ml-4">4.1.1 🔍 Representación</p>
+                    <p class="mb-1 ml-4">4.1.2 📝 Formas de uso</p>
+                    <p class="mb-1 ml-4">4.1.3 💻 Implementación</p>
+                    <p class="mb-1 ml-4">4.1.4 ⚙️ Operaciones permitidas</p>
+                    <p class="mb-1"><strong>4.2</strong> 🕸️ Grafos</p>
+                    <p class="mb-1 ml-4">4.2.1 🔍 Representación</p>
+                    <p class="mb-1 ml-4">4.2.2 📝 Formas de uso</p>
+                    <p class="mb-1 ml-4">4.2.3 💻 Implementación</p>
+                    <p class="mb-3 ml-4">4.2.4 ⚙️ Operaciones permitidas</p>
+                </div>
+            </div>
+
+            <!-- Herramienta de apoyo con imagen de fondo -->
+            <div
+                class="dropdown dropdown-bg-4 mb-4 rounded-xl overflow-hidden border border-indigo-200 bg-white shadow-sm">
+                <button
+                    class="dropdown-btn w-full py-3.5 px-5 text-left font-semibold text-gray-700 text-base flex items-center justify-between group"
+                    aria-expanded="false">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg flex items-center justify-center">
+                            <img src="assets/img/drop5.jpg" alt="Herramienta de apoyo"
+                                class="w-5 h-5 object-contain rounded">
+                        </div>
+                        <span>Herramienta de apoyo</span>
                     </div>
-                    <span>Creditos</span>
+                    <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div
+                    class="dropdown-content bg-gradient-to-br from-indigo-50/80 to-purple-50/80 border-t border-indigo-100 leading-relaxed text-gray-700 text-sm">
+                    <h3 class="font-bold text-indigo-700 text-base mb-2">🛠️ Lenguaje de programación de alto nivel:
+                    </h3>
+                    <p class="mb-3">💻 El uso de un lenguaje de programación es elemental para la manipulación de las
+                        estructuras de datos.</p>
+
+                    <h3 class="font-bold text-indigo-700 text-base mb-2">📺 Canal de apoyo educativo:</h3>
+                    <p class="mb-2">Consulta el siguiente canal de YouTube:</p>
+                    <div class="dropdown-link-box mb-3">
+                        <a href="https://www.youtube.com/watch?v=ld4nzao5XAc&list=PLWtYZ2ejMVJlUu1rEHLC0i_oibctkl0Vh&index=2"
+                            target="_blank" class="text-indigo-600 font-medium hover:text-indigo-800">
+                            ▶ Ver canal de YouTube →
+                        </a>
+                    </div>
+                    <p class="mb-3">📚 Es un tutorial accesible del lenguaje de programación C++ y estructura de datos,
+                        que te permite aprender paso a paso a programar desde cero.</p>
+
+                    <h3 class="font-bold text-indigo-700 text-base mb-2">📧 Contacto con los autores:</h3>
+                    <div class="dropdown-link-box contacto-autores">
+                        <p><strong>👩‍🏫 M. en E. Ruth Blas Vázquez</strong></p>
+                        <p class="mb-1">📧 Email:
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rblas@ipn.mx" target="_blank"
+                                class="text-indigo-600 hover:text-indigo-800">
+                                rblas@ipn.mx
+                            </a>
+                        </p>
+                    </div>
                 </div>
-                <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </button>
-            
-            <div class="dropdown-content bg-gradient-to-br from-indigo-50/80 to-purple-50/80 border-t border-indigo-100 leading-relaxed text-gray-700 text-sm">
-
-            <!-- Institución -->
-            <p class="mb-3">
-                🏛️ <strong>Instituto Politécnico Nacional</strong><br>
-                Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)<br>
-            </p>
-
-            <p class="mb-3">
-                🏛️ <strong>Subdirección Academica </strong><br>
-                Unidad de Tecnología Educativa y Campus Virtua<br>
-            </p>
-
-            <!-- Autores -->
-            <p class="mb-1 font-semibold text-indigo-700">✍️ Autores</p>
-
-            <p class="mb-3">
-                <strong>M. en E. Ruth Blas Vázquez</strong><br>
-                <span class="italic text-gray-500">Información del docente próximamentA EDITAR
-
-           
-            <!-- Producción -->
-            <p class="mb-1 font-semibold text-indigo-700">⚙️ Producción</p>
-
-            <p class="mb-2">
-                🗂️ <strong>Jefatura UTEyCV</strong><br>
-                Ing.A EDITAR
-            </p>
-
-            <p class="mb-2">
-                📐 <strong>Diseño instruccional</strong><br>
-                Giancarlo Perez Perez (prácticas profesionales)
-            </p>
-
-            <p class="mb-2">
-                🎨 <strong>Diseño gráfico</strong><br>
-                Giancarlo Perez Perez (prácticas profesionales)
-            </p>
-
-            <p class="mb-0">
-                💻 <strong>Programación web</strong><br>
-                Giancarlo Perez Perez (prácticas profesionales)
-            </p>
-
             </div>
 
+            <!-- Actividades de aprendizaje - PRIMERA INSTANCIA con imagen de fondo -->
+            <div
+                class="dropdown dropdown-bg-5 mb-4 rounded-xl overflow-hidden border border-indigo-200 bg-white shadow-sm">
+                <button
+                    class="dropdown-btn w-full py-3.5 px-5 text-left font-semibold text-gray-700 text-base flex items-center justify-between group"
+                    aria-expanded="false">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg flex items-center justify-center">
+                            <img src="assets/img/drop3.png" alt="Actividades de aprendizaje"
+                                class="w-5 h-5 object-contain">
+                        </div>
+                        <span>Actividades de aprendizaje</span>
+                    </div>
+                    <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div
+                    class="dropdown-content bg-gradient-to-br from-indigo-50/80 to-purple-50/80 border-t border-indigo-100 leading-relaxed text-gray-700 text-sm">
+                    <p class="mb-3">📚 Recurso digital de apoyo para el aprendizaje de Estructura de Datos, enfocado en
+                        el autoestudio y reforzamiento en clase.</p>
+                    <p class="mb-3">📋 Las actividades, los ejercicios y las prácticas se encuentran por unidad temática
+                        en este recurso didáctico. La intención de estas actividades es lograr el objetivo educativo y
+                        fortalecer la habilidad en la implementación de las estructuras de datos. El acompañamiento del
+                        docente es esencial, ya que es la guía para la realización de estas actividades. Las evidencias
+                        de las actividades las entregarás en las sesiones presenciales y por los medios electrónicos que
+                        te indique tu profesor.</p>
+                    <p class="mb-3">✅ Es importante hacer mención que las tareas forman parte de la evaluación continua.
+                        Los ejercicios y actividades se realizarán de forma individual. Las prácticas se realizarán en
+                        trabajo colaborativo en la sala de cómputo.</p>
+                    <p>💬 Los medios de comunicación serán establecidos por el profesor.</p>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Footer -->
-<footer class="bg-gradient-to-r from-indigo-800 to-purple-800 text-white py-8 px-4">
-    <div class="container mx-auto max-w-6xl text-center">
-        <div class="flex justify-center gap-6 mb-6">
-            <img src="assets/img/ipn.jpg" alt="IPN" class="h-12 w-auto bg-white/20 rounded-lg p-2">
-            <img src="assets/img/upiicsa.jpg" alt="UPIICSA" class="h-12 w-auto bg-white/20 rounded-lg p-2">
+    <!-- Units section -->
+    <section class="py-12 md:py-16 px-4 bg-gradient-to-br from-indigo-50/30 to-purple-50/30">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white rounded-full shadow-sm mb-3">
+                    <span class="text-lg">📚</span>
+                    <span class="text-xs font-medium text-indigo-600">CURRÍCULUM ACADÉMICO</span>
+                </div>
+                <h2
+                    class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                    Unidades Temáticas</h2>
+                <div class="w-16 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full"></div>
+                <p class="text-gray-500 text-sm mt-3 max-w-2xl mx-auto">📖 Explora cada unidad para dominar las
+                    estructuras de datos</p>
+            </div>
+
+            <div class="units-grid">
+                <a href="navuni1.html"
+                    class="unit-card bg-white rounded-xl overflow-hidden shadow-md border border-indigo-100 group">
+                    <img src="assets/img/back01.jpg" alt="Unidad I" class="w-full h-32 md:h-40 object-cover">
+                    <div class="p-3 md:p-4">
+                        <h3 class="font-bold text-gray-800 text-sm md:text-base">📊 Unidad temática I</h3>
+                        <p class="text-xs text-gray-500 mt-1">Representación de datos</p>
+                    </div>
+                </a>
+                <a href="navuni2.html"
+                    class="unit-card bg-white rounded-xl overflow-hidden shadow-md border border-indigo-100 group">
+                    <img src="assets/img/back02.jpg" alt="Unidad II" class="w-full h-32 md:h-40 object-cover">
+                    <div class="p-3 md:p-4">
+                        <h3 class="font-bold text-gray-800 text-sm md:text-base">📈 Unidad temática II</h3>
+                        <p class="text-xs text-gray-500 mt-1">Estructuras de datos estáticas</p>
+                    </div>
+                </a>
+                <a href="navuni3.html"
+                    class="unit-card bg-white rounded-xl overflow-hidden shadow-md border border-indigo-100 group">
+                    <img src="assets/img/back03.jpg" alt="Unidad III" class="w-full h-32 md:h-40 object-cover">
+                    <div class="p-3 md:p-4">
+                        <h3 class="font-bold text-gray-800 text-sm md:text-base">🔗 Unidad temática III</h3>
+                        <p class="text-xs text-gray-500 mt-1">Estructuras dinámicas lineales</p>
+                    </div>
+                </a>
+                <a href="navuni4.html"
+                    class="unit-card bg-white rounded-xl overflow-hidden shadow-md border border-indigo-100 group">
+                    <img src="assets/img/back04.jpg" alt="Unidad IV" class="w-full h-32 md:h-40 object-cover">
+                    <div class="p-3 md:p-4">
+                        <h3 class="font-bold text-gray-800 text-sm md:text-base">🌳 Unidad temática IV</h3>
+                        <p class="text-xs text-gray-500 mt-1">Estructuras dinámicas no lineales</p>
+                    </div>
+                </a>
+                <a href="navuni5.html"
+                    class="unit-card bg-white rounded-xl overflow-hidden shadow-md border border-indigo-100 group">
+                    <img src="assets/img/back05.jpg" alt="Bibliografía" class="w-full h-32 md:h-40 object-cover">
+                    <div class="p-3 md:p-4">
+                        <h3 class="font-bold text-gray-800 text-sm md:text-base">📚 Glosario</h3>
+                        <p class="text-xs text-gray-500 mt-1">Fuentes y referencias académicas</p>
+                    </div>
+                </a>
+            </div>
         </div>
-        <div class="w-12 h-0.5 bg-white/30 mx-auto mb-4"></div>
-        <h3 class="text-xl font-semibold mb-2">🏛️ UPIICSA · IPN</h3>
-        <p class="text-indigo-200 text-sm mb-1">📘 Unidad de Aprendizaje: Estructura de Datos</p>
-        <p class="text-indigo-300/60 text-xs">© 2026 Instituto Politécnico Nacional</p>
-    </div>
-</footer>
+    </section>
 
-<script src="js/ui.js"></script>
+    <!-- SEGUNDO dropdown de Actividades de aprendizaje con imagen de fondo -->
+    <section class="py-6 px-4 bg-white/80 backdrop-blur-sm">
+        <div class="dropdown-container max-w-3xl mx-auto">
+            <div
+                class="dropdown dropdown-bg-6 mb-4 rounded-xl overflow-hidden border border-indigo-200 bg-white shadow-sm">
+                <button
+                    class="dropdown-btn w-full py-3.5 px-5 text-left font-semibold text-gray-700 text-base flex items-center justify-between group"
+                    aria-expanded="false">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg flex items-center justify-center">
+                            <img src="assets/img/drop3.png" alt="Actividades de aprendizaje"
+                                class="w-5 h-5 object-contain">
+                        </div>
+                        <span>Creditos</span>
+                    </div>
+                    <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+
+                <div
+                    class="dropdown-content bg-gradient-to-br from-indigo-50/80 to-purple-50/80 border-t border-indigo-100 leading-relaxed text-gray-700 text-sm">
+
+                    <!-- Institución -->
+                    <p class="mb-3">
+                        🏛️ <strong>Instituto Politécnico Nacional</strong><br>
+                        Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas
+                        (UPIICSA)<br>
+                    </p>
+
+                    <p class="mb-3">
+                        🏛️ <strong>Subdirección Academica </strong><br>
+                        Unidad de Tecnología Educativa y Campus Virtua<br>
+                    </p>
+
+                    <!-- Autores -->
+                    <p class="mb-1 font-semibold text-indigo-700">✍️ Autores</p>
+
+                    <p class="mb-3">
+                        <strong>M. en E. Ruth Blas Vázquez</strong><br>
+                        <span class="italic text-gray-500">Información del docente próximamentA EDITAR
+
+
+                            <!-- Producción -->
+                            <p class="mb-1 font-semibold text-indigo-700">⚙️ Producción</p>
+
+                            <p class="mb-2">
+                                🗂️ <strong>Jefatura UTEyCV</strong><br>
+                                Ing.A EDITAR
+                            </p>
+
+                            <p class="mb-0">
+                                💻 <strong>Programación web</strong><br>
+                                Giancarlo Perez Perez (prácticas profesionales)
+                            </p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-indigo-800 to-purple-800 text-white py-8 px-4">
+        <div class="container mx-auto max-w-6xl text-center">
+            <div class="flex justify-center gap-6 mb-6">
+                <img src="assets/img/ipn.jpg" alt="IPN" class="h-12 w-auto bg-white/20 rounded-lg p-2">
+                <img src="assets/img/upiicsa.jpg" alt="UPIICSA" class="h-12 w-auto bg-white/20 rounded-lg p-2">
+            </div>
+            <div class="w-12 h-0.5 bg-white/30 mx-auto mb-4"></div>
+            <h3 class="text-xl font-semibold mb-2">🏛️ UPIICSA · IPN</h3>
+            <p class="text-indigo-200 text-sm mb-1">📘 Unidad de Aprendizaje: Estructura de Datos</p>
+            <p class="text-indigo-300/60 text-xs">© 2026 Instituto Politécnico Nacional</p>
+        </div>
+    </footer>
+
+    <script src="js/ui.js"></script>
 </body>
+
 </html>

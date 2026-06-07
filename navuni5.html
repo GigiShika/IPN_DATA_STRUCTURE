@@ -1,67 +1,527 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unidad 1 - Estructura de Datos</title>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/menu.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="icon" type="image/png" href="assets/img/hader.jpg">
+    <link rel="stylesheet" href="css/stylenav.css">
+    <title>Estructura de Datos | UPIICSA</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --ipn-burgundy: #6B0F1A;
+            --ipn-gold: #C8921A;
+            --ipn-blue-deep: #0a2f5a;
+            --ipn-blue-mid: #1a4a8a;
+            --ipn-blue-light: #2d6abf;
+            --section-teal: #0e5c6b;
+            --section-teal-2: #0d7a6e;
+            --section-navy: #1a2e4a;
+            --bg-page: #f6f8fc;
+            --card-bg: #ffffff;
+            --text-body: #2d3748;
+            --text-muted: #718096;
+            --border-subtle: #e2e8f0;
+            --accent-amber: #d97706;
+            --accent-teal: #0891b2;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-page);
+            color: var(--text-body);
+            margin: 0;
+        }
+
+        /* ─── TOP BAR (estilo navuni1) ─────────────────── */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 8px 20px;
+            border-bottom: 3px solid var(--ipn-burgundy);
+            flex-wrap: nowrap;
+            gap: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        .logo-left, .logo-right { flex-shrink: 0; }
+        .logo-left img, .logo-right img {
+            height: 60px;
+            width: auto;
+            display: block;
+            transition: transform 0.2s ease;
+        }
+        .logo-left img:hover, .logo-right img:hover { transform: scale(1.05); }
+        .institution-text {
+            text-align: center;
+            flex: 1;
+            margin: 0 auto;
+        }
+        .institution-text h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--ipn-blue-deep);
+            margin: 0;
+            letter-spacing: -0.3px;
+            text-align: center !important;
+        }
+        .institution-text p {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4a5568;
+            margin: 4px 0 0;
+            text-align: center !important;
+        }
+        @media (max-width: 768px) {
+            .top-bar { flex-wrap: wrap; justify-content: center; padding: 6px 12px; gap: 8px; }
+            .logo-left img, .logo-right img { height: 45px; }
+            .institution-text { order: 3; flex-basis: 100%; }
+            .institution-text h2 { font-size: 1rem; }
+            .institution-text p { font-size: 0.72rem; }
+        }
+        .header-logos { display: none !important; }
+
+        /* ─── HEADER ─────────────────────────────────── */
+        .header-image-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+        }
+        .header-text-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(6,20,50,0.92) 0%, rgba(6,20,50,0.5) 60%, transparent 100%);
+            padding: 28px 32px 24px;
+        }
+        .header-text-overlay .polilibro {
+            display: inline-block;
+            background: var(--ipn-gold);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+        .header-text-overlay h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            margin: 0;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            text-align: left !important;
+        }
+
+        /* ─── NAV ─────────────────────────────────────── */
+        .nav-bg-custom {
+            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 100%);
+            border-bottom: 3px solid var(--ipn-gold);
+        }
+        .nav-link-underline {
+            position: relative;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            color: rgba(255,255,255,0.92) !important;
+            padding: 13px 18px;
+            border-radius: 6px 6px 0 0;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: block;
+        }
+        .nav-link-underline:hover {
+            background: rgba(255,255,255,0.15) !important;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        .nav-link-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%; right: 50%;
+            height: 3px;
+            background: var(--ipn-gold);
+            border-radius: 2px;
+            transition: left 0.25s, right 0.25s;
+        }
+        .nav-link-underline:hover::after { left: 8%; right: 8%; }
+        .nav-toggle-custom {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 12px 20px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ─── PAGE LAYOUT ─────────────────────────────── */
+        .page-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* ─── UNIT BANNER (estilo navuni1) ───────────────── */
+        .unit-banner {
+            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 60%, var(--ipn-blue-light) 100%);
+            border-radius: 14px;
+            padding: 28px 32px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(10,47,90,0.25);
+        }
+        .unit-banner::before {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 180px; height: 180px;
+            background: rgba(200,146,26,0.18);
+            border-radius: 50%;
+        }
+        .unit-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -60px; left: 30%;
+            width: 240px; height: 240px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        .unit-banner h1, .unit-banner h2 {
+            font-family: 'Outfit', sans-serif;
+            color: white;
+            margin: 0;
+            position: relative; z-index: 1;
+            text-align: left !important;
+        }
+        .unit-banner h1 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ipn-gold);
+            margin-bottom: 6px;
+        }
+        .unit-banner h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+        .unit-banner .unit-label {
+            display: inline-block;
+            background: var(--ipn-gold);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            position: relative; z-index: 1;
+        }
+
+        /* ─── GLOSARIO CARDS (estilo consistente con activity-box) ── */
+        .glossary-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid var(--border-subtle);
+        }
+        .glossary-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.15);
+        }
+        .glossary-card .card-header {
+            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 100%);
+            padding: 14px 20px;
+            border-bottom: 2px solid var(--ipn-gold);
+        }
+        .glossary-card .card-header h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+            text-align: left !important;
+        }
+        .glossary-card .card-body {
+            padding: 20px;
+        }
+        .glossary-card .card-body p {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: var(--text-body);
+            margin: 0;
+            text-align: justify;
+        }
+
+        /* ─── SEARCH INPUT ────────────────────────────── */
+        .glossary-search {
+            width: 100%;
+            padding: 14px 20px 14px 48px;
+            border-radius: 50px;
+            border: 1px solid var(--border-subtle);
+            background: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+        }
+        .glossary-search:focus {
+            outline: none;
+            border-color: var(--ipn-blue-light);
+            box-shadow: 0 0 0 3px rgba(45,106,191,0.2);
+        }
+
+        /* ─── NAV BUTTONS ────────────────────────────── */
+        .nav-btn {
+            background: linear-gradient(135deg, var(--ipn-blue-mid) 0%, var(--ipn-blue-deep) 100%);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 16px rgba(10,47,90,0.25);
+            transition: all 0.25s;
+        }
+        .nav-btn:hover {
+            box-shadow: 0 8px 28px rgba(10,47,90,0.35);
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--ipn-blue-light) 0%, var(--ipn-blue-mid) 100%);
+        }
+        .nav-btn:active { transform: translateY(0); }
+
+        /* ─── FOOTER (estilo navuni1) ─────────────────── */
+        .page-footer {
+            background: linear-gradient(180deg, #f4faff 0%, #e6f3ff 50%, white 100%);
+            border-top: 3px solid var(--ipn-blue-deep);
+            padding: 32px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        .page-footer h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            color: var(--ipn-blue-deep);
+            font-weight: 700;
+            margin: 0 0 6px;
+            text-align: center !important;
+        }
+        .page-footer p {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            margin: 3px 0;
+            text-align: center !important;
+        }
+
+        /* Utilidades */
+        p, li { text-align: justify; }
+        h1, h2, h3, h4, h5, h6 { text-align: left; }
+        .text-justify { text-align: justify !important; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .max-w-2xl { max-width: 42rem; }
+        .grid { display: grid; }
+        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        .gap-6 { gap: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mt-3 { margin-top: 0.75rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .text-center { text-align: center; }
+        .text-gray-500 { color: #6b7280; }
+        .text-sm { font-size: 0.875rem; }
+        .rounded-full { border-radius: 9999px; }
+        .bg-white\/80 { background-color: rgba(255,255,255,0.8); }
+        .backdrop-blur-sm { backdrop-filter: blur(4px); }
+        @media (min-width: 768px) {
+            .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        @media (min-width: 1024px) {
+            .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+    </style>
 </head>
 <body>
 
-<header class="header">
-    <div class="header-banner">
-        <img src="assets/img/titulo.avif" alt="Título" class="header-bg">
-
-        <div class="banner-text">
-            <p class="polilibro">Polilibro</p>
-            <h1 class="titulo-principal">Estructura de Datos</h1>
-        </div>
-
-        <div class="header-logos">
-            <img src="assets/img/ipn.jpg" alt="IPN" class="logo">
-            <img src="assets/img/upiicsa.jpg" alt="UPIICSA" class="logo">
-        </div>
-
+<!-- BARRA SUPERIOR (estilo navuni1) -->
+<div class="top-bar">
+    <div class="logo-left">
+        <img src="assets/img/ipn.jpg" alt="IPN">
     </div>
+    <div class="institution-text">
+        <h2>Instituto Politécnico Nacional</h2>
+        <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
+    </div>
+    <div class="logo-right">
+        <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
+    </div>
+</div>
 
+<!-- Header con imagen -->
+<header style="padding: 24px 20px;">
+    <div style="max-width: 960px; margin: 0 auto;">
+        <div class="header-image-container">
+            <img src="assets/img/titulo.avif" alt="Estructura de Datos" style="width:100%; height:280px; object-fit:cover; display:block;">
+            <div class="header-text-overlay">
+                <p class="polilibro">📘 Polilibro</p>
+                <h1>📊 Estructura de Datos</h1>
+            </div>
+        </div>
+    </div>
 </header>
-<nav class="main-nav">
-    <button class="nav-toggle">&#9776;</button>
-    <ul class="nav-links">
-        <li><a href="index.html">INICIO</a></li>
-        <li><a href="navuni1.html">Unidad temática I</a></li>
-        <li><a href="navuni2.html">Unidad temática II</a></li>
-        <li><a href="navuni3.html">Unidad temática III</a></li>
-        <li><a href="navuni4.html">Unidad temática IV</a></li>
-        <li><a href="navuni5.html">Bibliografia</a></li>
-        <li><a href="glosario.html">GLOSARIO</a></li>
-    </ul>
-</nav>
 
-<section class="unit-content" style="padding:60px 20px; text-align:center;">
-     <h3>BIBLIOGRAFIA</h3>
-     <p>Aquí irá todo el contenido de la BIBLIOGRAFIA.</p>
-</section>
-
-<footer class="footer">
-    <div class="footer-content">
-        <h3>UPIICSA · IPN</h3>
-        <p>Unidad de Aprendizaje: Estructura de Datos</p>
-        <p>© 2026 Instituto Politécnico Nacional</p>
+<!-- NAV (exactamente el mismo que navuni1) -->
+<div class="w-full nav-bg-custom shadow-md" style="border-radius: 0 0 10px 10px;">
+    <div class="flex justify-center">
+        <nav class="w-[90%] md:w-[75%] mx-auto">
+            <button class="nav-toggle md:hidden text-[1.8rem] text-white bg-none border-none cursor-pointer p-[12px_20px] w-full text-left font-bold nav-toggle-custom">☰ MENÚ</button>
+            <ul class="nav-links hidden md:flex justify-center gap-[10px] list-none m-0 p-0">
+                <li><a href="index.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🏠 INICIO</a></li>
+                <li><a href="navuni1.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📊 Unidad I</a></li>
+                <li><a href="navuni2.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📈 Unidad II</a></li>
+                <li><a href="navuni3.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🔗 Unidad III</a></li>
+                <li><a href="navuni4.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🌳 Unidad IV</a></li>
+                <li><a href="navuni5.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖 Glosario</a></li>
+            </ul>
+        </nav>
     </div>
+</div>
+
+<!-- CONTENIDO PRINCIPAL (GLOSARIO) -->
+<div class="page-content">
+
+    <!-- UNIT BANNER (estilo navuni1) -->
+    <div class="unit-banner">
+        <span class="unit-label">Polilibro · UPIICSA</span>
+        <h1>📖 Glosario de Términos</h1>
+        <h2>Definiciones clave para dominar las estructuras de datos</h2>
+    </div>
+
+    <!-- Buscador -->
+    <div class="max-w-2xl mx-auto mb-8">
+        <div class="relative">
+            <input type="text" id="glossarySearch" placeholder="🔎 Buscar término o definición..." 
+                   class="glossary-search">
+            <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Grid de términos (se llena con JS) -->
+    <div id="glossaryGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+</div>
+
+<!-- BOTÓN VOLVER AL INICIO -->
+<div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:16px; max-width:900px; margin:0 auto; padding:16px 24px 48px;">
+    <a href="index.html" class="nav-btn">
+        🏠 Volver al Inicio
+    </a>
+</div>
+
+<!-- FOOTER (estilo navuni1) -->
+<footer class="page-footer">
+    <h3>🏛️ UPIICSA · IPN</h3>
+    <p>Unidad de Aprendizaje: Estructura de Datos</p>
+    <p>© 2026 Instituto Politécnico Nacional</p>
 </footer>
+
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleButton = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (toggleButton && navLinks) {
-        toggleButton.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
+    // Lista de términos y definiciones (exactamente los originales)
+    const glossaryData = [
+        { term: "Apuntador", definition: "Es una variable que contiene una dirección de memoria." },
+        { term: "Arreglo", definition: "Es un tipo de dato estructurado que contiene elementos del mismo tipo." },
+        { term: "Asignación", definition: "Se le designa un valor a una variable o estructura de datos con el símbolo ’=’." },
+        { term: "CPU", definition: "Unidad central de procesamiento." },
+        { term: "Dato simple", definition: "Son los datos como enteros, flotantes, caracteres, booleanos, etc." },
+        { term: "Dato estructurado", definition: "Son los datos mas complejos como son las estructuras de datos." },
+        { term: "Dinámica", definition: "El tamaño de una estructura de datos puede cambiar durante la ejecución del programa." },
+        { term: "LIFO", definition: "Last In, First Out = el último elemento en entrar es el primero en salir." },
+        { term: "Estática", definition: "Estructura de datos que, durante la ejecución del programa, no se puede modificar su tamaño." },
+        { term: "FIFO", definition: "First-In, First-Out: primero en entrar, primero en salir." },
+        { term: "For", definition: "Estructura de control que repite varias veces un conjunto de instrucciones, hasta que ya no se cumpla una condición." },
+        { term: "Lenguaje de programación", definition: "Es un conjunto de instrucciones lógicas que permiten comunicarse con el ordenador para ser ejecutadas." },
+        { term: "Matriz", definition: "Conjunto de filas y columnas que son del mismo tipo." },
+        { term: "Memoria volátil", definition: "Almacenamiento temporal de los datos." },
+        { term: "Programa fuente", definition: "Es un objeto que se genera al momento de compilar un programa." },
+        { term: "Programa ejecutable", definition: "Al momento de compilar el programa fuente, se crea el programa ejecutable." },
+        { term: "RAM", definition: "Random Access Memory: memoria de acceso aleatorio, memoria volátil." },
+        { term: "ROM", definition: "Read-Only Memory: memoria solo de lectura." },
+        { term: "Subíndice", definition: "Es una variable de tipo entero que nos permite acceder o identificar un elemento particular de un arreglo." },
+        { term: "Tabla", definition: "Es el termino común que se les da a los elementos principales de una base de datos, que consta de atributos y registros." },
+        { term: "Variable", definition: "Son las posiciones de memoria asociadas a un nombre." },
+        { term: "Vector", definition: "Se utiliza para representar un arreglo en memoria." }
+    ];
+
+    function escapeHtml(str) {
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
         });
     }
-});
+
+    function renderGlossary(filterText = "") {
+        const grid = document.getElementById("glossaryGrid");
+        if (!grid) return;
+        const lowerFilter = filterText.toLowerCase();
+        const filtered = glossaryData.filter(item => 
+            item.term.toLowerCase().includes(lowerFilter) || 
+            item.definition.toLowerCase().includes(lowerFilter)
+        );
+        
+        if (filtered.length === 0) {
+            grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500">✨ No se encontraron términos que coincidan con "${escapeHtml(filterText)}"</div>`;
+            return;
+        }
+        
+        grid.innerHTML = filtered.map(item => `
+            <div class="glossary-card">
+                <div class="card-header">
+                    <h3>📌 ${escapeHtml(item.term)}</h3>
+                </div>
+                <div class="card-body">
+                    <p>${escapeHtml(item.definition)}</p>
+                </div>
+            </div>
+        `).join("");
+    }
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        renderGlossary();
+        const searchInput = document.getElementById("glossarySearch");
+        if (searchInput) {
+            searchInput.addEventListener("input", function(e) {
+                renderGlossary(e.target.value);
+            });
+        }
+    });
 </script>
+
+<script src="js/ui.js"></script>
+</body>
 </html>
