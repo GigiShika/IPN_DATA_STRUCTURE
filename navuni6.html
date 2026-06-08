@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="icon" type="image/png" href="assets/img/hader.jpg">
+    <link rel="stylesheet" href="css/stylenav.css">
+    <title>Estructura de Datos | UPIICSA</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --ipn-burgundy: #6B0F1A;
+            --ipn-gold: #C8921A;
+            --ipn-blue-deep: #0a2f5a;
+            --ipn-blue-mid: #1a4a8a;
+            --ipn-blue-light: #2d6abf;
+            --section-teal: #0e5c6b;
+            --section-teal-2: #0d7a6e;
+            --section-navy: #1a2e4a;
+            --bg-page: #f6f8fc;
+            --card-bg: #ffffff;
+            --text-body: #2d3748;
+            --text-muted: #718096;
+            --border-subtle: #e2e8f0;
+            --accent-amber: #d97706;
+            --accent-teal: #0891b2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-page);
+            color: var(--text-body);
+            margin: 0;
+        }
+
+        /* ─── TOP BAR ─────────────────── */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 8px 20px;
+            border-bottom: 3px solid var(--ipn-burgundy);
+            flex-wrap: nowrap;
+            gap: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo-left,
+        .logo-right {
+            flex-shrink: 0;
+        }
+
+        .logo-left img,
+        .logo-right img {
+            height: 60px;
+            width: auto;
+            display: block;
+            transition: transform 0.2s ease;
+        }
+
+        .logo-left img:hover,
+        .logo-right img:hover {
+            transform: scale(1.05);
+        }
+
+        .institution-text {
+            text-align: center;
+            flex: 1;
+            margin: 0 auto;
+        }
+
+        .institution-text h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--ipn-blue-deep);
+            margin: 0;
+            letter-spacing: -0.3px;
+            text-align: center !important;
+        }
+
+        .institution-text p {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4a5568;
+            margin: 4px 0 0;
+            text-align: center !important;
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 6px 12px;
+                gap: 8px;
+            }
+
+            .logo-left img,
+            .logo-right img {
+                height: 45px;
+            }
+
+            .institution-text {
+                order: 3;
+                flex-basis: 100%;
+            }
+
+            .institution-text h2 {
+                font-size: 1rem;
+            }
+
+            .institution-text p {
+                font-size: 0.72rem;
+            }
+        }
+
+        .header-logos {
+            display: none !important;
+        }
+
+        /* ─── HEADER ─────────────────────────────────── */
+        .header-image-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .header-text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(6, 20, 50, 0.92) 0%, rgba(6, 20, 50, 0.5) 60%, transparent 100%);
+            padding: 28px 32px 24px;
+        }
+
+        .header-text-overlay .polilibro {
+            display: inline-block;
+            background: var(--ipn-gold);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+
+        .header-text-overlay h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            margin: 0;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            text-align: left !important;
+        }
+
+        /* ─── NAV ─────────────────────────────────────── */
+        .nav-bg-custom {
+            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 100%);
+            border-bottom: 3px solid var(--ipn-gold);
+        }
+
+        .nav-link-underline {
+            position: relative;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            color: rgba(255, 255, 255, 0.92) !important;
+            padding: 13px 18px;
+            border-radius: 6px 6px 0 0;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: block;
+        }
+
+        .nav-link-underline:hover {
+            background: rgba(255, 255, 255, 0.15) !important;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            right: 50%;
+            height: 3px;
+            background: var(--ipn-gold);
+            border-radius: 2px;
+            transition: left 0.25s, right 0.25s;
+        }
+
+        .nav-link-underline:hover::after {
+            left: 8%;
+            right: 8%;
+        }
+
+        .nav-toggle-custom {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 12px 20px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ─── PAGE LAYOUT ─────────────────────────────── */
+        .page-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* ─── UNIT BANNER ───────────────── */
+        .unit-banner {
+            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 60%, var(--ipn-blue-light) 100%);
+            border-radius: 14px;
+            padding: 28px 32px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(10, 47, 90, 0.25);
+        }
+
+        .unit-banner::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 180px;
+            height: 180px;
+            background: rgba(200, 146, 26, 0.18);
+            border-radius: 50%;
+        }
+
+        .unit-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: 30%;
+            width: 240px;
+            height: 240px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .unit-banner h1,
+        .unit-banner h2 {
+            font-family: 'Outfit', sans-serif;
+            color: white;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            text-align: left !important;
+        }
+
+        .unit-banner h1 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ipn-gold);
+            margin-bottom: 6px;
+        }
+
+        .unit-banner h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+
+        .unit-banner .unit-label {
+            display: inline-block;
+            background: var(--ipn-gold);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ─── RESOURCE CARDS ── */
+        .resource-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-card .card-header {
+            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 100%);
+            padding: 14px 20px;
+            border-bottom: 2px solid var(--ipn-gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .resource-card .card-header h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+            text-align: left !important;
+            line-height: 1.3;
+        }
+
+        .resource-card .card-header .type-badge {
+            display: inline-block;
+            background: rgba(200, 146, 26, 0.25);
+            border: 1px solid var(--ipn-gold);
+            color: var(--ipn-gold);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .resource-card .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .resource-card .card-body p {
+            font-size: 0.9rem;
+            line-height: 1.65;
+            color: var(--text-body);
+            margin: 0;
+            text-align: justify;
+        }
+
+        .resource-card .card-body .citation {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-style: italic;
+            line-height: 1.5;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-subtle);
+            text-align: justify;
+        }
+
+        .resource-card .card-footer {
+            padding: 14px 20px;
+            border-top: 1px solid var(--border-subtle);
+            background: #f8fafc;
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--ipn-blue-mid);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            word-break: break-all;
+            transition: color 0.2s;
+        }
+
+        .resource-link:hover {
+            color: var(--ipn-blue-light);
+            text-decoration: underline;
+        }
+
+        /* ─── SECTION HEADER ──────────────────────────── */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .section-header .section-line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, var(--ipn-gold), transparent);
+            border-radius: 2px;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ipn-blue-deep);
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        /* ─── NAV BUTTONS ────────────────────────────── */
+        .nav-btn {
+            background: linear-gradient(135deg, var(--ipn-blue-mid) 0%, var(--ipn-blue-deep) 100%);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 16px rgba(10, 47, 90, 0.25);
+            transition: all 0.25s;
+        }
+
+        .nav-btn:hover {
+            box-shadow: 0 8px 28px rgba(10, 47, 90, 0.35);
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--ipn-blue-light) 0%, var(--ipn-blue-mid) 100%);
+        }
+
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+
+        /* ─── FOOTER ─────────────────── */
+        .page-footer {
+            background: linear-gradient(180deg, #f4faff 0%, #e6f3ff 50%, white 100%);
+            border-top: 3px solid var(--ipn-blue-deep);
+            padding: 32px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .page-footer h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            color: var(--ipn-blue-deep);
+            font-weight: 700;
+            margin: 0 0 6px;
+            text-align: center !important;
+        }
+
+        .page-footer p {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            margin: 3px 0;
+            text-align: center !important;
+        }
+
+        /* Utilidades */
+        p,
+        li {
+            text-align: justify;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            text-align: left;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+
+        .gap-6 {
+            gap: 1.5rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <div class="top-bar">
+        <div class="logo-left">
+            <img src="assets/img/ipn.jpg" alt="IPN">
+        </div>
+        <div class="institution-text">
+            <h2>Instituto Politécnico Nacional</h2>
+            <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
+        </div>
+        <div class="logo-right">
+            <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
+        </div>
+    </div>
+
+    <!-- Header con imagen -->
+    <header style="padding: 24px 20px;">
+        <div style="max-width: 960px; margin: 0 auto;">
+            <div class="header-image-container">
+                <img src="assets/img/titulo.avif" alt="Estructura de Datos"
+                    style="width:100%; height:280px; object-fit:cover; display:block;">
+                <div class="header-text-overlay">
+                    <p class="polilibro">📘 Polilibro</p>
+                    <h1>📊 Estructura de Datos</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAV -->
+    <div class="w-full nav-bg-custom shadow-md" style="border-radius: 0 0 10px 10px;">
+        <div class="flex justify-center">
+            <nav class="w-[90%] md:w-[75%] mx-auto">
+                <button
+                    class="nav-toggle md:hidden text-[1.8rem] text-white bg-none border-none cursor-pointer p-[12px_20px] w-full text-left font-bold nav-toggle-custom">☰
+                    MENÚ</button>
+                <ul class="nav-links hidden md:flex justify-center gap-[10px] list-none m-0 p-0">
+                    <li><a href="index.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🏠
+                            INICIO</a></li>
+                    <li><a href="navuni1.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📊
+                            Unidad I</a></li>
+                    <li><a href="navuni2.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📈
+                            Unidad II</a></li>
+                    <li><a href="navuni3.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🔗
+                            Unidad III</a></li>
+                    <li><a href="navuni4.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🌳
+                            Unidad IV</a></li>
+                    <li><a href="navuni5.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖
+                            Glosario</a></li>
+                    <li><a href="navuni6.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖
+                            Bibliografia</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="page-content">
+
+        <!-- UNIT BANNER -->
+        <div class="unit-banner">
+            <span class="unit-label">Polilibro · UPIICSA</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+
+            <!-- Tarjeta 1 -->
+            <div class="resource-card">
+                <div class="card-header">
+                    <span class="type-badge">
+                        <h2>Bibliografia</h2>
+                    </span>
+                    <h3></h3>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Cairo, O. (2007). Estructuras de datos. México: Mc Graw Hill. ISBN 9701059085.
+                    </p>
+                    <p>
+                        Fager, J. (2014). Estructura de datos. El Proyecto LATIn, Iniciativa Latinoamericana de Libros
+                        de Texto Abiertos (LATIn). ISBN 9789942144782.
+                    </p>
+                    <p>
+                        Joyanes, L. (2008). Fundamentos de programación: Algoritmos y estructuras de datos. México: Mc
+                        Graw Hill. ISBN 8448161118.
+                    </p>
+                    <p>
+                        Joyanes, L. (2006). Programación en C++ Algoritmos, estructuras de datos y objetos. México: Mc
+                        Graw Hill. ISBN 9788448146450
+                    </p>
+                    <p>
+                        Villalobos, J. (2009). Introducción a las estructuras de datos. México: Prentice Hall/Pearson.
+                        ISBN 9586991049.
+                    </p>
+                </div>
+
+            </div>
+            <div class="resource-card">
+                <div class="card-header">
+                    <span class="type-badge">
+                        <h2>Recursos</h2>
+                    </span>
+                    <h3></h3>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Canal Programación ATS. [Tomado de manera libre en febrero de 2023 de
+                    </p>
+                    <a href="https://www.youtube.com/watch?v=dJzLmjSJc2c&list=PLWtYZ2ejMVJlUu1rEHLC0i_oibctkl0Vh&index=1"
+                        target="_blank" rel="noopener noreferrer" class="resource-link">
+                        🔗 Programación en C++ || Programación ATS
+                </div>
+                
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- BOTÓN VOLVER AL INICIO -->
+    <div
+        style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:16px; max-width:900px; margin:0 auto; padding:16px 24px 48px;">
+        <a href="index.html" class="nav-btn">
+            🏠 Volver al Inicio
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+        <h3>🏛️ UPIICSA · IPN</h3>
+        <p>Unidad de Aprendizaje: Estructura de Datos</p>
+        <p>© 2026 Instituto Politécnico Nacional</p>
+    </footer>
+
+    <script src="js/ui.js"></script>
+</body>
+
+</html>
