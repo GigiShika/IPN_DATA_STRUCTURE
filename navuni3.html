@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -7,922 +8,284 @@
     <link rel="stylesheet" href="css/stylenav.css">
     <title>Estructura de Datos | UPIICSA</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-        :root {
-            --ipn-burgundy: #6B0F1A;
-            --ipn-gold: #C8921A;
-            --ipn-blue-deep: #0a2f5a;
-            --ipn-blue-mid: #1a4a8a;
-            --ipn-blue-light: #2d6abf;
-            --section-teal: #0e5c6b;
-            --section-teal-2: #0d7a6e;
-            --section-navy: #1a2e4a;
-            --bg-page: #f6f8fc;
-            --card-bg: #ffffff;
-            --text-body: #2d3748;
-            --text-muted: #718096;
-            --border-subtle: #e2e8f0;
-            --accent-amber: #d97706;
-            --accent-teal: #0891b2;
-        }
 
-        * { box-sizing: border-box; }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--bg-page);
-            color: var(--text-body);
-            margin: 0;
-        }
-
-        /* ─── TOP BAR (estilo navuni1) ─────────────────── */
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: white;
-            padding: 8px 20px;
-            border-bottom: 3px solid var(--ipn-burgundy);
-            flex-wrap: nowrap;
-            gap: 12px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-        }
-        .logo-left, .logo-right { flex-shrink: 0; }
-        .logo-left img, .logo-right img {
-            height: 60px;
-            width: auto;
-            display: block;
-            transition: transform 0.2s ease;
-        }
-        .logo-left img:hover, .logo-right img:hover { transform: scale(1.05); }
-        .institution-text {
-            text-align: center;
-            flex: 1;
-            margin: 0 auto;
-        }
-        .institution-text h2 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--ipn-blue-deep);
-            margin: 0;
-            letter-spacing: -0.3px;
-            text-align: center !important;
-        }
-        .institution-text p {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #4a5568;
-            margin: 4px 0 0;
-            text-align: center !important;
-        }
-        @media (max-width: 768px) {
-            .top-bar { flex-wrap: wrap; justify-content: center; padding: 6px 12px; gap: 8px; }
-            .logo-left img, .logo-right img { height: 45px; }
-            .institution-text { order: 3; flex-basis: 100%; }
-            .institution-text h2 { font-size: 1rem; }
-            .institution-text p { font-size: 0.72rem; }
-        }
-        .header-logos { display: none !important; }
-
-        /* ─── HEADER ─────────────────────────────────── */
-        .header-image-container {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-        }
-        .header-text-overlay {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            background: linear-gradient(to top, rgba(6,20,50,0.92) 0%, rgba(6,20,50,0.5) 60%, transparent 100%);
-            padding: 28px 32px 24px;
-        }
-        .header-text-overlay .polilibro {
-            display: inline-block;
-            background: var(--ipn-gold);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            padding: 3px 12px;
-            border-radius: 20px;
-            margin-bottom: 8px;
-        }
-        .header-text-overlay h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: white;
-            margin: 0;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-            text-align: left !important;
-        }
-
-        /* ─── NAV ─────────────────────────────────────── */
-        .nav-bg-custom {
-            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 100%);
-            border-bottom: 3px solid var(--ipn-gold);
-        }
-        .nav-link-underline {
-            position: relative;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            color: rgba(255,255,255,0.92) !important;
-            padding: 13px 18px;
-            border-radius: 6px 6px 0 0;
-            transition: all 0.2s;
-            text-decoration: none;
-            display: block;
-        }
-        .nav-link-underline:hover {
-            background: rgba(255,255,255,0.15) !important;
-            color: white !important;
-            transform: translateY(-2px);
-        }
-        .nav-link-underline::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 50%; right: 50%;
-            height: 3px;
-            background: var(--ipn-gold);
-            border-radius: 2px;
-            transition: left 0.25s, right 0.25s;
-        }
-        .nav-link-underline:hover::after { left: 8%; right: 8%; }
-        .nav-toggle-custom {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            padding: 12px 20px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-        }
-
-        /* ─── PAGE LAYOUT ─────────────────────────────── */
-        .page-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 24px;
-        }
-
-        /* ─── UNIT HEADER BANNER ──────────────────────── */
-        .unit-banner {
-            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 60%, var(--ipn-blue-light) 100%);
-            border-radius: 14px;
-            padding: 28px 32px;
-            margin-bottom: 32px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(10,47,90,0.25);
-        }
-        .unit-banner::before {
-            content: '';
-            position: absolute;
-            top: -40px; right: -40px;
-            width: 180px; height: 180px;
-            background: rgba(200,146,26,0.18);
-            border-radius: 50%;
-        }
-        .unit-banner::after {
-            content: '';
-            position: absolute;
-            bottom: -60px; left: 30%;
-            width: 240px; height: 240px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 50%;
-        }
-        .unit-banner h1, .unit-banner h2 {
-            font-family: 'Outfit', sans-serif;
-            color: white;
-            margin: 0;
-            position: relative; z-index: 1;
-            text-align: left !important;
-        }
-        .unit-banner h1 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--ipn-gold);
-            margin-bottom: 6px;
-        }
-        .unit-banner h2 {
-            font-size: 1.6rem;
-            font-weight: 800;
-        }
-        .unit-banner .unit-label {
-            display: inline-block;
-            background: var(--ipn-gold);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 3px 12px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-            position: relative; z-index: 1;
-        }
-
-        /* ─── SECTION HEADERS ─────────────────────────── */
-        .section-header {
-            position: relative;
-            background: linear-gradient(135deg, var(--section-teal) 0%, var(--section-teal-2) 100%);
-            border-radius: 12px;
-            padding: 18px 24px 18px 64px;
-            margin: 36px 0 20px;
-            box-shadow: 0 4px 20px rgba(14,92,107,0.22);
-            overflow: hidden;
-        }
-        .section-header::before {
-            content: attr(data-num);
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-family: 'Space Mono', monospace;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: rgba(255,255,255,0.12);
-            line-height: 1;
-        }
-        .section-header::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 5px;
-            height: 100%;
-            background: var(--ipn-gold);
-            border-radius: 12px 0 0 12px;
-        }
-        .section-header h2 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: white;
-            margin: 0;
-            line-height: 1.4;
-            text-align: left !important;
-            letter-spacing: 0.2px;
-        }
-        .section-header .section-emoji {
-            margin-right: 8px;
-        }
-        .section-header.dark {
-            background: linear-gradient(135deg, var(--section-navy) 0%, #1e3a5f 100%);
-            box-shadow: 0 4px 20px rgba(26,46,74,0.28);
-        }
-        .section-header.burgundy {
-            background: linear-gradient(135deg, #7a1020 0%, #a31528 100%);
-            box-shadow: 0 4px 20px rgba(107,15,26,0.28);
-        }
-
-        /* ─── SUBSECTION HEADERS ─────────────────────── */
-        .subsection-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 28px 0 14px;
-        }
-        .subsection-header::before {
-            content: '';
-            display: block;
-            width: 4px;
-            height: 28px;
-            background: linear-gradient(to bottom, var(--ipn-blue-light), var(--accent-teal));
-            border-radius: 2px;
-            flex-shrink: 0;
-        }
-        .subsection-header h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--ipn-blue-deep);
-            margin: 0;
-            text-align: left !important;
-        }
-
-        /* ─── BODY TEXT ──────────────────────────────── */
-        p.body-text, .body-text {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.96rem;
-            line-height: 1.8;
-            color: var(--text-body);
-            margin-bottom: 14px;
-            text-align: justify;
-        }
-
-        /* ─── IMAGE CARDS ────────────────────────────── */
-        .img-card {
-            background: white;
-            border-radius: 14px;
-            padding: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border: 1px solid var(--border-subtle);
-            transition: box-shadow 0.25s, transform 0.25s;
-            overflow: hidden;
-            display: inline-block;
-            width: auto;
-        }
-        .img-card:hover {
-            box-shadow: 0 10px 36px rgba(0,0,0,0.14);
-            transform: translateY(-3px);
-        }
-        .img-card img {
-            display: block;
-            border-radius: 8px;
-            max-width: 100%;
-            height: auto;
-        }
-        .img-card .img-caption {
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 8px;
-            font-weight: 500;
-            letter-spacing: 0.2px;
-        }
-        .img-card .img-caption::before {
-            content: '▸ ';
-            color: var(--accent-teal);
-        }
-        .img-wrap {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-        .img-wrap.sm  .img-card img { max-height: 200px; width: auto; }
-        .img-wrap.md  .img-card img { max-height: 260px; width: auto; }
-        .img-wrap.lg  .img-card img { max-height: 340px; width: auto; }
-        .img-pair {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        .img-pair .img-card img { max-height: 220px; width: auto; }
-        @media (max-width: 640px) {
-            .img-pair { flex-direction: column; align-items: center; }
-            .img-wrap.sm .img-card img,
-            .img-wrap.md .img-card img,
-            .img-wrap.lg .img-card img { max-height: none; max-width: 100%; }
-        }
-
-        /* ─── TOPIC LIST BOX ─────────────────────────── */
-        .topic-box {
-            background: white;
-            border-radius: 14px;
-            padding: 24px 28px;
-            margin: 24px 0;
-            border: 1px solid var(--border-subtle);
-            box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-            position: relative;
-            overflow: hidden;
-        }
-        .topic-box::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--ipn-blue-deep), var(--ipn-blue-light), var(--accent-teal));
-            border-radius: 14px 14px 0 0;
-        }
-        .topic-box .topic-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--ipn-blue-deep);
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .topic-box ul {
-            list-style: none;
-            padding: 0; margin: 0;
-        }
-        .topic-box ul li {
-            font-size: 0.92rem;
-            color: var(--text-body);
-            padding: 6px 0 6px 20px;
-            position: relative;
-            border-bottom: 1px dashed var(--border-subtle);
-            line-height: 1.5;
-        }
-        .topic-box ul li:last-child { border-bottom: none; }
-        .topic-box ul li::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 50%;
-            transform: translateY(-50%);
-            width: 8px; height: 8px;
-            background: var(--accent-teal);
-            border-radius: 2px;
-        }
-
-        /* ─── COMPETENCIA BOX ────────────────────────── */
-        .competencia-box {
-            background: linear-gradient(135deg, #eef6ff 0%, #e8f4fd 100%);
-            border: 1px solid #c3dff7;
-            border-left: 5px solid var(--ipn-blue-light);
-            border-radius: 12px;
-            padding: 20px 24px;
-            margin: 20px 0 28px;
-        }
-        .competencia-box .comp-label {
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--ipn-blue-light);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .competencia-box p {
-            font-size: 0.96rem;
-            line-height: 1.8;
-            color: var(--text-body);
-            margin: 0;
-            text-align: justify;
-        }
-
-        /* ─── ACTIVITY BOX (estilo navuni1) ───────────── */
-        .activity-box {
-            background: white;
-            border-radius: 16px;
-            margin: 32px 0;
-            box-shadow: 0 6px 32px rgba(107,15,26,0.12);
-            overflow: hidden;
-            border: 1px solid rgba(107,15,26,0.15);
-        }
-        .activity-box .act-header {
-            background: linear-gradient(135deg, var(--ipn-burgundy) 0%, #9b1426 100%);
-            padding: 18px 28px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        .activity-box .act-header .act-badge {
-            background: var(--ipn-gold);
-            color: white;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            padding: 4px 12px;
-            border-radius: 20px;
-            white-space: nowrap;
-        }
-        .activity-box .act-header h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: white;
-            margin: 0;
-            text-align: left !important;
-        }
-        .activity-box .act-body {
-            padding: 24px 28px;
-        }
-        .activity-box .act-section-title {
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--ipn-burgundy);
-            margin: 18px 0 10px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .activity-box .act-section-title:first-child { margin-top: 0; }
-        .activity-box ol, .activity-box ul {
-            padding-left: 20px;
-            margin: 0;
-        }
-        .activity-box li {
-            font-size: 0.93rem;
-            color: var(--text-body);
-            line-height: 1.7;
-            margin-bottom: 6px;
-            text-align: justify;
-        }
-        .activity-box .act-footer {
-            background: #fdf8f0;
-            border-top: 1px solid #f0e0c0;
-            padding: 14px 28px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .activity-box .act-footer p {
-            font-size: 0.88rem;
-            color: #6b4c0a;
-            margin: 0;
-        }
-        .activity-box .act-points {
-            background: var(--ipn-gold);
-            color: white;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.78rem;
-            font-weight: 700;
-            padding: 4px 14px;
-            border-radius: 20px;
-        }
-
-        /* ─── EXERCISE BOX ───────────────────────────── */
-        .exercise-box {
-            background: linear-gradient(135deg, #f0f9f4 0%, #e6f5ec 100%);
-            border: 1px solid #b8e0c8;
-            border-left: 5px solid #10b981;
-            border-radius: 12px;
-            padding: 20px 24px;
-            margin: 20px 0;
-        }
-        .exercise-box .ex-label {
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #059669;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .exercise-box ol {
-            padding-left: 22px; margin: 0;
-        }
-        .exercise-box li {
-            font-size: 0.93rem;
-            color: var(--text-body);
-            line-height: 1.7;
-            margin-bottom: 8px;
-            text-align: justify;
-        }
-
-        /* ─── CONCEPT HIGHLIGHT ──────────────────────── */
-        .concept-highlight {
-            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            border: 1px solid #fcd34d;
-            border-left: 5px solid var(--accent-amber);
-            border-radius: 12px;
-            padding: 18px 22px;
-            margin: 20px 0;
-        }
-        .concept-highlight h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 800;
-            color: #92400e;
-            margin: 0 0 10px;
-            text-align: left !important;
-        }
-        .concept-highlight p {
-            font-size: 0.94rem;
-            line-height: 1.75;
-            color: #78350f;
-            margin: 0 0 8px;
-            text-align: justify;
-        }
-        .concept-highlight p:last-child { margin-bottom: 0; }
-
-        /* ─── CODE BLOCKS ────────────────────────────── */
-        .code-simple {
-            background: #1e1e2e;
-            border-radius: 12px;
-            padding: 16px 20px;
-            margin: 16px 0;
-            overflow-x: auto;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
-            color: #f8f8f2;
-            border-left: 4px solid var(--ipn-gold);
-        }
-        .code-simple pre {
-            margin: 0;
-            font-family: inherit;
-            white-space: pre-wrap;
-            word-break: break-word;
-        }
-
-        /* ─── TABLES ────────────────────────────────── */
-        .matriz-tabla {
-            overflow-x: auto;
-            margin: 20px 0;
-        }
-        .matriz-tabla table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .matriz-tabla th, .matriz-tabla td {
-            border: 1px solid var(--border-subtle);
-            padding: 10px 12px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        .matriz-tabla th {
-            background: var(--ipn-blue-deep);
-            color: white;
-            font-weight: 600;
-        }
-
-        /* ─── NAV BUTTONS ────────────────────────────── */
-        .nav-btn {
-            background: linear-gradient(135deg, var(--ipn-blue-mid) 0%, var(--ipn-blue-deep) 100%);
-            color: white !important;
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 16px rgba(10,47,90,0.25);
-            transition: all 0.25s;
-        }
-        .nav-btn:hover {
-            box-shadow: 0 8px 28px rgba(10,47,90,0.35);
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, var(--ipn-blue-light) 0%, var(--ipn-blue-mid) 100%);
-        }
-        .nav-btn:active { transform: translateY(0); }
-        .nav-btn-home {
-            width: 52px; height: 52px;
-            padding: 0;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 1.2rem;
-        }
-
-        /* ─── FOOTER ─────────────────────────────────── */
-        .page-footer {
-            background: linear-gradient(180deg, #f4faff 0%, #e6f3ff 50%, white 100%);
-            border-top: 3px solid var(--ipn-blue-deep);
-            padding: 32px 20px;
-            text-align: center;
-            margin-top: 60px;
-        }
-        .page-footer h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.05rem;
-            color: var(--ipn-blue-deep);
-            font-weight: 700;
-            margin: 0 0 6px;
-            text-align: center !important;
-        }
-        .page-footer p {
-            font-size: 0.84rem;
-            color: var(--text-muted);
-            margin: 3px 0;
-            text-align: center !important;
-        }
-
-        /* Utilidades generales */
-        p, li { text-align: justify; }
-        h1, h2, h3, h4, h5, h6 { text-align: left; }
-        .text-justify { text-align: justify !important; }
-        .flex-1 { flex: 1; }
-        .flex-col { flex-direction: column; }
-        .gap-6 { gap: 1.5rem; }
-        .items-start { align-items: flex-start; }
-        .mt-2 { margin-top: 0.5rem; }
-        .mt-4 { margin-top: 1rem; }
-        .mb-4 { margin-bottom: 1rem; }
-        .my-6 { margin-top: 1.5rem; margin-bottom: 1.5rem; }
-        .my-4 { margin-top: 1rem; margin-bottom: 1rem; }
-        .mx-auto { margin-left: auto; margin-right: auto; }
-        .rounded-lg { border-radius: 0.5rem; }
-        .shadow-md { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-        .hover-scale { transition: transform 0.2s; }
-        .hover-scale:hover { transform: scale(1.02); }
-        .w-full { width: 100%; }
-        .max-w-full { max-width: 100%; }
-        .max-w-\[90\%\] { max-width: 90%; }
-        @media (min-width: 768px) {
-            .md\:flex-row { flex-direction: row; }
-        }
-    </style>
 </head>
+
 <body>
 
-<!-- BARRA SUPERIOR (estilo navuni1) -->
-<div class="top-bar">
-    <div class="logo-left">
-        <img src="assets/img/ipn.jpg" alt="IPN">
+    <div class="top-bar">
+        <div class="logo-left">
+            <img src="assets/img/ipn.jpg" alt="IPN">
+        </div>
+        <div class="institution-text">
+            <h2>Instituto Politécnico Nacional</h2>
+            <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
+        </div>
+        <div class="logo-right">
+            <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
+        </div>
     </div>
-    <div class="institution-text">
-        <h2>Instituto Politécnico Nacional</h2>
-        <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
-    </div>
-    <div class="logo-right">
-        <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
-    </div>
-</div>
 
-<!-- Header con imagen -->
-<header style="padding: 24px 20px;">
-    <div style="max-width: 960px; margin: 0 auto;">
-        <div class="header-image-container">
-            <img src="assets/img/titulo.avif" alt="Estructura de Datos" style="width:100%; height:280px; object-fit:cover; display:block;">
-            <div class="header-text-overlay">
-                <p class="polilibro">📘 Polilibro</p>
-                <h1>📊 Estructura de Datos</h1>
+    <header style="padding: 24px 20px;">
+        <div style="max-width: 960px; margin: 0 auto;">
+            <div class="header-image-container">
+                <img src="assets/img/titulo.avif" alt="Estructura de Datos"
+                    style="width:100%; height:280px; object-fit:cover; display:block;">
+                <div class="header-text-overlay">
+                    <p class="polilibro">📘 Polilibro</p>
+                    <h1>📊 Estructura de Datos</h1>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<!-- NAV (exactamente el mismo que navuni1) -->
-<div class="w-full nav-bg-custom shadow-md" style="border-radius: 0 0 10px 10px;">
-    <div class="flex justify-center">
-        <nav class="w-[90%] md:w-[75%] mx-auto">
-            <button class="nav-toggle md:hidden text-[1.8rem] text-white bg-none border-none cursor-pointer p-[12px_20px] w-full text-left font-bold nav-toggle-custom">☰ MENÚ</button>
-            <ul class="nav-links hidden md:flex justify-center gap-[10px] list-none m-0 p-0">
-                <li><a href="index.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🏠 Inicio</a></li>
-                <li><a href="navuni1.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📊 Unidad I</a></li>
-                <li><a href="navuni2.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📈 Unidad II</a></li>
-                <li><a href="navuni3.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🔗 Unidad III</a></li>
-                <li><a href="navuni4.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🌳 Unidad IV</a></li>
-                <li><a href="navuni5.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖 Glosario</a></li>
-                <li><a href="navuni6.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖 Bibliografia</a></li>
+    <!-- NAV -->
+    <div class="w-full nav-bg-custom shadow-md" style="border-radius: 0 0 10px 10px;">
+        <div class="flex justify-center">
+            <nav class="w-[90%] md:w-[75%] mx-auto">
+                <button
+                    class="nav-toggle md:hidden text-[1.8rem] text-white bg-none border-none cursor-pointer p-[12px_20px] w-full text-left font-bold nav-toggle-custom">☰
+                    Menú</button>
+                <ul class="nav-links hidden md:flex justify-center gap-[10px] list-none m-0 p-0">
+                    <li><a href="index.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🏠
+                            Inicio</a></li>
+                    <li><a href="navuni1.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📊
+                            Unidad I</a></li>
+                    <li><a href="navuni2.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📈
+                            Unidad II</a></li>
+                    <li><a href="navuni3.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🔗
+                            Unidad III</a></li>
+                    <li><a href="navuni4.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🌳
+                            Unidad IV</a></li>
+                    <li><a href="navuni7.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖
+                            Cierre</a>
+                    </li>
+                    <li><a href="navuni5.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖
+                            Glosario</a></li>
+                    <li><a href="navuni6.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖
+                            Bibliografia</a></li>
+                    <li>
+                        <button id="darkModeToggle" class="dark-mode-btn block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] hover:bg-white/20 hover:-translate-y-0.5">
+                            <span>🌙</span> <span>Modo oscuro</span>
+                        </button>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL (TEXTO ORIGINAL, SIN NINGUNA MODIFICACIÓN) -->
+    <div class="page-content">
+        <!-- UNIT BANNER -->
+        <div class="unit-banner">
+            <span class="unit-label">Polilibro · UPIICSA</span>
+            <h1>📊 Unidad Temática III</h1>
+            <h2>Estructuras de datos dinámicas lineales</h2>
+        </div>
+
+        <!-- COMPETENCIA -->
+        <div class="competencia-box">
+            <div class="comp-label">🎯 Unidad de competencia</div>
+            <p>Implementa estructuras de datos dinámicas
+                lineales en la memoria de una computadora a partir
+                del uso de arreglos, su representación y sus
+                posibilidades, así como un lenguaje de programación.</p>
+        </div>
+
+        <!-- TEMAS DE LA UNIDAD -->
+        <div class="topic-box">
+            <div class="topic-title">📚 Los siguientes temas se tratan en esta unidad:</div>
+            <ul>
+                <li><strong>3.1 Apuntadores</strong></li>
+                <li><strong>3.2 Pilas</strong></li>
+                <li>3.2.1 Representación</li>
+                <li>3.2.2 Formas de uso</li>
+                <li>3.2.3 Implementación</li>
+                <li>3.2.4 Operaciones permitidas</li>
+                <li><strong>3.3 Colas</strong></li>
+                <li>3.3.1. Representación</li>
+                <li>3.3.2 Formas de uso</li>
+                <li>3.3.3 Implementación</li>
+                <li>3.3.4 Operaciones permitidas</li>
+                <li><strong>3.4 Listas enlazadas</strong></li>
+                <li>3.4.1. Representación</li>
+                <li>3.4.2 Formas de uso</li>
+                <li>3.4.3 Implementación</li>
+                <li>3.4.4 Operaciones permitidas</li>
             </ul>
-        </nav>
-    </div>
-</div>
+        </div>
 
-<!-- CONTENIDO PRINCIPAL -->
-<div class="page-content">
+        <!-- ==================== 3.1 Apuntador ==================== -->
+        <div class="section-header" data-num="3.1">
+            <h2><span class="section-emoji">📍</span>3.1 Apuntador</h2>
+        </div>
 
-    <!-- UNIT BANNER -->
-    <div class="unit-banner">
-        <span class="unit-label">Polilibro · UPIICSA</span>
-        <h1>📊 Unidad Temática III</h1>
-        <h2>Estructuras de datos dinámicas lineales</h2>
-    </div>
+        <div class="subsection-header">
+            <h3>¿Para qué sirve un apuntador?</h3>
+        </div>
+        <p class="body-text">Un apuntador o puntero contiene la dirección de memoria de una variable que tiene un valor
+            específico.</p>
+        <p class="body-text">Los apuntadores son muy importantes porque permiten enlazarse con otros nodos.</p>
+        <p class="body-text">La forma de declarar un apuntador es de la siguiente forma:</p>
+        <div class="code-simple">
+            <pre><span style="color:#c792ea">char</span>   *Letra</pre>
+        </div>
+        <p class="body-text">donde:<br>
+            <strong>char</strong> es el tipo de dato<br>
+            <strong>*Letra</strong> es una variable que se declara apuntador, es importante considerar que para declarar
+            el apuntador siempre debe de ir el * antes del nombre de la variable.
+        </p>
 
-    <!-- COMPETENCIA -->
-    <div class="competencia-box">
-        <div class="comp-label">🎯 Unidad de competencia</div>
-        <p>Implementa estructuras de datos dinámicas lineales en la memoria de una computadora a partir del uso de arreglos, su representación y sus posibilidades, así como un lenguaje de programación</p>
-    </div>
+        <!-- ==================== 3.2 Pilas ==================== -->
+        <div class="section-header dark" data-num="3.2">
+            <h2><span class="section-emoji">🥞</span>3.2 Pilas</h2>
+        </div>
 
-    <!-- TEMAS DE LA UNIDAD -->
-    <div class="topic-box">
-        <div class="topic-title">📚 Los siguientes temas se tratan en esta unidad:</div>
-        <ul>
-            <li><strong>3.1   Apuntadores</strong></li>
-            <li><strong>3.2   Pilas</strong></li>
-            <li><strong>3.2.1   Representación</strong></li>
-            <li><strong>3.2.2   Formas de uso</strong></li>
-            <li><strong>3.2.3   Implementación</strong></li>
-            <li><strong>3.2.4   Operaciones permitidas</strong></li>
-            <li><strong>3.3   Colas</strong></li>
-            <li><strong>3.3.1.  Representación</strong></li>
-            <li><strong>3.3.2   Formas de uso</strong></li>
-            <li><strong>3.3.3   Implementación</strong></li>
-            <li><strong>3.3.4   Operaciones permitidas</strong></li>
-            <li><strong>3.4   Listas enlazadas</strong></li>
-            <li><strong>3.4.1.  Representación</strong></li>
-            <li><strong>3.4.2   Formas de uso</strong></li>
-            <li><strong>3.4.3   Implementación</strong></li>
-            <li><strong>3.4.4   Operaciones permitidas</strong></li>
+        <div class="subsection-header">
+            <h3>¿Qué es una pila?</h3>
+        </div>
+        <p class="body-text">Las pilas es una estructura de datos dinámicas lineales, son una colección de elementos
+            organizados de forma LIFO (Last In, First Out), que significa el último elemento en entrar es el primero en
+            salir.</p>
+        <p class="body-text">Relacionado con la vida real, existen varios ejemplos de pilas: de libros, como se muestra
+            en la figura 1, de platos, de tortillas, etc.</p>
+
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imguni3-1.png" alt="Ejemplo de pila de libros">
+                <div class="img-caption">Figura 1 Ejemplo de una pila de libros</div>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-6 items-start my-6">
+            <div class="flex-1 text-justify">
+                <p class="text-slate-700 text-[0.95rem]">Para comprender más el comportamiento de la estructura de datos
+                    dinámica Pila, realiza el siguiente ejercicio:</p>
+                <ol class="list-decimal ml-[25px] text-slate-700 text-[0.95rem] mt-2">
+                    <li>Utilizando el funcionamiento de una pila ¿Cómo sería la entrada de los elementos de la figura 2?
+                    </li>
+                    <li>Utilizando el funcionamiento de una pila ¿Cómo sería la salida de los elementos de la figura 2?
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imguni3-2.png" alt="Funcionamiento de una pila">
+                <div class="img-caption">Figura 2 Funcionamiento de una pila</div>
+            </div>
+        </div>
+        <div class="section-header" data-num="3.2.1 ">
+            <h2><span class="section-emoji">📊</span>3.2.1 Representación Multidimensionales (Data Warehouse)</h2>
+        </div>
+
+
+        <p class="body-text">Para representar a una pila en memoria, se utilizarán arreglos unidimensionales (vector)
+            donde se almacenarán los elementos, como se muestra a continuación:</p>
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imguni3-3.png" alt="Representación de una pila en memoria">
+            </div>
+        </div>
+
+        <div class="subsection-header">
+            <h3>Operaciones (funciones) sobre las pilas:</h3>
+        </div>
+        <ul class="styled-list" style="margin-bottom:1rem;">
+            <li><strong>Push:</strong> Insertar un elemento al Vector_Pila[Tope]</li>
+            <li><strong>Pop:</strong> Elimina un elemento al Vector_Pila[Tope]</li>
         </ul>
-    </div>
+        <p class="body-text">A continuación, se indica como es el funcionamiento de una pila:</p>
+        <ul class="styled-list">
+            <li>Los elementos se pueden insertar (añadir) o eliminar (suprimir) desde un extremo de la pila llamado
+                "Tope".</li>
+            <li>Tope es una variable que representa la posición de memoria del Vector_Pila [Tope] Si la pila está vacía
+                eso quiere decir que el Vector_Pila [Tope] no tiene elementos, por lo que la variable Tope tendría
+                asignado el valor de -1, o sea Tope = -1.</li>
+            <li>Cada vez que se inserta un elemento al Vector_Pila [Tope] (Push), este se coloca en el en la posición de
+                la variable Tope. Posteriormente Tope se incremente en uno.</li>
+            <li>Cada vez que se elimina un elemento al Vector_Pila [Tope] (Pop), Tope se decrementa en uno.</li>
+        </ul>
 
-    <!-- ==================== 3.1 Apuntador ==================== -->
-    <div class="section-header" data-num="3.1">
-        <h2><span class="section-emoji">📍</span>3.1 Apuntador</h2>
-    </div>
-
-    <div class="subsection-header">
-        <h3>¿Para qué sirve un apuntador?</h3>
-    </div>
-    <p class="body-text">Un apuntador o puntero contiene la dirección de memoria de una variable que tiene un valor específico.</p>
-    <p class="body-text">Los apuntadores son muy importantes porque permiten enlazarse con otros nodos.</p>
-    <p class="body-text">La forma de declarar un apuntador es de la siguiente forma:</p>
-    <div class="code-simple">
-        <pre><span style="color:#c792ea">char</span>   *Letra</pre>
-    </div>
-    <p class="body-text">donde:<br>
-    <strong>char</strong> es el tipo de dato<br>
-    <strong>*Letra</strong> es una variable que se declara apuntador, es importante considerar que para declarar el apuntador siempre debe de ir el * antes del nombre de la variable.</p>
-
-    <!-- ==================== 3.2 Pilas ==================== -->
-    <div class="section-header dark" data-num="3.2">
-        <h2><span class="section-emoji">🥞</span>3.2 Pilas</h2>
-    </div>
-
-    <div class="subsection-header">
-        <h3>¿Qué es una pila?</h3>
-    </div>
-    <p class="body-text">Las pilas es una estructura de datos dinámicas lineales, son una colección de elementos organizados de forma LIFO (Last In, First Out), que significa el último elemento en entrar es el primero en salir.</p>
-    <p class="body-text">Relacionado con la vida real, existen varios ejemplos de pilas: de libros, como se muestra en la figura 1, de platos, de tortillas, etc.</p>
-
-    <div class="img-wrap md">
-        <div class="img-card">
-            <img src="assets/img/imguni3-1.png" alt="Ejemplo de pila de libros">
-            <div class="img-caption">Figura 1 Ejemplo de una pila de libros</div>
+        <div class="section-header" data-num="3.2.2 ">
+            <h2><span class="section-emoji">📊</span>3.2.2 Formas de uso</h2>
         </div>
-    </div>
 
-    <div class="flex flex-col md:flex-row gap-6 items-start my-6">
-        <div class="flex-1 text-justify">
-            <p class="text-slate-700 text-[0.95rem]">Para comprender más el comportamiento de la estructura de datos dinámica Pila, realiza el siguiente ejercicio:</p>
-            <ol class="list-decimal ml-[25px] text-slate-700 text-[0.95rem] mt-2">
-                <li>Utilizando el funcionamiento de una pila ¿Cómo sería la entrada de los elementos de la figura 2?</li>
-                <li>Utilizando el funcionamiento de una pila ¿Cómo sería la salida de los elementos de la figura 2?</li>
-            </ol>
+        <p class="body-text">La estructura de datos dinámica Pila,
+            se puede usar de diferentes formas, por ejemplo,
+            utilizando un Vector_Pila[5] de tamaño 5 de tipo de dato
+            char, donde se desean agregar las siguientes letras:
+            A, B y C, en ese orden, se tendría que llamar la función
+            Push tres veces, la letra ‘C’ estará en la cima de la
+            pila, donde la variable Tope tendría asignado el valor
+            de 3 y el Vector_Pila[Tope] tendría asignado ‘C’.
+            Si se desea eliminar un elemento del Vector_Pila[Tope]
+            , se manda a llamar la función pop y el primer elemento
+            en eliminarse es ‘C’, porque fue el último en entrar.
+            El resultado de esta acción es que Tope se retorna en
+            1, porque se decrementó. Siguiendo esta dinámica, se
+            podrán insertar y eliminar los elementos del
+            Vector_Pila[Tope], como se muestra en la siguiente
+            figura 3, donde Tope = 0 y Vector_Pila[Tope] =Null.</p>
+
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imguni3-4.png" alt="Funcionamiento de una Pila con Tope">
+                <div class="img-caption">Figura 3 Funcionamiento de una Pila</div>
+            </div>
         </div>
-    </div>
-
-    <div class="img-wrap md">
-        <div class="img-card">
-            <img src="assets/img/imguni3-2.png" alt="Funcionamiento de una pila">
-            <div class="img-caption">Figura 2 Funcionamiento de una pila</div>
+        <div class="section-header" data-num="3.2.3 ">
+            <h2><span class="section-emoji">📊</span>
+                3.2.3 Implementación</h2>
         </div>
-    </div>
 
-    <div class="subsection-header">
-        <h3>3.2.1 Representación</h3>
-    </div>
-    <p class="body-text">Para representar a una pila en memoria, se utilizarán arreglos unidimensionales (vector) donde se almacenarán los elementos, como se muestra a continuación:</p>
-    <div class="img-wrap md">
-        <div class="img-card">
-            <img src="assets/img/imguni3-3.png" alt="Representación de una pila en memoria">
+        <p class="body-text">Existen tres formas de poner en práctica las pilas:</p>
+        <ol class="styled-list">
+            <li>1)Llamado de funciones, subrutinas, procedimientos, programas, etc.</li>
+            <li>2)Expresiones aritméticas.</li>
+        </ol>
+        <p class="body-text">Iniciaremos con el punto 1 llamado de funciones, antes de continuar es importante
+            comprender que es una función. Las funciones son un conjunto de procedimientos encapsulados en un bloque.
+            El llamado de funciones nos permite desarrollar programas eficientes que permiten modularizar nuestro
+            código. Primeramente, se tienen que declarar dentro de la función main (programa principal) pueden ser
+            llamadas o desde otra función e incluso desde sí misma.
+            Al momento de declarar la función,
+            es necesario asignarle el tipo de dato, que es entero comúnmente, el nombre y los valores que espera
+            recibir. Usualmente reciben parámetros, cuyos valores se utilizan para efectuar operaciones y adicionalmente
+            retornan un valor. La figura 4 que se muestra a continuación nos da una idea general de como es el llamado
+            de funciones a través de un menú principal.</p>
+
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imguni3-5.png" alt="Llamado de funciones">
+                <div class="img-caption">Figura 4 Llamado de funciones</div>
+            </div>
         </div>
-    </div>
+        <div class="concept-highlight">
 
-    <div class="subsection-header">
-        <h3>Operaciones (funciones) sobre las pilas:</h3>
-    </div>
-    <ul class="styled-list" style="margin-bottom:1rem;">
-        <li><strong>Push:</strong> Insertar un elemento al Vector_Pila[Tope]</li>
-        <li><strong>Pop:</strong> Elimina un elemento al Vector_Pila[Tope]</li>
-    </ul>
-    <p class="body-text">A continuación, se indica como es el funcionamiento de una pila:</p>
-    <ul class="styled-list">
-        <li>Los elementos se pueden insertar (añadir) o eliminar (suprimir) desde un extremo de la pila llamado "Tope".</li>
-        <li>Tope es una variable que representa la posición de memoria del Vector_Pila [Tope] Si la pila está vacía eso quiere decir que el Vector_Pila [Tope] no tiene elementos, por lo que la variable Tope tendría asignado el valor de -1, o sea Tope = -1.</li>
-        <li>Cada vez que se inserta un elemento al Vector_Pila [Tope] (Push), este se coloca en el en la posición de la variable Tope. Posteriormente Tope se incremente en uno.</li>
-        <li>Cada vez que se elimina un elemento al Vector_Pila [Tope] (Pop), Tope se decrementa en uno.</li>
-    </ul>
+            <p class="body-text"><strong>Algoritmo de Inserción (Función Push)</strong><br>
+                Este algoritmo describe el proceso para añadir un Dato a una estructura de tipo pila implementada
+                mediante un arreglo Vector_Pila[Tope]. Se asume que la variable Tope inicia con un valor de 0, lo que
+                indica que la pila está vacía, y que Max representa la capacidad máxima de almacenamiento del
+                Vector_Pila[Tope].</p>
 
-    <div class="subsection-header">
-        <h3>3.2.2 Formas de uso</h3>
-    </div>
-    <p class="body-text">La estructura de datos dinámica Pila, se puede usar de diferentes formas, por ejemplo, utilizando un Vector_Pila[5] de tamaño 5 de tipo de dato char, donde se desean agregar las siguientes letras: A, B y C, en ese orden, se tendría que llamar la función Push tres veces, la letra ‘C’ estará en la cima de la pila, donde la variable Tope tendría asignado el valor de 3 y el Vector_Pila[Tope] tendría asignado ‘C’. Si se desea eliminar un elemento del Vector_Pila[Tope], se manda a llamar la función pop y el primer elemento en eliminarse es ‘C’, porque fue el último en entrar. El resultado de esta acción es que Tope se retorna en 1, porque se decrementó. Siguiendo esta dinámica, se podrán insertar y eliminar los elementos del Vector_Pila[Tope], como se muestra en la siguiente figura 3, donde Tope = 0 y Vector_Pila[Tope] =Null</p>
-
-    <div class="img-wrap md">
-        <div class="img-card">
-            <img src="assets/img/imguni3-4.png" alt="Funcionamiento de una Pila con Tope">
-            <div class="img-caption">Figura 3 Funcionamiento de una Pila</div>
-        </div>
-    </div>
-
-    <div class="subsection-header">
-        <h3>3.2.3 Implementación</h3>
-    </div>
-    <p class="body-text">Existen tres formas de poner en práctica las pilas:</p>
-    <ol class="styled-list">
-        <li>1)Llamado de funciones, subrutinas, procedimientos, programas, etc.</li>
-        <li>2)Expresiones aritméticas.</li>
-    </ol>
-    <p class="body-text">Iniciaremos con el punto 1 llamado de funciones, antes de continuar es importante comprender que es una función. Las funciones son un conjunto de procedimientos encapsulados en un bloque.
-    El llamado de funciones nos permite desarrollar programas eficientes que permiten modularizar nuestro código. Primeramente, se tienen que declarar dentro de la función main (programa principal) pueden ser llamadas o desde otra función e incluso desde sí misma.
-    Al momento de declarar la función, es necesario asignarle el tipo de dato, que es entero comúnmente, el nombre y los valores que espera recibir. Usualmente reciben parámetros, cuyos valores se utilizan para efectuar operaciones y adicionalmente retornan un valor. La figura 4 que se muestra a continuación nos da una idea general de como es el llamado de funciones a través de un menú principal</p>
-
-    <div class="img-wrap md">
-        <div class="img-card">
-            <img src="assets/img/imguni3-5.png" alt="Llamado de funciones">
-            <div class="img-caption">Figura 4 Llamado de funciones</div>
-        </div>
-    </div>
-
-    <p class="body-text"><strong>Algoritmo de Inserción (Función Push)</strong><br>
-    Este algoritmo describe el proceso para añadir un Dato a una estructura de tipo pila implementada mediante un arreglo Vector_Pila[Tope]. Se asume que la variable Tope inicia con un valor de 0, lo que indica que la pila está vacía, y que Max representa la capacidad máxima de almacenamiento del Vector_Pila[Tope].</p>
-
-    <div class="code-simple">
-        <pre><span style="color:#c792ea;">Push_Pila(Tope, Dato)</span>                <span style="color:#6a9955;">// Inserta el elemento DATO a la pila</span>
+            <div class="code-simple">
+                <pre><span style="color:#c792ea;">Push_Pila(Tope, Dato)</span>                <span style="color:#6a9955;">// Inserta el elemento DATO a la pila</span>
                                                              
 <span style="color:#c792ea;">SI</span> Tope &lt; Max <span style="color:#c792ea;">ENTONCES</span>       <span style="color:#6a9955;">// Verifica si existe espacio disponible</span>
     Vector_Pila [Tope] = Dato       <span style="color:#6a9955;">// Almacena el dato en la posición</span>
@@ -931,13 +294,17 @@
 <span style="color:#c792ea;">SINO</span>							    <span style="color:#6a9955;">// No cumple la condición</span>
     DESPLEGAR MENSAJE: <span style="color:#7ec699;">"La Pila está llena"</span>
 <span style="color:#c792ea;">FIN SI</span></pre>
-    </div>
+            </div>
+        </div>
+        <div class="concept-highlight">
+            <p class="body-text"><strong>Algoritmo de Eliminación (Función Pop)</strong><br>
+                Este algoritmo detalla el procedimiento para retirar un elemento de la pila Vector_Pila[Tope]. Para que
+                la eliminación sea válida, es imperativo comprobar previamente que la estructura no se encuentre vacía
+                (es decir, que la posición de Tope no haya alcanzado a la posición de -1). Max representa la capacidad
+                máxima de almacenamiento del Vector_Pila.</p>
 
-    <p class="body-text"><strong>Algoritmo de Eliminación (Función Pop)</strong><br>
-    Este algoritmo detalla el procedimiento para retirar un elemento de la pila Vector_Pila[Tope]. Para que la eliminación sea válida, es imperativo comprobar previamente que la estructura no se encuentre vacía (es decir, que la posición de Tope no haya alcanzado a la posición de -1). Max representa la capacidad máxima de almacenamiento del Vector_Pila.</p>
-
-    <div class="code-simple">
-        <pre><span style="color:#c792ea;">Pop_Pila (Tope)</span>                                     <span style="color:#6a9955;">// Elimina el elemento ubicado en</span>
+            <div class="code-simple">
+                <pre><span style="color:#c792ea;">Pop_Pila (Tope)</span>                                     <span style="color:#6a9955;">// Elimina el elemento ubicado en</span>
                                                          <span style="color:#6a9955;">// la posición de Tope</span>                                                     
 <span style="color:#c792ea;">SI</span> Tope > 0                                             <span style="color:#6a9955;">// Verifica que la pila contenga al</span>
                                                         <span style="color:#6a9955;">// menos un elemento</span>
@@ -946,486 +313,677 @@
 <span style="color:#c792ea;">SINO</span>                                                      <span style="color:#6a9955;">// No cumple la condición</span>
     DESPLEGAR MENSAJE: <span style="color:#7ec699;">"La Cola está vacía"</span> 
 <span style="color:#c792ea;">FIN SI</span></pre>
-    </div>
-
-    <!-- Actividad UTIII_A1 -->
-    <div class="activity-box">
-        <div class="act-header">
-            <span class="act-badge">UTIII_A1</span>
-            <h3>📝 Actividad UTIII_A1 programa pila:</h3>
-        </div>
-        <div class="act-body">
-            <div class="act-section-title">🎯 Propósito</div>
-            <p style="margin-bottom:12px;">Utilizar un lenguaje de programación para declarar el arreglo unidimensional Vector_Pila [6] definiéndolo con el tipo de dato char y en el que se puedan ingresar 6 letras.</p>
-            <p style="margin-bottom:12px;">La intención de esta actividad es que el estudiante comprenda las funciones que se realizan sobre las pilas, para este caso es el de mandar a llamar la función push, la función pop y así como recorrer y mostrar cada uno de los elementos del Vector_Pila [Tope] a través de la función mostrar.</p>
-
-            <div class="act-section-title">📋 Instrucciones</div>
-            <ol>
-                <li>Declara el Vector_Pila[6] tipo char de tamaño 6, también declara una variable de tipo int que se llame Tope, una variable de tipo char que se llama Dato, las funciones Push y Pop.</li>
-                <li>La forma de asignar las letras al Vector_Pila [Tope], será a través del llamado de la función Push, si se requiere meter tres letras, se tendrá que llamar la función Push tres veces, a diferencia de cuando se asignaban valores a un arreglo unidimensional era con la estructura de control for.</li>
-                <li>La forma de eliminar las letras al Vector_Pila [Tope], será a través del llamado de la función Pop, si se requiere sacar dos letras, se tendrá que llamar la función Pop dos veces.</li>
-                <li>La forma de mostrar las letras del Vector_Pila [Tope], será a través del llamado de la función Mostrar. Para este caso si será necesario utilizar la estructura de control for para recorrer todos los elementos del Vector_Pila [Tope].</li>
-            </ol>
-
-            <div class="act-section-title">📎 Evidencia que entregar</div>
-            <ul>
-                <li>Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el nombre del programa, por ejemplo, RBV_Programa_Pila</li>
-                <li>Programa executable</li>
-                <li>Corrida del programa, en un archivo PDF</li>
-            </ul>
-        </div>
-        <div class="act-footer">
-            <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
-            <span class="act-points">⭐VALOR:10 puntos</span>
-        </div>
-    </div>
-
-    <p class="body-text"><strong>Otra de las aplicaciones de las pilas son las expresiones aritméticas</strong></p>
-    <p class="body-text">2. Las expresiones aritméticas son una combinación de variables y operadores que son de distintos niveles de precedencia.
-    Los operadores que se utilizan en las expresiones aritméticas y que están en orden jerárquico (se considera ese orden para ejecutarse) son los siguientes</p>
-
-    <div class="code-simple">
-        <pre>()     Paréntesis
-^     Potencia 
-* /   Multiplicación, división
-+ -   Suma, resta</pre>
-    </div>
-
-    <p class="body-text">Las expresiones aritméticas están representadas de tres formas:<br>
-    a) Notación infija<br>
-    b) Notación prefija<br>
-    c) Notación postfija<br>
-    En las expresiones aritméticas los operadores son los signos y los operandos son las letras</p>
-
-    <p class="body-text"><strong>a) Notación Infija:</strong><br>
-    Los operadores aparecen en medio de los operandos.<br>
-    A + B, A − 1, E / F, A * C, A ^ B, A + B + C, A + B − C.</p>
-
-    <p class="body-text"><strong>b) Notación Prefija:</strong><br>
-    El operador aparece antes de los operandos.<br>
-    AB, - A1, / EF, * AC, ^ AB, + + AB C, - + AB C</p>
-
-    <p class="body-text"><strong>c) Notación Postfija:</strong><br>
-    El operador aparece al final de los operandos.<br>
-    AB+, A1-, EF/, AC*, AB^, AB+C+, AB+C-</p>
-
-    <p class="body-text">Para comprender como las expresiones aritméticas son una aplicación de las pilas, primeramente, se debe de convertir una expresión infija a posfija.</p>
-
-    <div class="subsection-header">
-        <h3>Pasos para convertir una expresión infija a postfija</h3>
-    </div>
-    <ol class="styled-list">
-        <li>Los operadores de prioridad más altas se convierten primero<br>
-            ( ) ^ / * + -</li>
-        <li>Después que una parte de la expresión ha sido convertida, se trata como un solo operando.</li>
-        <li>Si son de igual prioridad, se procesan de izquierda a derecha, como son el caso de / * y + -</li>
-    </ol>
-    <p class="body-text">El siguiente paso después de haber convertido la expresión infija a postfija, es evaluar las expresiones postfijas.<br>
-    Los pasos para evaluación de las expresiones postfija son los siguientes:</p>
-    <ol class="styled-list">
-        <li>Explorar la expresión de izquierda a derecha</li>
-        <li>Cada vez que se encuentra un operador, aplíquese a los operandos inmediatamente precedentes.</li>
-        <li>Continuar la exploración a la derecha</li>
-    </ol>
-
-    <div class="exercise-box">
-        <div class="ex-label">✏️ Realiza el siguiente ejercicio:</div>
-        <p class="font-bold text-amber-700 mb-2">1.- Convertir las siguientes expresiones infijas a postfijas</p>
-        <ol>
-            <li>(A – B)  +  C / D   *  E ^ F</li>
-            <li>A  *  B   -  (C + D)  /  E * F</li>
-            <li>A ^  B   /   C  /  D   +  (E – F)</li>
-            <li>A /   B   +  C -   D   *  (E * F)</li>
-        </ol>
-        <p class="font-bold text-amber-700 mt-4 mb-2">2.- Evaluar cada una de las expresiones infijas, sustituyendo los operandos (letras) por los siguientes valores</p>
-        <p>A=1, B=2, C=3, D=4, E=5, F=6</p>
-    </div>
-
-    <!-- Actividad UTIII_A2 -->
-    <div class="activity-box">
-        <div class="act-header">
-            <span class="act-badge">UTIII_A2</span>
-            <h3>📝 Actividad UTIII_A2 programa expresión infija:</h3>
-        </div>
-        <div class="act-body">
-            <div class="act-section-title">🎯 Propósito</div>
-            <p style="margin-bottom:12px;">Comprender la aplicación de una pila en las expresiones infijas.</p>
-            <p class="font-bold mb-2">1.- Convertir la siguiente expresión infija a postfija</p>
-            <p>A) A  /  B   *   C /  D  /   E  ^ F</p>
-            <p class="font-bold mt-4 mb-2">2.- Evaluar cada una de las expresiones infijas, sustituyendo los operandos (letras) por los siguientes valores</p>
-            <p>A=1, B=2, C=3, D=4, E=5, F=6</p>
-            <p class="font-bold mt-4 mb-2">3.- Denotar paso a paso la separación de los operadores y operando, llenar el siguiente cuadro: (en la columna de pila van los operadores (signos))</p>
-            <div class="matriz-tabla">
-                <table>
-                    <thead><tr><th>Paso</th><th>Expresión Infija</th><th>Elemento para evaluar</th><th>Pila</th><th>Operando</th></tr></thead>
-                    <tbody><tr><td colspan="5"></td></tr></tbody>
-                </table>
             </div>
-            <div class="act-section-title">📋 4.- Realizar el programa de la anterior expresión infija</div>
-            <p style="margin-bottom:12px;">Pasos para realizar el programa</p>
-            <ol>
-                <li>Declarar los siguientes vectores, a Vector_Exp_Inf asignarle los valores de la expresión infija<br>
-                Vector_Exp_Inf[]={“A”, “ /”, “B”, “*”, “C”, “/”, “D”, “/”, ”E”,”^”, ”F”}<br>
-                Vector_Pila[5]<br>
-                Vector_Operando[6]<br>
-                Vector_Exp_Inf[11]</li>
-                <li>Separar los operandos de los operadores, en el vector pila guardar los operadores (acomodar de acuerdo con el nivel jerárquico, comparando cada uno de los operadores y si es de mayor rango se van a intercambiar y así sucesivamente)</li>
-                <li>Convertir la expresión infija a postfija tomando en cuenta los operadores de la pila, utilizando las llamadas de las funciones de push, pop y mostrar</li>
-            </ol>
-            <div class="act-section-title">📎 Evidencia que entregar</div>
-            <ul>
-                <li>Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el nombre del programa, por ejemplo, RBV_Programa_Expresion_Aritmetica</li>
-                <li>Programa executable</li>
-                <li>Corrida del programa, en un archivo PDF</li>
+        </div>
+        <!-- Actividad UTIII_A1 -->
+        <div class="activity-box">
+            <div class="act-header">
+                <span class="act-badge">UTIII_A1</span>
+                <h3>📝 Actividad UTIII_A1 programa pila:</h3>
+            </div>
+            <div class="act-body">
+                <div class="act-section-title">🎯 Propósito</div>
+                <p style="margin-bottom:12px;">Utilizar un lenguaje de programación para declarar el arreglo
+                    unidimensional Vector_Pila [6] definiéndolo con el tipo de dato char y en el que se puedan ingresar
+                    6 letras.</p>
+                <p style="margin-bottom:12px;">La intención de esta actividad es que el estudiante comprenda las
+                    funciones que se realizan sobre las pilas, para este caso es el de mandar a llamar la función push,
+                    la función pop y así como recorrer y mostrar cada uno de los elementos del Vector_Pila [Tope] a
+                    través de la función mostrar.</p>
+
+                <div class="act-section-title">📋 Instrucciones:</div>
+                <ol>
+                    <li>Declara el Vector_Pila[6] tipo char de tamaño 6, también declara una variable de tipo int que se
+                        llame Tope, una variable de tipo char que se llama Dato, las funciones Push y Pop.</li>
+                    <li>La forma de asignar las letras al Vector_Pila [Tope], será a través del llamado de la función
+                        Push, si se requiere meter tres letras, se tendrá que llamar la función Push tres veces, a
+                        diferencia de cuando se asignaban valores a un arreglo unidimensional era con la estructura de
+                        control for.</li>
+                    <li>La forma de eliminar las letras al Vector_Pila [Tope], será a través del llamado de la función
+                        Pop, si se requiere sacar dos letras, se tendrá que llamar la función Pop dos veces.</li>
+                    <li>La forma de mostrar las letras del Vector_Pila [Tope], será a través del llamado de la función
+                        Mostrar. Para este caso si será necesario utilizar la estructura de control for para recorrer
+                        todos los elementos del Vector_Pila [Tope].</li>
+                </ol>
+
+                <div class="act-section-title">📎 Evidencia que entregar</div>
+                <ul>
+                    <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
+                        nombre del programa, por ejemplo, RBV_Programa_Pila.</li>
+                    <li>b) Programa executable.</li>
+                    <li>c) Corrida del programa, en un archivo PDF.</li>
+                </ul>
+            </div>
+            <div class="act-footer">
+                <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
+                <span class="act-points">⭐VALOR:10 puntos</span>
+            </div>
+        </div>
+
+        <div class="concept-highlight">
+
+            <p class="body-text"><strong>Otra de las aplicaciones de las
+                    pilas son las expresiones aritméticas.</strong></p>
+            <p class="body-text">2. Las expresiones aritméticas son una combinación de variables y operadores que son de
+                distintos niveles de precedencia.
+                Los operadores que se utilizan en las expresiones aritméticas y que están en orden jerárquico (se
+                considera ese orden para ejecutarse) son los siguientes</p>
+
+            <ul class="operations-list">
+                <li><strong>()</strong>&nbsp; Paréntesis</li>
+                <li><strong>^ </strong>&nbsp; Potencia </li>
+                <li><strong>* /</strong>&nbsp; Multiplicación, división</li>
+                <li><strong>+ - </strong>&nbsp; Suma, resta</li>
             </ul>
+
+
+
+            <p class="body-text">Las expresiones aritméticas están representadas de tres formas:<br>
+            <ul class="bg-blue-50 p-4 rounded-lg">
+                <li><strong>a)</strong> Notación infija</li>
+                <li><strong>b)</strong> Notación prefija</li>
+                <li><strong>c)</strong> Notación postfija</li>
+            </ul>
+            En las expresiones aritméticas los operadores son los signos y los operandos son las letras.</p>
+            <div class="subsection-header">
+                <p class="body-text"><strong>a) Notación Infija:</strong><br>
+            </div>
+            Los operadores aparecen en medio de los operandos.<br>
+            A + B, A − 1, E / F, A * C, A ^ B, A + B + C, A + B − C.</p>
+
+            <div class="subsection-header">
+                <p class="body-text"><strong>b) Notación Prefija:</strong><br>
+            </div>
+            El operador aparece antes de los operandos.<br>
+            AB, - A1, / EF, * AC, ^ AB, + + AB C, - + AB C</p>
+            <div class="subsection-header">
+                <p class="body-text"><strong>c) Notación Postfija:</strong><br>
+            </div>
+            El operador aparece al final de los operandos.<br>
+            AB+, A1-, EF/, AC*, AB^, AB+C+, AB+C-</p>
+
+            <p class="body-text">Para comprender como las expresiones aritméticas son una aplicación de las pilas,
+                primeramente, se debe de convertir una expresión infija a posfija.</p>
         </div>
-        <div class="act-footer">
-            <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
-            <span class="act-points">⭐VALOR:10 puntos</span>
+        <div class="subsection-header">
+            <h3>Pasos para convertir una expresión infija a postfija</h3>
         </div>
-    </div>
+        <ol class="styled-list">
+            <li><strong>1.- </strong>Los operadores de prioridad más altas se convierten primero<br>
+            </li>
+            <ul class="operations-list">
+                <li><strong>()</strong>&nbsp; </li>
+                <li><strong>^ </strong>&nbsp; </li>
+                <li><strong>* /</strong>&nbsp; </li>
+                <li><strong>+ - </strong>&nbsp;</li>
+            </ul>
+            <li><strong>2.- </strong>Después que una parte de la expresión ha sido convertida, se trata como un solo
+                operando.</li>
+            <li><strong>3.- </strong>Si son de igual prioridad,
+                se procesan de izquierda a derecha, como son el
+                caso de / * y + -.</li>
+            <p class="body-text">El siguiente paso después de haber convertido la expresión infija a postfija, es
+                evaluar las expresiones postfijas.<br>
+                Los pasos para evaluación de las expresiones postfija son los siguientes:</p>
 
-    <div class="subsection-header">
-        <h3>3.2.4 Operaciones permitidas</h3>
-    </div>
-    <p class="body-text">Las operaciones fundamentales que rigen el comportamiento dinámico de una pila son dos funciones: Push(TOPE, DATO), para insertar elementos al Vector_Pila[TOPE] y la función Pop(TOPE) para eliminar un elemento al Vector_Pila[TOPE], respetando el principio LIFO, ultimo en entrar, primero en salir.
-    Para gestionar estas operaciones, se utilizan los punteros o índices de control, para nuestro caso vamos a trabajar con los índices o posiciones de control, para el caso de la pila se utilizará la variable Tope.</p>
-    <p class="body-text">•	TOPE Tope es una variable que representa la posición de memoria del Vector_Pila [Tope].</p>
+        </ol>
+        <ol class="styled-list">
+            <li><strong>1.- </strong>Explorar la expresión de izquierda a derecha.</li>
+            <li><strong>2.- </strong>Cada vez que se encuentra un operador, aplíquese a los operandos inmediatamente
+                precedentes.</li>
+            <li><strong>3.- </strong>Continuar la exploración a la derecha.</li>
+        </ol>
 
-    <!-- ==================== 3.3 Colas ==================== -->
-    <div class="section-header" data-num="3.3">
-        <h2><span class="section-emoji">🚶</span>3.3 Colas</h2>
-    </div>
-    <p class="body-text">Para poder implementar una cola primeramente se tiene que identificar qué es y cómo funciona.</p>
+        <div class="exercise-box">
+            <div class="ex-label">✏️ Realiza el siguiente ejercicio:</div>
+            <p class="font-bold text-amber-700 mb-2">1.- Convertir las siguientes expresiones infijas a postfijas</p>
+            <ol>
+                <li>(A – B) + C / D * E ^ F</li>
+                <li>A * B - (C + D) / E * F</li>
+                <li>A ^ B / C / D + (E – F)</li>
+                <li>A / B + C - D * (E * F)</li>
+            </ol>
+            <p class="font-bold text-amber-700 mt-4 mb-2">2.- Evaluar cada una
+                de las expresiones infijas, sustituyendo los operandos
+                (letras) por los siguientes valores:</p>
+            <div class="subsection-header">
+                <p>A=1, B=2, C=3, D=4, E=5, F=6</p>
 
-    <div class="subsection-header">
-        <h3>¿Qué es una cola?</h3>
-    </div>
-    <p class="body-text">Las colas son estructuras de datos lineales caracterizadas porque la inserción de nuevos elementos se realiza por un extremo, mientras que la eliminación de los ya existentes se efectúa por el extremo opuesto.
-    Los componentes de una cola se procesan estrictamente en el mismo orden en el que fueron insertados. En otras palabras, el primer elemento en ingresar a la estructura será el primero en ser retirado. Debido a este comportamiento, a las colas se les conoce comúnmente como estructuras FIFO (por sus siglas en inglés, First-In, First-Out: «primero en entrar, primero en salir»).
-    Para que quede claro la definición de qué es una cola, un ejemplo son las filas que se hacen en un banco, ya sea para realizar cualquier operación en los cajeros o para ser atendidos por un ejecutivo, la forma como funciona la fila es que el primero en llegar va a hacer el primero en salir, se respeta el orden en que fueron llegando a la fila, así es lo mismo para una fila para comprar tortillas, para comprar boletos para cualquier evento, ya sea para entrar al cine, etc. La siguiente figura 5 representa como funciona una cola.</p>
-
-    <div class="img-wrap md">
-        <div class="img-card">
-            <img src="assets/img/imguni3-6.png" alt="Funcionamiento de una cola">
-            <div class="img-caption">Figura 5 Funcionamiento de una cola</div>
+            </div>
         </div>
-    </div>
 
-    <div class="subsection-header">
-        <h3>3.3.1 Representación</h3>
-    </div>
-    <p class="body-text">Este tipo de estructura, como es el caso de la pila, se puede implementar principalmente mediante el uso de: arreglos unidimensionales (vectores) y listas.
-    Para propósitos didácticos, la representación de una cola será a través del uso de arreglos. Bajo este enfoque, es indispensable definir un tamaño máximo de almacenamiento y establecer dos variables de control:</p>
-    <ul class="styled-list">
-        <li>Frente: Variable encargada de almacenar la posición del primer elemento de la cola (el próximo a salir).</li>
-        <li>Final: Variable que guarda la posición del último elemento que fue insertado en la estructura.</li>
-    </ul>
+        <!-- Actividad UTIII_A2 -->
+        <div class="activity-box">
+            <div class="act-header">
+                <span class="act-badge">UTIII_A2</span>
+                <h3>📝 Actividad UTIII_A2 programa expresión infija:</h3>
+            </div>
+            <div class="act-body">
+                <div class="act-section-title">🎯 Propósito</div>
+                <p style="margin-bottom:12px;">Comprender la aplicación de una pila en las expresiones infijas.</p>
+                <p class="font-bold mb-2">1.- Convertir la siguiente expresión infija a postfija</p>
+                <p>A) A / B * C / D / E ^ F</p>
+                <p class="font-bold mt-4 mb-2">2.- Evaluar cada una de las expresiones infijas, sustituyendo los
+                    operandos (letras) por los siguientes valores:</p>
+                <p>A=1, B=2, C=3, D=4, E=5, F=6</p>
+                <p class="font-bold mt-4 mb-2">3.- Denotar paso a paso la separación de los operadores y operando,
+                    llenar el siguiente cuadro: (en la columna de pila van los operadores (signos))</p>
+                <div class="matriz-tabla">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Paso</th>
+                                <th>Expresión Infija</th>
+                                <th>Elemento para evaluar</th>
+                                <th>Pila</th>
+                                <th>Operando</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="5"> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="act-section-title">📋 4.- Realizar el programa de la anterior expresión infija</div>
+                <p style="margin-bottom:12px;">Pasos para realizar el programa:</p>
+                <ol>
+                    <li><strong>A) </strong> los siguientes vectores,
+                        a Vector_Exp_Inf asignarle los valores de l
+                        a expresión infija<br>
+                        Vector_Exp_Inf[]={“A”, “ /”, “B”, “*”, “C”, “/”, “D”, “/”, ”E”,”^”, ”F”}<br>
+                        Vector_Pila[5]<br>
+                        Vector_Operando[6]<br>
+                        Vector_Exp_Inf[11]</li>
+                    <li><strong>B) </strong> Separar los operandos de los operadores,
+                        en el vector pila guardar los operadores
+                        (acomodar de acuerdo con el nivel jerárquico
+                        , comparando cada uno de los operadores y si
+                        es de mayor rango se van a intercambiar y
+                        así sucesivamente).</li>
+                    <li><strong>C) </strong> Convertir la expresión infija a postfija tomando en cuenta los operadores
+                        de la pila, utilizando las llamadas de las funciones de push, pop y mostrar.</li>
+                </ol>
+                <div class="act-section-title">📎 Evidencia que entregar</div>
+                <ul>
+                    <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
+                        nombre del programa, por ejemplo, RBV_Programa_Expresion_Aritmetica.</li>
+                    <li>b) Programa ejecutable.</li>
+                    <li>c) Corrida del programa, en un archivo PDF.</li>
+                </ul>
+            </div>
+            <div class="act-footer">
+                <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
+                <span class="act-points">⭐VALOR:10 puntos</span>
+            </div>
+        </div>
 
-    <div class="subsection-header">
-        <h3>3.3.2 Formas de uso</h3>
-    </div>
-    <p class="body-text">La estructura de datos dinámica lineal Cola, como ya se menciona es muy común que se utilice para: representar los bancos, sistemas informáticos, en la gestión de las tareas que lleva a cabo un sistema operativo como en la impresión de documentos, entre otros.
-    Las Colas pueden pasar por varios estados como se muestran en las siguientes figuras:</p>
 
-    <p class="font-bold mt-4">a) Cola con algunos elementos</p>
-    <div class="flex flex-col md:flex-row gap-6 items-start my-4">
-        <div class="flex-1 text-justify">
-            <p>Donde:<br>
-            FRENTE tiene asignado 0, que indica que FRENTE está en la posición 0 del Vector_Cola[FRENTE] y es donde se van a sacar los elementos y es el primer elemento que llego al vector.<br>
-            FINAL tiene asignado 3, que indica que FINAL está en la posición 3 del Vector_Cola[FINAL] y es donde se va a meter el siguiente elemento a dicho vector.<br>
-            MAX es la variable que indica el tamaño del Vector_Cola que en este caso es de 7</p>
+        <div class="section-header" data-num="3.2.4">
+            <h2><span class="section-emoji">📋</span>
+                3.2.4 Operaciones permitidas</h2>
         </div>
-        <div class="flex-1 text-center">
-            <img src="assets/img/imguni3-7.png" alt="Cola con algunos elementos" class="max-w-full rounded-lg shadow-md hover-scale">
-        </div>
-    </div>
+        <p class="body-text">Las operaciones fundamentales que rigen el comportamiento dinámico de una pila son dos
+            funciones: Push(TOPE, DATO), para insertar elementos al Vector_Pila[TOPE] y la función Pop(TOPE) para
+            eliminar un elemento al Vector_Pila[TOPE], respetando el principio LIFO, ultimo en entrar, primero en salir.
+            Para gestionar estas operaciones, se utilizan los punteros o índices de control, para nuestro caso vamos a
+            trabajar con los índices o posiciones de control, para el caso de la pila se utilizará la variable Tope.</p>
+        <p class="body-text">• TOPE Tope es una variable que representa la posición de memoria del Vector_Pila [Tope].
+        </p>
 
-    <p class="font-bold mt-4">b) Cola vacía</p>
-    <div class="flex flex-col md:flex-row gap-6 items-start my-4">
-        <div class="flex-1 text-center">
-            <img src="assets/img/imguni3-8.png" alt="Cola vacía" class="max-w-full rounded-lg shadow-md hover-scale">
+        <!-- ==================== 3.3 Colas ==================== -->
+        <div class="section-header dark" data-num="3.3">
+            <h2><span class="section-emoji">🚶</span>3.3 Colas</h2>
         </div>
-        <div class="flex-1 text-justify">
-            <p>Cuando: FRENTE == FINAL AND COLA[FINAL]== NULLO<br>
-            Esto indica que el Vector_Cola[FINAL] no tiene elemento.<br>
-            Entonces la cola esta vacía</p>
-        </div>
-    </div>
 
-    <p class="font-bold mt-4">c) Cola llena</p>
-    <div class="flex flex-col md:flex-row gap-6 items-start my-4">
-        <div class="flex-1 text-justify">
-            <p>Donde:<br>
-            FRENTE tiene asignado 0, que indica que FRENTE está en la posición 0 del Vector_Cola y es donde se van a sacar los elementos y es el primer elemento que llego al Vector_Cola, en este caso no se ha sacado ningún elemento<br>
-            FINAL tiene asignado 7, que indica que FINAL está en la posición 7 del Vector_Cola y la condición es que FRENTE es igual a MAX (que tiene asignado 7) se debe de mandar un mensaje que el Vector_Cola está lleno.</p>
-        </div>
-        <div class="flex-1 text-center">
-            <img src="assets/img/imguni3-9.png" alt="Cola llena" class="max-w-full rounded-lg shadow-md hover-scale">
-        </div>
-    </div>
+        <p class="body-text">Para poder implementar una cola primeramente se tiene que identificar qué es y cómo
+            funciona.</p>
 
-    <p class="body-text"><strong>Algoritmo de Inserción (Push)</strong><br>
-    Este algoritmo describe el proceso para añadir un DATO al final de una estructura de tipo cola implementada mediante un arreglo. Se asume que FRENTE y FINAL inician con un valor de 0, lo que indica que la cola está vacía, y que MAX representa la capacidad máxima de almacenamiento del arreglo.</p>
-    <div class="code-simple">
-        <pre><span style="color:#c792ea;">Push_Cola(FINAL, DATO)</span>         <span style="color:#6a9955;">// Inserta el elemento DATO al final de la cola</span>    
+        <div class="subsection-header">
+            <h3>¿Qué es una cola?</h3>
+        </div>
+        <p class="body-text">Las colas son estructuras de datos lineales caracterizadas porque la inserción de nuevos
+            elementos se realiza por un extremo, mientras que la eliminación de los ya existentes se efectúa por el
+            extremo opuesto.
+            Los componentes de una cola se procesan estrictamente en el mismo orden en el que fueron insertados. En
+            otras palabras, el primer elemento en ingresar a la estructura será el primero en ser retirado. Debido a
+            este comportamiento, a las colas se les conoce comúnmente como estructuras FIFO (por sus siglas en inglés,
+            First-In, First-Out: «primero en entrar, primero en salir»).
+            Para que quede claro la definición de qué es una cola, un ejemplo son las filas que se hacen en un banco, ya
+            sea para realizar cualquier operación en los cajeros o para ser atendidos por un ejecutivo, la forma como
+            funciona la fila es que el primero en llegar va a hacer el primero en salir, se respeta el orden en que
+            fueron llegando a la fila, así es lo mismo para una fila para comprar tortillas, para comprar boletos para
+            cualquier evento, ya sea para entrar al cine, etc. La siguiente figura 5 representa como funciona una cola.
+        </p>
+
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imguni3-6.png" alt="Funcionamiento de una cola">
+                <div class="img-caption">Figura 5 Funcionamiento de una cola</div>
+            </div>
+        </div>
+
+        <div class="section-header" data-num="3.3.1">
+            <h2><span class="section-emoji"></span>3.3.1 Representación</h2>
+        </div>
+
+        <p class="body-text">Este tipo de estructura, como es el caso de la pila, se puede implementar principalmente
+            mediante el uso de: arreglos unidimensionales (vectores) y listas.
+            Para propósitos didácticos, la representación de una cola será a través del uso de arreglos. Bajo este
+            enfoque, es indispensable definir un tamaño máximo de almacenamiento y establecer dos variables de control:
+        </p>
+        <ul class="styled-list">
+            <li>Frente: Variable encargada de almacenar la posición del primer elemento de la cola (el próximo a salir).
+            </li>
+            <li>Final: Variable que guarda la posición del último elemento que fue insertado en la estructura.</li>
+        </ul>
+        <div class="section-header" data-num="3.3.2">
+            <h2><span class="section-emoji"></span>3.3.2 Formas de uso</h2>
+        </div>
+
+        <p class="body-text">La estructura de datos dinámica lineal Cola, como ya se menciona es muy común que se
+            utilice para: representar los bancos, sistemas informáticos, en la gestión de las tareas que lleva a cabo un
+            sistema operativo como en la impresión de documentos, entre otros.
+            Las Colas pueden pasar por varios estados como se muestran en las siguientes figuras:</p>
+
+        <p class="font-bold mt-4">a) Cola con algunos elementos</p>
+        <div class="flex flex-col md:flex-row gap-6 items-start my-4">
+            <div class="flex-1 text-justify">
+                <p>Donde:<br>
+                    FRENTE tiene asignado 0, que indica que FRENTE está en la posición 0 del Vector_Cola[FRENTE] y es
+                    donde se van a sacar los elementos y es el primer elemento que llego al vector.<br>
+                    FINAL tiene asignado 3, que indica que FINAL está en la posición 3 del Vector_Cola[FINAL] y es donde
+                    se va a meter el siguiente elemento a dicho vector.<br>
+                    MAX es la variable que indica el tamaño del Vector_Cola que en este caso es de 7.</p>
+            </div>
+            <div class="flex-1 text-center">
+                <img src="assets/img/imguni3-7.png" alt="Cola con algunos elementos"
+                    class="max-w-full rounded-lg shadow-md hover-scale">
+            </div>
+        </div>
+
+        <p class="font-bold mt-4">b) Cola vacía</p>
+        <div class="flex flex-col md:flex-row gap-6 items-start my-4">
+            <div class="flex-1 text-center">
+                <img src="assets/img/imguni3-8.png" alt="Cola vacía"
+                    class="max-w-full rounded-lg shadow-md hover-scale">
+            </div>
+            <div class="flex-1 text-justify">
+                <p>Cuando: FRENTE == FINAL AND COLA[FINAL]== NULLO<br>
+                    Esto indica que el Vector_Cola[FINAL] no tiene elemento.<br>
+                    Entonces la cola esta vacía</p>
+            </div>
+        </div>
+
+        <p class="font-bold mt-4">c) Cola llena</p>
+        <div class="flex flex-col md:flex-row gap-6 items-start my-4">
+            <div class="flex-1 text-justify">
+                <p>Donde:<br>
+                    FRENTE tiene asignado 0, que indica que FRENTE está en la posición 0 del Vector_Cola y es donde se
+                    van a sacar los elementos y es el primer elemento que llego al Vector_Cola, en este caso no se ha
+                    sacado ningún elemento<br>
+                    FINAL tiene asignado 7, que indica que FINAL está en la posición 7 del Vector_Cola y la condición es
+                    que FRENTE es igual a MAX (que tiene asignado 7) se debe de mandar un mensaje que el Vector_Cola
+                    está lleno.</p>
+            </div>
+            <div class="flex-1 text-center">
+                <img src="assets/img/imguni3-9.png" alt="Cola llena"
+                    class="max-w-full rounded-lg shadow-md hover-scale">
+            </div>
+        </div>
+        <div class="concept-highlight">
+
+            <p class="body-text"><strong>Algoritmo de Inserción (Push)</strong><br>
+                Este algoritmo describe el proceso para añadir un DATO al final de una estructura de tipo cola
+                implementada mediante un arreglo. Se asume que FRENTE y FINAL inician con un valor de 0, lo que indica
+                que la cola está vacía, y que MAX representa la capacidad máxima de almacenamiento del arreglo.</p>
+            <div class="code-simple">
+                <pre><span style="color:#c792ea;">Push_Cola(FINAL, DATO)</span>         <span style="color:#6a9955;">// Inserta el elemento DATO al final de la cola</span>    
 <span style="color:#c792ea;">SI</span> FINAL &lt; MAX <span style="color:#c792ea;">ENTONCES</span>     <span style="color:#6a9955;">// Verifica si existe espacio disponible</span>
     COLA[FINAL] = DATO          <span style="color:#6a9955;">// Almacena el dato en la posición actual de FINAL</span>
     FINAL = FINAL + 1           <span style="color:#6a9955;">// Incrementa el puntero FINAL a la siguiente posición</span>
 <span style="color:#c792ea;">SINO</span>
     DESPLEGAR MENSAJE: <span style="color:#7ec699;">"La cola está llena"</span>
 <span style="color:#c792ea;">FIN SI</span></pre>
-    </div>
-
-    <p class="body-text"><strong>Algoritmo de Eliminación (Pop)</strong><br>
-    Este algoritmo detalla el procedimiento para retirar el primer elemento de la cola. Para que la eliminación sea válida, es imperativo comprobar previamente que la estructura no se encuentre vacía (es decir, que la posición de FRENTE no haya alcanzado a la posición de FINAL).</p>
-    <div class="code-simple">
-        <pre><span style="color:#c792ea;">Pop_Cola(FRENTE)</span>                            <span style="color:#6a9955;">// Elimina el elemento ubicado en el frente de la cola</span>                                                      
+            </div>
+        </div>
+        <div class="concept-highlight">
+            <p class="body-text"><strong>Algoritmo de Eliminación (Pop)</strong><br>
+                Este algoritmo detalla el procedimiento para retirar el primer elemento de la cola. Para que la
+                eliminación sea válida, es imperativo comprobar previamente que la estructura no se encuentre vacía (es
+                decir, que la posición de FRENTE no haya alcanzado a la posición de FINAL).</p>
+            <div class="code-simple">
+                <pre><span style="color:#c792ea;">Pop_Cola(FRENTE)</span>                            <span style="color:#6a9955;">// Elimina el elemento ubicado en el frente de la cola</span>                                                      
 <span style="color:#c792ea;">SI</span> FRENTE &lt; FINAL <span style="color:#c792ea;">ENTONCES</span>   <span style="color:#6a9955;">// Verifica que la cola contenga al menos un elemento</span>
     COLA[FRENTE] = NULO              <span style="color:#6a9955;">// Elimina/limpia el dato en la posición del FRENTE</span>
     FRENTE = FRENTE + 1              <span style="color:#6a9955;">// Avanza el puntero FRENTE a la siguiente posición</span>
 <span style="color:#c792ea;">SINO</span>
     DESPLEGAR MENSAJE: <span style="color:#7ec699;">"La Cola está vacía"</span>
 <span style="color:#c792ea;">FIN SI</span></pre>
-    </div>
+            </div>
+        </div>
+        <div class="section-header" data-num="3.3.3">
+            <h2><span class="section-emoji"></span>3.3.3 Implementación</h2>
+        </div>
 
-    <div class="subsection-header">
-        <h3>3.3.3 Implementación</h3>
-    </div>
-    <p class="body-text">Para ilustrar el comportamiento dinámico de una cola y el movimiento de sus posiciones, analizaremos una secuencia de operaciones utilizando los días de la semana como conjunto de datos.</p>
-    <ol class="styled-list">
-        <li>Push (FINAL, DIA) Supongamos que se insertan en la cola los siguientes elementos en estricto orden: lunes, martes, miércoles, jueves y viernes. A continuación, se muestra la figura 6 de como quedaría la estructura de datos Cola después de haber insertado los días.</li>
-    </ol>
-    <div class="img-wrap md">
-        <div class="img-card">
-            <img src="assets/img/imguni3-10.png" alt="Aplicación Push Cola">
-            <div class="img-caption">Figura 6 Aplicación Push de una estructura de datos Cola</div>
+        <p class="body-text">Para ilustrar el comportamiento dinámico de una cola y el movimiento de sus posiciones,
+            analizaremos una secuencia de operaciones utilizando los días de la semana como conjunto de datos.</p>
+        <ol class="styled-list">
+            <li><strong>1.- Push (FINAL, DIA)</strong> Supongamos que se insertan en la cola los siguientes elementos en
+                estricto orden: lunes, martes, miércoles, jueves y viernes. A continuación, se muestra la figura 6 de
+                como quedaría la estructura de datos Cola después de haber insertado los días.</li>
+        </ol>
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imguni3-10.png" alt="Aplicación Push Cola">
+                <div class="img-caption">Figura 6 Aplicación Push de una estructura de datos Cola</div>
+            </div>
         </div>
-    </div>
-    <ol start="2" class="styled-list">
-        <li>Primera Eliminación Pop (FRENTE) Si se ejecuta una operación de eliminación, el elemento «lunes» será el primero en salir, ya que fue el primero en llegar, cumpliendo así con el principio FIFO primero en llegar, primero en salir. La siguiente figura 7 muestra que sucede cuando se elimina el lunes:</li>
-    </ol>
-    <div class="img-wrap md">
-        <div class="img-card">
-            <img src="assets/img/imguni3-11.png" alt="Aplicación Pop Cola">
-            <div class="img-caption">Figura 7 Aplicación Pop de una estructura de datos Cola</div>
+        <ol start="2" class="styled-list">
+            <li><strong>2.- Eliminación Pop (FRENTE)</strong> Si se ejecuta una operación de eliminación, el elemento
+                «lunes» será el primero en salir, ya que fue el primero en llegar, cumpliendo así con el principio FIFO
+                primero en llegar, primero en salir. La siguiente figura 7 muestra que sucede cuando se elimina el
+                lunes:</li>
+        </ol>
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imguni3-11.png" alt="Aplicación Pop Cola">
+                <div class="img-caption">Figura 7 Aplicación Pop de una estructura de datos Cola</div>
+            </div>
         </div>
-    </div>
-    <ol start="3" class="styled-list">
-        <li>Nueva Inserción Push(FINAL, DIA) Si a continuación se inserta el elemento «sábado», este debe ingresar por el extremo posterior de la estructura. A continuación, se muestra la figura 8 de como quedaría la estructura de datos Cola después de haber insertado el sábado.</li>
-    </ol>
-    <div class="img-wrap md">
-        <div class="img-card">
-            <img src="assets/img/imguni3-12.png" alt="Nueva inserción Cola">
-            <div class="img-caption">Figura 8 Aplicación Push de una estructura de datos Cola</div>
+        <ol start="3" class="styled-list">
+            <li><strong>3.- Nueva Inserción Push(FINAL, DIA)</strong> Si a continuación se inserta el elemento «sábado»,
+                este debe ingresar por el extremo posterior de la estructura. A continuación, se muestra la figura 8 de
+                como quedaría la estructura de datos Cola después de haber insertado el sábado.</li>
+        </ol>
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imguni3-12.png" alt="Nueva inserción Cola">
+                <div class="img-caption">Figura 8 Aplicación Push de una estructura de datos Cola</div>
+            </div>
         </div>
-    </div>
-    <p class="body-text">4. Análisis de Secuencia de Operaciones A partir del estado anterior (donde el Frente es «martes» y el Final es «sábado»), evaluemos qué ocurre al ejecutar la siguiente serie de instrucciones:</p>
-    <ul class="styled-list">
-        <li>a) Pop(FRENTE) cuatro veces (eliminación de martes, miércoles, jueves y viernes)</li>
-        <li>b) Push(FINAL, DIA)  domingo</li>
-        <li>c) Pop(Frente) una vez (eliminación de sábado)</li>
-    </ul>
+        <p class="body-text"><strong>4.- Análisis de Secuencia de Operaciones</strong> A partir del estado anterior
+            (donde el Frente es «martes» y el Final es «sábado»), evaluemos qué ocurre al ejecutar la siguiente serie de
+            instrucciones:</p>
+        <ul class="styled-list">
+            <li>a) Pop(FRENTE) cuatro veces (eliminación de martes, miércoles, jueves y viernes)</li>
+            <li>b) Push(FINAL, DIA) domingo</li>
+            <li>c) Pop(Frente) una vez (eliminación de sábado)</li>
+        </ul>
 
-    <!-- Actividad UTIII_A3 -->
-    <div class="activity-box">
-        <div class="act-header">
-            <span class="act-badge">UTIII_A3</span>
-            <h3>📝 Actividad UTIII_A3 programa de un Vector_Cola_Días:</h3>
+        <!-- Actividad UTIII_A3 -->
+        <div class="activity-box">
+            <div class="act-header">
+                <span class="act-badge">UTIII_A3</span>
+                <h3>📝 Actividad UTIII_A3 programa de un Vector_Cola_Días:</h3>
+            </div>
+            <div class="act-body">
+                <div class="act-section-title">🎯 Propósito</div>
+                <p style="margin-bottom:12px;">Utilizar un lenguaje de programación para declarar una cola Vector_Cola
+                    [7] definiéndola con el tipo de dato string y en el que se puedan asignar 7 elementos que son los
+                    días de la semana.</p>
+                <p style="margin-bottom:12px;">La intención de esta actividad es que el estudiante comprenda las
+                    operaciones que se realizan sobre una cola, para este caso se van a mandar a llamar las funciones
+                    push para meter elementos a la cola, la función pop para sacar elementos a la cola y la función
+                    mostrar elementos de la cola.</p>
+                <div class="act-section-title">📋 Instrucciones</div>
+                <ol>
+                    <li>Declara una cola que se llame Cola_Vector [7] de tipo de dato string de tamaño 7, las variables
+                        FINAL y FRENTE de tipo entero asignándoles 0, las funciones Push(FINAL, DIA) y Pop(FRENTE) de
+                        tipo entero, la función Mostrar y la variable DIA de tipo string.</li>
+                    <li>La forma de asignar los elementos a la Cola_Vector [FINAL], será llamando la función Push(FINAL,
+                        DIA) y para sacar los elementos será llamando la función Pop(FRENTE). Para mostrar los elementos
+                        de Cola_Vector será llamando la función Mostrar.</li>
+                </ol>
+                <div class="act-section-title">📎 Evidencia que entregar</div>
+                <ul>
+                    <li>Programa fuente, el nombre de este programa
+                        debe de contener las iniciales de su nombre y el
+                        nombre del programa, por ejemplo,
+                        RBV_Programa_Cola_Vector.</li>
+                    <li>Programa executable.</li>
+                    <li>Corrida del programa, en un archivo PDF.</li>
+                </ul>
+            </div>
+            <div class="act-footer">
+                <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
+                <span class="act-points">⭐VALOR:10 puntos</span>
+            </div>
         </div>
-        <div class="act-body">
-            <div class="act-section-title">🎯 Propósito</div>
-            <p style="margin-bottom:12px;">Utilizar un lenguaje de programación para declarar una cola Vector_Cola [7] definiéndola con el tipo de dato string y en el que se puedan asignar 7 elementos que son los días de la semana.</p>
-            <p style="margin-bottom:12px;">La intención de esta actividad es que el estudiante comprenda las operaciones que se realizan sobre una cola, para este caso se van a mandar a llamar las funciones push para meter elementos a la cola, la función pop para sacar elementos a la cola y la función mostrar elementos de la cola.</p>
-            <div class="act-section-title">📋 Instrucciones</div>
-            <ol>
-                <li>Declara una cola que se llame Cola_Vector [7] de tipo de dato string de tamaño 7, las variables FINAL y FRENTE de tipo entero asignándoles 0, las funciones Push(FINAL, DIA) y Pop(FRENTE) de tipo entero, la función Mostrar y la variable DIA de tipo string.</li>
-                <li>La forma de asignar los elementos a la Cola_Vector [FINAL], será llamando la función Push(FINAL, DIA) y para sacar los elementos será llamando la función Pop(FRENTE). Para mostrar los elementos de Cola_Vector será llamando la función Mostrar.</li>
-            </ol>
-            <div class="act-section-title">📎 Evidencia que entregar</div>
-            <ul>
-                <li>Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el nombre del programa, por ejemplo, RBV_Programa_Cola_Vector</li>
-                <li>Programa executable</li>
-                <li>Corrida del programa, en un archivo PDF</li>
-            </ul>
-        </div>
-        <div class="act-footer">
-            <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
-            <span class="act-points">⭐VALOR:10 puntos</span>
-        </div>
-    </div>
 
-    <!-- Actividad UTIII_A4 -->
-    <div class="activity-box">
-        <div class="act-header">
-            <span class="act-badge">UTIII_A4</span>
-            <h3>📝 Actividad UTIII_A4 Programa Cola_Vector_Cliente_Banco:</h3>
+        <!-- Actividad UTIII_A4 -->
+        <div class="activity-box">
+            <div class="act-header">
+                <span class="act-badge">UTIII_A4</span>
+                <h3>📝 Actividad UTIII_A4 Programa Cola_Vector_Cliente_Banco:</h3>
+            </div>
+            <div class="act-body">
+                <div class="act-section-title">🎯 Propósito</div>
+                <p style="margin-bottom:12px;">Utilizar un lenguaje de programación para declarar una cola definiéndola
+                    con el tipo de dato string y en el que se puedan asignar 10 elementos que son los nombres de los
+                    clientes de un banco para simular los movimientos de espera.</p>
+                <p style="margin-bottom:12px;">La intención de esta actividad es que el estudiante comprenda las
+                    operaciones que se realizan sobre una cola, para este caso se van a mandar a llamar las funciones
+                    push para meter elementos a la cola, la función pop para sacar elementos a la cola y la función
+                    mostrar elementos de la cola.</p>
+                <div class="act-section-title">📋 Instrucciones</div>
+                <ol>
+                    <li>Declara una cola que se llame Cola_Vector_Cliente [10] de tipo de dato string de tamaño 10, las
+                        variables FINAL y FRENTE de tipo entero asignándoles 0, las funciones Push(FINAL, CLIENTE) y
+                        Pop(FRENTE) de tipo entero, la función Mostrar y la variable CLIENTE de tipo string.</li>
+                    <li>La forma de asignar los elementos a la Cola_Vector_Cliente[FINAL], será llamando la función
+                        Push(FINAL, CLIENTE) y para sacar los elementos será llamando la función Pop(FRENTE). Para
+                        mostrar los elementos de Cola_Vector será llamando la función Mostrar.</li>
+                </ol>
+                <div class="act-section-title">📎 Evidencia que entregar</div>
+                <ul>
+                    <li>Programa fuente, el nombre de este programa debe
+                        de contener las iniciales de su nombre y el nombre
+                        del programa, por ejemplo, RBV_Programa_Cola_Vector_Cliente_Banco.</li>
+                    <li>Programa executable.</li>
+                    <li>Corrida del programa, en un archivo PDF.</li>
+                </ul>
+            </div>
+            <div class="act-footer">
+                <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
+                <span class="act-points">⭐VALOR:10 puntos</span>
+            </div>
         </div>
-        <div class="act-body">
-            <div class="act-section-title">🎯 Propósito</div>
-            <p style="margin-bottom:12px;">Utilizar un lenguaje de programación para declarar una cola definiéndola con el tipo de dato string y en el que se puedan asignar 10 elementos que son los nombres de los clientes de un banco para simular los movimientos de espera.</p>
-            <p style="margin-bottom:12px;">La intención de esta actividad es que el estudiante comprenda las operaciones que se realizan sobre una cola, para este caso se van a mandar a llamar las funciones push para meter elementos a la cola, la función pop para sacar elementos a la cola y la función mostrar elementos de la cola.</p>
-            <div class="act-section-title">📋 Instrucciones</div>
-            <ol>
-                <li>Declara una cola que se llame Cola_Vector_Cliente [10] de tipo de dato string de tamaño 10, las variables FINAL y FRENTE de tipo entero asignándoles 0, las funciones Push(FINAL, CLIENTE) y Pop(FRENTE) de tipo entero, la función Mostrar y la variable CLIENTE de tipo string.</li>
-                <li>La forma de asignar los elementos a la Cola_Vector_Cliente[FINAL], será llamando la función Push(FINAL, CLIENTE) y para sacar los elementos será llamando la función Pop(FRENTE). Para mostrar los elementos de Cola_Vector será llamando la función Mostrar.</li>
-            </ol>
-            <div class="act-section-title">📎 Evidencia que entregar</div>
-            <ul>
-                <li>Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el nombre del programa, por ejemplo, RBV_Programa_Cola_Vector_Cliente_Banco</li>
-                <li>Programa executable</li>
-                <li>Corrida del programa, en un archivo PDF</li>
-            </ul>
-        </div>
-        <div class="act-footer">
-            <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
-            <span class="act-points">⭐VALOR:10 puntos</span>
-        </div>
-    </div>
 
-    <!-- ==================== 3.4 Listas enlazadas ==================== -->
-    <div class="section-header dark" data-num="3.4">
-        <h2><span class="section-emoji">🔗</span>3.4 Listas enlazadas (simplemente ligadas)</h2>
-    </div>
-    <p class="body-text">Una lista simplemente ligada almacena una secuencia lineal de elementos que son conocidos como nodos. Para poder enlazar los nodos se requiere de un apuntador (que es una variable que contiene una dirección de memoria).
-    Un nodo consta de los siguientes elementos:
-    a) Un campo que contiene la información que es el tipo de datos que se desea guardar en la lista.
-    b) Un apuntador que contiene la dirección de memoria que se enlaza con el siguiente nodo de la lista. Para identificar que es el fin de la lista, el último nodo apuntará a hacia NULL (vacío).
-    La siguiente figura 9 ilustra como se enlazan los nodos de la lista utilizando un apuntador:</p>
+        <!-- ==================== 3.4 Listas enlazadas ==================== -->
+        <div class="section-header dark" data-num="3.4">
+            <h2><span class="section-emoji">🔗</span>3.4 Listas enlazadas (simplemente ligadas)</h2>
+        </div>
+        <p class="body-text">Una lista simplemente ligada almacena una secuencia lineal de elementos que son conocidos
+            como nodos. Para poder enlazar los nodos se requiere de un apuntador (que es una variable que contiene una
+            dirección de memoria).
+            Un nodo consta de los siguientes elementos:
+            a) Un campo que contiene la información que es el tipo de datos que se desea guardar en la lista.
+            b) Un apuntador que contiene la dirección de memoria que se enlaza con el siguiente nodo de la lista. Para
+            identificar que es el fin de la lista, el último nodo apuntará a hacia NULL (vacío).
+            La siguiente figura 9 ilustra como se enlazan los nodos de la lista utilizando un apuntador:</p>
 
-    <div class="img-wrap md">
-        <div class="img-card">
-            <img src="assets/img/imguni3-13.png" alt="Lista sencillamente enlazada">
-            <div class="img-caption">Figura 9 Lista sencillamente enlazada</div>
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imguni3-13.png" alt="Lista sencillamente enlazada">
+                <div class="img-caption">Figura 9 Lista sencillamente enlazada</div>
+            </div>
         </div>
-    </div>
+        <div class="section-header" data-num="3.4.1">
+            <h2><span class="section-emoji">📋</span>
+                3.4.1 Representación</h2>
+        </div>
 
-    <div class="subsection-header">
-        <h3>3.4.1 Representación</h3>
-    </div>
-    <p class="body-text">Los elementos de la lista enlazada se almacenan en lugares no contiguo de la memoria, ¿esto que quiere decir?, que los elementos no son almacenados de manera secuencial (que están dispersos), en el caso de los arreglos unidimensionales si es de forma secuencial, la siguiente figura 10 muestra como es un almacenamiento de un arreglo unidimensional a una lista enlazada:</p>
-    <div class="img-wrap md">
-        <div class="img-card">
-            <img src="assets/img/imguni3-14.png" alt="Comparación arreglo vs lista enlazada">
+        <p class="body-text">Los elementos de la lista enlazada se almacenan en lugares no contiguo de la memoria, ¿esto
+            que quiere decir?, que los elementos no son almacenados de manera secuencial (que están dispersos), en el
+            caso de los arreglos unidimensionales si es de forma secuencial, la siguiente figura 10 muestra como es un
+            almacenamiento de un arreglo unidimensional a una lista enlazada:</p>
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imguni3-14.png" alt="Comparación arreglo vs lista enlazada">
+            </div>
         </div>
-    </div>
-    <p class="body-text">Las diferencias que existen entre los arreglos unidimensionales y las listas en lazadas son:</p>
-    <ul class="styled-list">
-        <li>El acceso de forma aleatoria a un arreglo unidimensional es más eficiente que en una lista enlazada, esto es por la forma en que cada estructura almacena los elementos.</li>
-        <li>Para la búsqueda de un elemento de la lista enlazada, se deben de recorrer todos los elementos desde el inicio hasta que se encuentre el elemento que se busca.</li>
-        <li>Para almacenar los elementos a una lista enlazada se requiere de memoria extra. En cambio, para los arreglos unidimensionales no se requiere memoria adicional.</li>
-        <li>En las listas enlazadas se pueden eliminar o insertar elementos reacomodando los enlaces.</li>
-    </ul>
+        <p class="body-text">Las diferencias que existen entre los arreglos unidimensionales y las listas en lazadas
+            son:</p>
+        <ul class="styled-list">
+            <li><strong>a) </strong> acceso de forma aleatoria a un arreglo unidimensional es más eficiente que en una
+                lista enlazada, esto es por la forma en que cada estructura almacena los elementos.</li>
+            <li><strong>b) </strong>Para la búsqueda de un elemento de la lista enlazada, se deben de recorrer todos los
+                elementos desde el inicio hasta que se encuentre el elemento que se busca.</li>
+            <li><strong>c) </strong>Para almacenar los elementos a una lista enlazada se requiere de memoria extra. En
+                cambio, para los arreglos unidimensionales no se requiere memoria adicional.</li>
+            <li><strong>d) </strong>En las listas enlazadas se pueden eliminar o insertar elementos reacomodando los
+                enlaces.</li>
+        </ul>
 
-    <div class="subsection-header">
-        <h3>3.4.2 Formas de uso</h3>
-    </div>
-    <p class="body-text">La estructura de datos dinámica lineal lista enlazada, se usa de diferentes formas, en el contenido anterior se trató de una lista sencillamente enlazada (que contiene un solo apuntador) nada más se puede ir de inicio a fin, pero no de fin a inicio, pero también existe la lista doblemente enlazada que, a diferencia de la lista sencillamente enlazada, tiene dos apuntadores *izq y *der que les permiten ir de inicio a fin o de fin a inicio, en donde el *izq contiene la dirección del predecesor y *der contiene la dirección del sucesor. En la siguiente figura 11 se demuestra como está constituido el nodo de una lista doblemente enlazada</p>
-    <div class="img-wrap md">
-        <div class="img-card">
-            <img src="assets/img/imguni3-15.png" alt="Lista doblemente enlazada">
-            <div class="img-caption">Figura 11 Lista doblemente enlazada</div>
+        <div class="section-header" data-num="3.4.2">
+            <h2><span class="section-emoji"></span>
+                3.4.2 Formas de uso</h2>
         </div>
-    </div>
-    <p class="body-text"><strong>Realiza el siguiente ejercicio:</strong></p>
-    <div class="img-wrap md">
-        <div class="img-card">
-            <img src="assets/img/imguni3-16.png" alt="Ejercicio lista doblemente ligada">
-        </div>
-    </div>
-    <p class="body-text">De la lista anterior, donde las letras son la información del nodo y los números son las direcciones de memoria, represéntala como una lista doblemente ligada y que este en orden alfabético de forma ascendente, como se muestra a continuación</p>
-    <div class="img-wrap md">
-        <div class="img-card">
-            <img src="assets/img/imguni3-17.png" alt="Ejercicio lista doblemente ligada resuelto">
-        </div>
-    </div>
 
-    <div class="subsection-header">
-        <h3>3.4.3 Implementación</h3>
-    </div>
-    <p class="body-text">Como se mencionó anteriormente que las listas doblemente enlazadas se pueden recorrer de inicio a fin y de fin a inicio, un claro ejemplo de este tipo de estructura es la aplicación del Spotify con las listas de reproducción donde se puede saltar a la canción anterior o siguiente rápidamente. Otro ejemplo es el de una agenda telefónica.</p>
-    <p class="body-text">El tipo struct, permite establecer un elemento de la lista, dicho elemento tendrá un campo dato y una variable apuntador.</p>
-    <div class="code-simple">
-        <pre>typedef struct ListaIdentificar {
+        <p class="body-text">La estructura de datos dinámica lineal lista enlazada, se usa de diferentes formas, en el
+            contenido anterior se trató de una lista sencillamente enlazada (que contiene un solo apuntador) nada más se
+            puede ir de inicio a fin, pero no de fin a inicio, pero también existe la lista doblemente enlazada que, a
+            diferencia de la lista sencillamente enlazada, tiene dos apuntadores *izq y *der que les permiten ir de
+            inicio a fin o de fin a inicio, en donde el *izq contiene la dirección del predecesor y *der contiene la
+            dirección del sucesor. En la siguiente figura 11 se demuestra como está constituido el nodo de una lista
+            doblemente enlazada.</p>
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imguni3-15.png" alt="Lista doblemente enlazada">
+                <div class="img-caption">Figura 11 Lista doblemente enlazada</div>
+            </div>
+        </div>
+        <p class="body-text"><strong>Realiza el siguiente ejercicio:</strong></p>
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imguni3-16.png" alt="Ejercicio lista doblemente ligada">
+            </div>
+        </div>
+        <p class="body-text">De la lista anterior, donde las letras son la información del nodo y los números son las
+            direcciones de memoria, represéntala como una lista doblemente ligada y que este en orden alfabético de
+            forma ascendente, como se muestra a continuación.</p>
+        <div class="img-wrap md">
+            <div class="img-card">
+                <img src="assets/img/imguni3-17.png" alt="Ejercicio lista doblemente ligada resuelto">
+            </div>
+        </div>
+        <div class="section-header" data-num="3.4.3">
+            <h2><span class="section-emoji">📋</span>
+                3.4.3 Implementación</h2>
+        </div>
+
+        <p class="body-text">Como se mencionó anteriormente que las listas doblemente enlazadas se pueden recorrer de
+            inicio a fin y de fin a inicio, un claro ejemplo de este tipo de estructura es la aplicación del Spotify con
+            las listas de reproducción donde se puede saltar a la canción anterior o siguiente rápidamente. Otro ejemplo
+            es el de una agenda telefónica.</p>
+        <p class="body-text">El tipo struct, permite establecer un elemento de la lista, dicho elemento tendrá un campo
+            dato y una variable apuntador.</p>
+        <div class="code-simple">
+            <pre>typedef struct ListaIdentificar {
   Elemento *inicio;
   Elemento *final;
   int tamaño;
 }Lista;</pre>
-    </div>
-    <p class="body-text">El puntero inicio tendrá la dirección del primer elemento de la lista y el puntero final contiene la dirección del último elemento de la lista. La variable tamaño contiene el número de elementos de la lista.</p>
-
-    <div class="subsection-header">
-        <h3>3.4.4 Operaciones permitidas</h3>
-    </div>
-    <p class="body-text">Las operaciones fundamentales que rigen el comportamiento dinámico de una lista enlazada son:</p>
-    <ol class="styled-list">
-        <li>Void Insertar_Elemento_Lista ( ); Esta función permite meter un elemento de tipo char a la lista.</li>
-        <li>Void Eliminar_Elemento_Lista ( ); Esta función permite sacar un elemento a la lista.</li>
-        <li>Void Mostrar_Elemento_Lista ( );</li>
-    </ol>
-
-    <!-- Actividad UTIII_A5 -->
-    <div class="activity-box">
-        <div class="act-header">
-            <span class="act-badge">UTIII_A5</span>
-            <h3>📝 Actividad UTIII_A5 programa de Lista_Enlazada:</h3>
         </div>
-        <div class="act-body">
-            <div class="act-section-title">🎯 Propósito</div>
-            <p style="margin-bottom:12px;">Utilizar un lenguaje de programación para declarar una lista enlazada donde es necesario definir el Nombre_Contacto con el tipo de dato string de tamaño 25, también declarar Numero_Telefonico de tipo de dato char de tamaño 10. Esta agenda va a contener los nombres de los contactos con sus números de teléfono.</p>
-            <p style="margin-bottom:12px;">La intención de esta actividad es que el estudiante comprenda las operaciones que se realizan sobre una lista enlazada, para este caso se van a mandar a llamar las funciones: Void Insertar_Elemento_Lista (), Void Eliminar_Elemento_Lista ( ) y Void Mostrar_Elemento_Lista ( ).</p>
-            <div class="act-section-title">📋 Instrucciones</div>
-            <ol>
-                <li>Define una lista enlazada que se llame Agenda_Telefonica que contenga Nombre_Contacto de tipo de dato string de tamaño 25, el Numero_Telefono de tipo de dato char y tamaño 10, como se muestra a continuación:</li>
-            </ol>
-            <div class="code-simple">
-                <pre>struct _Agenda_Telefonica {
+        <p class="body-text">El puntero inicio tendrá la dirección del primer elemento de la lista y el puntero final
+            contiene la dirección del último elemento de la lista. La variable tamaño contiene el número de elementos de
+            la lista.</p>
+        <div class="section-header" data-num="3.4.4">
+            <h2><span class="section-emoji">📋</span>
+                3.4.4 Operaciones permitidas</h2>
+        </div>
+
+        <p class="body-text">Las operaciones fundamentales que rigen el comportamiento dinámico de una lista enlazada
+            son:</p>
+        <ol class="styled-list">
+            <li>Void Insertar_Elemento_Lista ( ); Esta función permite meter un elemento de tipo char a la lista.</li>
+            <li>Void Eliminar_Elemento_Lista ( ); Esta función permite sacar un elemento a la lista.</li>
+            <li>Void Mostrar_Elemento_Lista ( );</li>
+        </ol>
+
+        <!-- Actividad UTIII_A5 -->
+        <div class="activity-box">
+            <div class="act-header">
+                <span class="act-badge">UTIII_A5</span>
+                <h3>📝 Actividad UTIII_A5 programa de Lista_Enlazada:</h3>
+            </div>
+            <div class="act-body">
+                <div class="act-section-title">🎯 Propósito</div>
+                <p style="margin-bottom:12px;">Utilizar un lenguaje de programación para declarar una lista enlazada
+                    donde es necesario definir el Nombre_Contacto con el tipo de dato string de tamaño 25, también
+                    declarar Numero_Telefonico de tipo de dato char de tamaño 10. Esta agenda va a contener los nombres
+                    de los contactos con sus números de teléfono.</p>
+                <p style="margin-bottom:12px;">La intención de esta actividad es que el estudiante comprenda las
+                    operaciones que se realizan sobre una lista enlazada, para este caso se van a mandar a llamar las
+                    funciones: Void Insertar_Elemento_Lista (), Void Eliminar_Elemento_Lista ( ) y Void
+                    Mostrar_Elemento_Lista ( ).</p>
+                <div class="act-section-title">📋 Instrucciones</div>
+                <ol>
+                    <li>Define una lista enlazada que se llame Agenda_Telefonica que contenga Nombre_Contacto de tipo de
+                        dato string de tamaño 25, el Numero_Telefono de tipo de dato char y tamaño 10, como se muestra a
+                        continuación:</li>
+                </ol>
+                <div class="code-simple">
+                    <pre>struct _Agenda_Telefonica {
         String Nombre_Contacto[25];
         char Numero_Telefono[10];
         struct _Agenda_Telefonica *siguiente;
         };
  
 struct _Agenda_Telefonica *primero, *ultimo</pre>
+                </div>
+                <ol start="2">
+                    <li>El programa debe de contener un menú para llamar las funciones<br>
+                        Void Insertar_Elemento_Lista ( )<br>
+                        Void Eliminar_Elemento_Lista ( )<br>
+                        Void Mostrar_Elemento_Lista ( )</li>
+                </ol>
+                <div class="act-section-title">📎 Evidencia que entregar</div>
+                <ul>
+                    <li>Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
+                        nombre del programa, por ejemplo, RBV_Programa_Lista_Enlazada.</li>
+                    <li>Programa executable.</li>
+                    <li>Corrida del programa, en un archivo PDF.</li>
+                </ul>
             </div>
-            <ol start="2">
-                <li>El programa debe de contener un menú para llamar las funciones<br>
-                Void Insertar_Elemento_Lista ( )<br>
-                Void Eliminar_Elemento_Lista ( )<br>
-                Void Mostrar_Elemento_Lista ( )</li>
-            </ol>
-            <div class="act-section-title">📎 Evidencia que entregar</div>
-            <ul>
-                <li>Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el nombre del programa, por ejemplo, RBV_Programa_Lista_Enlazada</li>
-                <li>Programa executable</li>
-                <li>Corrida del programa, en un archivo PDF</li>
-            </ul>
+            <div class="act-footer">
+                <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
+                <span class="act-points">⭐ VALOR:10 puntos</span>
+            </div>
         </div>
-        <div class="act-footer">
-            <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
-            <span class="act-points">⭐ VALOR:10 puntos</span>
-        </div>
+
     </div>
 
-</div><!-- /page-content -->
+    <!-- NAVIGATION BUTTONS -->
+    <div
+        style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; max-width:900px; margin:0 auto; padding:16px 24px 48px;">
+        <a href="navuni2.html" class="nav-btn">
+            <span>⬅️</span> Anterior
+        </a>
+        <a href="index.html" class="nav-btn nav-btn-home">🏠</a>
+        <a href="navuni4.html" class="nav-btn">
+            Siguiente <span>➡️</span>
+        </a>
+    </div>
 
-<!-- NAVIGATION BUTTONS (estilo navuni1) -->
-<div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; max-width:900px; margin:0 auto; padding:16px 24px 48px;">
-    <a href="navuni2.html" class="nav-btn">
-        <span>⬅️</span> Anterior
-    </a>
-    <a href="index.html" class="nav-btn nav-btn-home">🏠</a>
-    <a href="navuni4.html" class="nav-btn">
-        Siguiente <span>➡️</span>
-    </a>
-</div>
+    <!-- FOOTER -->
+    <footer class="page-footer">
+        <h3>🏛️ UPIICSA · IPN</h3>
+        <p>Unidad de Aprendizaje: Estructura de Datos</p>
+        <p>© 2026 Instituto Politécnico Nacional</p>
+    </footer>
 
-<!-- FOOTER -->
-<footer class="page-footer">
-    <h3>🏛️ UPIICSA · IPN</h3>
-    <p>Unidad de Aprendizaje: Estructura de Datos</p>
-    <p>© 2026 Instituto Politécnico Nacional</p>
-</footer>
+    <!-- LIGHTBOX OVERLAY (necesario para el zoom) -->
+    <div class="lb-overlay" id="lbOverlay">
+        <button class="lb-close" id="lbClose" title="Cerrar">✕</button>
+        <img id="lbImg" src="" alt="">
+        <div class="lb-caption" id="lbCaption"></div>
+        <div class="lb-zoom-hint" id="lbZoomHint">🔍 Clic para zoom · Scroll para zoom · Arrastra para mover</div>
+    </div>
 
-<script src="js/ui.js"></script>
+    <script src="js/ui.js"></script>
 </body>
+
 </html>

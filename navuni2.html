@@ -13,869 +13,7 @@
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-        :root {
-            --ipn-burgundy: #6B0F1A;
-            --ipn-gold: #C8921A;
-            --ipn-blue-deep: #0a2f5a;
-            --ipn-blue-mid: #1a4a8a;
-            --ipn-blue-light: #2d6abf;
-            --section-teal: #0e5c6b;
-            --section-teal-2: #0d7a6e;
-            --section-navy: #1a2e4a;
-            --bg-page: #f6f8fc;
-            --card-bg: #ffffff;
-            --text-body: #2d3748;
-            --text-muted: #718096;
-            --border-subtle: #e2e8f0;
-            --accent-amber: #d97706;
-            --accent-teal: #0891b2;
-        }
 
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--bg-page);
-            color: var(--text-body);
-            margin: 0;
-        }
-
-        /* ─── TOP BAR (estilo navuni1) ─────────────────── */
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: white;
-            padding: 8px 20px;
-            border-bottom: 3px solid var(--ipn-burgundy);
-            flex-wrap: nowrap;
-            gap: 12px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        .logo-left,
-        .logo-right {
-            flex-shrink: 0;
-        }
-
-        .logo-left img,
-        .logo-right img {
-            height: 60px;
-            width: auto;
-            display: block;
-            transition: transform 0.2s ease;
-        }
-
-        .logo-left img:hover,
-        .logo-right img:hover {
-            transform: scale(1.05);
-        }
-
-        .institution-text {
-            text-align: center;
-            flex: 1;
-            margin: 0 auto;
-        }
-
-        .institution-text h2 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--ipn-blue-deep);
-            margin: 0;
-            letter-spacing: -0.3px;
-            text-align: center !important;
-        }
-
-        .institution-text p {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #4a5568;
-            margin: 4px 0 0;
-            text-align: center !important;
-        }
-
-        @media (max-width: 768px) {
-            .top-bar {
-                flex-wrap: wrap;
-                justify-content: center;
-                padding: 6px 12px;
-                gap: 8px;
-            }
-
-            .logo-left img,
-            .logo-right img {
-                height: 45px;
-            }
-
-            .institution-text {
-                order: 3;
-                flex-basis: 100%;
-            }
-
-            .institution-text h2 {
-                font-size: 1rem;
-            }
-
-            .institution-text p {
-                font-size: 0.72rem;
-            }
-        }
-
-        .header-logos {
-            display: none !important;
-        }
-
-        /* ─── HEADER ─────────────────────────────────── */
-        .header-image-container {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-        }
-
-        .header-text-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(6, 20, 50, 0.92) 0%, rgba(6, 20, 50, 0.5) 60%, transparent 100%);
-            padding: 28px 32px 24px;
-        }
-
-        .header-text-overlay .polilibro {
-            display: inline-block;
-            background: var(--ipn-gold);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            padding: 3px 12px;
-            border-radius: 20px;
-            margin-bottom: 8px;
-        }
-
-        .header-text-overlay h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: white;
-            margin: 0;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-            text-align: left !important;
-        }
-
-        /* ─── NAV ─────────────────────────────────────── */
-        .nav-bg-custom {
-            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 100%);
-            border-bottom: 3px solid var(--ipn-gold);
-        }
-
-        .nav-link-underline {
-            position: relative;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            color: rgba(255, 255, 255, 0.92) !important;
-            padding: 13px 18px;
-            border-radius: 6px 6px 0 0;
-            transition: all 0.2s;
-            text-decoration: none;
-            display: block;
-        }
-
-        .nav-link-underline:hover {
-            background: rgba(255, 255, 255, 0.15) !important;
-            color: white !important;
-            transform: translateY(-2px);
-        }
-
-        .nav-link-underline::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            right: 50%;
-            height: 3px;
-            background: var(--ipn-gold);
-            border-radius: 2px;
-            transition: left 0.25s, right 0.25s;
-        }
-
-        .nav-link-underline:hover::after {
-            left: 8%;
-            right: 8%;
-        }
-
-        .nav-toggle-custom {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            padding: 12px 20px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-        }
-
-        /* ─── PAGE LAYOUT ─────────────────────────────── */
-        .page-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 24px;
-        }
-
-        /* ─── UNIT HEADER BANNER ──────────────────────── */
-        .unit-banner {
-            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 60%, var(--ipn-blue-light) 100%);
-            border-radius: 14px;
-            padding: 28px 32px;
-            margin-bottom: 32px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(10, 47, 90, 0.25);
-        }
-
-        .unit-banner::before {
-            content: '';
-            position: absolute;
-            top: -40px;
-            right: -40px;
-            width: 180px;
-            height: 180px;
-            background: rgba(200, 146, 26, 0.18);
-            border-radius: 50%;
-        }
-
-        .unit-banner::after {
-            content: '';
-            position: absolute;
-            bottom: -60px;
-            left: 30%;
-            width: 240px;
-            height: 240px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-        }
-
-        .unit-banner h1,
-        .unit-banner h2 {
-            font-family: 'Outfit', sans-serif;
-            color: white;
-            margin: 0;
-            position: relative;
-            z-index: 1;
-            text-align: left !important;
-        }
-
-        .unit-banner h1 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--ipn-gold);
-            margin-bottom: 6px;
-        }
-
-        .unit-banner h2 {
-            font-size: 1.6rem;
-            font-weight: 800;
-        }
-
-        .unit-banner .unit-label {
-            display: inline-block;
-            background: var(--ipn-gold);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 3px 12px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ─── SECTION HEADERS ─────────────────────────── */
-        .section-header {
-            position: relative;
-            background: linear-gradient(135deg, var(--section-teal) 0%, var(--section-teal-2) 100%);
-            border-radius: 12px;
-            padding: 18px 24px 18px 64px;
-            margin: 36px 0 20px;
-            box-shadow: 0 4px 20px rgba(14, 92, 107, 0.22);
-            overflow: hidden;
-        }
-
-        .section-header::before {
-            content: attr(data-num);
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-family: 'Space Mono', monospace;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.12);
-            line-height: 1;
-        }
-
-        .section-header::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: var(--ipn-gold);
-            border-radius: 12px 0 0 12px;
-        }
-
-        .section-header h2 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: white;
-            margin: 0;
-            line-height: 1.4;
-            text-align: left !important;
-            letter-spacing: 0.2px;
-        }
-
-        .section-header .section-emoji {
-            margin-right: 8px;
-        }
-
-        .section-header.dark {
-            background: linear-gradient(135deg, var(--section-navy) 0%, #1e3a5f 100%);
-            box-shadow: 0 4px 20px rgba(26, 46, 74, 0.28);
-        }
-
-        .section-header.burgundy {
-            background: linear-gradient(135deg, #7a1020 0%, #a31528 100%);
-            box-shadow: 0 4px 20px rgba(107, 15, 26, 0.28);
-        }
-
-        /* ─── SUBSECTION HEADERS ─────────────────────── */
-        .subsection-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 28px 0 14px;
-        }
-
-        .subsection-header::before {
-            content: '';
-            display: block;
-            width: 4px;
-            height: 28px;
-            background: linear-gradient(to bottom, var(--ipn-blue-light), var(--accent-teal));
-            border-radius: 2px;
-            flex-shrink: 0;
-        }
-
-        .subsection-header h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--ipn-blue-deep);
-            margin: 0;
-            text-align: left !important;
-        }
-
-        /* ─── BODY TEXT ──────────────────────────────── */
-        p.body-text,
-        .body-text {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.96rem;
-            line-height: 1.8;
-            color: var(--text-body);
-            margin-bottom: 14px;
-            text-align: justify;
-        }
-
-        /* ─── IMAGE CARDS ────────────────────────────── */
-        .img-card {
-            background: white;
-            border-radius: 14px;
-            padding: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--border-subtle);
-            transition: box-shadow 0.25s, transform 0.25s;
-            overflow: hidden;
-            display: inline-block;
-            width: auto;
-        }
-
-        .img-card:hover {
-            box-shadow: 0 10px 36px rgba(0, 0, 0, 0.14);
-            transform: translateY(-3px);
-        }
-
-        .img-card img {
-            display: block;
-            border-radius: 8px;
-            max-width: 100%;
-            height: auto;
-        }
-
-        .img-card .img-caption {
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 8px;
-            font-weight: 500;
-            letter-spacing: 0.2px;
-        }
-
-        .img-card .img-caption::before {
-            content: '▸ ';
-            color: var(--accent-teal);
-        }
-
-        .img-wrap {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .img-wrap.sm .img-card img {
-            max-height: 200px;
-            width: auto;
-        }
-
-        .img-wrap.md .img-card img {
-            max-height: 260px;
-            width: auto;
-        }
-
-        .img-wrap.lg .img-card img {
-            max-height: 340px;
-            width: auto;
-        }
-
-        .img-pair {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .img-pair .img-card img {
-            max-height: 220px;
-            width: auto;
-        }
-
-        @media (max-width: 640px) {
-            .img-pair {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .img-wrap.sm .img-card img,
-            .img-wrap.md .img-card img,
-            .img-wrap.lg .img-card img {
-                max-height: none;
-                max-width: 100%;
-            }
-        }
-
-        /* ─── TOPIC LIST BOX ─────────────────────────── */
-        .topic-box {
-            background: white;
-            border-radius: 14px;
-            padding: 24px 28px;
-            margin: 24px 0;
-            border: 1px solid var(--border-subtle);
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .topic-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--ipn-blue-deep), var(--ipn-blue-light), var(--accent-teal));
-            border-radius: 14px 14px 0 0;
-        }
-
-        .topic-box .topic-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--ipn-blue-deep);
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .topic-box ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .topic-box ul li {
-            font-size: 0.92rem;
-            color: var(--text-body);
-            padding: 6px 0 6px 20px;
-            position: relative;
-            border-bottom: 1px dashed var(--border-subtle);
-            line-height: 1.5;
-        }
-
-        .topic-box ul li:last-child {
-            border-bottom: none;
-        }
-
-        .topic-box ul li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 8px;
-            height: 8px;
-            background: var(--accent-teal);
-            border-radius: 2px;
-        }
-
-        /* ─── COMPETENCIA BOX ────────────────────────── */
-        .competencia-box {
-            background: linear-gradient(135deg, #eef6ff 0%, #e8f4fd 100%);
-            border: 1px solid #c3dff7;
-            border-left: 5px solid var(--ipn-blue-light);
-            border-radius: 12px;
-            padding: 20px 24px;
-            margin: 20px 0 28px;
-        }
-
-        .competencia-box .comp-label {
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--ipn-blue-light);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .competencia-box p {
-            font-size: 0.96rem;
-            line-height: 1.8;
-            color: var(--text-body);
-            margin: 0;
-            text-align: justify;
-        }
-
-        /* ─── ACTIVITY BOX (estilo navuni1) ───────────── */
-        .activity-box {
-            background: white;
-            border-radius: 16px;
-            margin: 32px 0;
-            box-shadow: 0 6px 32px rgba(107, 15, 26, 0.12);
-            overflow: hidden;
-            border: 1px solid rgba(107, 15, 26, 0.15);
-        }
-
-        .activity-box .act-header {
-            background: linear-gradient(135deg, var(--ipn-burgundy) 0%, #9b1426 100%);
-            padding: 18px 28px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .activity-box .act-header .act-badge {
-            background: var(--ipn-gold);
-            color: white;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            padding: 4px 12px;
-            border-radius: 20px;
-            white-space: nowrap;
-        }
-
-        .activity-box .act-header h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: white;
-            margin: 0;
-            text-align: left !important;
-        }
-
-        .activity-box .act-body {
-            padding: 24px 28px;
-        }
-
-        .activity-box .act-section-title {
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--ipn-burgundy);
-            margin: 18px 0 10px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .activity-box .act-section-title:first-child {
-            margin-top: 0;
-        }
-
-        .activity-box ol,
-        .activity-box ul {
-            padding-left: 20px;
-            margin: 0;
-        }
-
-        .activity-box li {
-            font-size: 0.93rem;
-            color: var(--text-body);
-            line-height: 1.7;
-            margin-bottom: 6px;
-            text-align: justify;
-        }
-
-        .activity-box .act-footer {
-            background: #fdf8f0;
-            border-top: 1px solid #f0e0c0;
-            padding: 14px 28px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .activity-box .act-footer p {
-            font-size: 0.88rem;
-            color: #6b4c0a;
-            margin: 0;
-        }
-
-        .activity-box .act-points {
-            background: var(--ipn-gold);
-            color: white;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.78rem;
-            font-weight: 700;
-            padding: 4px 14px;
-            border-radius: 20px;
-        }
-
-        /* ─── EXERCISE BOX ───────────────────────────── */
-        .exercise-box {
-            background: linear-gradient(135deg, #f0f9f4 0%, #e6f5ec 100%);
-            border: 1px solid #b8e0c8;
-            border-left: 5px solid #10b981;
-            border-radius: 12px;
-            padding: 20px 24px;
-            margin: 20px 0;
-        }
-
-        .exercise-box .ex-label {
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #059669;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .exercise-box ol {
-            padding-left: 22px;
-            margin: 0;
-        }
-
-        .exercise-box li {
-            font-size: 0.93rem;
-            color: var(--text-body);
-            line-height: 1.7;
-            margin-bottom: 8px;
-            text-align: justify;
-        }
-
-        /* ─── CONCEPT HIGHLIGHT ──────────────────────── */
-        .concept-highlight {
-            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            border: 1px solid #fcd34d;
-            border-left: 5px solid var(--accent-amber);
-            border-radius: 12px;
-            padding: 18px 22px;
-            margin: 20px 0;
-        }
-
-        .concept-highlight h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 800;
-            color: #92400e;
-            margin: 0 0 10px;
-            text-align: left !important;
-        }
-
-        .concept-highlight p {
-            font-size: 0.94rem;
-            line-height: 1.75;
-            color: #78350f;
-            margin: 0 0 8px;
-            text-align: justify;
-        }
-
-        .concept-highlight p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* ─── CODE BLOCKS ────────────────────────────── */
-        .code-simple {
-            background: #1e1e2e;
-            border-radius: 12px;
-            padding: 16px 20px;
-            margin: 16px 0;
-            overflow-x: auto;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
-            color: #f8f8f2;
-            border-left: 4px solid var(--ipn-gold);
-        }
-
-        .code-simple pre {
-            margin: 0;
-            font-family: inherit;
-            white-space: pre-wrap;
-            word-break: break-word;
-        }
-
-        /* ─── TABLES ────────────────────────────────── */
-        .matriz-tabla {
-            overflow-x: auto;
-            margin: 20px 0;
-        }
-
-        .matriz-tabla table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .matriz-tabla th,
-        .matriz-tabla td {
-            border: 1px solid var(--border-subtle);
-            padding: 10px 12px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        .matriz-tabla th {
-            background: var(--ipn-blue-deep);
-            color: white;
-            font-weight: 600;
-        }
-
-        /* ─── NAV BUTTONS ────────────────────────────── */
-        .nav-btn {
-            background: linear-gradient(135deg, var(--ipn-blue-mid) 0%, var(--ipn-blue-deep) 100%);
-            color: white !important;
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 16px rgba(10, 47, 90, 0.25);
-            transition: all 0.25s;
-        }
-
-        .nav-btn:hover {
-            box-shadow: 0 8px 28px rgba(10, 47, 90, 0.35);
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, var(--ipn-blue-light) 0%, var(--ipn-blue-mid) 100%);
-        }
-
-        .nav-btn:active {
-            transform: translateY(0);
-        }
-
-        .nav-btn-home {
-            width: 52px;
-            height: 52px;
-            padding: 0;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 1.2rem;
-        }
-
-        /* ─── FOOTER ─────────────────────────────────── */
-        .page-footer {
-            background: linear-gradient(180deg, #f4faff 0%, #e6f3ff 50%, white 100%);
-            border-top: 3px solid var(--ipn-blue-deep);
-            padding: 32px 20px;
-            text-align: center;
-            margin-top: 60px;
-        }
-
-        .page-footer h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.05rem;
-            color: var(--ipn-blue-deep);
-            font-weight: 700;
-            margin: 0 0 6px;
-            text-align: center !important;
-        }
-
-        .page-footer p {
-            font-size: 0.84rem;
-            color: var(--text-muted);
-            margin: 3px 0;
-            text-align: center !important;
-        }
-
-        /* Utilidades */
-        p,
-        li {
-            text-align: justify;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            text-align: left;
-        }
-
-        .text-justify {
-            text-align: justify !important;
-        }
-    </style>
 </head>
 
 <body>
@@ -907,13 +45,12 @@
         </div>
     </header>
 
-    <!-- NAV (exactamente el mismo que navuni1) -->
     <div class="w-full nav-bg-custom shadow-md" style="border-radius: 0 0 10px 10px;">
         <div class="flex justify-center">
             <nav class="w-[90%] md:w-[75%] mx-auto">
                 <button
                     class="nav-toggle md:hidden text-[1.8rem] text-white bg-none border-none cursor-pointer p-[12px_20px] w-full text-left font-bold nav-toggle-custom">☰
-                    MENÚ</button>
+                    Menú</button>
                 <ul class="nav-links hidden md:flex justify-center gap-[10px] list-none m-0 p-0">
                     <li><a href="index.html"
                             class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🏠
@@ -930,33 +67,42 @@
                     <li><a href="navuni4.html"
                             class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🌳
                             Unidad IV</a></li>
+                    <li><a href="navuni7.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖
+                            Cierre</a>
+                    </li>
                     <li><a href="navuni5.html"
                             class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖
                             Glosario</a></li>
-                    <li><a href="navuni6.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖 Bibliografia</a></li>
+                    <li><a href="navuni6.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖
+                            Bibliografia</a></li>
+                    <li>
+                        <button id="darkModeToggle" class="dark-mode-btn block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] hover:bg-white/20 hover:-translate-y-0.5">
+                            <span>🌙</span> <span>Modo oscuro</span>
+                        </button>
+                    </li>
+
                 </ul>
             </nav>
         </div>
     </div>
 
-    <!-- CONTENIDO PRINCIPAL -->
     <div class="page-content">
 
-        <!-- UNIT BANNER (estilo navuni1) -->
         <div class="unit-banner">
             <span class="unit-label">Polilibro · UPIICSA</span>
             <h1>📊 Unidad Temática II</h1>
             <h2>Estructuras de datos estáticas</h2>
         </div>
 
-        <!-- COMPETENCIA -->
         <div class="competencia-box">
             <div class="comp-label">🎯 Unidad de competencia</div>
             <p>Implementa estructuras de datos estáticas en la memoria de una computadora a partir del uso de arreglos,
-                su representación y sus posibilidades, así como un lenguaje de programación.</p>
+                su representación y sus posibilidades, así como un lenguaje de programación.
+            </p>
         </div>
 
-        <!-- TEMAS DE LA UNIDAD -->
         <div class="topic-box">
             <div class="topic-title">📚 Los siguientes temas se tratan en esta unidad:</div>
             <ul>
@@ -976,8 +122,6 @@
             </ul>
         </div>
 
-        <!-- ════════════════════════════════════════════ -->
-        <!-- SECCIÓN 2.1 Arreglos unidimensionales -->
         <div class="section-header" data-num="2.1">
             <h2><span class="section-emoji">📊</span>2.1 Arreglos unidimensionales</h2>
         </div>
@@ -1021,6 +165,7 @@
                 <div class="img-caption">Figura 1 Ejemplo de un arreglo unidimensional</div>
             </div>
         </div>
+
         <div class="exercise-box">
             <div class="ex-label">✏️ Realizar el siguiente ejercicio:</div>
             <ol>
@@ -1044,6 +189,7 @@
             recorriendo a cada uno de los elementos hasta encontrar el elemento buscado. También se pueden ordenar los
             elementos del arreglo ya sea de forma del menor al mayor o viceversa.
         </p>
+        <!-- ACTIVIDAD 1-->
         <div class="activity-box">
             <div class="act-header">
                 <span class="act-badge">UTII_A1</span>
@@ -1073,7 +219,7 @@
                     </li>
                     <li>4.- Después de haber almacenado los nombres de los jugadores en el arreglo, a través de la
                         estructura de control For, se recorrerá para mostrar el siguiente mensaje: “En la posición TAL
-                        del arreglo, se encuentra el jugador TAL”
+                        del arreglo, se encuentra el jugador TAL”.
                     </li>
                     <li>5.- Posteriormente, volver a recorrer el arreglo con la estructura de control For para realizar
                         la tercera operación que es la de búsqueda. Para llevar a cabo esta parte, se le pedirá al
@@ -1082,16 +228,16 @@
                         variable Buscar_Jugador, y si hay coincidencia se deberá mandar un mensaje “El nombre del
                         jugador se encuentre en la posición TAL del arreglo unidimensional” y en dado caso que no se
                         encuentre, enviar el mensaje “El nombre del jugador no se encuentra en el arreglo
-                        unidimensional”
+                        unidimensional”.
                     </li>
                 </ol>
 
-                <div class="act-section-title">📎 Evidencia que entregar</div>
+                <div class="act-section-title">📎 Evidencia que entregar:</div>
                 <ul>
                     <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
-                        nombre del programa, por ejemplo, RBV_Programa_Jugador</li>
-                    <li>b) Programa executable</li>
-                    <li>c) Corrida del programa, en un archivo PDF</li>
+                        nombre del programa, por ejemplo, RBV_Programa_Jugador.</li>
+                    <li>b) Programa executable.</li>
+                    <li>c) Corrida del programa, en un archivo PDF.</li>
                 </ul>
             </div>
             <div class="act-footer">
@@ -1110,15 +256,18 @@
             como el FOR.
             ¿En que consiste esa estructura de control? en repetir un bloque de código varias veces de forma automática
             mientras se cumpla una condición. El for se conforma de tres partes
+            :
+        </p>
+        <p>
             For (inicialización; condición; incremento)
         </p>
         <p class="body-text"><strong>Inicialización:</strong> es una variable que es un contador, se debe de definir
             donde se va a empezar, por ejemplo,
-            i=0
+            i=0.
         </p>
         <p class="body-text"><strong>Condición:</strong> El ciclo se va a repetir mientras se cumpla una condición, por
             ejemplo, que se realice el ciclo
-            mientras i sea menor a 10 i<10 </p>
+            mientras i sea menor a 10 i<10 .</p>
                 <p class="body-text"><strong>Incremento:</strong> Cada ves que se ejecute un ciclo, en este caso i se
                     incrementa ya
                     sea de 1 en 1, etc., por ejemplo, i++.
@@ -1127,11 +276,16 @@
                     <h2><span class="section-emoji">📊</span>2.1.4 Operaciones permitidas </h2>
                 </div>
                 <p class="body-text">
-                    a) Recorrido
-                    Se recorre el arreglo para consulta los elementos del arreglo unidimensional.
+                    a) Recorrido:
                 </p>
                 <p class="body-text">
-                    b) Asignación
+                    Se recorre el arreglo para consulta los elementos del arreglo unidimensional.
+                </p>
+               
+                <p class="body-text">
+                    b) Asignación:
+                </p>
+                <p class="body-text">
                     Existen tres formas para asignar valores a un arreglo unidimensional
                 </p>
                 <div class="concept-highlight">
@@ -1163,17 +317,23 @@
                     </div>
                 </div>
                 <p class="body-text">
-                    c) Búsqueda
-                    Recorrer el arreglo unidimensional para encontrar un elemento
+                    c) Búsqueda:
+                </p>
+                <p class="body-text">
+                    Recorrer el arreglo unidimensional para 
+                    encontrar un elemento.
 
                 </p>
                 <p class="body-text">
-                    d) Ordenamiento
+                    d) Ordenamiento:
+                </p>
+                <p class="body-text">
                     Se pueden ordenar los elementos del vector ya sea del menor al mayor o del mayor al menor o de la A
-                    a la Z o de la Z a la A
+                    a la Z o de la Z a la A.
 
                 </p>
-                <!-- ACTIVIDAD UTII_A1 (originalmente UTII_A1 en el código, pero aparece como UTII_A1? En tu original dice "ACTIVIDAD UTII_A1" y luego "ACTIVIDAD UTII_A2" etc. Respeto los títulos originales) -->
+
+                
                 <div class="activity-box">
                     <div class="act-header">
                         <span class="act-badge">UTII_A2</span>
@@ -1214,9 +374,10 @@
                         <div class="act-section-title">📎 Evidencia que entregar</div>
                         <ul>
                             <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su
-                                nombre y el nombre del programa, por ejemplo, RBV_Programa_Numeros_Pares</li>
-                            <li>b) Programa executable</li>
-                            <li>c)Corrida del programa, en un archivo PDF</li>
+                                nombre y el nombre del programa, por ejemplo, 
+                                RBV_Programa_Numeros_Pares.</li>
+                            <li>b) Programa executable.</li>
+                            <li>c)Corrida del programa, en un archivo PDF.</li>
                         </ul>
                     </div>
                     <div class="act-footer">
@@ -1224,16 +385,16 @@
                         <span class="act-points">⭐ VALOR:10 puntos</span>
                     </div>
                 </div>
-                <!-- ════════════════════════════════════════════ -->
-                <!-- SECCIÓN 2.2 Arreglos bidimensionales -->
+
                 <div class="section-header dark" data-num="2.2">
                     <h2><span class="section-emoji">📊</span>2.2 Arreglos Bidimensionales (Matrices/Tablas)</h2>
                 </div>
 
                 <p class="body-text">Para continuar es necesario contestar la siguiente pregunta</p>
 
-                <div class="concept-highlight">
-                    <h3>¿Qué es un "Arreglo bidimensional"?</h3>
+                
+                    <div class="subsection-header"><h3>¿Qué es un "Arreglo bidimensional"?</h3></div>
+                    
                     <p>Un arreglo bidimensional es un <strong>vector de vectores</strong>.</p>
                     <p>Es un conjunto de elementos, todos del mismo tipo, en los que el orden de los componentes es
                         significativo y en el que se necesitan <strong>dos subíndices [i][j]</strong> para definir
@@ -1253,16 +414,16 @@
                         tablas, donde se pueden guardar varios nombres por fila con sus respectivos atributos
                         (columnas), en
                         cambio en un arreglo unidimensional no se podría hacer.
-                        </p>
-                        <p>
+                    </p>
+                    <p>
                         Otra gran diferencia es que para recorrer un arreglo unidimensional se requiere de una
                         estructura de
                         control de un ciclo for, en cambio para recorrer un arreglo bidimensional se requiere de dos
                         ciclos for.
                         Si un arreglo bidimensional es distinto a un arreglo unidimensional, entonces cómo se declara un
                         arreglo
-                        bidimensional</p>
-                </div>
+                        bidimensional.</p>
+                
 
                 <div class="subsection-header">
                     <h3>¿Cómo declarar un arreglo bidimensional?</h3>
@@ -1344,7 +505,6 @@
             </div>
         </div>
 
-        <!-- Ejercicio arreglos bidimensionales -->
         <div class="exercise-box">
             <div class="ex-label">✏️ Realizar el siguiente ejercicio:</div>
             <ol>
@@ -1378,7 +538,6 @@
             </div>
         </div>
 
-        <!-- ACTIVIDAD UTII_A3 (Matriz Identidad) -->
         <div class="activity-box">
             <div class="act-header">
                 <span class="act-badge">UTII_A3</span>
@@ -1420,16 +579,16 @@
                         recorrer
                         con doble For para mostrar el siguiente mensaje: "En la posición TAL de la matriz
                         identidad, se
-                        encuentra el valor TAL"</li>
+                        encuentra el valor TAL".</li>
                 </ol>
 
                 <div class="act-section-title">📎 Evidencia que entregar</div>
                 <ul>
-                    <li>Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre
+                    <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre
                         y el
-                        nombre del programa, por ejemplo, RBV_Programa_Matriz_Identidad</li>
-                    <li>Programa ejecutable</li>
-                    <li>Corrida del programa, en un archivo PDF</li>
+                        nombre del programa, por ejemplo, RBV_Programa_Matriz_Identidad.</li>
+                    <li>b) Programa ejecutable.</li>
+                    <li>c) Corrida del programa, en un archivo PDF.</li>
                 </ul>
             </div>
             <div class="act-footer">
@@ -1461,34 +620,40 @@
         <div class="section-header" data-num="2.2.4">
             <h2><span class="section-emoji">📊</span>2.2.4 Operaciones permitidas </h2>
         </div>
-        <p class="body-text">a) Recorrido
+        <p class="body-text">
+            a) Recorrido:
+        </p>
+        <p class="body-text">
             Se recorre el arreglo para consulta los elementos del arreglo bidimensional.
         </p>
-        <p class="body-text">b) Asignación
+        <p class="body-text">
+            b) Asignación:
+        </p>
+        <p class="body-text">
             Existen tres formas para asignar valores a un arreglo bidimensional
         </p>
         <div class="concept-highlight">
-                    <h3>3)	Al momento de declarar el arreglo bidimensional  
-                        se le asignan los valores
-                    </h3>
-                    <div class="code-simple" style="margin-top:8px;">
-                        <pre><span style="color:#c792ea">int</span> int Arreglo_Bidimensional [2][3]={1,2,3,4,5,6}</pre>
-                    </div>
-                </div>
-                <div class="concept-highlight">
-                    <h3>4)	Cuando se les piden los valores a los usuarios</h3>
-                    <div class="code-simple" style="margin-top:8px;">
-                        <pre><span style="color:#c792ea">for</span> (<span style="color:#c792ea">int</span> i=0; i < 10; i++) {
+            <h3>3) Al momento de declarar el arreglo bidimensional
+                se le asignan los valores:
+            </h3>
+            <div class="code-simple" style="margin-top:8px;">
+                <pre><span style="color:#c792ea">int</span> int Arreglo_Bidimensional [2][3]={1,2,3,4,5,6}</pre>
+            </div>
+        </div>
+        <div class="concept-highlight">
+            <h3>4) Cuando se les piden los valores a los usuarios:</h3>
+            <div class="code-simple" style="margin-top:8px;">
+                <pre><span style="color:#c792ea">for</span> (<span style="color:#c792ea">int</span> i=0; i < 10; i++) {
     cout << <span style="color:#6a9955">"Ingrese el valor del Arreglo_Bidimensional“</span>
     cin >>  Arreglo_Bidimensional[i][j]
 }</pre>
-                    </div>
-                </div>
+            </div>
+        </div>
 
-                <div class="concept-highlight">
-                    <h3>5) Asignación automática:</h3>
-                    <div class="code-simple" style="margin-top:8px;">
-                        <pre><span style="color:#c792ea">int</span> Arreglo Bidimensiona [2][3];
+        <div class="concept-highlight">
+            <h3>5) Asignación automática:</h3>
+            <div class="code-simple" style="margin-top:8px;">
+                <pre><span style="color:#c792ea">int</span> Arreglo Bidimensiona [2][3];
 <span style="color:#c792ea">int</span> Acumulador = 2;
 <span style="color:#c792ea">for</span> (<span style="color:#c792ea">int</span> i=0; i<	2; i++) 
     <span style="color:#c792ea">for</span> (<span style="color:#c792ea">int</span> j=0; i<3; j++) 
@@ -1497,16 +662,16 @@
     Acumulador=Acumulador + 2
 
 </pre>
-                    </div>
-                </div>
-                <p class="body-text">
-                    c) Búsqueda
-                    Recorrer el arreglo unidimensional para encontrar un elemento
+            </div>
+        </div>
+        <p class="body-text">
+            c) Búsqueda:
+        </p>
+        <p class="body-text">
+            Recorrer el arreglo unidimensional para encontrar un elemento
 
-                </p>
+        </p>
 
-
-        <!-- ACTIVIDAD UTII_A4 (Matriz Traspuesta) -->
         <div class="activity-box">
             <div class="act-header">
                 <span class="act-badge">UTII_A4</span>
@@ -1552,13 +717,14 @@
                         At.</li>
                 </ol>
 
-                <div class="act-section-title">📎 Evidencia que entregar</div>
+                <div class="act-section-title">📎 Evidencia que entregar:</div>
                 <ul>
-                    <li>Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre
+                    <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre
                         y el
-                        nombre del programa, por ejemplo, RBV_Programa_Matriz_Traspuesta</li>
-                    <li>Programa ejecutable</li>
-                    <li>Corrida del programa, en un archivo PDF</li>
+                        nombre del programa, por ejemplo, 
+                        RBV_Programa_Matriz_Traspuesta.</li>
+                    <li>b) Programa ejecutable.</li>
+                    <li>c) Corrida del programa, en un archivo PDF.</li>
                 </ul>
             </div>
             <div class="act-footer">
@@ -1567,8 +733,6 @@
             </div>
         </div>
 
-        <!-- ════════════════════════════════════════════ -->
-        <!-- SECCIÓN 2.3 Arreglos multidimensionales -->
         <div class="section-header burgundy" data-num="2.3">
             <h2><span class="section-emoji">📊</span>2.3 Arreglos Multidimensionales (Data Warehouse)</h2>
         </div>
@@ -1591,9 +755,9 @@
             <strong>n
                 dimensiones</strong>, uno para cada dimensión.
         </p>
-        <p class="body-text">La siguiente figura 6 muestra como funciona un areglo 
-        multidimencional (data werehouse)
-        </p> 
+        <p class="body-text">La siguiente figura 6 muestra como funciona un areglo
+            multidimencional (data werehouse):
+        </p>
 
         <div class="img-wrap md">
             <div class="img-card">
@@ -1603,9 +767,8 @@
         </div>
 
 
-    </div><!-- /page-content -->
+    </div>
 
-    <!-- NAVIGATION BUTTONS (estilo navuni1) -->
     <div
         style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; max-width:900px; margin:0 auto; padding:16px 24px 48px;">
         <a href="navuni1.html" class="nav-btn">
@@ -1616,13 +779,18 @@
             Siguiente <span>➡️</span>
         </a>
     </div>
-
-    <!-- FOOTER -->
     <footer class="page-footer">
         <h3>🏛️ UPIICSA · IPN</h3>
         <p>Unidad de Aprendizaje: Estructura de Datos</p>
         <p>© 2026 Instituto Politécnico Nacional</p>
     </footer>
+
+    <div class="lb-overlay" id="lbOverlay">
+        <button class="lb-close" id="lbClose" title="Cerrar">&#x2715;</button>
+        <img id="lbImg" src="" alt="">
+        <div class="lb-caption" id="lbCaption"></div>
+        <div class="lb-zoom-hint" id="lbZoomHint">🔍 Clic para zoom · Scroll para zoom · Arrastra para mover</div>
+    </div>
 
     <script src="js/ui.js"></script>
 </body>

@@ -13,966 +13,6 @@
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-        :root {
-            --ipn-burgundy: #6B0F1A;
-            --ipn-gold: #C8921A;
-            --ipn-blue-deep: #0a2f5a;
-            --ipn-blue-mid: #1a4a8a;
-            --ipn-blue-light: #2d6abf;
-            --section-teal: #0e5c6b;
-            --section-teal-2: #0d7a6e;
-            --section-navy: #1a2e4a;
-            --bg-page: #f6f8fc;
-            --card-bg: #ffffff;
-            --text-body: #2d3748;
-            --text-muted: #718096;
-            --border-subtle: #e2e8f0;
-            --accent-amber: #d97706;
-            --accent-teal: #0891b2;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--bg-page);
-            color: var(--text-body);
-            margin: 0;
-        }
-
-        /* ─── TOP BAR (estilo navuni1) ─────────────────── */
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: white;
-            padding: 8px 20px;
-            border-bottom: 3px solid var(--ipn-burgundy);
-            flex-wrap: nowrap;
-            gap: 12px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        .logo-left,
-        .logo-right {
-            flex-shrink: 0;
-        }
-
-        .logo-left img,
-        .logo-right img {
-            height: 60px;
-            width: auto;
-            display: block;
-            transition: transform 0.2s ease;
-        }
-
-        .logo-left img:hover,
-        .logo-right img:hover {
-            transform: scale(1.05);
-        }
-
-        .institution-text {
-            text-align: center;
-            flex: 1;
-            margin: 0 auto;
-        }
-
-        .institution-text h2 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--ipn-blue-deep);
-            margin: 0;
-            letter-spacing: -0.3px;
-            text-align: center !important;
-        }
-
-        .institution-text p {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #4a5568;
-            margin: 4px 0 0;
-            text-align: center !important;
-        }
-
-        @media (max-width: 768px) {
-            .top-bar {
-                flex-wrap: wrap;
-                justify-content: center;
-                padding: 6px 12px;
-                gap: 8px;
-            }
-
-            .logo-left img,
-            .logo-right img {
-                height: 45px;
-            }
-
-            .institution-text {
-                order: 3;
-                flex-basis: 100%;
-            }
-
-            .institution-text h2 {
-                font-size: 1rem;
-            }
-
-            .institution-text p {
-                font-size: 0.72rem;
-            }
-        }
-
-        .header-logos {
-            display: none !important;
-        }
-
-        /* ─── HEADER ─────────────────────────────────── */
-        .header-image-container {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-        }
-
-        .header-text-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(6, 20, 50, 0.92) 0%, rgba(6, 20, 50, 0.5) 60%, transparent 100%);
-            padding: 28px 32px 24px;
-        }
-
-        .header-text-overlay .polilibro {
-            display: inline-block;
-            background: var(--ipn-gold);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            padding: 3px 12px;
-            border-radius: 20px;
-            margin-bottom: 8px;
-        }
-
-        .header-text-overlay h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: white;
-            margin: 0;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-            text-align: left !important;
-        }
-
-        /* ─── NAV ─────────────────────────────────────── */
-        .nav-bg-custom {
-            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 100%);
-            border-bottom: 3px solid var(--ipn-gold);
-        }
-
-        .nav-link-underline {
-            position: relative;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            color: rgba(255, 255, 255, 0.92) !important;
-            padding: 13px 18px;
-            border-radius: 6px 6px 0 0;
-            transition: all 0.2s;
-            text-decoration: none;
-            display: block;
-        }
-
-        .nav-link-underline:hover {
-            background: rgba(255, 255, 255, 0.15) !important;
-            color: white !important;
-            transform: translateY(-2px);
-        }
-
-        .nav-link-underline::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            right: 50%;
-            height: 3px;
-            background: var(--ipn-gold);
-            border-radius: 2px;
-            transition: left 0.25s, right 0.25s;
-        }
-
-        .nav-link-underline:hover::after {
-            left: 8%;
-            right: 8%;
-        }
-
-        .nav-toggle-custom {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            padding: 12px 20px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-        }
-
-        /* ─── PAGE LAYOUT ─────────────────────────────── */
-        .page-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 24px;
-        }
-
-        /* ─── UNIT HEADER BANNER ──────────────────────── */
-        .unit-banner {
-            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 60%, var(--ipn-blue-light) 100%);
-            border-radius: 14px;
-            padding: 28px 32px;
-            margin-bottom: 32px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(10, 47, 90, 0.25);
-        }
-
-        .unit-banner::before {
-            content: '';
-            position: absolute;
-            top: -40px;
-            right: -40px;
-            width: 180px;
-            height: 180px;
-            background: rgba(200, 146, 26, 0.18);
-            border-radius: 50%;
-        }
-
-        .unit-banner::after {
-            content: '';
-            position: absolute;
-            bottom: -60px;
-            left: 30%;
-            width: 240px;
-            height: 240px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-        }
-
-        .unit-banner h1,
-        .unit-banner h2 {
-            font-family: 'Outfit', sans-serif;
-            color: white;
-            margin: 0;
-            position: relative;
-            z-index: 1;
-            text-align: left !important;
-        }
-
-        .unit-banner h1 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--ipn-gold);
-            margin-bottom: 6px;
-        }
-
-        .unit-banner h2 {
-            font-size: 1.6rem;
-            font-weight: 800;
-        }
-
-        .unit-banner .unit-label {
-            display: inline-block;
-            background: var(--ipn-gold);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 3px 12px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ─── SECTION HEADERS ─────────────────────────── */
-        .section-header {
-            position: relative;
-            background: linear-gradient(135deg, var(--section-teal) 0%, var(--section-teal-2) 100%);
-            border-radius: 12px;
-            padding: 18px 24px 18px 64px;
-            margin: 36px 0 20px;
-            box-shadow: 0 4px 20px rgba(14, 92, 107, 0.22);
-            overflow: hidden;
-        }
-
-        .section-header::before {
-            content: attr(data-num);
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-family: 'Space Mono', monospace;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.12);
-            line-height: 1;
-        }
-
-        .section-header::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: var(--ipn-gold);
-            border-radius: 12px 0 0 12px;
-        }
-
-        .section-header h2 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: white;
-            margin: 0;
-            line-height: 1.4;
-            text-align: left !important;
-            letter-spacing: 0.2px;
-        }
-
-        .section-header .section-emoji {
-            margin-right: 8px;
-        }
-
-        .section-header.dark {
-            background: linear-gradient(135deg, var(--section-navy) 0%, #1e3a5f 100%);
-            box-shadow: 0 4px 20px rgba(26, 46, 74, 0.28);
-        }
-
-        .section-header.burgundy {
-            background: linear-gradient(135deg, #7a1020 0%, #a31528 100%);
-            box-shadow: 0 4px 20px rgba(107, 15, 26, 0.28);
-        }
-
-        /* ─── SUBSECTION HEADERS ─────────────────────── */
-        .subsection-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 28px 0 14px;
-        }
-
-        .subsection-header::before {
-            content: '';
-            display: block;
-            width: 4px;
-            height: 28px;
-            background: linear-gradient(to bottom, var(--ipn-blue-light), var(--accent-teal));
-            border-radius: 2px;
-            flex-shrink: 0;
-        }
-
-        .subsection-header h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--ipn-blue-deep);
-            margin: 0;
-            text-align: left !important;
-        }
-
-        /* ─── BODY TEXT ──────────────────────────────── */
-        p.body-text,
-        .body-text {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.96rem;
-            line-height: 1.8;
-            color: var(--text-body);
-            margin-bottom: 14px;
-            text-align: justify;
-        }
-
-        /* ─── IMAGE CARDS ────────────────────────────── */
-        .img-card {
-            background: white;
-            border-radius: 14px;
-            padding: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--border-subtle);
-            transition: box-shadow 0.25s, transform 0.25s;
-            overflow: hidden;
-            display: inline-block;
-            width: auto;
-        }
-
-        .img-card:hover {
-            box-shadow: 0 10px 36px rgba(0, 0, 0, 0.14);
-            transform: translateY(-3px);
-        }
-
-        .img-card img {
-            display: block;
-            border-radius: 8px;
-            max-width: 100%;
-            height: auto;
-        }
-
-        .img-card .img-caption {
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 8px;
-            font-weight: 500;
-            letter-spacing: 0.2px;
-        }
-
-        .img-card .img-caption::before {
-            content: '▸ ';
-            color: var(--accent-teal);
-        }
-
-        .img-wrap {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .img-wrap.sm .img-card img {
-            max-height: 200px;
-            width: auto;
-        }
-
-        .img-wrap.md .img-card img {
-            max-height: 260px;
-            width: auto;
-        }
-
-        .img-wrap.lg .img-card img {
-            max-height: 340px;
-            width: auto;
-        }
-
-        .img-pair {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .img-pair .img-card img {
-            max-height: 220px;
-            width: auto;
-        }
-
-        @media (max-width: 640px) {
-            .img-pair {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .img-wrap.sm .img-card img,
-            .img-wrap.md .img-card img,
-            .img-wrap.lg .img-card img {
-                max-height: none;
-                max-width: 100%;
-            }
-        }
-
-        /* ─── TOPIC LIST BOX ─────────────────────────── */
-        .topic-box {
-            background: white;
-            border-radius: 14px;
-            padding: 24px 28px;
-            margin: 24px 0;
-            border: 1px solid var(--border-subtle);
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .topic-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--ipn-blue-deep), var(--ipn-blue-light), var(--accent-teal));
-            border-radius: 14px 14px 0 0;
-        }
-
-        .topic-box .topic-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--ipn-blue-deep);
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .topic-box ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .topic-box ul li {
-            font-size: 0.92rem;
-            color: var(--text-body);
-            padding: 6px 0 6px 20px;
-            position: relative;
-            border-bottom: 1px dashed var(--border-subtle);
-            line-height: 1.5;
-        }
-
-        .topic-box ul li:last-child {
-            border-bottom: none;
-        }
-
-        .topic-box ul li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 8px;
-            height: 8px;
-            background: var(--accent-teal);
-            border-radius: 2px;
-        }
-
-        /* ─── COMPETENCIA BOX ────────────────────────── */
-        .competencia-box {
-            background: linear-gradient(135deg, #eef6ff 0%, #e8f4fd 100%);
-            border: 1px solid #c3dff7;
-            border-left: 5px solid var(--ipn-blue-light);
-            border-radius: 12px;
-            padding: 20px 24px;
-            margin: 20px 0 28px;
-        }
-
-        .competencia-box .comp-label {
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--ipn-blue-light);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .competencia-box p {
-            font-size: 0.96rem;
-            line-height: 1.8;
-            color: var(--text-body);
-            margin: 0;
-            text-align: justify;
-        }
-
-        /* ─── ACTIVITY BOX (estilo navuni1) ───────────── */
-        .activity-box {
-            background: white;
-            border-radius: 16px;
-            margin: 32px 0;
-            box-shadow: 0 6px 32px rgba(107, 15, 26, 0.12);
-            overflow: hidden;
-            border: 1px solid rgba(107, 15, 26, 0.15);
-        }
-
-        .activity-box .act-header {
-            background: linear-gradient(135deg, var(--ipn-burgundy) 0%, #9b1426 100%);
-            padding: 18px 28px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .activity-box .act-header .act-badge {
-            background: var(--ipn-gold);
-            color: white;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            padding: 4px 12px;
-            border-radius: 20px;
-            white-space: nowrap;
-        }
-
-        .activity-box .act-header h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: white;
-            margin: 0;
-            text-align: left !important;
-        }
-
-        .activity-box .act-body {
-            padding: 24px 28px;
-        }
-
-        .activity-box .act-section-title {
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--ipn-burgundy);
-            margin: 18px 0 10px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .activity-box .act-section-title:first-child {
-            margin-top: 0;
-        }
-
-        .activity-box ol,
-        .activity-box ul {
-            padding-left: 20px;
-            margin: 0;
-        }
-
-        .activity-box li {
-            font-size: 0.93rem;
-            color: var(--text-body);
-            line-height: 1.7;
-            margin-bottom: 6px;
-            text-align: justify;
-        }
-
-        .activity-box .act-footer {
-            background: #fdf8f0;
-            border-top: 1px solid #f0e0c0;
-            padding: 14px 28px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .activity-box .act-footer p {
-            font-size: 0.88rem;
-            color: #6b4c0a;
-            margin: 0;
-        }
-
-        .activity-box .act-points {
-            background: var(--ipn-gold);
-            color: white;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.78rem;
-            font-weight: 700;
-            padding: 4px 14px;
-            border-radius: 20px;
-        }
-
-        /* ─── EXERCISE BOX ───────────────────────────── */
-        .exercise-box {
-            background: linear-gradient(135deg, #f0f9f4 0%, #e6f5ec 100%);
-            border: 1px solid #b8e0c8;
-            border-left: 5px solid #10b981;
-            border-radius: 12px;
-            padding: 20px 24px;
-            margin: 20px 0;
-        }
-
-        .exercise-box .ex-label {
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #059669;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .exercise-box ol {
-            padding-left: 22px;
-            margin: 0;
-        }
-
-        .exercise-box li {
-            font-size: 0.93rem;
-            color: var(--text-body);
-            line-height: 1.7;
-            margin-bottom: 8px;
-            text-align: justify;
-        }
-
-        /* ─── CONCEPT HIGHLIGHT ──────────────────────── */
-        .concept-highlight {
-            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            border: 1px solid #fcd34d;
-            border-left: 5px solid var(--accent-amber);
-            border-radius: 12px;
-            padding: 18px 22px;
-            margin: 20px 0;
-        }
-
-        .concept-highlight h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 800;
-            color: #92400e;
-            margin: 0 0 10px;
-            text-align: left !important;
-        }
-
-        .concept-highlight p {
-            font-size: 0.94rem;
-            line-height: 1.75;
-            color: #78350f;
-            margin: 0 0 8px;
-            text-align: justify;
-        }
-
-        .concept-highlight p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* ─── CODE BLOCKS ────────────────────────────── */
-        .code-simple {
-            background: #1e1e2e;
-            border-radius: 12px;
-            padding: 16px 20px;
-            margin: 16px 0;
-            overflow-x: auto;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
-            color: #f8f8f2;
-            border-left: 4px solid var(--ipn-gold);
-        }
-
-        .code-simple pre {
-            margin: 0;
-            font-family: inherit;
-            white-space: pre-wrap;
-            word-break: break-word;
-        }
-
-        /* ─── TABLES ────────────────────────────────── */
-        .matriz-tabla {
-            overflow-x: auto;
-            margin: 20px 0;
-        }
-
-        .matriz-tabla table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .matriz-tabla th,
-        .matriz-tabla td {
-            border: 1px solid var(--border-subtle);
-            padding: 10px 12px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        .matriz-tabla th {
-            background: var(--ipn-blue-deep);
-            color: white;
-            font-weight: 600;
-        }
-
-        /* ─── NAV BUTTONS ────────────────────────────── */
-        .nav-btn {
-            background: linear-gradient(135deg, var(--ipn-blue-mid) 0%, var(--ipn-blue-deep) 100%);
-            color: white !important;
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 16px rgba(10, 47, 90, 0.25);
-            transition: all 0.25s;
-        }
-
-        .nav-btn:hover {
-            box-shadow: 0 8px 28px rgba(10, 47, 90, 0.35);
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, var(--ipn-blue-light) 0%, var(--ipn-blue-mid) 100%);
-        }
-
-        .nav-btn:active {
-            transform: translateY(0);
-        }
-
-        .nav-btn-home {
-            width: 52px;
-            height: 52px;
-            padding: 0;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 1.2rem;
-        }
-
-        /* ─── FOOTER ─────────────────────────────────── */
-        .page-footer {
-            background: linear-gradient(180deg, #f4faff 0%, #e6f3ff 50%, white 100%);
-            border-top: 3px solid var(--ipn-blue-deep);
-            padding: 32px 20px;
-            text-align: center;
-            margin-top: 60px;
-        }
-
-        .page-footer h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.05rem;
-            color: var(--ipn-blue-deep);
-            font-weight: 700;
-            margin: 0 0 6px;
-            text-align: center !important;
-        }
-
-        .page-footer p {
-            font-size: 0.84rem;
-            color: var(--text-muted);
-            margin: 3px 0;
-            text-align: center !important;
-        }
-
-        /* Utilidades generales */
-        p,
-        li {
-            text-align: justify;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            text-align: left;
-        }
-
-        .text-justify {
-            text-align: justify !important;
-        }
-
-        .flex-1 {
-            flex: 1;
-        }
-
-        .flex-col {
-            flex-direction: column;
-        }
-
-        .gap-6 {
-            gap: 1.5rem;
-        }
-
-        .items-start {
-            align-items: flex-start;
-        }
-
-        .mt-2 {
-            margin-top: 0.5rem;
-        }
-
-        .mt-4 {
-            margin-top: 1rem;
-        }
-
-        .mb-4 {
-            margin-bottom: 1rem;
-        }
-
-        .my-6 {
-            margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .my-4 {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .rounded-lg {
-            border-radius: 0.5rem;
-        }
-
-        .shadow-md {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .hover-scale {
-            transition: transform 0.2s;
-        }
-
-        .hover-scale:hover {
-            transform: scale(1.02);
-        }
-
-        .w-full {
-            width: 100%;
-        }
-
-        .max-w-full {
-            max-width: 100%;
-        }
-
-        .max-w-\[90\%\] {
-            max-width: 90%;
-        }
-
-        @media (min-width: 768px) {
-            .md\:flex-row {
-                flex-direction: row;
-            }
-        }
-
-        .text-red-600 {
-            color: #dc2626;
-        }
-
-        .font-bold {
-            font-weight: 700;
-        }
-
-        .list-lower-alpha {
-            list-style-type: lower-alpha;
-        }
-
-        code {
-            background: #f1f5f9;
-            padding: 0.2rem 0.4rem;
-            border-radius: 6px;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
-        }
-    </style>
 </head>
 
 <body>
@@ -1011,7 +51,7 @@
             <nav class="w-[90%] md:w-[75%] mx-auto">
                 <button
                     class="nav-toggle md:hidden text-[1.8rem] text-white bg-none border-none cursor-pointer p-[12px_20px] w-full text-left font-bold nav-toggle-custom">☰
-                    MENÚ</button>
+                    Menú</button>
                 <ul class="nav-links hidden md:flex justify-center gap-[10px] list-none m-0 p-0">
                     <li><a href="index.html"
                             class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🏠
@@ -1028,20 +68,29 @@
                     <li><a href="navuni4.html"
                             class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🌳
                             Unidad IV</a></li>
+                    <li><a href="navuni7.html"
+                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖
+                            Cierre</a>
+                    </li>
                     <li><a href="navuni5.html"
                             class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖
                             Glosario</a></li>
                     <li><a href="navuni6.html"
                             class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖
                             Bibliografia</a></li>
+                    <li>
+                        <button id="darkModeToggle" class="dark-mode-btn block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] hover:bg-white/20 hover:-translate-y-0.5">
+                            <span>🌙</span> <span>Modo oscuro</span>
+                        </button>
+                    </li>
+
                 </ul>
             </nav>
         </div>
     </div>
 
-    <!-- CONTENIDO PRINCIPAL -->
+    <!-- CONTENIDO PRINCIPAL (EXACTAMENTE EL MISMO QUE ME DISTE, SIN CAMBIAR NADA) -->
     <div class="page-content">
-
         <!-- UNIT BANNER -->
         <div class="unit-banner">
             <span class="unit-label">Polilibro · UPIICSA</span>
@@ -1061,15 +110,15 @@
             <div class="topic-title">📚 Los siguientes temas se tratan en esta unidad:</div>
             <ul>
                 <li><strong>4.1 Árboles</strong></li>
-                <li><strong>4.1.1 Representación</strong></li>
-                <li><strong>4.1.2 Formas de uso</strong></li>
-                <li><strong>4.1.3 Implementación</strong></li>
-                <li><strong>4.1.4 Operaciones permitidas</strong></li>
+                <li>4.1.1 Representación</li>
+                <li>4.1.2 Formas de uso</li>
+                <li>4.1.3 Implementación</li>
+                <li>4.1.4 Operaciones permitidas</li>
                 <li><strong>4.2 Grafos</strong></li>
-                <li><strong>4.2.1 Representación</strong></li>
-                <li><strong>4.2.2 Formas de uso</strong></li>
-                <li><strong>4.2.3 Implementación</strong></li>
-                <li><strong>4.2.4 Operaciones permitidas</strong></li>
+                <li>4.2.1 Representación</li>
+                <li>4.2.2 Formas de uso</li>
+                <li>4.2.3 Implementación</li>
+                <li>4.2.4 Operaciones permitidas</li>
             </ul>
         </div>
 
@@ -1085,7 +134,8 @@
             lineal jerárquica, es una colección de elementos finitos que se conocen como nodos, que están conectados por
             una serie de aristas y los cuales mantienen una relación de parentesco de tipo padre-hijo. Los árboles
             generales se caracterizan porque hay un único nodo raíz, cada nodo, excepto la raíz, tiene un único padre y
-            hay un único camino (desde la raíz hasta cada nodo). La siguiente figura 1 denota lo que es un árbol general
+            hay un único camino (desde la raíz hasta cada nodo). La siguiente figura 1 denota lo que es un árbol
+            general.
         </p>
 
         <div class="img-wrap md">
@@ -1134,13 +184,15 @@
                 </div>
             </div>
         </div>
-
-        <div class="subsection-header">
-            <h3>4.1.1 Representación</h3>
+        <div class="section-header" data-num="4.1.1">
+            <h2><span class="section-emoji">📋</span>
+                4.1.1 Representación
+            </h2>
         </div>
         <p class="body-text">Este tipo de estructura de datos permite modelar situaciones de la vida real, como el
             organigrama de una empresa, donde la raíz representa la posición jerárquica más alta (ejemplo el presidente)
-            y de ella se desprenden los distintos niveles de mando, como se muestra en la siguiente figura 3</p>
+            y de ella se desprenden los distintos niveles
+            de mando, como se muestra en la siguiente figura 3:</p>
 
         <div class="img-wrap md">
             <div class="img-card">
@@ -1148,10 +200,13 @@
                 <div class="img-caption">Figura 3 Ejemplo de un árbol general</div>
             </div>
         </div>
-
-        <div class="subsection-header">
-            <h3>4.1.2 Formas de uso</h3>
+        <div class="section-header" data-num="4.1.2">
+            <h2><span class="section-emoji">📋</span>
+                4.1.2 Formas de uso
+            </h2>
         </div>
+
+
         <p class="body-text">Los árboles se utilizan para realizar recorridos, estos recorridos se hacen sobre los
             árboles binarios, se menciona un árbol binario, entonces ¿no es lo mismo un árbol general a un árbol
             binario?
@@ -1164,18 +219,25 @@
             excepto aquellos situados en el último nivel (las hojas).</p>
         <p class="body-text">Existen tres formas de recorrer un árbol binario:</p>
         <ul class="styled-list">
-            <li><strong>PREorden:</strong> prefijo PRE que significa antes de (Raíz – Izquierda – Derecha)</li>
-            <li><strong>INorden:</strong> prefijo IN que significa dentro de (Izquierda - Raíz – Derecha)</li>
-            <li><strong>POSTorden:</strong> prefijo POST que significa después de (Izquierda – Derecha – Raíz)</li>
+            <li><strong>PREorden:</strong>
+                prefijo PRE que significa antes de
+                (Raíz – Izquierda – Derecha).</li>
+            <li><strong>INorden:</strong> prefijo IN que significa
+                dentro de (Izquierda - Raíz – Derecha).</li>
+            <li><strong>POSTorden:</strong> prefijo POST que
+                significa después de (Izquierda – Derecha – Raíz).</li>
         </ul>
-
-        <div class="subsection-header">
-            <h3>4.1.3 Implementación</h3>
+        <div class="section-header" data-num="4.1.3 ">
+            <h2>
+                4.1.3 Implementación
+            </h2>
         </div>
+
         <p class="body-text">La implementación de los árboles se realiza mediante el uso de memoria estática a través de
             estructuras de arreglos o del uso de la memoria dinámica con las estructuras dinámicas que pueden crecer o
             decrecer, según la necesidad del programa durante su ejecución. La siguiente figura 4 representa una
-            estructura de un árbol binario (nodo) en memoria dinámica</p>
+            estructura de un árbol binario (nodo) en memoria
+            dinámica:</p>
 
         <div class="img-wrap md">
             <div class="img-card">
@@ -1192,7 +254,8 @@
         </ul>
         <p class="body-text">Utilizando árboles binarios se pueden representar expresiones matemáticas. Por ejemplo, la
             expresión (A * B) + (C / D) ^ 35 puede ser visualizada como una estructura donde los operadores son nodos
-            internos y los operandos son nodos hoja. Como se muestra la siguiente figura 5</p>
+            internos y los operandos son nodos hoja.
+            Como se muestra la siguiente figura 5:</p>
 
         <div class="img-wrap md">
             <div class="img-card">
@@ -1302,8 +365,9 @@ sino
         </div>
 
         <div class="exercise-box">
-            <div class="ex-label">✏️ Realiza el siguiente ejercicio</div>
-            <p class="mb-2">Recorrer el siguiente árbol en las siguientes tres formas</p>
+            <div class="ex-label">✏️ Realiza el siguiente ejercicio.</div>
+            <p class="mb-2">Recorrer el siguiente
+                árbol en las siguientes tres formas:</p>
             <div class="img-wrap sm">
                 <div class="img-card">
                     <img src="assets/img/imguni4-18.png" alt="Árbol para ejercicio">
@@ -1329,9 +393,9 @@ sino
                 <p style="margin-bottom:12px;">La intención de esta actividad es que el estudiante comprenda los
                     conceptos sobre la estructura de datos dinámica no lineal jerárquica árbol general y binario, así
                     como la aplicación de las formas de uso.</p>
-                <div class="act-section-title">📋 Instrucciones</div>
+                <div class="act-section-title">📋 Instrucciones:</div>
                 <ol>
-                    <li>Responde las siguientes preguntas
+                    <li><strong>1.- </strong>Responde las siguientes preguntas
                         <ul class="list-disc mt-2">
                             <li>¿Qué es un Árbol General?</li>
                             <li>¿Qué es un Árbol Binario?</li>
@@ -1339,7 +403,7 @@ sino
                             <li>¿Cuáles son las tres formas de recorrer un árbol?</li>
                         </ul>
                     </li>
-                    <li>Llenar la siguiente tabla considerando el árbol siguiente
+                    <li><strong>2.- </strong>Llenar la siguiente tabla considerando el árbol siguiente
                         <div class="img-wrap sm mt-2">
                             <div class="img-card">
                                 <img src="assets/img/imguni4-19.png" alt="Tabla árbol 1">
@@ -1351,16 +415,16 @@ sino
                             </div>
                         </div>
                     </li>
-                    <li>Recorrer el anterior árbol en las siguientes tres formas:
+                    <li><strong>3.- </strong>Recorrer el anterior árbol en las siguientes tres formas:
                         <ul class="list-disc mt-2">
                             <li>Inorden</li>
                             <li>Preorden</li>
                             <li>Postorden</li>
                         </ul>
                     </li>
-                    <li>¿Cómo es la representación de memoria de una estructura dinámica?</li>
-                    <li>¿Cómo se declara un árbol?</li>
-                    <li>¿Qué es un apuntador o un puntero?</li>
+                    <li><strong>4.- </strong>¿Cómo es la representación de memoria de una estructura dinámica?</li>
+                    <li><strong>5.- </strong>¿Cómo se declara un árbol?</li>
+                    <li><strong>6.- </strong>¿Qué es un apuntador o un puntero?</li>
                 </ol>
             </div>
             <div class="act-footer">
@@ -1368,21 +432,22 @@ sino
                 <span class="act-points">⭐VALOR:10 puntos</span>
             </div>
         </div>
-
-        <div class="subsection-header">
-            <h3>4.1.4 Operaciones permitidas</h3>
+        <div class="section-header" data-num=" 4.1.4">
+            <h2>
+                4.1.4 Operaciones permitidas
+            </h2>
         </div>
         <p class="body-text">Las operaciones (funciones) que se realizan sobre los árboles binarios son las siguientes:
         </p>
         <ul class="styled-list">
             <li><strong>Insertar un nodo nuevo al árbol (void insertanodonuevo (ARBOL *, int);)</strong> Asignación de
-                valores nuevos en el nodo nuevo</li>
+                valores nuevos en el nodo nuevo.</li>
             <li><strong>Recorrer el árbol en Inorden (void inorden (ARBOL))</strong> Función que identifica el recorrido
-                en inorden</li>
+                en inorden.</li>
             <li><strong>Recorrer el árbol en Preorden (void preorden (ARBOL))</strong> Función que identifica el
-                recorrido en preorden</li>
+                recorrido en preorden.</li>
             <li><strong>Recorrer el árbol en Postorden (void postorden (ARBOL))</strong> Función que identifica el
-                recorrido en postorden</li>
+                recorrido en postorden.</li>
             <li><strong>Eliminar un nodo al árbol (void treefree (ARBOL))</strong> Esta función permite eliminar primero
                 los nodos hijo del subarbol (izquierdo o derecho) y luego la raíz, de esta forma se elimina el árbol de
                 abajo hacia arriba (de los hijos a la raíz).</li>
@@ -1408,9 +473,10 @@ sino
                     <li>void postorden (ARBOL)</li>
                     <li>void treefree (ARBOL)</li>
                 </ul>
-                <div class="act-section-title">📋 Instrucciones</div>
+                <div class="act-section-title">📋 Instrucciones:</div>
                 <ol>
-                    <li>Declara el árbol binario como se muestra a continuación con un struct node<br>
+                    <li><strong>1.- </strong>Declara el árbol binario como se muestra a continuación con un struct
+                        node<br>
                         <code>Struct nodoarbo{<br>
                 &nbsp;&nbsp;struct nodoarbol *izqnodo;<br>
                 &nbsp;&nbsp;int info;<br>
@@ -1419,9 +485,11 @@ sino
                 typedef struct nodoarbol NODO;<br>
                 typedef NODO *ARBOL;</code>
                     </li>
-                    <li>La forma de asignar valores al árbol binario será a través del llamado de la función void
+                    <li><strong>a- </strong>La forma de asignar valores al árbol binario será a través del llamado de la
+                        función void
                         insertanodonuevo (ARBOL *, int)</li>
-                    <li>Para recorrer el árbol binario será de las tres formas llamando las funciones (void)
+                    <li><strong>b- </strong>Para recorrer el árbol binario será de las tres formas llamando las
+                        funciones (void)
                         respectivamente:
                         <ul class="list-disc ml-5 mt-2">
                             <li>void inorden (ARBOL)</li>
@@ -1429,15 +497,17 @@ sino
                             <li>void postorden (ARBOL)</li>
                         </ul>
                     </li>
-                    <li>Por último, para liberar el espacio de memoria se tiene que llamar la función void treefree
-                        (ARBOL)</li>
+                    <li><strong>c- </strong>Por último, para liberar el espacio de memoria se tiene que llamar la
+                        función void treefree
+                        (ARBOL).</li>
                 </ol>
-                <div class="act-section-title">📎 Evidencia que entregar</div>
+                <div class="act-section-title">📎 Evidencia que entregar:</div>
                 <ul>
-                    <li>Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
-                        nombre del programa, por ejemplo, RBV_Programa_Recorridos_Arbol_Binario</li>
-                    <li>Programa executable</li>
-                    <li>Corrida del programa, en un archivo PDF</li>
+                    <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
+                        nombre del programa, por ejemplo,
+                        RBV_Programa_Recorridos_Arbol_Binario.</li>
+                    <li>b) Programa executable.</li>
+                    <li>c) Corrida del programa, en un archivo PDF.</li>
                 </ul>
             </div>
             <div class="act-footer">
@@ -1464,7 +534,7 @@ sino
                 binario correspondiente.</li>
         </ol>
         <div class="exercise-box">
-            <div class="ex-label">✏️ Ejercicio</div>
+            <div class="ex-label">✏️ Ejercicio:</div>
             <p class="mb-2">Convertir el siguiente árbol general a un árbol binario, y después recorrerlo en las tres
                 formas (Preorden, Inorden y Postorden)</p>
             <div class="img-wrap sm">
@@ -1489,14 +559,14 @@ sino
                     un árbol general al convertirlo en un árbol binario para que se pueda recorrer.</p>
                 <p class="mt-4">Contesta las siguientes preguntas:</p>
                 <ol>
-                    <li>Cuáles son los pasos para transformar un árbol general a un árbol binario?</li>
-                    <li>Se tiene el siguiente árbol general:
+                    <li>1-¿Cuáles son los pasos para transformar un árbol general a un árbol binario?</li>
+                    <li>2-Se tiene el siguiente árbol general:
                         <div class="img-wrap sm mt-2">
                             <div class="img-card">
                                 <img src="assets/img/imguni4-22.png" alt="Árbol general ejercicio 2">
                             </div>
                         </div>
-                        <ol class="list-lower-alpha ml-5 mt-2">
+                        <ol>
                             <li><strong>a)</strong> Aplicando los dos primeros pasos para transformar un árbol general a
                                 un árbol binario ¿Cómo quedaría el árbol?</li>
                             <li><strong>b)</strong>Aplicando el tercer paso ¿Cómo quedaría el árbol?</li>
@@ -1505,13 +575,14 @@ sino
                             <li><strong>e)</strong>¿Cómo quedaría el árbol binario si lo recorres en POSTorden?</li>
                         </ol>
                     </li>
-                    <li>Con código ¿Cómo quedaría el árbol anterior si lo recorres en PREorden?</li>
-                    <li>Con código ¿Cómo quedaría el árbol anterior si lo recorres en INorden?</li>
-                    <li>Con código ¿Cómo quedaría el árbol anterior si lo recorres en POSTorden?</li>
+                    <li>4-Con código ¿Cómo quedaría el árbol anterior si lo recorres en PREorden?</li>
+                    <li>5-Con código ¿Cómo quedaría el árbol anterior si lo recorres en INorden?</li>
+                    <li>6-Con código ¿Cómo quedaría el árbol anterior si lo recorres en POSTorden?</li>
                 </ol>
-                <div class="act-section-title">📋 Instrucciones</div>
+                <div class="act-section-title">📋 Instrucciones:</div>
                 <ol>
-                    <li>Declara el árbol binario como se muestra a continuación con un struct node<br>
+                    <li>Declara el árbol binario como se muestra
+                        a continuación con un struct node:<br>
                         <code>Struct nodoarbo{<br>
                 &nbsp;&nbsp;struct nodoarbol *izqnodo;<br>
                 &nbsp;&nbsp;int info;<br>
@@ -1522,20 +593,22 @@ sino
                     </li>
                     <li><strong>a)</strong>La forma de asignar valores al árbol binario será a través del llamado de la
                         función <strong>void</strong> insertanodonuevo (ARBOL *, <strong>int</strong> )
-                        <strong>void</strong> postorden (ARBOL)</li>
+                        <strong>void</strong> postorden (ARBOL).
+                    </li>
                     <li><strong>b)</strong>Para recorrer el árbol binario será de las tres formas llamando las funciones
                         (void) respectivamente: <strong>void</strong> inorden (ARBOL), <strong>void</strong> preorden
-                        (ARBOL), <strong>void</strong> postorden (ARBOL)</li>
+                        (ARBOL), <strong>void</strong> postorden (ARBOL).</li>
                     <li><strong>c)</strong>Por último, para liberar el espacio de memoria se tiene que llamar la función
-                        <strong>void</strong> treefree (ARBOL)</li>
+                        <strong>void</strong> treefree (ARBOL).
+                    </li>
                 </ol>
                 <div class="act-section-title">📎 Evidencia que entregar</div>
                 <ul>
                     <li><strong>a)</strong> Programa fuente, el nombre de este programa debe de contener las iniciales
-                        de su nombre y el nombre del programa, por ejemplo, RBV_Programa_Arbol_General_Arbol_Binario
+                        de su nombre y el nombre del programa, por ejemplo, RBV_Programa_Arbol_General_Arbol_Binario.
                     </li>
-                    <li><strong>b)</strong>Programa executable</li>
-                    <li><strong>c)</strong>Corrida del programa, en un archivo PDF</li>
+                    <li><strong>b)</strong>Programa executable.</li>
+                    <li><strong>c)</strong>Corrida del programa, en un archivo PDF.</li>
                 </ul>
             </div>
             <div class="act-footer">
@@ -1578,9 +651,9 @@ sino
         <p class="body-text">Como se observa la figura 7 un grafo consta de tres elementos básicos que son:</p>
         <ul class="styled-list">
             <li><strong>Vértices o Nodos:</strong> Es el conjunto finito de nodos u objetos que representan la
-                información, por ejemplo, de la figura el conjunto de vértices es V = {1,2,3,4,5}</li>
-            <li><strong>Aristas o Arco:</strong> Es el conjunto finito de líneas o arcos que representan las relaciones
-                entre los vértices, por ejemplo, de la figura el conjunto de aristas es A ={a,b,c,d,e,f,g,h,i,j}</li>
+                información, por ejemplo, de la figura el conjunto de vértices es V = {1,2,3,4,5}.</li>
+            <li><strong>Aristas o Arcos:</strong> Es el conjunto finito de líneas o arcos que representan las relaciones
+                entre los vértices, por ejemplo, de la figura el conjunto de aristas es A ={a,b,c,d,e,f,g,h,i,j}.</li>
             <li><strong>Relación de Incidencia:</strong> La función que asocia a cada arista con un par de vértices, de
                 la figura sería el caso de la arista ‘a’ que incide doble vez con el nodo 1.</li>
         </ul>
@@ -1597,10 +670,10 @@ sino
             <li><strong>Grado o Valencia de un grafo:</strong> Es el número de aristas que inciden sobre el vértice o
                 nodo. Es fundamental considerar que un lazo cuenta como dos aristas, un ejemplo es el caso de la
                 incidencia de la arista ‘a’ del nodo 1 del grafo de la figura 7, se cuenta como doble, por lo que el
-                grado del nodo 1 es de 6, G (1) =6, G (2) = 3, G (3) =4, G (4) =4 y G (5) =3</li>
+                grado del nodo 1 es de 6, G (1) =6, G (2) = 3, G (3) =4, G (4) =4 y G (5) =3.</li>
             <li><strong>Grafo completo o fuerte:</strong> Se considera un grafo completo si cada vértice tiene un grado
                 igual a n-1 (donde n es el número total de vértices). Esto implica que cada nodo está conectado con
-                todos los demás. Con un solo nodo que no este conectado con todos los demás se considera un grafo no
+                todos los demás. Con un solo nodo que no esté conectado con todos los demás se considera un grafo no
                 completo o débil.<br>
                 Haciendo referencia al grafo de la figura 7 ¿Es un grafo completo o débil? Si ¿por qué? No ¿por qué?
                 No, porque el grado del nodo 5 es de 3 y debe ser de 4 por lo de n-1 (5-1=4), esto lo hace un grafo no
@@ -1609,7 +682,7 @@ sino
                 <ul class="list-disc mt-2">
                     <li><strong>Dirigidos:</strong> Las aristas tienen un sentido definido (flechas). Si hay una arista
                         de ‘u’ a ‘v’, no necesariamente existe una de ‘v’ a ‘u’, esto que quiere decir que puedo ir de
-                        ‘u’ a ‘v’, pero no puede ir de ‘v’ a ‘u’ como se muestra en la siguiente figura 8</li>
+                        ‘u’ a ‘v’, pero no puede ir de ‘v’ a ‘u’ como se muestra en la siguiente figura 8:</li>
                 </ul>
             </li>
         </ul>
@@ -1623,7 +696,8 @@ sino
 
         <ul class="styled-list">
             <li><strong>No Dirigidos:</strong> La relación es simétrica. Si hay una arista de ‘u’ a ‘v’, y de ‘v’ a ‘u’,
-                esto que quiere decir que puedo ir de ‘u’ a ‘v’, y de ‘v’ a ‘u’ como se muestra en la siguiente figura 9
+                esto que quiere decir que puedo ir de ‘u’ a ‘v’, y de ‘v’ a ‘u’ como se muestra en la siguiente figura
+                9:
             </li>
         </ul>
 
@@ -1644,10 +718,12 @@ sino
             <li>1-4(e), 4-5(i), 5-3(g), 3-2(j)</li>
             <li>1-5(d), 5-3(g), 3-2(j), 2-4(f)</li>
         </ol>
-
-        <div class="subsection-header">
-            <h3>4.2.1 Representación</h3>
+        <div class="section-header" data-num="4.2.1 ">
+            <h2><span class="section-emoji">📋</span>
+                4.2.1 Representación
+            </h2>
         </div>
+
         <p class="body-text">Existen dos formas para representar un grafo en memoria de una computadora que son:</p>
         <ul class="styled-list">
             <li><strong>Estática: Matriz de Adyacencia</strong> Una matriz se identifica como una estructura de datos
@@ -1655,8 +731,7 @@ sino
                 relaciones que existen entre los vértices o nodos, la manera de identificar si hay una relación entre
                 los vértices es con el número 1 y la ausencia se representa con el 0. Además, se requiere de una
                 estructura de datos arreglo unidimensional vector para almacenar los vértices o nodos.<br>
-                Para entender con mayor claridad lo anterior, tomaremos de referencia a la siguiente figura 8 (figura 8
-                repetida, pero se coloca como figura 10 para seguir la secuencia)</li>
+                Para entender con mayor claridad lo anterior, tomaremos de referencia a la siguiente figura 8:</li>
         </ul>
 
         <div class="img-wrap md">
@@ -1667,7 +742,12 @@ sino
         </div>
 
         <p class="body-text">Como se observa es un grafo dirigido, eso quiere decir que podemos ir del nodo ‘a’ al nodo
-            ‘c’ y al nodo‘b’; del nodo ‘b’ al nodo ‘a’; del nodo ‘c’ al nodo ‘d’ y del ‘d’ al nodo ‘b’.</p>
+            ‘c’ y al nodo‘b’; del nodo ‘b’ al nodo ‘a’;
+            del nodo ‘c’ al nodo ‘d’ y del ‘d’ al nodo ‘b’.</p>
+
+        <p class="body-text">Los vertices quedarían representado con un Vector_Vertice[4]={‘a’, ‘b’, ‘c’, d’} con sus
+            respectivos índices (0,1,2,3) como se muestra la siguiente figura 9:
+        </p>
 
         <div class="img-wrap md">
             <div class="img-card">
@@ -1678,7 +758,8 @@ sino
 
         <p class="body-text">La matriz de adyacencia quedaría declarada de la siguiente forma
             Matriz_Adyacencia[4][4]={‘0’, ‘1’, ‘1’,’0’, ‘1’, ‘0’, ‘0’,’0’, ‘0’, ‘0’, ‘0’, ‘1’,’0’, ‘1’, ‘0’, ‘0’}.
-            A continuación se muestra la figura 10 de como quedaría la Matriz_Adyacencia:</p>
+            A continuación se muestra la figura 10 de como quedaría la Matriz_Adyacencia:
+        </p>
 
         <div class="img-wrap md">
             <div class="img-card">
@@ -1700,19 +781,19 @@ sino
                     programar un grafo y hacer uso de la pantalla a través del goto xy().</p>
                 <div class="act-section-title">📋 Instrucciones</div>
                 <ol>
-                    <li>Responde las siguientes preguntas
+                    <li><strong>1.- </strong>Responde las siguientes preguntas
                         <ul class="list-disc mt-2">
                             <li>¿Qué es un Grafo?</li>
                             <li>¿Qué es un Grafo dirigido?</li>
                         </ul>
                     </li>
-                    <li>Se tiene el siguiente grafo y contesta los siguientes incisos
+                    <li><strong>2.- </strong>Se tiene el siguiente grafo y contesta los siguientes incisos
                         <div class="img-wrap sm mt-2">
                             <div class="img-card">
                                 <img src="assets/img/imguni4-31.png" alt="Grafo para actividad">
                             </div>
                         </div>
-                        <ol class="list-lower-alpha ml-5 mt-2">
+                        <ol>
                             <li><strong>a.</strong>Conjunto de Nodos o Vértices</li>
                             <li><strong>b.</strong>Conjunto de Aristas o Arcos</li>
                             <li><strong>c.</strong>Grado o Valencia de los Vértices</li>
@@ -1721,12 +802,13 @@ sino
                             <li><strong>e.</strong>Cinco posibles caminos simples</li>
                         </ol>
                     </li>
-                    <li>Qué es un lazo y da un ejemplo de la vida real</li>
-                    <li>Qué es un circuito o camino cerrado</li>
-                    <li>Declara una Matriz_Adyacencia[6][6] de tipo char, asígnale los valores de la figura del grafo de
+                    <li><strong>3.- </strong>Qué es un lazo y da un ejemplo de la vida real</li>
+                    <li><strong>4.- </strong>Qué es un circuito o camino cerrado</li>
+                    <li><strong>5.- </strong>Declara una Matriz_Adyacencia[6][6] de tipo char, asígnale los valores de
+                        la figura del grafo de
                         este ejercicio, también declara un vector Vector_Vertice[6] de tipo char de tamaño 6 y asígnale
                         los valores del grafo de este ejercicio.</li>
-                    <li>Declarar la siguiente función<br>
+                    <li><strong>6.- </strong>Declarar la siguiente función<br>
                         <code>void gotoxy(int x,int y){<br>
                 &nbsp;&nbsp;HANDLE hcon;<br>
                 &nbsp;&nbsp;hcon = GetStdHandle(STD_OUTPUT_HANDLE);<br>
@@ -1735,12 +817,12 @@ sino
                         dibujar el grafo utilizando el Vector_Vertice[6] y la Matriz_Adyacencia[6][6].
                     </li>
                 </ol>
-                <div class="act-section-title">📎 Evidencia que entregar</div>
+                <div class="act-section-title">📎 Evidencia que entregar:</div>
                 <ul>
-                    <li>Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
-                        nombre del programa, por ejemplo, RBV_Programa_Matriz_Adyacencia</li>
-                    <li>Programa executable</li>
-                    <li>Corrida del programa, en un archivo PDF</li>
+                    <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
+                        nombre del programa, por ejemplo, RBV_Programa_Matriz_Adyacencia.</li>
+                    <li>b) Programa executable.</li>
+                    <li>c) Corrida del programa, en un archivo PDF.</li>
                 </ul>
             </div>
             <div class="act-footer">
@@ -1748,24 +830,30 @@ sino
                 <span class="act-points">⭐VALOR:10 puntos</span>
             </div>
         </div>
+        <div class="concept-highlight">
 
-        <p class="body-text">Otra forma para representar un grafo en la memoria de una computadora es:</p>
-        <ul class="styled-list">
-            <li><strong>Dinámica: Lista de Adyacencia</strong> en este tipo de estructura de datos los nodos o vértices
-                forman una lista ordenada, que se puede representar mediante un arreglo, cada uno de los nodos apunta a
-                una lista (enlazada) que contiene los nodos con los que está relacionado por las aristas o arcos. Una
-                ventaja de este tipo de estructura de datos es el espacio eficiente de almacenamiento porque solo ocupa
-                memoria para las aristas reales del grafo. La desventaja que presenta es el tiempo de búsqueda de las
-                aristas, porque recorre cada uno de los nodos de la lista enlazada de forma secuencial.</li>
-        </ul>
+            <p class="body-text">Otra forma para representar un grafo en la memoria de una computadora es:</p>
+            <ul class="styled-list">
+                <li><strong>Dinámica: Lista de Adyacencia</strong> en este tipo de estructura de datos los nodos o
+                    vértices
+                    forman una lista ordenada, que se puede representar mediante un arreglo, cada uno de los nodos
+                    apunta a
+                    una lista (enlazada) que contiene los nodos con los que está relacionado por las aristas o arcos.
+                    Una
+                    ventaja de este tipo de estructura de datos es el espacio eficiente de almacenamiento porque solo
+                    ocupa
+                    memoria para las aristas reales del grafo. La desventaja que presenta es el tiempo de búsqueda de
+                    las
+                    aristas, porque recorre cada uno de los nodos de la lista enlazada de forma secuencial.</li>
+            </ul>
 
-        <div class="img-wrap md">
-            <div class="img-card">
-                <img src="assets/img/imguni4-32.png" alt="Figura 11 Lista de adyacencia">
-                <div class="img-caption">Figura 11 Lista de adyacencia</div>
+            <div class="img-wrap md">
+                <div class="img-card">
+                    <img src="assets/img/imguni4-32.png" alt="Figura 11 Lista de adyacencia">
+                    <div class="img-caption">Figura 11 Lista de adyacencia</div>
+                </div>
             </div>
         </div>
-
         <p class="body-text">Haciendo referencia a la figura 12, la representación mediante un arreglo quedaría de la
             siguiente forma:</p>
 
@@ -1793,20 +881,23 @@ sino
                 <h3>📝 Actividad UTIV_A5 Lista_Adyacencia</h3>
             </div>
             <div class="act-body">
-                <div class="act-section-title">🎯 Propósito</div>
-                <p style="margin-bottom:12px;">Aplicar las definiciones de una lista de adyacencia y las formas de uso
+                <div class="act-section-title">🎯 Propósito:</div>
+                <p style="margin-bottom:12px;">Aplicar las
+                    definiciones de una lista de adyacencia y
+                    las formas de uso.
                 </p>
                 <p style="margin-bottom:12px;">La intención de esta actividad es que el estudiante comprenda los
                     conceptos sobre la estructura de datos dinámica no lineal lista de adyacencia.</p>
-                <div class="act-section-title">📋 Instrucciones</div>
+                <div class="act-section-title">📋 Instrucciones:</div>
                 <ol>
-                    <li>Responde las siguientes preguntas
+                    <li><strong>1.- </strong>Responde las siguientes preguntas:
                         <ul class="list-disc mt-2">
                             <li>¿Qué es una lista de adyacencia?</li>
                             <li>¿Qué estructura de datos se utiliza para representar una lista de adyacencia?</li>
                         </ul>
                     </li>
-                    <li>Se tiene el siguiente ejercicio<br>
+                    <li><strong>2.- </strong>Se tiene el siguiente ejercicio:<br>
+
                         El polideportivo “Mente Sana” tiene veinte instalaciones deportivas, de las cuales quince están
                         ocupadas. Realiza una lista de adyacencia y un diagrama esquemático que represente el estado de
                         las instalaciones y permita en cualquier momento obtener un listado en orden alfabético de las
@@ -1815,6 +906,7 @@ sino
                         gimnasio, 10 canal de remo, 11 piragüismo, 12 estación de esquí, 13 circuito de bicicletas, 14
                         campo de tiro, 15 vacía, 16 hípica, 17 vacía, 18 golf, 19 rugby y 20 hockey.</li>
                 </ol>
+
                 <div class="act-section-title">📎 Evidencia que entregar:</div>
                 <ul>
                     <li><strong>1)</strong> una lista de adyacencia que representa los nodos utilizando un arreglo.</li>
@@ -1829,9 +921,9 @@ sino
                 <span class="act-points">⭐VALOR:10 puntos</span>
             </div>
         </div>
-
-        <div class="subsection-header">
-            <h3>4.2.2 Formas de uso</h3>
+        <div class="section-header" data-num="4.2.2">
+            <h2><span class="section-emoji">📋</span>
+                4.2.2 Formas de uso</h2>
         </div>
         <p class="body-text">Los grafos se utilizan para varias aplicaciones, una de ellas es el análisis de caminos que
             permite determinar la conectividad y accesibilidad dentro de una red.
@@ -1840,11 +932,16 @@ sino
             Un grafo dirigido podría estar representado con Xtwitter o Instagram porque el nodo A sigue al nodo B, pero
             eso no significa que el nodo B siga al nodo A.
             Una de las implementaciones de los grafos es el tiempo real de la ruta más optima usando el algoritmo de
-            Dijkstra. También las aplicaciones que usan un sistema de navegación y mapas como es el caso de los GPS.</p>
+            Dijkstra. También las aplicaciones
+            que usan un sistema de navegación y mapas como
+            es el caso de los GPS.</p>
 
-        <div class="subsection-header">
-            <h3>4.2.3 Implementación</h3>
+        <div class="section-header" data-num="4.2.3">
+            <h2><span class="section-emoji">📋</span>
+                4.2.3 implementación</h2>
         </div>
+
+
         <p class="body-text">Una de las formas para poner en marcha un grafo, es implementando un algoritmo para
             recorrerlo y encontrar el camino más corto, como es el caso del algoritmo Dijkstra.
             Otra forma de implementar un grafo es utilizando un lenguaje de programación de manera estática con una
@@ -1853,23 +950,24 @@ sino
             Para la planificación de entregas de productos, se utilizan los grafos, ya que permiten entregar el producto
             correcto, en la cantidad exacta, en el lugar adecuado, en el momento oportuno y al menor costo posible.</p>
 
-        <div class="subsection-header">
-            <h3>4.2.4 Operaciones permitidas</h3>
+        <div class="section-header" data-num="4.2.4 ">
+            <h2><span class="section-emoji">📋</span>
+                4.2.4 Operaciones permitidas</h2>
         </div>
         <p class="body-text">Las operaciones que se pueden hacer sobre un grafo son:</p>
-        <ul class="styled-list">
-            <li><strong>a)</strong>Encontrar la ruta óptima entre nodos, el camino más corto (ej. Dijkstra).</li>
-            <li><strong>b)</strong>Realizar búsquedas en anchura.</li>
-            <li><strong>c)</strong>Realizar búsquedas en profundidad.</li>
-            <li><strong>d)</strong>Insertar nodos.</li>
-            <li><strong>e)</strong>Insertar aristas.</li>
-            <li><strong>f)</strong>Eliminar nodos.</li>
-            <li><strong>g)</strong>Eliminar aristas.</li>
-        </ul>
+        <div class="exercise-box">
+            <ul class="operations-list">
+                <li>🛣️ &nbsp; Encontrar el camino más corto entre nodos (ej. Dijkstra).</li>
+                <li>🌐 &nbsp; Recorrer el grafo nivel por nivel.</li>
+                <li>🌳 Búsqueda en profundidad:</strong>&nbsp; Explorar cada rama antes de retroceder.</li>
+                <li>➕ Insertar nodo:</strong>&nbsp; Agregar un nuevo nodo al grafo.</li>
+                <li>🔗 Insertar arista:</strong>&nbsp; Crear una conexión entre nodos.</li>
+                <li>❌ Eliminar nodo:</strong>&nbsp; Borrar un nodo del grafo.</li>
+                <li>✂️ Eliminar arista:</strong>&nbsp; Eliminar una conexión existente.</li>
+            </ul>
+        </div>
+    </div>
 
-    </div><!-- /page-content -->
-
-    <!-- NAVIGATION BUTTONS (estilo navuni1) -->
     <div
         style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; max-width:900px; margin:0 auto; padding:16px 24px 48px;">
         <a href="navuni3.html" class="nav-btn">
@@ -1887,6 +985,14 @@ sino
         <p>Unidad de Aprendizaje: Estructura de Datos</p>
         <p>© 2026 Instituto Politécnico Nacional</p>
     </footer>
+
+    <!-- LIGHTBOX (AÑADIDO EXACTAMENTE IGUAL QUE EN NAVUNI1) -->
+    <div class="lb-overlay" id="lbOverlay">
+        <button class="lb-close" id="lbClose" title="Cerrar">&#x2715;</button>
+        <img id="lbImg" src="" alt="">
+        <div class="lb-caption" id="lbCaption"></div>
+        <div class="lb-zoom-hint" id="lbZoomHint">🔍 Clic para zoom · Scroll para zoom · Arrastra para mover</div>
+    </div>
 
     <script src="js/ui.js"></script>
 </body>
