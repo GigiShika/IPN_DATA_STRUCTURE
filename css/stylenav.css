@@ -1925,141 +1925,60 @@ code {
         .dark-mode-btn:active {
             transform: translateY(1px);
         }
-/* Botón de descarga de examen - estilo consistente con la navegación */
-/* ===== BOTÓN DE DESCARGA MEJORADO ===== */
-.descarga-wrapper {
-    display: flex;
-    justify-content: center;
-    margin: 35px 0 15px;
-    padding: 0 15px;
+/* ===== BOTONES DESCARGA EXAMEN (nuevo estilo) ===== */
+@keyframes shimmer-dl {
+    0%   { transform: translateX(-100%) skewX(-20deg); }
+    100% { transform: translateX(250%) skewX(-20deg); }
+}
+@keyframes pulse-blue-dl {
+    0%, 100% { box-shadow: 0 4px 16px rgba(10,47,90,0.3), 0 0 0 0 rgba(200,146,26,0.35); }
+    50%       { box-shadow: 0 4px 16px rgba(10,47,90,0.3), 0 0 0 5px rgba(200,146,26,0); }
+}
+@keyframes pulse-red-dl {
+    0%, 100% { box-shadow: 0 4px 16px rgba(107,15,26,0.35), 0 0 0 0 rgba(200,146,26,0.35); }
+    50%       { box-shadow: 0 4px 16px rgba(107,15,26,0.35), 0 0 0 5px rgba(200,146,26,0); }
 }
 
-.btn-descarga {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    background: linear-gradient(135deg, #0f1a30 0%, #1a2a4a 50%, #2c3e6b 100%);
-    color: #ffffff;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 1.15rem;
-    padding: 16px 40px;
-    border-radius: 60px;
-    border: 2px solid #ffcd00;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 0 4px 20px rgba(255, 205, 0, 0.25), 0 0 0 0 rgba(255, 205, 0, 0);
+.dl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 14px;
+    padding: 1.2rem 1rem;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.dl-card {
     position: relative;
     overflow: hidden;
-    cursor: pointer;
-    will-change: transform;
+    border-radius: 12px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 19px 18px;
+    font-family: 'Outfit', sans-serif;
+    border: 1.5px solid rgba(200, 146, 26, 0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+.dl-card:hover  { transform: translateY(-3px); animation: none !important; }
+.dl-card:active { transform: translateY(0) scale(0.98); }
 
-/* Efecto de brillo deslizante (shiny) */
-.btn-descarga::before {
-    content: '';
+.dl-card.btn-parcial { background: linear-gradient(120deg, #0a2f5a, #1a4a8a); animation: pulse-blue-dl 2.8s ease-in-out infinite; }
+.dl-card.btn-extra   { background: linear-gradient(120deg, #6B0F1A, #9b1426);  animation: pulse-red-dl  2.8s ease-in-out infinite; }
+
+.dl-sheen {
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
+    top: 0; left: 0;
+    width: 45%;
     height: 100%;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(255, 255, 255, 0.2), 
-        transparent
-    );
-    transform: skewX(-30deg);
-    transition: left 0.8s ease;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shimmer-dl 3.2s ease-in-out infinite;
+    pointer-events: none;
 }
 
-.btn-descarga:hover::before {
-    left: 100%;
-}
-
-/* Efecto hover: se pone dorado con texto oscuro */
-.btn-descarga:hover {
-    background: #ffcd00;
-    color: #0f1a30;
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 12px 35px rgba(255, 205, 0, 0.5), 0 0 25px rgba(255, 205, 0, 0.2);
-    border-color: #ffcd00;
-}
-
-.btn-descarga:active {
-    transform: translateY(0px) scale(0.97);
-    box-shadow: 0 5px 15px rgba(255, 205, 0, 0.3);
-}
-
-/* Animación de resplandor pulsante (muy llamativa) */
-@keyframes pulse-glow-descarga {
-    0% {
-        box-shadow: 0 4px 20px rgba(255, 205, 0, 0.25);
-    }
-    50% {
-        box-shadow: 0 4px 35px rgba(255, 205, 0, 0.6), 0 0 20px rgba(255, 205, 0, 0.15);
-    }
-    100% {
-        box-shadow: 0 4px 20px rgba(255, 205, 0, 0.25);
-    }
-}
-
-.btn-descarga {
-    animation: pulse-glow-descarga 2.8s infinite ease-in-out;
-}
-
-.btn-descarga:hover {
-    animation: none; /* Detiene el pulso al pasar el mouse para un hover limpio */
-}
-
-/* Icono dentro del botón */
-.btn-descarga .icono {
-    font-size: 1.6rem;
-    line-height: 1;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-}
-
-/* ===== RESPONSIVO ===== */
-@media (max-width: 768px) {
-    .btn-descarga {
-        font-size: 1rem;
-        padding: 14px 30px;
-        gap: 10px;
-        border-radius: 50px;
-    }
-    .btn-descarga .icono {
-        font-size: 1.4rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .btn-descarga {
-        font-size: 0.85rem;
-        padding: 14px 22px;
-        width: 100%;
-        max-width: 360px;
-        gap: 8px;
-        letter-spacing: 0.5px;
-        border-radius: 50px;
-    }
-    .btn-descarga .icono {
-        font-size: 1.3rem;
-    }
-    .descarga-wrapper {
-        margin: 25px 0 10px;
-    }
-}
-
-@media (max-width: 400px) {
-    .btn-descarga {
-        font-size: 0.75rem;
-        padding: 12px 18px;
-        max-width: 280px;
-        border-width: 1.5px;
-    }
-    .btn-descarga .icono {
-        font-size: 1.1rem;
-    }
-}
+.dl-icon  { font-size: 1.6rem; flex-shrink: 0; position: relative; z-index: 1; }
+.dl-text  { display: flex; flex-direction: column; gap: 2px; z-index: 1; }
+.dl-title { font-size: 0.88rem; font-weight: 800; color: #fff; line-height: 1.2; }
+.dl-sub   { font-size: 0.65rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #ffc94d; }
+.dl-arrow { margin-left: auto; font-size: 1rem; color: rgba(200,146,26,0.9); z-index: 1; flex-shrink: 0; }
