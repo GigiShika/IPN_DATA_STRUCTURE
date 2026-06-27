@@ -1925,3 +1925,141 @@ code {
         .dark-mode-btn:active {
             transform: translateY(1px);
         }
+/* Botón de descarga de examen - estilo consistente con la navegación */
+/* ===== BOTÓN DE DESCARGA MEJORADO ===== */
+.descarga-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 35px 0 15px;
+    padding: 0 15px;
+}
+
+.btn-descarga {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #0f1a30 0%, #1a2a4a 50%, #2c3e6b 100%);
+    color: #ffffff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    padding: 16px 40px;
+    border-radius: 60px;
+    border: 2px solid #ffcd00;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(255, 205, 0, 0.25), 0 0 0 0 rgba(255, 205, 0, 0);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    will-change: transform;
+}
+
+/* Efecto de brillo deslizante (shiny) */
+.btn-descarga::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent
+    );
+    transform: skewX(-30deg);
+    transition: left 0.8s ease;
+}
+
+.btn-descarga:hover::before {
+    left: 100%;
+}
+
+/* Efecto hover: se pone dorado con texto oscuro */
+.btn-descarga:hover {
+    background: #ffcd00;
+    color: #0f1a30;
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 12px 35px rgba(255, 205, 0, 0.5), 0 0 25px rgba(255, 205, 0, 0.2);
+    border-color: #ffcd00;
+}
+
+.btn-descarga:active {
+    transform: translateY(0px) scale(0.97);
+    box-shadow: 0 5px 15px rgba(255, 205, 0, 0.3);
+}
+
+/* Animación de resplandor pulsante (muy llamativa) */
+@keyframes pulse-glow-descarga {
+    0% {
+        box-shadow: 0 4px 20px rgba(255, 205, 0, 0.25);
+    }
+    50% {
+        box-shadow: 0 4px 35px rgba(255, 205, 0, 0.6), 0 0 20px rgba(255, 205, 0, 0.15);
+    }
+    100% {
+        box-shadow: 0 4px 20px rgba(255, 205, 0, 0.25);
+    }
+}
+
+.btn-descarga {
+    animation: pulse-glow-descarga 2.8s infinite ease-in-out;
+}
+
+.btn-descarga:hover {
+    animation: none; /* Detiene el pulso al pasar el mouse para un hover limpio */
+}
+
+/* Icono dentro del botón */
+.btn-descarga .icono {
+    font-size: 1.6rem;
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+    .btn-descarga {
+        font-size: 1rem;
+        padding: 14px 30px;
+        gap: 10px;
+        border-radius: 50px;
+    }
+    .btn-descarga .icono {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .btn-descarga {
+        font-size: 0.85rem;
+        padding: 14px 22px;
+        width: 100%;
+        max-width: 360px;
+        gap: 8px;
+        letter-spacing: 0.5px;
+        border-radius: 50px;
+    }
+    .btn-descarga .icono {
+        font-size: 1.3rem;
+    }
+    .descarga-wrapper {
+        margin: 25px 0 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .btn-descarga {
+        font-size: 0.75rem;
+        padding: 12px 18px;
+        max-width: 280px;
+        border-width: 1.5px;
+    }
+    .btn-descarga .icono {
+        font-size: 1.1rem;
+    }
+}
