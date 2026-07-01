@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="icon" type="image/png" href="assets/img/hader.jpg">
+    <link rel="stylesheet" href="css/stylenav.css">
+    <title>Estructura de Datos | UPIICSA</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --ipn-burgundy: #6B0F1A;
+            --ipn-gold: #C8921A;
+            --ipn-blue-deep: #0a2f5a;
+            --ipn-blue-mid: #1a4a8a;
+            --ipn-blue-light: #2d6abf;
+            --section-teal: #0e5c6b;
+            --section-teal-2: #0d7a6e;
+            --section-navy: #1a2e4a;
+            --bg-page: #f6f8fc;
+            --card-bg: #ffffff;
+            --text-body: #2d3748;
+            --text-muted: #718096;
+            --border-subtle: #e2e8f0;
+            --accent-amber: #d97706;
+            --accent-teal: #0891b2;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-page);
+            color: var(--text-body);
+            margin: 0;
+        }
+
+        /* ─── TOP BAR (estilo navuni1) ─────────────────── */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 8px 20px;
+            border-bottom: 3px solid var(--ipn-burgundy);
+            flex-wrap: nowrap;
+            gap: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        .logo-left, .logo-right { flex-shrink: 0; }
+        .logo-left img, .logo-right img {
+            height: 60px;
+            width: auto;
+            display: block;
+            transition: transform 0.2s ease;
+        }
+        .logo-left img:hover, .logo-right img:hover { transform: scale(1.05); }
+        .institution-text {
+            text-align: center;
+            flex: 1;
+            margin: 0 auto;
+        }
+        .institution-text h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--ipn-blue-deep);
+            margin: 0;
+            letter-spacing: -0.3px;
+            text-align: center !important;
+        }
+        .institution-text p {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4a5568;
+            margin: 4px 0 0;
+            text-align: center !important;
+        }
+        @media (max-width: 768px) {
+            .top-bar { flex-wrap: wrap; justify-content: center; padding: 6px 12px; gap: 8px; }
+            .logo-left img, .logo-right img { height: 45px; }
+            .institution-text { order: 3; flex-basis: 100%; }
+            .institution-text h2 { font-size: 1rem; }
+            .institution-text p { font-size: 0.72rem; }
+        }
+        .header-logos { display: none !important; }
+
+        /* ─── HEADER ─────────────────────────────────── */
+        .header-image-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+        }
+        .header-text-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(6,20,50,0.92) 0%, rgba(6,20,50,0.5) 60%, transparent 100%);
+            padding: 28px 32px 24px;
+        }
+        .header-text-overlay .polilibro {
+            display: inline-block;
+            background: var(--ipn-gold);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+        .header-text-overlay h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            margin: 0;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            text-align: left !important;
+        }
+
+        /* ─── NAV ─────────────────────────────────────── */
+        .nav-bg-custom {
+            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 100%);
+            border-bottom: 3px solid var(--ipn-gold);
+        }
+        .nav-link-underline {
+            position: relative;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            color: rgba(255,255,255,0.92) !important;
+            padding: 13px 18px;
+            border-radius: 6px 6px 0 0;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: block;
+        }
+        .nav-link-underline:hover {
+            background: rgba(255,255,255,0.15) !important;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        .nav-link-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%; right: 50%;
+            height: 3px;
+            background: var(--ipn-gold);
+            border-radius: 2px;
+            transition: left 0.25s, right 0.25s;
+        }
+        .nav-link-underline:hover::after { left: 8%; right: 8%; }
+        .nav-toggle-custom {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 12px 20px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ─── PAGE LAYOUT ─────────────────────────────── */
+        .page-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* ─── UNIT BANNER (estilo navuni1) ───────────────── */
+        .unit-banner {
+            background: linear-gradient(135deg, var(--ipn-blue-deep) 0%, var(--ipn-blue-mid) 60%, var(--ipn-blue-light) 100%);
+            border-radius: 14px;
+            padding: 28px 32px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(10,47,90,0.25);
+        }
+        .unit-banner::before {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 180px; height: 180px;
+            background: rgba(200,146,26,0.18);
+            border-radius: 50%;
+        }
+        .unit-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -60px; left: 30%;
+            width: 240px; height: 240px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        .unit-banner h1, .unit-banner h2 {
+            font-family: 'Outfit', sans-serif;
+            color: white;
+            margin: 0;
+            position: relative; z-index: 1;
+            text-align: left !important;
+        }
+        .unit-banner h1 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ipn-gold);
+            margin-bottom: 6px;
+        }
+        .unit-banner h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+        .unit-banner .unit-label {
+            display: inline-block;
+            background: var(--ipn-gold);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            position: relative; z-index: 1;
+        }
+
+        /* ─── RUBRIC TABLE ───────────────────────────── */
+        /* ─── RUBRIC TABLE ───────────────────────────── */
+        .rubric-wrapper {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed; /* todas las columnas del mismo tamaño */
+            font-size: 0.9rem;
+        }
+
+        .rubric-table thead th {
+            background: linear-gradient(135deg, var(--ipn-blue-deep), var(--ipn-blue-mid));
+            color: white;
+            font-weight: 700;
+            padding: 14px 12px;
+            text-align: center;
+            border: 1px solid #d1d5db;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+        }
+
+        .rubric-table tbody td {
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            vertical-align: top;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        .rubric-table tbody tr {
+            height: 140px;
+        }
+
+        .rubric-table .criteria-cell {
+            width: 20%;
+            font-weight: 700;
+            color: var(--ipn-blue-deep);
+            background: #f8faff;
+        }
+
+        .rubric-table .criteria-cell .weight {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--ipn-gold);
+            margin-top: 4px;
+        }
+
+        .rubric-table .level-cell {
+            width: 20%;
+        }
+
+        .rubric-table .level-excelente {
+            background: #e6f7e6;
+            border-left: 4px solid #22c55e;
+        }
+
+        .rubric-table .level-bueno {
+            background: #e6f0ff;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .rubric-table .level-regular {
+            background: #fef9e6;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .rubric-table .level-deficiente {
+            background: #fde6e6;
+            border-left: 4px solid #ef4444;
+        }
+
+        .rubric-table .level-label {
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .rubric-table .level-excelente .level-label { color: #15803d; }
+        .rubric-table .level-bueno .level-label { color: #1d4ed8; }
+        .rubric-table .level-regular .level-label { color: #b45309; }
+        .rubric-table .level-deficiente .level-label { color: #b91c1c; }
+
+        @media (max-width: 768px) {
+            .rubric-table {
+                font-size: 0.75rem;
+            }
+
+            .rubric-table thead th,
+            .rubric-table tbody td {
+                padding: 8px;
+            }
+
+            .rubric-table tbody tr {
+                height: auto;
+            }
+        }
+
+        /* ─── NAV BUTTONS ────────────────────────────── */
+        .nav-btn {
+            background: linear-gradient(135deg, var(--ipn-blue-mid) 0%, var(--ipn-blue-deep) 100%);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 16px rgba(10,47,90,0.25);
+            transition: all 0.25s;
+        }
+        .nav-btn:hover {
+            box-shadow: 0 8px 28px rgba(10,47,90,0.35);
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--ipn-blue-light) 0%, var(--ipn-blue-mid) 100%);
+        }
+        .nav-btn:active { transform: translateY(0); }
+        .nav-btn-home {
+            width: 52px;
+            height: 52px;
+            padding: 0;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+        /* ─── FOOTER ─────────────────────────────────── */
+        .page-footer {
+            background: linear-gradient(180deg, #f4faff 0%, #e6f3ff 50%, white 100%);
+            border-top: 3px solid var(--ipn-blue-deep);
+            padding: 32px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        .page-footer h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            color: var(--ipn-blue-deep);
+            font-weight: 700;
+            margin: 0 0 6px;
+            text-align: center !important;
+        }
+        .page-footer p {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            margin: 3px 0;
+            text-align: center !important;
+        }
+
+        /* Utilidades */
+        p, li { text-align: justify; }
+        h1, h2, h3, h4, h5, h6 { text-align: left; }
+        .text-justify { text-align: justify !important; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .max-w-2xl { max-width: 42rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mt-3 { margin-top: 0.75rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .text-center { text-align: center; }
+        .text-gray-500 { color: #6b7280; }
+        .text-sm { font-size: 0.875rem; }
+        .rounded-full { border-radius: 9999px; }
+        .bg-white\/80 { background-color: rgba(255,255,255,0.8); }
+        .backdrop-blur-sm { backdrop-filter: blur(4px); }
+    </style>
+</head>
+<body>
+
+
+<div class="top-bar">
+    <div class="logo-left">
+        <img src="assets/img/ipn.jpg" alt="IPN">
+    </div>
+    <div class="institution-text">
+        <h2>Instituto Politécnico Nacional</h2>
+        <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
+    </div>
+    <div class="logo-right">
+        <img src="assets/img/upiicsa.jpg" alt="UPIICSA">
+    </div>
+</div>
+
+<!-- Header con imagen -->
+<header style="padding: 24px 20px;">
+    <div style="max-width: 960px; margin: 0 auto;">
+        <div class="header-image-container">
+            <img src="assets/img/titulo.avif" alt="Estructura de Datos" style="width:100%; height:280px; object-fit:cover; display:block;">
+            <div class="header-text-overlay">
+                <p class="polilibro">📘 Polilibro</p>
+                <h1>📊 Estructura de Datos</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- NAV (exactamente el mismo que navuni1) -->
+<div class="w-full nav-bg-custom shadow-md" style="border-radius: 0 0 10px 10px;">
+    <div class="flex justify-center">
+        <nav class="w-[90%] md:w-[75%] mx-auto">
+            <button class="nav-toggle md:hidden text-[1.8rem] text-white bg-none border-none cursor-pointer p-[12px_20px] w-full text-left font-bold nav-toggle-custom">☰ Menú</button>
+            <ul class="nav-links hidden md:flex justify-center gap-[10px] list-none m-0 p-0">
+                <li><a href="index.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🏠Inicio</a></li>
+                <li><a href="navuni1.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📊Unidad I</a></li>
+                <li><a href="navuni2.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📈Unidad II</a></li>
+                <li><a href="navuni3.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🔗Unidad III</a></li>
+                <li><a href="navuni4.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">🌳Unidad IV</a></li>
+                <li><a href="navuni8.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5" style="background: rgba(255,255,255,0.15); border-radius: 6px 6px 0 0;">📋Rubrica</a></li>
+                <li><a href="navuni7.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📕Cierre</a></li>
+                <li><a href="navuni5.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📚Glosario</a></li>
+                <li><a href="navuni6.html" class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">📖Bibliografia</a></li>
+                <li>
+                    <button id="darkModeToggle" class="dark-mode-btn block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] hover:bg-white/20 hover:-translate-y-0.5">
+                        <span>🌙</span> <span>Modo oscuro</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- CONTENIDO PRINCIPAL (RÚBRICA) -->
+<div class="page-content">
+
+    <!-- UNIT BANNER (estilo navuni1) -->
+    <div class="unit-banner">
+        <span class="unit-label">📋 Evaluación · UPIICSA</span>
+        <h2>📋 Rúbrica de Evaluación</h2>
+    </div>
+
+    <!-- Descripción breve -->
+    <p class="body-text" style="margin-bottom: 24px;">
+        La siguiente rúbrica establece los criterios de evaluación para las actividades y proyectos de la unidad de aprendizaje.
+        Cada criterio tiene un peso porcentual y se califica en cuatro niveles de desempeño. Esta herramienta busca proporcionar
+        una retroalimentación clara y objetiva sobre el desarrollo de las competencias.
+    </p>
+
+    <!-- Tabla de rúbrica -->
+    <div class="rubric-wrapper">
+        <div style="overflow-x: auto;">
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th style="width: 16%;">Criterio para evaluar</th>
+                        <th style="width: 21%;">🔰Excelente</th>
+                        <th style="width: 21%;">🔶Bueno </th>
+                        <th style="width: 21%;">⚠️Regular</th>
+                        <th style="width: 21%;">❌Deficiente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Fila 1: Elección de la Estructura (30%) -->
+                    <tr>
+                        <td class="criteria-cell">
+                            Elección de la Estructura
+                            <span class="weight">(30%)</span>
+                        </td>
+                        <td class="level-cell level-excelente">
+                            Elige la estructura de datos ideal para resolver el problema de forma óptima
+                        </td>
+                        <td class="level-cell level-bueno">
+                            La estructura elegida es buena, pero existen alternativas ligeramente mejores.
+                        </td>
+                        <td class="level-cell level-regular">
+                            Utiliza la estructura adecuada, pero su diseño no aprovecha los recursos.
+                        </td>
+                        <td class="level-cell level-deficiente">
+                            La estructura de datos no es la adecuada para el problema planteado.
+                        </td>
+                    </tr>
+                    <!-- Fila 2: Implementación y Manejo (20%) -->
+                    <tr>
+                        <td class="criteria-cell">
+                            Implementación y Manejo
+                            <span class="weight">(20%)</span>
+                        </td>
+                        <td class="level-cell level-excelente">
+                            El estudiante declara todos los elementos que se van a utilizar para la manipular de la estructura de datos
+                        </td>
+                        <td class="level-cell level-bueno">
+                            Al estudiante le faltaron declara algunos elementos que se van a utilizar para la manipulación de la estructura de datos, generando pequeños errores
+                        </td>
+                        <td class="level-cell level-regular">
+                            El estudiante al no declarar los elementos necesarios para la manipulación de la estructura de datos, se presentan fallas lógicas. 
+                        </td>
+                        <td class="level-cell level-deficiente">
+                            El estudiante declaro de forma incorrecta los elementos que se van a utilizar para la manipulación de la estructura de datos, por lo que no logra implementarla, desconocimiento total de su funcionamiento,
+                        </td>
+                    </tr>
+                    <!-- Fila 3: Funcionamiento del programa (30%) -->
+                    <tr>
+                        <td class="criteria-cell">
+                            Funcionamiento del programa
+                            <span class="weight">(30%)</span>
+                        </td>
+                        <td class="level-cell level-excelente">
+                            El programa se compila y al ejecutarse realiza lo requerido
+                        </td>
+                        <td class="level-cell level-bueno">
+                            El programa se compila y al ejecutarse le faltaron algunas operaciones 
+                        </td>
+                        <td class="level-cell level-regular">
+                            El programa se compila y al ejecutarse
+                            No realiza lo requerido
+
+                        </td>
+                        <td class="level-cell level-deficiente">
+                            El programa no se compilo
+                        </td>
+                    </tr>
+                    <!-- Fila 4: Documenta el programa (10%) -->
+                    <tr>
+                        <td class="criteria-cell">
+                            Documenta el programa
+                            <span class="weight">(10%)</span>
+                        </td>
+                        <td class="level-cell level-excelente">
+                            El estudiante documenta muy bien cómo y por qué funcionan las líneas de código.
+                        </td>
+                        <td class="level-cell level-bueno">
+                            El estudiante documenta bien pero no detalla cómo funcionan las líneas de código
+                        </td>
+                        <td class="level-cell level-regular">
+                            El estudiante no documenta todas las líneas de código
+                        </td>
+                        <td class="level-cell level-deficiente">
+                            El estudiante no documenta el programa
+                        </td>
+                    </tr>
+                    <!-- Fila 5: Corrida del programa (10%) -->
+                    <tr>
+                        <td class="criteria-cell">
+                            Corrida del programa
+                            <span class="weight">(10%)</span>
+                        </td>
+                        <td class="level-cell level-excelente">
+                            El estudiante evidencia en un archivo de PDF que el programa realiza todas las operaciones requeridas, además que en la parte superior aparezca su nombre 
+                        </td>
+                        <td class="level-cell level-bueno">
+                            El estudiante en la evidencia del archivo de PDF no aparece su nombre, pero en la corrida muestra las operaciones requeridas
+                        </td>
+                        <td class="level-cell level-regular">
+                            El estudiante en la evidencia en un archivo de PDF aparece su nombre, pero en el código no lo manda a imprimir 
+                        </td>
+                        <td class="level-cell level-deficiente">
+                            El estudiante no entregó la evidencia en un archivo de PDF
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- BOTONES DE NAVEGACIÓN -->
+<div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; max-width:900px; margin:0 auto; padding:16px 24px 48px;">
+    <a href="navuni4.html" class="nav-btn">
+        <span>⬅️</span> Anterior
+    </a>
+    <a href="index.html" class="nav-btn nav-btn-home">🏠</a>
+    <a href="navuni7.html" class="nav-btn">
+        Siguiente <span>➡️</span>
+    </a>
+</div>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+    <h3>🏛️ UPIICSA · IPN</h3>
+    <p>Unidad de Aprendizaje: Estructura de Datos</p>
+    <p>© 2026 Instituto Politécnico Nacional</p>
+</footer>
+
+<script src="js/ui.js"></script>
+<script>
+    // MODO OSCURO (compatible con el estilo de navuni1)
+    (function() {
+        const toggleBtn = document.getElementById('darkModeToggle');
+        if (!toggleBtn) return;
+        const body = document.body;
+        const saved = localStorage.getItem('darkMode');
+        if (saved === 'true') {
+            body.classList.add('dark-mode');
+            toggleBtn.innerHTML = '<span>☀️</span> <span>Modo claro</span>';
+        }
+        toggleBtn.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            toggleBtn.innerHTML = isDark ? '<span>☀️</span> <span>Modo claro</span>' : '<span>🌙</span> <span>Modo oscuro</span>';
+        });
+    })();
+
+    // MENÚ MÓVIL (mismo que en navuni1)
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('hidden');
+                navLinks.classList.toggle('flex');
+                navLinks.style.display = navLinks.classList.contains('flex') ? 'flex' : 'none';
+            });
+            // Cerrar al hacer clic fuera
+            document.addEventListener('click', function(e) {
+                if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.add('hidden');
+                    navLinks.classList.remove('flex');
+                    navLinks.style.display = 'none';
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
