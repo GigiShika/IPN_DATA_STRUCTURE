@@ -82,7 +82,8 @@
                             class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
                             📖Bibliografia</a></li>
                     <li>
-                        <button id="darkModeToggle" class="dark-mode-btn block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] hover:bg-white/20 hover:-translate-y-0.5">
+                        <button id="darkModeToggle"
+                            class="dark-mode-btn block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] hover:bg-white/20 hover:-translate-y-0.5">
                             <span>🌙</span> <span>Modo oscuro</span>
                         </button>
                     </li>
@@ -125,6 +126,47 @@
                 <li>2.3.2 Formas de uso</li>
             </ul>
         </div>
+        <p class="body-text">
+            Figúrense que desean almacenar los nombres de sus 6 primos. Como se vio en la unidad temática I en el tema
+            de las variables, tendrían que crear 6 variables de tipo char separadas e independientes (primo 1, primo 2,
+            primo 3, etc.), pero se pretende almacenar todos los primos bajo un solo nombre Primos. Es similar a una
+            cajonera, donde todos los cajones están juntos en un solo mueble.
+        </p>
+        <p class="body-text">
+            A continuación, se rotulan los números de los cajones de izquierda a derecha, quedando de la siguiente
+            forma:
+
+        </p>
+        <p class="body-text">
+            <strong>1, 2, 3, 4, 5, 6 (normal)</strong>
+        </p>
+        <p class="body-text">
+            En la programación, siempre empezamos a contar desde el 0. Los cajones se numeran:
+        </p>
+        <table>
+            <tr>
+                <td>[ ]</td>
+                <td>[ ]</td>
+                <td>[ ]</td>
+                <td>[ ]</td>
+                <td>[ ]</td>
+                <td>[ ]</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+        </table>
+        <p class="body-text">
+            Si la cajonera tiene capacidad para almacenar 6 primos ¿En qué número de la cajonera se encuentra guardado
+            el último primo?
+
+        </p>
+
 
         <div class="section-header" data-num="2.1">
             <h2><span class="section-emoji">📊</span>2.1 Arreglos unidimensionales</h2>
@@ -285,7 +327,7 @@
                 <p class="body-text">
                     Se recorre el arreglo para consulta los elementos del arreglo unidimensional.
                 </p>
-               
+
                 <p class="body-text">
                     b) Asignación:
                 </p>
@@ -324,7 +366,7 @@
                     c) Búsqueda:
                 </p>
                 <p class="body-text">
-                    Recorrer el arreglo unidimensional para 
+                    Recorrer el arreglo unidimensional para
                     encontrar un elemento.
 
                 </p>
@@ -378,7 +420,7 @@
                         <div class="act-section-title">📎 Evidencia que entregar</div>
                         <ul>
                             <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su
-                                nombre y el nombre del programa, por ejemplo, 
+                                nombre y el nombre del programa, por ejemplo,
                                 RBV_Programa_Numeros_Pares.</li>
                             <li>b) Programa executable.</li>
                             <li>c)Corrida del programa, en un archivo PDF.</li>
@@ -389,6 +431,58 @@
                         <span class="act-points">⭐ VALOR:10 puntos</span>
                     </div>
                 </div>
+                <!-- ===== EJERCICIO LITERAL (SIN ADICIONES) ===== -->
+                <div class="exercise-box" style="margin-top: 2rem;">
+                        <div class="act-header">
+                            <h3><p>Realiza el siguiente ejercicio:</p></h3>
+                        </div>
+                        <div class="act-body" style="font-size:0.94rem; line-height:1.75;">
+
+                    <p><br>
+                    Es el momento para evaluar la comprensión del tema con la resolución del siguiente ejercicio para evaluar los resultados del ejercicio. </p>
+
+                    <p>Se tiene el siguiente arreglo de los días de la semana<br>
+                    String Dias_semana[7] = {Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo}</p>
+
+                    <table style="width:100%; text-align:center; border-collapse:collapse;">
+                        <tr>
+                            <td>Lunes</td>
+                            <td>Martes</td>
+                            <td>Miércoles</td>
+                            <td>Jueves</td>
+                            <td>Viernes</td>
+                            <td>Sábado</td>
+                            <td>Domingo</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                    </table>
+                    <p>1. ¿Qué valor devuelve la instrucción: Dias_semana[3]? ____________<br>
+                    2. ¿Qué valor devuelve la instrucción: Dias_semana[0]? ____________<br>
+                    3. Si ejecutamos la orden: Dias_semana[5] = NULL ¿Cómo queda la lista completa de datos ahora? ________________________<br>
+                    4. ERROR COMÚN: ¿Qué pasa si intentas pedir: Dias_Sema[7]? ____________</p>
+
+                    <p>El docente valida las respuestas con todo el grupo:<br>
+                    .	Jueves<br>
+                    .	Lunes<br>
+                    .	[Lunes, Martes, Miercoles, Jueves, Viernes,       , Domingo]<br>
+                    .	Explica el concepto de fuera de limite, como el   índice    máximo es 6 , pedir la posición 7 provoca que el programa falle porque está intentando leer memoria que no le pertenece.</p>
+
+                    <p>Evaluación formativa rápida: Cada estudiante debe escribir en su cuaderno la respuesta a la siguiente pregunta: Si tengo un array con los meses del año (12 elementos), ¿cuál es el subíndice del mes de Enero y cuál es el subíndice del mes de Diciembre?</p>
+
+                    <p>Se llega a la conclusión que la estructura de datos arreglo unidimensional permite guardar un conjunto de datos que son del mismo tipo (homogéneos). Para el acceso a los elementos es de forma instantánea usando su posición (subíndice).</p>
+
+                        </div>
+                </div>
+                <!-- ===== FIN EJERCICIO ===== -->
+              
 
                 <div class="section-header dark" data-num="2.2">
                     <h2><span class="section-emoji">📊</span>2.2 Arreglos Bidimensionales (Matrices/Tablas)</h2>
@@ -396,38 +490,40 @@
 
                 <p class="body-text">Para continuar es necesario contestar la siguiente pregunta</p>
 
-                
-                    <div class="subsection-header"><h3>¿Qué es un "Arreglo bidimensional"?</h3></div>
-                    
-                    <p>Un arreglo bidimensional es un <strong>vector de vectores</strong>.</p>
-                    <p>Es un conjunto de elementos, todos del mismo tipo, en los que el orden de los componentes es
-                        significativo y en el que se necesitan <strong>dos subíndices [i][j]</strong> para definir
-                        cualquier
-                        elemento. Donde el primer índice representa las <strong>filas</strong> y el segundo las
-                        <strong>columnas</strong>. También se le conoce como <strong>tabla o matriz</strong>.
-                    </p>
-                    <p>La diferencia que existe entre un arreglo unidimensional a un arreglo bidimensional, que el
-                        primero solo
-                        necesita un subíndice [i] y el arreglo bidimensional requiere de dos subíndices [i][j]. El
-                        arreglo
-                        bidimensional se conoce también como matriz o tabla que consta de filas y columnas.
-                        Haber, se menciona de una tabla, esto quiere decir que estamos hablando de una base de datos,
-                        así es,
-                        porque la estructura de datos que se utiliza para almacenar la información de una base de datos
-                        son
-                        tablas, donde se pueden guardar varios nombres por fila con sus respectivos atributos
-                        (columnas), en
-                        cambio en un arreglo unidimensional no se podría hacer.
-                    </p>
-                    <p>
-                        Otra gran diferencia es que para recorrer un arreglo unidimensional se requiere de una
-                        estructura de
-                        control de un ciclo for, en cambio para recorrer un arreglo bidimensional se requiere de dos
-                        ciclos for.
-                        Si un arreglo bidimensional es distinto a un arreglo unidimensional, entonces cómo se declara un
-                        arreglo
-                        bidimensional.</p>
-                
+
+                <div class="subsection-header">
+                    <h3>¿Qué es un "Arreglo bidimensional"?</h3>
+                </div>
+
+                <p>Un arreglo bidimensional es un <strong>vector de vectores</strong>.</p>
+                <p>Es un conjunto de elementos, todos del mismo tipo, en los que el orden de los componentes es
+                    significativo y en el que se necesitan <strong>dos subíndices [i][j]</strong> para definir
+                    cualquier
+                    elemento. Donde el primer índice representa las <strong>filas</strong> y el segundo las
+                    <strong>columnas</strong>. También se le conoce como <strong>tabla o matriz</strong>.
+                </p>
+                <p>La diferencia que existe entre un arreglo unidimensional a un arreglo bidimensional, que el
+                    primero solo
+                    necesita un subíndice [i] y el arreglo bidimensional requiere de dos subíndices [i][j]. El
+                    arreglo
+                    bidimensional se conoce también como matriz o tabla que consta de filas y columnas.
+                    Haber, se menciona de una tabla, esto quiere decir que estamos hablando de una base de datos,
+                    así es,
+                    porque la estructura de datos que se utiliza para almacenar la información de una base de datos
+                    son
+                    tablas, donde se pueden guardar varios nombres por fila con sus respectivos atributos
+                    (columnas), en
+                    cambio en un arreglo unidimensional no se podría hacer.
+                </p>
+                <p>
+                    Otra gran diferencia es que para recorrer un arreglo unidimensional se requiere de una
+                    estructura de
+                    control de un ciclo for, en cambio para recorrer un arreglo bidimensional se requiere de dos
+                    ciclos for.
+                    Si un arreglo bidimensional es distinto a un arreglo unidimensional, entonces cómo se declara un
+                    arreglo
+                    bidimensional.</p>
+
 
                 <div class="subsection-header">
                     <h3>¿Cómo declarar un arreglo bidimensional?</h3>
@@ -542,11 +638,11 @@
             </div>
         </div>
         <!-- ejercicio 3-->
-        
+
 
         <div class="exercise-box">
             <div class="act-header">
-                
+
                 <h3>Ejercicio Matriz_Identidad</h3>
             </div>
             <div class="act-body">
@@ -715,7 +811,7 @@
                 <ul>
                     <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre
                         y el
-                        nombre del programa, por ejemplo, 
+                        nombre del programa, por ejemplo,
                         RBV_Programa_Matriz_Traspuesta.</li>
                     <li>b) Programa ejecutable.</li>
                     <li>c) Corrida del programa, en un archivo PDF.</li>
@@ -763,12 +859,13 @@
 
     </div>
     <!-- Botón de descarga del examen -->
-       <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; gap:12px; padding:24px 24px 0;">
+    <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; gap:12px; padding:24px 24px 0;">
         <div style="flex:1; height:1px; background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>
-        <span style="font-size:0.7rem; font-family:'Outfit',sans-serif; color:#a0aec0; font-weight:600; letter-spacing:1px; text-transform:uppercase; white-space:nowrap;">Exámenes</span>
+        <span
+            style="font-size:0.7rem; font-family:'Outfit',sans-serif; color:#a0aec0; font-weight:600; letter-spacing:1px; text-transform:uppercase; white-space:nowrap;">Exámenes</span>
         <div style="flex:1; height:1px; background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>
     </div>
-     <!-- Botón de descarga del examen -->
+    <!-- Botón de descarga del examen -->
     <div class="dl-grid">
 
         <a href="assets/documents/Primer_Examen_A.pdf" download class="dl-card btn-parcial">
@@ -785,7 +882,8 @@
 
     <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; gap:12px; padding:24px 24px 0;">
         <div style="flex:1; height:1px; background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>
-        <span style="font-size:0.7rem; font-family:'Outfit',sans-serif; color:#a0aec0; font-weight:600; letter-spacing:1px; text-transform:uppercase; white-space:nowrap;">navegación</span>
+        <span
+            style="font-size:0.7rem; font-family:'Outfit',sans-serif; color:#a0aec0; font-weight:600; letter-spacing:1px; text-transform:uppercase; white-space:nowrap;">navegación</span>
         <div style="flex:1; height:1px; background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>
     </div>
 
