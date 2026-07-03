@@ -83,7 +83,8 @@
                             class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
                             📖Bibliografia</a></li>
                     <li>
-                        <button id="darkModeToggle" class="dark-mode-btn block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] hover:bg-white/20 hover:-translate-y-0.5">
+                        <button id="darkModeToggle"
+                            class="dark-mode-btn block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] hover:bg-white/20 hover:-translate-y-0.5">
                             <span>🌙</span> <span>Modo oscuro</span>
                         </button>
                     </li>
@@ -125,6 +126,19 @@
                 <li>4.2.4 Operaciones permitidas</li>
             </ul>
         </div>
+        <p class="exercise-box">
+            Visualicen un árbol, conteste la siguiente pregunta ¿cómo crece un árbol? por naturaleza los árboles crecen
+            de la raíz hacia arriba, en una estructura de datos árbol es al revés, la raíz esta arriba y las ramas
+            crecen hacia abajo.
+            Asimilemos una estructura de datos árbol con una carpeta de archivos que se almacenan en una computadora,
+            tienen una carpeta principal que la llamaremos Academia_Informática, dentro de ella se crean más carpetas,
+            Presidencia_Base_Datos, Unidades_Aprendizaje_Ing_Inf y Unidades_Aprendizaje_Ciencias. Dentro de
+            Presidencia_Base_Datos se crean Minutas_Juntas y Planeaciones_Didacticas.
+            Supongamos que se elimina la carpeta Academia_Informática ¿Se eliminan los archivos Minutas_Juntas y
+            Planeaciones_Didacticas?
+            Así es como funciona la estructura de datos Árbol.
+
+        </p>
 
         <!-- ==================== 4.1 Árboles ==================== -->
         <div class="section-header" data-num="4.1">
@@ -387,7 +401,7 @@ sino
         <!-- Actividad UTIV_A1 -->
         <div class="exercise-box">
             <div class="act-header">
-             
+
                 <h3>Ejercicio Árbol general</h3>
             </div>
             <div class="act-body">
@@ -431,7 +445,7 @@ sino
                     <li><strong>6.- </strong>¿Qué es un apuntador o un puntero?</li>
                 </ol>
             </div>
-            
+
         </div>
         <div class="section-header" data-num=" 4.1.4">
             <h2>
@@ -462,9 +476,11 @@ sino
             </div>
             <div class="act-body">
                 <div class="act-section-title">🎯 Propósito</div>
-                <p style="margin-bottom:12px;"><strong>1 .-</strong> un lenguaje de programación para declarar la estructura dinámica
+                <p style="margin-bottom:12px;"><strong>1 .-</strong> un lenguaje de programación para declarar la
+                    estructura dinámica
                     de un árbol binario.</p>
-                <p style="margin-bottom:12px;"><strong>2 .-</strong>La intención de esta actividad es que el estudiante comprenda las
+                <p style="margin-bottom:12px;"><strong>2 .-</strong>La intención de esta actividad es que el estudiante
+                    comprenda las
                     funciones que se realizan sobre los árboles binarios, para este caso es el de mandar a llamar las
                     funciones (void):</p>
                 <ul class="list-disc ml-5 mb-4">
@@ -545,7 +561,7 @@ sino
             </div>
         </div>
 
-        
+
         <div class="exercise-box">
             <div class="act-header">
                 <h3>Ejercicio Transformación de árbol general a binario</h3>
@@ -602,9 +618,110 @@ sino
                         <strong>void</strong> treefree (ARBOL).
                     </li>
                 </ol>
-                
+
             </div>
-         
+
+        </div>
+        <div class="exercise-box">
+            <div class="act-header">
+                <h3><Strong>Ejercicio Transformación de árbol general a un árbol binario</Strong></h3>
+            </div>
+            <div class="act-body">
+                <div class="act-section-title">Propósito</div>
+                <p style="margin-bottom:12px;">Aplicar los pasos para transformar un árbol general a un árbol binario
+                    para recorrerlo en las siguientes formas: INorden, PREorden y POSTorden. Posteriormente utilizar un
+                    lenguaje de programación para declarar la estructura dinámica de un árbol binario para recorrerlo.
+                    La intención de esta actividad es que el estudiante comprenda las aplicaciones que se realizan sobre
+                    un árbol general al convertirlo en un árbol binario para que se pueda recorrer.</p>
+                <p class="mt-4">Contesta las siguientes preguntas:</p>
+                <ol>
+                    <li>1-¿Cuáles son los pasos para transformar un árbol general a un árbol binario?</li>
+                    <li>2-Se tiene el siguiente árbol general:
+                        <div class="img-wrap sm mt-2">
+                            <div class="img-card">
+                                <img src="assets/img/imguni4-22.png" alt="Árbol general ejercicio 2">
+                            </div>
+                        </div>
+                        <ol>
+                            <li><strong>a)</strong> Aplicando los dos primeros pasos para transformar un árbol general a
+                                un árbol binario ¿Cómo quedaría el árbol?</li>
+                            <li><strong>b)</strong>Aplicando el tercer paso ¿Cómo quedaría el árbol?</li>
+                            <li><strong>c)</strong>¿Cómo quedaría el árbol binario si lo recorres en PREorden?</li>
+                            <li><strong>d)</strong>¿Cómo quedaría el árbol binario si lo recorres en INorden?</li>
+                            <li><strong>e)</strong>¿Cómo quedaría el árbol binario si lo recorres en POSTorden?</li>
+                        </ol>
+                    </li>
+                    <li>4-Con código ¿Cómo quedaría el árbol anterior si lo recorres en PREorden?</li>
+                    <li>5-Con código ¿Cómo quedaría el árbol anterior si lo recorres en INorden?</li>
+                    <li>6-Con código ¿Cómo quedaría el árbol anterior si lo recorres en POSTorden?</li>
+                </ol>
+                <div class="act-section-title">Instrucciones:</div>
+                <ol>
+                    <li>Declara el árbol binario como se muestra
+                        a continuación con un struct node:<br>
+                        <code>Struct nodoarbo{<br>
+                &nbsp;&nbsp;struct nodoarbol *izqnodo;<br>
+                &nbsp;&nbsp;int info;<br>
+                &nbsp;&nbsp;struct nodoarbol *dernodo;<br>
+                };<br>
+                typedef struct nodoarbol NODO;<br>
+                typedef NODO *ARBOL;</code>
+                    </li>
+                    <li><strong>a)</strong>La forma de asignar valores al árbol binario será a través del llamado de la
+                        función <strong>void</strong> insertanodonuevo (ARBOL *, <strong>int</strong> )
+                        <strong>void</strong> postorden (ARBOL).
+                    </li>
+                    <li><strong>b)</strong>Para recorrer el árbol binario será de las tres formas llamando las funciones
+                        (void) respectivamente: <strong>void</strong> inorden (ARBOL), <strong>void</strong> preorden
+                        (ARBOL), <strong>void</strong> postorden (ARBOL).</li>
+                    <li><strong>c)</strong>Por último, para liberar el espacio de memoria se tiene que llamar la función
+                        <strong>void</strong> treefree (ARBOL).
+                    </li>
+                </ol>
+
+            </div>
+
+        </div>
+
+        <!-- NUEVO EXERCISE-BOX AGREGADO -->
+        <div class="exercise-box">
+            <div class="act-header">
+                <h3><Strong>Realiza el siguiente ejercicio:</Strong></h3>
+            </div>
+            <div class="act-body">
+                <p>Es el momento para evaluar la comprensión del tema estructura de datos lista enlazada, con la
+                    resolución del siguiente ejercicio.</p>
+                <p>Se tiene el siguiente arbol:</p>
+                <div class="img-card">
+                    <img src="assets/img/imguni4-35.png" alt="Árbol general ejercicio 2">
+                </div>
+                <p>Responde las siguientes preguntas:</p>
+                <ol>
+                    <li><Strong>1. </Strong>¿Cuál es el nodo padre raíz del árbol?</li>
+                    <li><Strong>2. </Strong>¿Cuáles son los nodos hijos?</li>
+                    <li><Strong>3. </Strong>¿Quién es el nodo padre del nodo E?</li>
+                    <li><Strong>4. </Strong>¿El árbol anterior es un árbol binario?, si ¿por qué? Justifica</li>
+                </ol>
+
+                <div class="act-section-title">🔍 Cierre: Consolidación y conclusión</div>
+                <p>Momento para evaluar las respuestas</p>
+                <p>Cuando vimos la estructura de datos lista enlazada, para llegan a un nodo, el camino era en línea
+                    recta, porque la lista enlazada es una estructura de datos dinámica lineal, ¿pero que sucede con la
+                    estructura de datos árbol para buscar un nodo? ¿Si estamos en el nodo padre raíz A que camino se
+                    tiene que tomar para llegar al nodo G?</p>
+                <p>Se llega a la conclusión de que la estructura de datos árbol es mucho más rápida para realizar las
+                    operaciones para meter, eliminar y buscar elementos que los arreglos y las listas enlazadas. Como es
+                    una estructura dinámica no lineal puede incrementar o decrementar su tamaño de acuerdo con sus
+                    necesidades.</p>
+                <p>Como se vio en el tema anterior, los árboles son una estructura de datos dinámicas no lineal
+                    (jerárquica), también los grafos son una estructura de datos dinámica no lineal, pero a diferencia
+                    con los árboles es que no es jerárquica, esto quiere decir que los grafos tienen una relación de que
+                    un nodo padre puede tener muchos nodos hijos y un nodo hijo puede tener muchos nodos padres, lo que
+                    no sucede con un árbol.</p>
+                <p>Un claro ejemplo de la vida real de la aplicación de un grafo son las redes sociales como es el
+                    Facebook, donde los nodos son las personas y las aristas son las relaciones que hay entre las
+                    personas que son los nodos y de esa manera se genera una red libre.</p>
+            </div>
         </div>
 
         <!-- ==================== 4.2 Grafos ==================== -->
@@ -766,7 +883,8 @@ sino
             </div>
             <div class="act-body">
                 <div class="act-section-title">🎯 Propósito</div>
-                <p style="margin-bottom:12px;"><strong>1 .-</strong>Aplicar las definiciones de un grafo, las formas de uso y utilizar un
+                <p style="margin-bottom:12px;"><strong>1 .-</strong>Aplicar las definiciones de un grafo, las formas de
+                    uso y utilizar un
                     lenguaje de programación para declarar una Matriz_Adyacencia[6][6] y un Vector_Vertices[6] para
                     programar un grafo y hacer uso de la pantalla a través del goto xy().</p>
                 <div class="act-section-title">📋 Instrucciones</div>
@@ -891,7 +1009,8 @@ sino
                         ocupadas. Realiza una lista de adyacencia y un diagrama esquemático que represente el estado de
                         las instalaciones y permita en cualquier momento obtener un listado en orden alfabético de las
                         instalaciones. El orden en que aparece la información es por el número y el nombre de la
-                        instalación: 1 Alberca, 2 Tenis, 3 vacía, 4 basquetbol, 5 futbol, 6 voleibol, 7 vacía, 8 vacía, 9
+                        instalación: 1 Alberca, 2 Tenis, 3 vacía, 4 basquetbol, 5 futbol, 6 voleibol, 7 vacía, 8 vacía,
+                        9
                         gimnasio, 10 canal de remo, 11 piragüismo, 12 estación de esquí, 13 circuito de bicicletas, 14
                         campo de tiro, 15 vacía, 16 hípica, 17 vacía, 18 golf, 19 rugby y 20 hockey.</li>
                 </ol>
@@ -942,13 +1061,59 @@ sino
                 <li>✂️ Eliminar arista:</strong>&nbsp; Eliminar una conexión existente.</li>
             </ul>
         </div>
+        <div class="exercise-box">
+        <div class="act-header">
+            <h3><Strong>Realiza el siguiente ejercicio:</Strong></h3>
+        </div>
+        <div class="act-body">
+            <p>Es el momento para evaluar la comprensión del tema estructura de datos Grafos. Resuelve el siguiente
+                ejercicio
+                Una empresa de logística reparte paquetes en la ciudad de México entre las cuatro zonas que son:
+                Norte(N), Sur(S), Este(E) y Oeste(O).
+            </p>
+            <p>Las rutas de transporte que existen son las siguientes: </p>
+            <ol>
+                <li><Strong>- Hay un camino de doble sentido que es de Norte(N) a Sur (S).</Strong></li>
+                <li><Strong>- Hay un camino de doble sentido entre Sur(S) y Este(E). </Strong></li>
+                <li><Strong>- Hay un camino de un solo sentido que va desde Oeste(O) hacia el Sur(S) </Strong></li>
+                <li><Strong>- Hay una ruta de un solo sentido que va desde Este(E) hacia Oeste(O)</Strong></li>
+            </ol>
+
+            <p>Realiza lo siguiente: </p>
+            <ol>
+                <li><Strong>1. </Strong>Has el grafo correspondiente usando círculos para las zonas y las flechas para
+                    los arcos (caminos). </li>
+                <li><Strong>2. </Strong>¿Qué tipo de grafo es (dirigido o no dirigido)? ¿Por qué? </li>
+                <li><Strong>3. </Strong>Si un camión sale de la zona Este, ¿puede llegar a la zona Sur? </li>
+                <li><Strong>Escribe los caminos que debe seguir. 4. ¿Es posible viajar desde la zona Sur (S) hacia la
+                        zona Este(E)? Justifiquen su respuesta </Strong></li>
+            </ol>
+
+            <div class="act-section-title">🔍 Cierre: Consolidación y conclusión</div>
+            <p>Momento para evaluar las respuestas</p>
+            <p>Si un nodo en un grafo dirigido tiene 3 flechas saliendo de él y ninguna entrando, ¿cuántos nodos lo
+                siguen y a cuántos sigue él?
+                ¿Dónde se usan los grafos a gran escala? El motor de búsqueda de Google indexa el internet como un grafo
+                gigante donde cada página web es un nodo y cada hipervínculo es una arista dirigida.
+            </p>
+            <p>Se llega a la conclusión que como la estructura de datos Grafos es dinámica no lineal es una gran ventaja
+                porque representan relaciones complejas de forma rápida, visual y flexible. Además de que los nodos se
+                pueden conectar con otro nodo directamente. Las búsquedas son muy rápidas.</p>
+
+        </div>
     </div>
+    </div>
+    
+
+
+
     <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; gap:12px; padding:24px 24px 0;">
         <div style="flex:1; height:1px; background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>
-        <span style="font-size:0.7rem; font-family:'Outfit',sans-serif; color:#a0aec0; font-weight:600; letter-spacing:1px; text-transform:uppercase; white-space:nowrap;">Exámenes</span>
+        <span
+            style="font-size:0.7rem; font-family:'Outfit',sans-serif; color:#a0aec0; font-weight:600; letter-spacing:1px; text-transform:uppercase; white-space:nowrap;">Exámenes</span>
         <div style="flex:1; height:1px; background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>
     </div>
-     <!-- Botón de descarga del examen -->
+    <!-- Botón de descarga del examen -->
     <div class="dl-grid">
 
         <a href="assets/documents/Tercer_examen_1.pdf" download class="dl-card btn-parcial">
@@ -975,10 +1140,11 @@ sino
 
     <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; gap:12px; padding:24px 24px 0;">
         <div style="flex:1; height:1px; background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>
-        <span style="font-size:0.7rem; font-family:'Outfit',sans-serif; color:#a0aec0; font-weight:600; letter-spacing:1px; text-transform:uppercase; white-space:nowrap;">navegación</span>
+        <span
+            style="font-size:0.7rem; font-family:'Outfit',sans-serif; color:#a0aec0; font-weight:600; letter-spacing:1px; text-transform:uppercase; white-space:nowrap;">navegación</span>
         <div style="flex:1; height:1px; background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>
     </div>
-   
+
 
     <div
         style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; max-width:900px; margin:0 auto; padding:16px 24px 48px;">
