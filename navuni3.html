@@ -82,7 +82,8 @@
                             class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
                             📖Bibliografia</a></li>
                     <li>
-                        <button id="darkModeToggle" class="dark-mode-btn block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] hover:bg-white/20 hover:-translate-y-0.5">
+                        <button id="darkModeToggle"
+                            class="dark-mode-btn block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] hover:bg-white/20 hover:-translate-y-0.5">
                             <span>🌙</span> <span>Modo oscuro</span>
                         </button>
                     </li>
@@ -132,6 +133,16 @@
                 <li>3.4.4 Operaciones permitidas</li>
             </ul>
         </div>
+
+        <p class="exercise-box">
+            Imaginen que estamos comiendo con tortillas, de que parte toman la tortilla, la que esta hasta abajo, la que
+            está en medio o la primera, pues de la primera, si intentas sacar a la fuerza una tortilla que esta hasta
+            abajo ¿Qué va a pasar?
+            Así es como funciona una pila, último en entrar primero en salir, es lo que se conoce como el principio LIFO
+            (Last In, First Out), que en español significa: Último en Entrar, Primero en Salir. El último dato que
+            guardas es obligatoriamente el primero que tienes que sacar.
+        </p>
+
 
         <!-- ==================== 3.1 Apuntador ==================== -->
         <div class="section-header" data-num="3.1">
@@ -291,7 +302,7 @@
             <div class="code-simple">
                 <pre><span style="color:#c792ea;">Push_Pila(Tope, Dato)</span>                <span style="color:#6a9955;">// Inserta el elemento DATO a la pila</span>
                                                              
-<span style="color:#c792ea;">SI</span> Tope &lt; Max <span style="color:#c792ea;">ENTONCES</span>       <span style="color:#6a9955;">// Verifica si existe espacio disponible</span>
+<span style="color:#c792ea;">SI</span> Tope &lt; Max <span style="color:#c792ea;">ENTONCES</span>              <span style="color:#6a9955;">// Verifica si existe espacio disponible</span>
     Vector_Pila [Tope] = Dato       <span style="color:#6a9955;">// Almacena el dato en la posición</span>
                                     <span style="color:#6a9955;">// actual de Tope</span>
     Tope = Tope + 1                 <span style="color:#6a9955;">// Incrementa a Tope a la siguiente posición</span>
@@ -308,13 +319,13 @@
                 máxima de almacenamiento del Vector_Pila.</p>
 
             <div class="code-simple">
-                <pre><span style="color:#c792ea;">Pop_Pila (Tope)</span>                                     <span style="color:#6a9955;">// Elimina el elemento ubicado en</span>
-                                                         <span style="color:#6a9955;">// la posición de Tope</span>                                                     
-<span style="color:#c792ea;">SI</span> Tope > 0                                             <span style="color:#6a9955;">// Verifica que la pila contenga al</span>
-                                                        <span style="color:#6a9955;">// menos un elemento</span>
-    Tope = Tope -  1                                   <span style="color:#6a9955;">// Decrementa Tope a la siguiente posición</span>
+            <pre><span style="color:#c792ea;">Pop_Pila (Tope)</span>                         <span style="color:#6a9955;">// Elimina el elemento ubicado en</span>
+                                        <span style="color:#6a9955;">// la posición de Tope</span>                                                     
+<span style="color:#c792ea;">SI</span> Tope > 0                             <span style="color:#6a9955;">// Verifica que la pila contenga al</span>
+                                        <span style="color:#6a9955;">// menos un elemento</span>
+    Tope = Tope -  1                    <span style="color:#6a9955;">// Decrementa Tope a la siguiente posición</span>
     Vector_Pila [Tope] = NULO           <span style="color:#6a9955;">// Elimina/limpia el dato en la posición de Tope</span>
-<span style="color:#c792ea;">SINO</span>                                                      <span style="color:#6a9955;">// No cumple la condición</span>
+<span style="color:#c792ea;">SINO</span>                                    <span style="color:#6a9955;">// No cumple la condición</span>
     DESPLEGAR MENSAJE: <span style="color:#7ec699;">"La Cola está vacía"</span> 
 <span style="color:#c792ea;">FIN SI</span></pre>
             </div>
@@ -337,15 +348,19 @@
 
                 <div class="act-section-title">📋 Instrucciones:</div>
                 <ol>
-                    <li><strong>1 .-</strong>Declara el Vector_Pila[6] tipo char de tamaño 6, también declara una variable de tipo int que se
+                    <li><strong>1 .-</strong>Declara el Vector_Pila[6] tipo char de tamaño 6, también declara una
+                        variable de tipo int que se
                         llame Tope, una variable de tipo char que se llama Dato, las funciones Push y Pop.</li>
-                    <li><strong>2 .-</strong>La forma de asignar las letras al Vector_Pila [Tope], será a través del llamado de la función
+                    <li><strong>2 .-</strong>La forma de asignar las letras al Vector_Pila [Tope], será a través del
+                        llamado de la función
                         Push, si se requiere meter tres letras, se tendrá que llamar la función Push tres veces, a
                         diferencia de cuando se asignaban valores a un arreglo unidimensional era con la estructura de
                         control for.</li>
-                    <li><strong>3 .-</strong>La forma de eliminar las letras al Vector_Pila [Tope], será a través del llamado de la función
+                    <li><strong>3 .-</strong>La forma de eliminar las letras al Vector_Pila [Tope], será a través del
+                        llamado de la función
                         Pop, si se requiere sacar dos letras, se tendrá que llamar la función Pop dos veces.</li>
-                    <li><strong>4 .-</strong>La forma de mostrar las letras del Vector_Pila [Tope], será a través del llamado de la función
+                    <li><strong>4 .-</strong>La forma de mostrar las letras del Vector_Pila [Tope], será a través del
+                        llamado de la función
                         Mostrar. Para este caso si será necesario utilizar la estructura de control for para recorrer
                         todos los elementos del Vector_Pila [Tope].</li>
                 </ol>
@@ -459,7 +474,7 @@
         <!-- Actividad UTIII_A2 -->
         <div class="exercise-box">
             <div class="act-header">
-                
+
                 <h3>Ejercicio programa expresión infija:</h3>
             </div>
             <div class="act-body">
@@ -509,9 +524,9 @@
                     <li><strong>C) </strong> Convertir la expresión infija a postfija tomando en cuenta los operadores
                         de la pila, utilizando las llamadas de las funciones de push, pop y mostrar.</li>
                 </ol>
-                
+
             </div>
-           
+
         </div>
 
 
@@ -526,6 +541,71 @@
             trabajar con los índices o posiciones de control, para el caso de la pila se utilizará la variable Tope.</p>
         <p class="body-text">• TOPE Tope es una variable que representa la posición de memoria del Vector_Pila [Tope].
         </p>
+        <div class="exercise-box" style="margin-top: 2rem;">
+            <div class="act-header">
+                <h3>
+                    <p>Realiza el siguiente ejercicio:</p>
+                </h3>
+            </div>
+
+            <div class="act-body" style="font-size:0.94rem; line-height:1.75;">
+
+                <p>
+                    ⏳ Es el momento para evaluar la comprensión del tema estructura de datos pila, con la resolución del
+                    siguiente ejercicio.
+                </p>
+
+                <p>
+                    Se tiene el siguiente<br>
+                    📋 Ejercicio: Explora el estado de la siguiente char Pila[5] = Vacía <br>
+                    <strong>1. </strong> Pila_Push=("A" )<br>
+                    <strong>2. </strong> Pila_Push("B")<br>
+                    <strong>3. </strong> Pila_Push(C) <br>
+                    <strong>4. </strong> Pila_Pop()<br>
+                    <strong>5. </strong> Pila_Push("D") <br>
+                    <strong>6. </strong> Pila_Pop()<br>
+                    <strong>7. </strong> Pila_Push(E)
+                </p>
+
+                <p>
+                    Preguntas:<br>
+                    A) ¿Qué dato queda dentro de la pila al finalizar el número 7? <br>
+                    B) En la operación 3, ¿cuál es el subíndice de la pila Pila[ ] ? <br>
+                    C) En la operación 6, ¿cuál es el dato que contiene la pila?
+                </p>
+
+                <p>
+                    Cierre: Consolidación y conclusión🔚 <br>
+                    Momento para evaluar las respuestas.<br>
+                    En tu día día utilizando una herramienta de software, ¿cuándo utilizas una estructura de datos
+                    Pila? <br>
+                    🌐 Al utilizar un navegador cada página que visitas se hace Push () a una pila. Al dar clic en el
+                    botón de la flecha de regresar, se hace Pop ().
+                </p>
+
+                <p>
+                    🤔 Cada alumno debe de analizar lo siguiente ¿qué pasa cuando una pila está llena y se intenta hacer
+                    un Push ()?
+                </p>
+
+                <p>
+                    Se llega a la conclusión que la estructura de datos Pilas son muy útiles en programación cuando
+                    una función se llama a sí misma (recursión). Además de que se pueden realizar operaciones rápidas y
+                    controlar el orden inverso de las tareas.
+                </p>
+
+                <p>
+                    🏦 Figúrense que van al banco a pagar algunos servicios. Hay una fila de personas esperando frente a
+                    los cajeros. Llega un cliente nuevo, ¿dónde se coloca? ¿A quién atiende el empleado?<br>
+                    🚶 Así es como funciona una cola, primero en entrar primero en salir, es lo que se conoce como el
+                    principio FIFO (First In, First Out), que en español significa: Primero en Entrar, Primero en Salir.
+                    El primer dato que almacenas es obligatoriamente el primero que tiene que salir.<br>
+                    🤷 ¿Qué pasaría si el empleado atendiera con el principio LIFO de la Pila (Último en llegar, primero
+                    en salir)?
+                </p>
+
+            </div>
+        </div>
 
         <!-- ==================== 3.3 Colas ==================== -->
         <div class="section-header dark" data-num="3.3">
@@ -634,10 +714,10 @@
                 implementada mediante un arreglo. Se asume que FRENTE y FINAL inician con un valor de 0, lo que indica
                 que la cola está vacía, y que MAX representa la capacidad máxima de almacenamiento del arreglo.</p>
             <div class="code-simple">
-                <pre><span style="color:#c792ea;">Push_Cola(FINAL, DATO)</span>         <span style="color:#6a9955;">// Inserta el elemento DATO al final de la cola</span>    
-<span style="color:#c792ea;">SI</span> FINAL &lt; MAX <span style="color:#c792ea;">ENTONCES</span>     <span style="color:#6a9955;">// Verifica si existe espacio disponible</span>
-    COLA[FINAL] = DATO          <span style="color:#6a9955;">// Almacena el dato en la posición actual de FINAL</span>
-    FINAL = FINAL + 1           <span style="color:#6a9955;">// Incrementa el puntero FINAL a la siguiente posición</span>
+                <pre><span style="color:#c792ea;">Push_Cola(FINAL, DATO)</span>           <span style="color:#6a9955;">// Inserta el elemento DATO al final de la cola</span>    
+<span style="color:#c792ea;">SI</span> FINAL &lt; MAX <span style="color:#c792ea;">ENTONCES</span>          <span style="color:#6a9955;">// Verifica si existe espacio disponible</span>
+    COLA[FINAL] = DATO           <span style="color:#6a9955;">// Almacena el dato en la posición actual de FINAL</span>
+    FINAL = FINAL + 1            <span style="color:#6a9955;">// Incrementa el puntero FINAL a la siguiente posición</span>
 <span style="color:#c792ea;">SINO</span>
     DESPLEGAR MENSAJE: <span style="color:#7ec699;">"La cola está llena"</span>
 <span style="color:#c792ea;">FIN SI</span></pre>
@@ -649,10 +729,10 @@
                 eliminación sea válida, es imperativo comprobar previamente que la estructura no se encuentre vacía (es
                 decir, que la posición de FRENTE no haya alcanzado a la posición de FINAL).</p>
             <div class="code-simple">
-                <pre><span style="color:#c792ea;">Pop_Cola(FRENTE)</span>                            <span style="color:#6a9955;">// Elimina el elemento ubicado en el frente de la cola</span>                                                      
-<span style="color:#c792ea;">SI</span> FRENTE &lt; FINAL <span style="color:#c792ea;">ENTONCES</span>   <span style="color:#6a9955;">// Verifica que la cola contenga al menos un elemento</span>
-    COLA[FRENTE] = NULO              <span style="color:#6a9955;">// Elimina/limpia el dato en la posición del FRENTE</span>
-    FRENTE = FRENTE + 1              <span style="color:#6a9955;">// Avanza el puntero FRENTE a la siguiente posición</span>
+                <pre><span style="color:#c792ea;">Pop_Cola(FRENTE)</span>                  <span style="color:#6a9955;">// Elimina el elemento ubicado en el frente de la cola</span>                                                      
+<span style="color:#c792ea;">SI</span> FRENTE &lt; FINAL <span style="color:#c792ea;">ENTONCES</span>        <span style="color:#6a9955;">// Verifica que la cola contenga al menos un elemento</span>
+    COLA[FRENTE] = NULO           <span style="color:#6a9955;">// Elimina/limpia el dato en la posición del FRENTE</span>
+    FRENTE = FRENTE + 1           <span style="color:#6a9955;">// Avanza el puntero FRENTE a la siguiente posición</span>
 <span style="color:#c792ea;">SINO</span>
     DESPLEGAR MENSAJE: <span style="color:#7ec699;">"La Cola está vacía"</span>
 <span style="color:#c792ea;">FIN SI</span></pre>
@@ -724,16 +804,18 @@
                     mostrar elementos de la cola.</p>
                 <div class="act-section-title">📋 Instrucciones</div>
                 <ol>
-                    <li><strong>1 .-</strong>Declara una cola que se llame Cola_Vector [7] de tipo de dato string de tamaño 7, las variables
+                    <li><strong>1 .-</strong>Declara una cola que se llame Cola_Vector [7] de tipo de dato string de
+                        tamaño 7, las variables
                         FINAL y FRENTE de tipo entero asignándoles 0, las funciones Push(FINAL, DIA) y Pop(FRENTE) de
                         tipo entero, la función Mostrar y la variable DIA de tipo string.</li>
-                    <li><strong>2 .-</strong>La forma de asignar los elementos a la Cola_Vector [FINAL], será llamando la función Push(FINAL,
+                    <li><strong>2 .-</strong>La forma de asignar los elementos a la Cola_Vector [FINAL], será llamando
+                        la función Push(FINAL,
                         DIA) y para sacar los elementos será llamando la función Pop(FRENTE). Para mostrar los elementos
                         de Cola_Vector será llamando la función Mostrar.</li>
                 </ol>
                 <div class="act-section-title">📎 Evidencia que entregar</div>
                 <ul>
-                    <li>a)  fuente, el nombre de este programa
+                    <li>a) fuente, el nombre de este programa
                         debe de contener las iniciales de su nombre y el
                         nombre del programa, por ejemplo,
                         RBV_Programa_Cola_Vector.</li>
@@ -747,10 +829,10 @@
             </div>
         </div>
 
-       
+
         <div class="exercise-box">
             <div class="act-header">
-           
+
                 <h3>Ejercicio Programa Cola_Vector_Cliente_Banco:</h3>
             </div>
             <div class="act-body">
@@ -772,7 +854,71 @@
                         mostrar los elementos de Cola_Vector será llamando la función Mostrar.</li>
                 </ol>
             </div>
-            
+
+        </div>
+        <div class="exercise-box" style="margin-top: 2rem;">
+            <div class="act-header">
+                <h3>
+                    <p>Realiza el siguiente ejercicio:</p>
+                </h3>
+            </div>
+
+            <div class="act-body" style="font-size:0.94rem; line-height:1.75;">
+
+                <p>
+                    ⏳ Es el momento para evaluar la comprensión del tema de la estructura de datos cola con la
+                    resolución del siguiente ejercicio.
+                </p>
+
+                <p>
+                    📋 Ejercicio: Explora el estado de la siguiente char Cola[4] = Vacía <br>
+                    <strong>1. </strong> Cola_Push=("X" )<br>
+                    <strong>2. </strong> Cola_Push("Y")<br>
+                    <strong>3. </strong> Cola_Pop() <br>
+                    <strong>4. </strong> Cola_Push("Z")<br>
+                    <strong>5. </strong> Cola_Push("W") <br>
+                    <strong>6. </strong> Cola_Push()
+                </p>
+
+                <p>
+                    Preguntas: <br>
+                    A) ¿Qué elementos quedan dentro de la cola al finalizar el número 6? <br>
+                    B) ¿Qué elemento se encuentra exactamente en el "Frente"? <br>
+                    C) ¿Qué elemento se encuentra exactamente en el "Final"? <br>
+                    ¿En una computadora, en que momento se utiliza una Cola en lugar de una pila? <br>
+                    • 🖨️ Cola de impresión: los documentos se forman en una cola y el primero que llego es el primero
+                    en imprimirse.
+                </p>
+
+                <p>
+                    ✏️Cada alumno debe escribir en un papel un ejemplo de la vida real (que no sea el banco ni el cine)
+                    donde se use la estructura FIFO de una cola.
+                </p>
+
+                <p>
+                    Se llega a la conclusión que la estructura de datos Colas son seguras, porque la información que
+                    está en espera se almacena para que no se pierda. Además de que es rápida porque el tiempo de espera
+                    no cambia sin importar cuánta información haya en la cola. Garantiza que la información se procesa
+                    en el orden exacto en que llegaron.
+                </p>
+
+                <p>
+                    🚇 En uno de los temas anteriores se pudo observar que la información de los arreglos se almacenaba
+                    de forma contigua, imagínense los vagones del metro juntos, uno al lado del otro. Pero ¿qué sucede
+                    si al querer almacenar información y la memoria está llena y solo hay espacios vacíos de memoria,
+                    pero separados? Ahora visualiza que estas en busca de un tesoro, están en la primera pista, ahí
+                    encuentran una caja, dentro de la caja hay información que dice: La siguiente pista esta en el
+                    parque Central debajo del reloj, ahí encuentran la segunda caja, la abren hay información que les
+                    dice a dónde ir después.
+                </p>
+
+                <p>
+                    🗺️ Así es como funciona una Lista Enlazada. Cada información está en un lugar del mapa (la memoria)
+                    totalmente dispersa, pero se sabe perfectamente quién sigue porque tiene una pista, que son los
+                    apuntadores o punteros que se identifican como variables que guardan una dirección de memoria.
+                </p>
+
+            </div>
         </div>
 
         <!-- ==================== 3.4 Listas enlazadas ==================== -->
@@ -895,17 +1041,20 @@
             </div>
             <div class="act-body">
                 <div class="act-section-title">🎯 Propósito</div>
-                <p style="margin-bottom:12px;"><strong>1 .-</strong> un lenguaje de programación para declarar una lista enlazada
+                <p style="margin-bottom:12px;"><strong>1 .-</strong> un lenguaje de programación para declarar una lista
+                    enlazada
                     donde es necesario definir el Nombre_Contacto con el tipo de dato string de tamaño 25, también
                     declarar Numero_Telefonico de tipo de dato char de tamaño 10. Esta agenda va a contener los nombres
                     de los contactos con sus números de teléfono.</p>
-                <p style="margin-bottom:12px;"><strong>2 .-</strong>La intención de esta actividad es que el estudiante comprenda las
+                <p style="margin-bottom:12px;"><strong>2 .-</strong>La intención de esta actividad es que el estudiante
+                    comprenda las
                     operaciones que se realizan sobre una lista enlazada, para este caso se van a mandar a llamar las
                     funciones: Void Insertar_Elemento_Lista (), Void Eliminar_Elemento_Lista ( ) y Void
                     Mostrar_Elemento_Lista ( ).</p>
                 <div class="act-section-title">📋 Instrucciones</div>
                 <ol>
-                    <li><strong>1 .-</strong>Define una lista enlazada que se llame Agenda_Telefonica que contenga Nombre_Contacto de tipo de
+                    <li><strong>1 .-</strong>Define una lista enlazada que se llame Agenda_Telefonica que contenga
+                        Nombre_Contacto de tipo de
                         dato string de tamaño 25, el Numero_Telefono de tipo de dato char y tamaño 10, como se muestra a
                         continuación:</li>
                 </ol>
@@ -919,7 +1068,7 @@
 struct _Agenda_Telefonica *primero, *ultimo</pre>
                 </div>
                 <ol start="2">
-                    <p><strong>2 .-</strong>El programa debe de contener un 
+                    <p><strong>2 .-</strong>El programa debe de contener un
                         menú para llamar las funciones
                     </p>
                     <li>
@@ -943,15 +1092,103 @@ struct _Agenda_Telefonica *primero, *ultimo</pre>
         </div>
 
     </div>
-    
+    <div class="exercise-box" style="margin: 2rem auto; max-width: 820px; padding: 0 1rem;">
+        <div class="act-header">
+            <h3>
+                <p>Realiza el siguiente ejercicio:</p>
+            </h3>
+        </div>
+
+        <div class="act-body" style="font-size:0.94rem; line-height:1.75;">
+
+            <p>
+                ⏳ Es el momento para evaluar la comprensión del tema estructura de datos lista enlazada, con la
+                resolución del siguiente ejercicio.
+            </p>
+
+            <p>
+                Se tiene la siguiente lista doblemente enlazada, los estudiantes deberán copiarla en su cuaderno:
+            </p>
+
+            <!-- REPRESENTACIÓN DE LA LISTA DOBLEMENTE ENLAZADA -->
+
+
+            <p>
+                Realizar lo siguiente:<br>
+                <strong>1. </strong>Se desea eliminar Uva de la lista para que la memoria pase directamente de "Pera" a
+                “Fresa", ¿qué se tiene que hacer? Como quedaría la lista doblemente enlazada actualizada.<br>
+                <strong>2. </strong>¿Por qué es un error fatal hacer que el puntero (*) de "Pera" apunte a Null si solo
+                queríamos borrar a "Uva"? ¿Qué pasaría con "Fresa"?
+
+            </p>
+
+            <p>
+                Cierre: Consolidación y conclusión🔚 <br>
+                Momento para evaluar las respuestas formalizar las ventajas y desventajas frente a los Arreglos.
+            </p>
+
+            <!-- TABLA COMPARATIVA -->
+            <table style="width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.92rem; text-align:left;">
+                <thead>
+                    <tr style="background:#f1f5f9; border-bottom:2px solid #cbd5e1;">
+                        <th style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Característica</th>
+                        <th style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Arreglos (arrays)</th>
+                        <th style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Lista enlazada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Espacio en Memoria</td>
+                        <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Contiguo (uno al lado del
+                            otro)<br></td>
+                        <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Disperso (no está
+                            unido)<br></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Tamaño</td>
+                        <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Estático (el tamaño no cambia
+                            durante la ejecución del programa)</td>
+                        <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Dinámico (el tamaño puede crecer o
+                            decrecer durante la ejecución del
+                            programa<br></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Acceso a la información</td>
+                        <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;"><br>Inmediata por
+                            índice (A[3]).</td>
+                        <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Lento (hay que recorrer desde el
+                            inicio)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+                ¿Cuál es el único nodo en una lista enlazada que no apunta a ninguna dirección de memoria?
+            </p>
+
+            <p>
+                Se llega a la conclusión que como la estructura de datos lista enlazada es dinámica lineal, puede
+                incrementarse o decrementarse según las necesidades y además de que no desperdician memoria, porque nada
+                más utilizan lo que requieren.
+            </p>
+            <div class="img-wrap md">
+                <div class="img-card">
+                    <img src="assets/img/imguni3-18.png" alt="Ejercicio lista doblemente ligada resuelto">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <!-- Botón de descarga del examen -->
-  
-     <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; gap:12px; padding:24px 24px 0;">
+
+    <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; gap:12px; padding:24px 24px 0;">
         <div style="flex:1; height:1px; background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>
-        <span style="font-size:0.7rem; font-family:'Outfit',sans-serif; color:#a0aec0; font-weight:600; letter-spacing:1px; text-transform:uppercase; white-space:nowrap;">Exámenes</span>
+        <span
+            style="font-size:0.7rem; font-family:'Outfit',sans-serif; color:#a0aec0; font-weight:600; letter-spacing:1px; text-transform:uppercase; white-space:nowrap;">Exámenes</span>
         <div style="flex:1; height:1px; background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>
     </div>
-     <!-- Botón de descarga del examen -->
+    <!-- Botón de descarga del examen -->
     <div class="dl-grid">
 
         <a href="assets/documents/2do_examen_tipo_1.pdf" download class="dl-card btn-parcial">
@@ -968,7 +1205,8 @@ struct _Agenda_Telefonica *primero, *ultimo</pre>
 
     <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; gap:12px; padding:24px 24px 0;">
         <div style="flex:1; height:1px; background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>
-        <span style="font-size:0.7rem; font-family:'Outfit',sans-serif; color:#a0aec0; font-weight:600; letter-spacing:1px; text-transform:uppercase; white-space:nowrap;">navegación</span>
+        <span
+            style="font-size:0.7rem; font-family:'Outfit',sans-serif; color:#a0aec0; font-weight:600; letter-spacing:1px; text-transform:uppercase; white-space:nowrap;">navegación</span>
         <div style="flex:1; height:1px; background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>
     </div>
 
