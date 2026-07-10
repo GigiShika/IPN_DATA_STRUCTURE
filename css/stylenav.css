@@ -1630,14 +1630,7 @@ code {
     background-blend-mode: overlay;
     background-color: rgba(255, 255, 255, 0.85);
 }
-.dropdown-bg-2 .dropdown-content {
-    background-image: url('../assets/img/drop2.jpg');
-    background-size: 80px;
-    background-repeat: no-repeat;
-    background-position: bottom left;
-    background-blend-mode: overlay;
-    background-color: rgba(255, 255, 255, 0.85);
-}
+
 .dropdown-bg-3 .dropdown-content {
     background-image: url('../assets/img/drop4.jpg');
     background-size: 75px;
