@@ -487,23 +487,16 @@
                 <p>A=1, B=2, C=3, D=4, E=5, F=6</p>
                 <p class="font-bold mt-4 mb-2">3.- Denotar paso a paso la separación de los operadores y operando,
                     llenar el siguiente cuadro: (en la columna de pila van los operadores (signos))</p>
-                <div class="matriz-tabla">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Paso</th>
-                                <th>Expresión Infija</th>
-                                <th>Elemento para evaluar</th>
-                                <th>Pila</th>
-                                <th>Operando</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="5"> </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="dl-grid">
+                    <a href="assets/img/ERROR.png" download class="dl-card btn-parcial">
+                        <div class="dl-sheen"></div>
+                        <span class="dl-icon">📄</span>
+                        <div class="dl-text">
+                            <span class="dl-title">DESCARGAR TABLA(PDF)</span>
+                            <span class="dl-sub">📥 Descargar PDF</span>
+                        </div>
+                        <span class="dl-arrow">↓</span>
+                    </a>
                 </div>
                 <div class="act-section-title">4.- Realizar el programa de la anterior expresión infija</div>
                 <p style="margin-bottom:12px;">Pasos para realizar el programa:</p>
@@ -973,8 +966,8 @@
         <p class="body-text">La estructura de datos dinámica lineal lista enlazada, se usa de diferentes formas, en el
             contenido anterior se trató de una lista sencillamente enlazada (que contiene un solo apuntador) nada más se
             puede ir de inicio a fin, pero no de fin a inicio, pero también existe la lista doblemente enlazada que, a
-            diferencia de la lista sencillamente enlazada, tiene dos apuntadores *izq y *der que les permiten ir de
-            inicio a fin o de fin a inicio, en donde el *izq contiene la dirección del predecesor y *der contiene la
+            diferencia de la lista sencillamente enlazada, tiene dos apuntadores *izquierda y *derecha que les permiten ir de
+            inicio a fin o de fin a inicio, en donde el *izquierda contiene la dirección del predecesor y *derecha contiene la
             dirección del sucesor. En la siguiente figura 11 se demuestra como está constituido el nodo de una lista
             doblemente enlazada.</p>
         <div class="img-wrap md">
@@ -1093,7 +1086,7 @@ struct _Agenda_Telefonica *primero, *ultimo</pre>
     <div class="exercise-box" style="margin: 2rem auto; max-width: 820px; padding: 0 1rem;">
         <div class="act-header">
             <h3>
-                <p>Realiza el siguiente ejercicio:</p>
+                <p>📝 Realiza el siguiente ejercicio:</p>
             </h3>
         </div>
 
@@ -1105,7 +1098,7 @@ struct _Agenda_Telefonica *primero, *ultimo</pre>
             </p>
 
             <p>
-                Se tiene la siguiente lista doblemente enlazada, los estudiantes deberán copiarla en su cuaderno:
+                📊 Se tiene la siguiente lista doblemente enlazada, los estudiantes deberán copiarla en su cuaderno:
             </p>
             <div class="img-wrap md">
                 <div class="img-card">
@@ -1117,9 +1110,9 @@ struct _Agenda_Telefonica *primero, *ultimo</pre>
 
 
             <p>
-                Realizar lo siguiente:<br>
+                ✏️ Realizar lo siguiente:<br>
                 <strong>1. </strong>Se desea eliminar Uva de la lista para que la memoria pase directamente de "Pera" a
-                “Fresa", ¿qué se tiene que hacer? Como quedaría la lista doblemente enlazada actualizada.<br>
+                "Fresa", ¿qué se tiene que hacer? Como quedaría la lista doblemente enlazada actualizada.<br>
                 <strong>2. </strong>¿Por qué es un error fatal hacer que el puntero (*) de "Pera" apunte a Null si solo
                 queríamos borrar a "Uva"? ¿Qué pasaría con "Fresa"?
 
@@ -1127,28 +1120,28 @@ struct _Agenda_Telefonica *primero, *ultimo</pre>
 
             <p>
                 Cierre: Consolidación y conclusión🔚 <br>
-                Momento para evaluar las respuestas formalizar las ventajas y desventajas frente a los Arreglos.
+                💡 Momento para evaluar las respuestas formalizar las ventajas y desventajas frente a los Arreglos.
             </p>
 
             <!-- TABLA COMPARATIVA -->
             <table style="width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.92rem; text-align:left;">
                 <thead>
                     <tr style="background:#f1f5f9; border-bottom:2px solid #cbd5e1;">
-                        <th style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Característica</th>
-                        <th style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Arreglos (arrays)</th>
-                        <th style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Lista enlazada</th>
+                        <th style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">📋 Característica</th>
+                        <th style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">📦 Arreglos (arrays)</th>
+                        <th style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">🔗 Lista enlazada</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Espacio en Memoria</td>
+                        <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">💾 Espacio en Memoria</td>
                         <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Contiguo (uno al lado del
                             otro)<br></td>
                         <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Disperso (no está
                             unido)<br></td>
                     </tr>
                     <tr>
-                        <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Tamaño</td>
+                        <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">📏 Tamaño</td>
                         <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Estático (el tamaño no cambia
                             durante la ejecución del programa)</td>
                         <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Dinámico (el tamaño puede crecer o
@@ -1156,7 +1149,7 @@ struct _Agenda_Telefonica *primero, *ultimo</pre>
                             programa<br></td>
                     </tr>
                     <tr>
-                        <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Acceso a la información</td>
+                        <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">⚡ Acceso a la información</td>
                         <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;"><br>Inmediata por
                             índice (A[3]).</td>
                         <td style="padding:0.5rem 0.8rem; border:1px solid #e2e8f0;">Lento (hay que recorrer desde el
@@ -1166,11 +1159,11 @@ struct _Agenda_Telefonica *primero, *ultimo</pre>
             </table>
 
             <p>
-                ¿Cuál es el único nodo en una lista enlazada que no apunta a ninguna dirección de memoria?
+                🤔 ¿Cuál es el único nodo en una lista enlazada que no apunta a ninguna dirección de memoria?
             </p>
 
             <p>
-                Se llega a la conclusión que como la estructura de datos lista enlazada es dinámica lineal, puede
+                ✅ Se llega a la conclusión que como la estructura de datos lista enlazada es dinámica lineal, puede
                 incrementarse o decrementarse según las necesidades y además de que no desperdician memoria, porque nada
                 más utilizan lo que requieren.
             </p>
@@ -1185,12 +1178,12 @@ struct _Agenda_Telefonica *primero, *ultimo</pre>
         <h3 style="text-align:center !important; width:100%;">Diagnóstico de la Unidad III</h3>
     </div>
 
-    <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; gap:12px; padding:24px 24px 0;">
-        <div style="flex:1; height:1px; background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>
-        <span style="font-size:0.7rem; font-family:'Outfit',sans-serif; color:#a0aec0; font-weight:600; letter-spacing:1px; text-transform:uppercase; white-space:nowrap;">
+    <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; gap:20px; padding:24px 24px 0;">
+        <div style="flex:1; height:3px; background:linear-gradient(90deg,transparent,#2d3748,#4a5568); border-radius:4px;"></div>
+        <span style="font-size:0.82rem; font-family:'Outfit',sans-serif; color:#1a202c; font-weight:600; letter-spacing:0.3px; text-transform:uppercase; white-space:nowrap; text-align:center; padding:0 12px;">
             Pon a prueba los conocimientos adquiridos en esta unidad descargando el ejercicio correspondiente
         </span>
-        <div style="flex:1; height:1px; background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>
+        <div style="flex:1; height:3px; background:linear-gradient(90deg,#4a5568,#2d3748,transparent); border-radius:4px;"></div>
     </div>
 
     <!-- Botón de descarga del examen -->

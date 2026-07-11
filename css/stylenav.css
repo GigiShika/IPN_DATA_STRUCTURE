@@ -1621,48 +1621,7 @@ code {
     font-weight: bold;
 }
 
-/* ===== DROPDOWN BACKGROUNDS ===== */
-.dropdown-bg-1 .dropdown-content {
-    background-image: url('../assets/img/drop1.png');
-    background-size: 70px;
-    background-repeat: no-repeat;
-    background-position: bottom right;
-    background-blend-mode: overlay;
-    background-color: rgba(255, 255, 255, 0.85);
-}
 
-.dropdown-bg-3 .dropdown-content {
-    background-image: url('../assets/img/drop4.jpg');
-    background-size: 75px;
-    background-repeat: no-repeat;
-    background-position: top right;
-    background-blend-mode: overlay;
-    background-color: rgba(255, 255, 255, 0.85);
-}
-.dropdown-bg-4 .dropdown-content {
-    background-image: url('../assets/img/drop5.jpg');
-    background-size: 70px;
-    background-repeat: no-repeat;
-    background-position: bottom right;
-    background-blend-mode: overlay;
-    background-color: rgba(255, 255, 255, 0.85);
-}
-.dropdown-bg-5 .dropdown-content {
-    background-image: url('../assets/img/drop3.png');
-    background-size: 65px;
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-blend-mode: overlay;
-    background-color: rgba(255, 255, 255, 0.85);
-}
-.dropdown-bg-6 .dropdown-content {
-    background-image: url('../assets/img/drop3.png');
-    background-size: 65px;
-    background-repeat: no-repeat;
-    background-position: bottom left;
-    background-blend-mode: overlay;
-    background-color: rgba(255, 255, 255, 0.85);
-}
 
 /* ===== UNITS GRID ===== */
 .units-grid {
