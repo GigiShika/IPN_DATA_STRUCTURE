@@ -17,7 +17,6 @@
 </head>
 
 <body>
-
     <div class="top-bar">
         <div class="logo-left">
             <img src="assets/img/ipn.jpg" alt="IPN">
@@ -31,7 +30,7 @@
         </div>
     </div>
 
-    <!-- Header con imagen -->
+    <!-- Header Banner -->
     <header style="padding: 24px 20px;">
         <div style="max-width: 960px; margin: 0 auto;">
             <div class="header-image-container">
@@ -45,53 +44,121 @@
         </div>
     </header>
 
-    <div class="w-full nav-bg-custom shadow-md" style="border-radius: 0 0 10px 10px;">
-        <div class="flex justify-center">
-            <nav class="w-[90%] md:w-[75%] mx-auto">
-                <button
-                    class="nav-toggle md:hidden text-[1.8rem] text-white bg-none border-none cursor-pointer p-[12px_20px] w-full text-left font-bold nav-toggle-custom">☰
-                    Menú</button>
-                <ul class="nav-links hidden md:flex justify-center gap-[10px] list-none m-0 p-0">
-                    <li><a href="index.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            🏠Inicio</a></li>
-                    <li><a href="navuni1.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            📊Unidad I</a></li>
-                    <li><a href="navuni2.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            📈Unidad II</a></li>
-                    <li><a href="navuni3.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            🔗Unidad III</a></li>
-                    <li><a href="navuni4.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            🌳Unidad IV</a></li>
-                    <li><a href="navuni8.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            📋Rubrica</a>
-                    </li>
-                    <li><a href="navuni7.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            📕Cierre</a>
-                    </li>
-                    <li><a href="navuni5.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            📚Glosario</a></li>
-                    <li><a href="navuni6.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            📖Bibliografia</a></li>
-                    <li>
-                        <button id="darkModeToggle"
-                            class="dark-mode-btn block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] hover:bg-white/20 hover:-translate-y-0.5">
-                            <span>🌙</span> <span>Modo oscuro</span>
-                        </button>
-                    </li>
+    <!-- Barra de Navegación Principal -->
+    <header class="w-full nav-bg-custom shadow-md rounded-b-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center justify-between py-3" aria-label="Navegación principal">
+              
+              <!-- Botón Menú Mobile -->
+              <button 
+                type="button" 
+                aria-expanded="false" 
+                aria-controls="nav-menu"
+                class="nav-toggle nav-toggle-custom md:hidden w-full flex items-center justify-between px-4 py-3 text-white font-black text-base bg-transparent border-none cursor-pointer rounded-xl focus:outline-none focus:ring-2 focus:ring-white transition">
+                <span class="tracking-wider uppercase drop-shadow-md">Menú</span>
+                <svg class="w-6 h-6 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+              </button>
 
-                </ul>
+              <!-- Menú de Enlaces -->
+              <ul id="nav-menu" class="nav-links hidden md:flex items-center justify-center flex-wrap gap-2 list-none m-0 p-0 w-full">
+                
+                <!-- Inicio -->
+                <li>
+                  <a href="index.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Inicio</span>
+                  </a>
+                </li>
+
+                <!-- Unidad I -->
+                <li>
+                  <a href="navuni1.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad I</span>
+                  </a>
+                </li>
+
+                <!-- Unidad II -->
+                <li>
+                  <a href="navuni2.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group bg-white/20 rounded-lg border-b-2 border-yellow-400">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad II</span>
+                    <span class="w-2 h-2 rounded-full bg-yellow-400 shadow-sm animate-pulse"></span>
+                  </a>
+                </li>
+
+                <!-- Unidad III -->
+                <li>
+                  <a href="navuni3.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad III</span>
+                  </a>
+                </li>
+
+                <!-- Unidad IV -->
+                <li>
+                  <a href="navuni4.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad IV</span>
+                  </a>
+                </li>
+
+                <!-- Rúbrica -->
+                <li>
+                  <a href="navuni8.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Rúbrica</span>
+                  </a>
+                </li>
+
+                <!-- Cierre -->
+                <li>
+                  <a href="navuni7.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Cierre</span>
+                  </a>
+                </li>
+
+                <!-- Glosario -->
+                <li>
+                  <a href="navuni5.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Glosario</span>
+                  </a>
+                </li>
+
+                <!-- Bibliografía -->
+                <li>
+                  <a href="navuni6.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Bibliografía</span>
+                  </a>
+                </li>
+
+              </ul>
             </nav>
         </div>
-    </div>
+    </header>
 
     <div class="page-content">
 
@@ -215,14 +282,14 @@
         <div class="exercise-box">
             <div class="ex-label">✏️ Realizar el siguiente ejercicio:</div>
             <ol>
-                <li>1)Declara un vector de tipo char de tamaño 12, represéntalo como quedaría en memoria utilizando un
+                <li><strong>1)</strong> Declara un vector de tipo char de tamaño 12, represéntalo como quedaría en memoria utilizando un
                     subíndice (i).</li>
-                <li>2)Declara un arreglo unidimensional de tipo entero de tamaño 10, represéntalo como quedaría en
+                <li><strong>2)</strong>  Declara un arreglo unidimensional de tipo entero de tamaño 10, represéntalo como quedaría en
                     memoria
                     utilizando un subíndice (i).</li>
-                <li>3)Declara un array de tipo flotante de tamaño 8, represéntalo como quedaría en memoria utilizando un
+                <li><strong>3)</strong> Declara un array de tipo flotante de tamaño 8, represéntalo como quedaría en memoria utilizando un
                     subíndice (i).</li>
-                <li>4)Declara un arreglo unidimensional de tipo string de tamaño 15, represéntalo como quedaría en
+                <li><strong>4)</strong> Declara un arreglo unidimensional de tipo string de tamaño 15, represéntalo como quedaría en
                     memoria
                     utilizando un subíndice (i).</li>
             </ol>
@@ -253,27 +320,27 @@
 
                 <div class="act-section-title">📋 Instrucciones</div>
                 <ol>
-                    <li>1.- Declara el arreglo unidimensional de tipo string que se llame Jugador de tamaño [6], también
-                        declara una variable de tipo string que se llame Buscar_Jugador.
+                    <li>1. Declara el arreglo unidimensional de tipo string que se llame Jugador de tamaño [6], también
+                        declara una variable <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;de tipo string que se llame Buscar_Jugador.
                     </li>
-                    <li>2.- La forma de asignar los nombres de los jugadores al arreglo unidimensional, será
-                        solicitándole el nombre del jugador al usuario. Se tendrá que utilizar una estructura de control
+                    <li>2. La forma de asignar los nombres de los jugadores al arreglo unidimensional, será
+                        solicitándole el nombre del <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jugador al usuario. Se tendrá que utilizar una estructura de control
                         como es el For.
                     </li>
-                    <li>3.- Al recibir el nombre tendrá que almacenarse en la posición de memoria que está representada
-                        por el subíndice (i) del arreglo unidimensional.
+                    <li>3. Al recibir el nombre tendrá que almacenarse en la posición de memoria que está representada
+                        por el subíndice (i) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;del arreglo unidimensional.
                     </li>
-                    <li>4.- Después de haber almacenado los nombres de los jugadores en el arreglo, a través de la
-                        estructura de control For, se recorrerá para mostrar el siguiente mensaje: “En la posición TAL
+                    <li>4. Después de haber almacenado los nombres de los jugadores en el arreglo, a través de la
+                        estructura de control For, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;se recorrerá para mostrar el siguiente mensaje: “En la posición TAL
                         del arreglo, se encuentra el jugador TAL”.
                     </li>
-                    <li>5.- Posteriormente, volver a recorrer el arreglo con la estructura de control For para realizar
-                        la tercera operación que es la de búsqueda. Para llevar a cabo esta parte, se le pedirá al
-                        usuario el nombre del jugador a buscar, el cual será almacenado en la variable Buscar_Jugador,
-                        después se tendrá que recorrer cada uno de los elementos del vector para compararlo con la
-                        variable Buscar_Jugador, y si hay coincidencia se deberá mandar un mensaje “El nombre del
+                    <li>5. Posteriormente, volver a recorrer el arreglo con la estructura de control For para realizar
+                        la tercera operación que <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;es la de búsqueda. Para llevar a cabo esta parte, se le pedirá al
+                        usuario el nombre del jugador a buscar, el cual será <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;almacenado en la variable Buscar_Jugador,
+                        después se tendrá que recorrer cada uno de los elementos del vector<br>&nbsp;&nbsp;&nbsp;&nbsp;para compararlo con la
+                        variable Buscar_Jugador, y si hay coincidencia se deberá mandar un mensaje “El nombre <br>&nbsp;&nbsp;&nbsp;del
                         jugador se encuentre en la posición TAL del arreglo unidimensional” y en dado caso que no se
-                        encuentre, enviar el mensaje “El nombre del jugador no se encuentra en el arreglo
+                        encuentre, enviar el <br>&nbsp;&nbsp;&nbsp;mensaje “El nombre del jugador no se encuentra en el arreglo
                         unidimensional”.
                     </li>
                 </ol>
@@ -281,7 +348,7 @@
                 <div class="act-section-title">📎 Evidencia que entregar:</div>
                 <ul>
                     <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
-                        nombre del programa, por ejemplo, RBV_Programa_Jugador.</li>
+                        nombre del <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;programa, por ejemplo, RBV_Programa_Jugador.</li>
                     <li>b) Programa executable.</li>
                     <li>c) Corrida del programa, en un archivo PDF.</li>
                 </ul>
@@ -325,7 +392,7 @@
                     a) Recorrido:
                 </p>
                 <p class="body-text">
-                    Se recorre el arreglo para consulta los elementos del arreglo unidimensional.
+                    Se recorre el arreglo para consultar los elementos del arreglo unidimensional.
                 </p>
 
                 <p class="body-text">
@@ -401,18 +468,18 @@
 
                         <div class="act-section-title">📋 Instrucciones</div>
                         <ol>
-                            <li>1.- Declara el arreglo unidimensional de tipo int que se llame Numeros_Pares [10],
-                                también declara dos variables de tipo int que se llamen Acumulador y Suma_Total
+                            <li>1. Declara el arreglo unidimensional de tipo int que se llame Numeros_Pares [10],
+                                también declara dos variables de <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tipo int que se llamen Acumulador y Suma_Total
                                 (asignándoles 0)
                             </li>
                             <li>
-                                2.- Para asignar los números pares (2,4,6,8,10, 12, 14, 16, 18 y 20) al arreglo
-                                unidimensional, será utilizando una estructura de control For y de forma automática
-                                asignándole la variable Acumulador, la cual se ira acumulando de dos en dos
+                                2. Para asignar los números pares (2,4,6,8,10, 12, 14, 16, 18 y 20) al arreglo
+                                unidimensional, será utilizando una <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;estructura de control For y de forma automática
+                                asignándole la variable Acumulador, la cual se ira acumulando de<br>&nbsp;&nbsp;&nbsp;&nbsp; dos en dos
                             </li>
                             <li>3.- Después de haber almacenado los números al arreglo, a través de la estructura de
-                                control For, se recorrerá para mostrar el siguiente mensaje: “En la posición TAL del
-                                arreglo, se encuentra el valor TAL”. También deberán mostrar “La suma total de los
+                                control For, se recorrerá para <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mostrar el siguiente mensaje: “En la posición TAL del
+                                arreglo, se encuentra el valor TAL”. También deberán<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mostrar “La suma total de los
                                 elementos del vector es:”
                             </li>
                         </ol>
@@ -420,7 +487,7 @@
                         <div class="act-section-title">📎 Evidencia que entregar</div>
                         <ul>
                             <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su
-                                nombre y el nombre del programa, por ejemplo,
+                                nombre y el nombre del <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;programa, por ejemplo,
                                 RBV_Programa_Numeros_Pares.</li>
                             <li>b) Programa executable.</li>
                             <li>c)Corrida del programa, en un archivo PDF.</li>
@@ -469,11 +536,11 @@
                                 <td>6</td>
                             </tr>
                         </table>
-                        <p>1️ .-¿Qué valor devuelve la instrucción: Dias_semana[3]? 🤔<br>
-                            2️ .-¿Qué valor devuelve la instrucción: Dias_semana[0]? 🤔<br>
-                            3️ .-✏️ Si ejecutamos la orden: Dias_semana[5] = NULL ¿Cómo queda la lista completa de datos
+                        <p>1️ . ¿Qué valor devuelve la instrucción: Dias_semana[3]? 🤔<br>
+                            2️ . ¿Qué valor devuelve la instrucción: Dias_semana[0]? 🤔<br>
+                            3️ . ✏️ Si ejecutamos la orden: Dias_semana[5] = NULL ¿Cómo queda la lista completa de datos
                             ahora?<br>
-                            4️.-⚠️ ERROR COMÚN: ¿Qué pasa si intentas pedir: Dias_Sema[7]? </p>
+                            4️. ⚠️ ERROR COMÚN: ¿Qué pasa si intentas pedir: Dias_Sema[7]? </p>
 
                         <p>👨‍🏫 El docente valida las respuestas con todo el grupo:<br>
                             ✅ Jueves<br>
@@ -633,13 +700,13 @@
         <div class="exercise-box">
             <div class="ex-label">✏️ Realizar el siguiente ejercicio:</div>
             <ol>
-                <li>1)Declara un arreglo bidimensional de tipo char de tamaño (5x4), represéntalo como quedaría en
+                <li>1) Declara un arreglo bidimensional de tipo char de tamaño (5x4), represéntalo como quedaría en
                     memoria
                     utilizando dos subíndices[i][j].</li>
-                <li>2)Declara un arreglo bidimensional de tipo entero de tamaño (3x6), represéntalo como quedaría
+                <li>2) Declara un arreglo bidimensional de tipo entero de tamaño (3x6), represéntalo como quedaría
                     en
                     memoria utilizando dos subíndices[i][j].</li>
-                <li>3)Declara un arreglo bidimensional de tipo flotante de tamaño (2x4), represéntalo como
+                <li>3) Declara un arreglo bidimensional de tipo flotante de tamaño (2x4), represéntalo como
                     quedaría en
                     memoria utilizando dos subíndices[i][j].</li>
             </ol>
@@ -690,11 +757,11 @@
 
                 <div class="act-section-title">Instrucciones</div>
                 <ol>
-                    <li>1.-Declara el arreglo bidimensional que se llame Matriz_Identidad de tipo de dato entero de
+                    <li>1. Declara el arreglo bidimensional que se llame Matriz_Identidad de tipo de dato entero de
                         tamaño
                         (4x4).
                     </li>
-                    <li>2.-La forma de asignar los elementos a la matriz identidad, será de forma automática,
+                    <li>2. La forma de asignar los elementos a la matriz identidad, será de forma automática,
                         utilizando
                         dos estructuras de control For, el primer For está representado por el subíndice [i] que
                         son las
@@ -702,7 +769,7 @@
                         dentro de
                         este For se debe utilizar una condición para llenar los elementos de la matriz
                         identidad.</li>
-                    <li>3.-Después de haber asignado los elementos a la matriz identidad, nuevamente se tiene que
+                    <li>3. Después de haber asignado los elementos a la matriz identidad, nuevamente se tiene que
                         recorrer
                         con doble For para mostrar el siguiente mensaje: "En la posición TAL de la matriz
                         identidad, se
@@ -814,21 +881,21 @@
 
                 <div class="act-section-title">📋 Instrucciones</div>
                 <ol>
-                    <li>1.-Declarar dos matrices A de (2x3) de tipo de dato entero (int), At de (3x2) de tipo de
+                    <li>1. Declarar dos matrices A de (2x3) de tipo de dato entero (int), At de (3x2) de tipo de
                         dato
                         entero (int).</li>
-                    <li>2.-La forma de asignar los elementos a la matriz A, será de forma automática, utilizando la
-                        estructura de control For para los dos primeros ciclos utilizando el subíndice [i] que
-                        representan las filas y el subíndice (j) para las columnas. Los valores que va a
+                    <li>2. La forma de asignar los elementos a la matriz A, será de forma automática, utilizando la
+                        estructura de control For<br>&nbsp;&nbsp;&nbsp;&nbsp; para los dos primeros ciclos utilizando el subíndice [i] que
+                        representan las filas y el subíndice (j) para las columnas. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Los valores que va a
                         contener la
                         matriz A son 1,2,3,4,5,6.</li>
-                    <li>3.-Los siguientes dos For serán para realizar la traspuesta, donde las filas de la matriz A
+                    <li>3. Los siguientes dos For serán para realizar la traspuesta, donde las filas de la matriz A
                         van a
-                        pasar como columnas a la matriz At.</li>
-                    <li>4.-Después nuevamente se tendrá que utilizar la estructura de control For para realizar el
-                        recorrido de los elementos de ambas matrices para mostrar el siguiente mensaje: "En la
+                        pasar como columnas a<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; la matriz At.</li>
+                    <li>4. Después nuevamente se tendrá que utilizar la estructura de control For para realizar el
+                        recorrido de los elementos<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; de ambas matrices para mostrar el siguiente mensaje: "En la
                         posición
-                        TAL de la matriz A, se encuentra el valor TAL". Así será de igual forma para la matriz
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TAL de la matriz A, se encuentra el valor TAL". Así será de igual forma para la matriz
                         At.</li>
                 </ol>
 
@@ -836,7 +903,7 @@
                 <ul>
                     <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre
                         y el
-                        nombre del programa, por ejemplo,
+                        nombre del<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; programa, por ejemplo,
                         RBV_Programa_Matriz_Traspuesta.</li>
                     <li>b) Programa ejecutable.</li>
                     <li>c) Corrida del programa, en un archivo PDF.</li>
@@ -944,9 +1011,9 @@
             dimensión, los arreglos bidimensionales de dos dimensiones, entonces los arreglos multidimensionales
             son de
             más de dos dimensiones, como son los <strong>data warehouse</strong>. A diferencia de los arreglos
-            unidimensionales y bidimensionales, son una colección finita, homogénea y ordenada de elementos de
-            <strong>n
-                dimensiones</strong>, por lo que se puede trabajar con grandes volúmenes de información de
+            unidimensionales y bidimensionales son una colección finita, homogénea y ordenada de elementos de
+            <strong><em>n</em></strong>
+            <strong>dimensiones</strong>, por lo que se puede trabajar con grandes volúmenes de información de
             manera
             organizada y eficiente.
         </p>

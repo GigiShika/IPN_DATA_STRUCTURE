@@ -16,8 +16,6 @@
 </head>
 
 <body>
-
-    <!-- BARRA SUPERIOR (estilo navuni1) -->
     <div class="top-bar">
         <div class="logo-left">
             <img src="assets/img/ipn.jpg" alt="IPN">
@@ -31,7 +29,7 @@
         </div>
     </div>
 
-    <!-- Header con imagen -->
+    <!-- Header Banner -->
     <header style="padding: 24px 20px;">
         <div style="max-width: 960px; margin: 0 auto;">
             <div class="header-image-container">
@@ -45,54 +43,122 @@
         </div>
     </header>
 
-    <!-- NAV (exactamente el mismo que navuni1) -->
-    <div class="w-full nav-bg-custom shadow-md" style="border-radius: 0 0 10px 10px;">
-        <div class="flex justify-center">
-            <nav class="w-[90%] md:w-[75%] mx-auto">
-                <button
-                    class="nav-toggle md:hidden text-[1.8rem] text-white bg-none border-none cursor-pointer p-[12px_20px] w-full text-left font-bold nav-toggle-custom">☰
-                    Menú</button>
-                <ul class="nav-links hidden md:flex justify-center gap-[10px] list-none m-0 p-0">
-                    <li><a href="index.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            🏠Inicio</a></li>
-                    <li><a href="navuni1.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            📊Unidad I</a></li>
-                    <li><a href="navuni2.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            📈Unidad II</a></li>
-                    <li><a href="navuni3.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            🔗Unidad III</a></li>
-                    <li><a href="navuni4.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            🌳Unidad IV</a></li>
-                    <li><a href="navuni8.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            📋Rubrica</a>
-                    </li>
-                    <li><a href="navuni7.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            📕Cierre</a>
-                    </li>
-                    <li><a href="navuni5.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            📚Glosario</a></li>
-                    <li><a href="navuni6.html"
-                            class="block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] relative nav-link-underline hover:bg-white/20 hover:-translate-y-0.5">
-                            📖Bibliografia</a></li>
-                    <li>
-                        <button id="darkModeToggle"
-                            class="dark-mode-btn block px-[15px] md:px-[18px] py-[12px] text-white font-semibold transition-all text-[0.85rem] hover:bg-white/20 hover:-translate-y-0.5">
-                            <span>🌙</span> <span>Modo oscuro</span>
-                        </button>
-                    </li>
+    <!-- Barra de Navegación Principal -->
+    <header class="w-full nav-bg-custom shadow-md rounded-b-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center justify-between py-3" aria-label="Navegación principal">
+              
+              <!-- Botón Menú Mobile -->
+              <button 
+                type="button" 
+                aria-expanded="false" 
+                aria-controls="nav-menu"
+                class="nav-toggle nav-toggle-custom md:hidden w-full flex items-center justify-between px-4 py-3 text-white font-black text-base bg-transparent border-none cursor-pointer rounded-xl focus:outline-none focus:ring-2 focus:ring-white transition">
+                <span class="tracking-wider uppercase drop-shadow-md">Menú</span>
+                <svg class="w-6 h-6 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+              </button>
 
-                </ul>
+              <!-- Menú de Enlaces -->
+              <ul id="nav-menu" class="nav-links hidden md:flex items-center justify-center flex-wrap gap-2 list-none m-0 p-0 w-full">
+                
+                <!-- Inicio -->
+                <li>
+                  <a href="index.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Inicio</span>
+                  </a>
+                </li>
+
+                <!-- Unidad I -->
+                <li>
+                  <a href="navuni1.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad I</span>
+                  </a>
+                </li>
+
+                <!-- Unidad II -->
+                <li>
+                  <a href="navuni2.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad II</span>
+                  </a>
+                </li>
+
+                <!-- Unidad III -->
+                <li>
+                  <a href="navuni3.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad III</span>
+                  </a>
+                </li>
+
+                <!-- Unidad IV -->
+                <li>
+                  <a href="navuni4.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group bg-white/20 rounded-lg border-b-2 border-yellow-400">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad IV</span>
+                    <span class="w-2 h-2 rounded-full bg-yellow-400 shadow-sm animate-pulse"></span>
+                  </a>
+                </li>
+
+                <!-- Rúbrica -->
+                <li>
+                  <a href="navuni8.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Rúbrica</span>
+                  </a>
+                </li>
+
+                <!-- Cierre -->
+                <li>
+                  <a href="navuni7.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Cierre</span>
+                  </a>
+                </li>
+
+                <!-- Glosario -->
+                <li>
+                  <a href="navuni5.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Glosario</span>
+                  </a>
+                </li>
+
+                <!-- Bibliografía -->
+                <li>
+                  <a href="navuni6.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
+                    </svg>
+                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Bibliografía</span>
+                  </a>
+                </li>
+
+              </ul>
             </nav>
         </div>
-    </div>
+    </header>
+
 
     <!-- CONTENIDO PRINCIPAL (EXACTAMENTE EL MISMO QUE ME DISTE, SIN CAMBIAR NADA) -->
     <div class="page-content">
@@ -476,12 +542,12 @@ sino
             </div>
             <div class="act-body">
                 <div class="act-section-title">🎯 Propósito</div>
-                <p style="margin-bottom:12px;"><strong>1 .-</strong> un lenguaje de programación para declarar la
+                <p style="margin-bottom:12px;"><strong>1 . </strong> un lenguaje de programación para declarar la
                     estructura dinámica
                     de un árbol binario.</p>
-                <p style="margin-bottom:12px;"><strong>2 .-</strong>La intención de esta actividad es que el estudiante
+                <p style="margin-bottom:12px;"><strong>2 . </strong>La intención de esta actividad es que el estudiante
                     comprenda las
-                    funciones que se realizan sobre los árboles binarios, para este caso es el de mandar a llamar las
+                    funciones que se realizan sobre los árboles <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;binarios, para este caso es el de mandar a llamar las
                     funciones (void):</p>
                 <ul class="list-disc ml-5 mb-4">
                     <li>void insertanodonuevo (ARBOL *, int);</li>
@@ -492,7 +558,7 @@ sino
                 </ul>
                 <div class="act-section-title">📋 Instrucciones:</div>
                 <ol>
-                    <li><strong>1.- </strong>Declara el árbol binario como se muestra a continuación con un struct
+                    <li><strong>1.  </strong>Declara el árbol binario como se muestra a continuación con un struct
                         node<br>
                         <code>Struct nodoarbo{<br>
                 &nbsp;&nbsp;struct nodoarbol *izqnodo;<br>
@@ -502,10 +568,10 @@ sino
                 typedef struct nodoarbol NODO;<br>
                 typedef NODO *ARBOL;</code>
                     </li>
-                    <li><strong>a- </strong>La forma de asignar valores al árbol binario será a través del llamado de la
+                    <li><strong>a)  </strong>La forma de asignar valores al árbol binario será a través del llamado de la
                         función void
-                        insertanodonuevo (ARBOL *, int)</li>
-                    <li><strong>b- </strong>Para recorrer el árbol binario será de las tres formas llamando las
+                        insertanodonuevo (ARBOL <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*, int)</li>
+                    <li><strong>b)  </strong>Para recorrer el árbol binario será de las tres formas llamando las
                         funciones (void)
                         respectivamente:
                         <ul class="list-disc ml-5 mt-2">
@@ -514,14 +580,14 @@ sino
                             <li>void postorden (ARBOL)</li>
                         </ul>
                     </li>
-                    <li><strong>c- </strong>Por último, para liberar el espacio de memoria se tiene que llamar la
+                    <li><strong>c) </strong>Por último, para liberar el espacio de memoria se tiene que llamar la
                         función void treefree
                         (ARBOL).</li>
                 </ol>
                 <div class="act-section-title">📎 Evidencia que entregar:</div>
                 <ul>
                     <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
-                        nombre del programa, por ejemplo,
+                        nombre del<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; programa, por ejemplo,
                         RBV_Programa_Recorridos_Arbol_Binario.</li>
                     <li>b) Programa executable.</li>
                     <li>c) Corrida del programa, en un archivo PDF.</li>
@@ -662,13 +728,15 @@ sino
           con los árboles 🌲 es que no es jerárquica, esto quiere decir que los grafos tienen una relación de que
           un nodo padre 👨‍👧 puede tener muchos nodos hijos 👶 y un nodo hijo puede tener muchos nodos padres 👨‍👩‍👧‍👦, lo que
           no sucede con un árbol 🌳.</p>
-        <p class="body-text" >🌐 Un claro ejemplo de la vida real de la aplicación de un grafo son las redes sociales como es el
-            Facebook 📘, donde los nodos son las personas 👤 y las aristas son las relaciones 🤝 que hay entre las
-            personas que son los nodos 👥 y de esa manera se genera una red libre 🕸️.</p>
+        
         
         <div class="section-header dark" data-num="4.2">
             <h2><span class="section-emoji">📊</span>4.2 Grafos</h2>
         </div>
+        <p class="body-text" >🌐 Un claro ejemplo de la vida real de la aplicación de un grafo son las redes sociales como es el
+            Facebook 📘, donde los nodos son las personas 👤 y las aristas son las relaciones 🤝 que hay entre las
+            personas👥 y de esa manera se genera una red libre 🕸️.
+        </p>
 
         <div class="img-wrap md">
             <div class="img-card">
@@ -830,33 +898,33 @@ sino
                     programar un grafo y hacer uso de la pantalla a través del goto xy().</p>
                 <div class="act-section-title">📋 Instrucciones</div>
                 <ol>
-                    <li><strong>1.- </strong>Responde las siguientes preguntas
+                    <li><strong>1.  </strong>Responde las siguientes preguntas
                         <ul class="list-disc mt-2">
-                            <li>¿Qué es un Grafo?</li>
-                            <li>¿Qué es un Grafo dirigido?</li>
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li>¿Qué es un Grafo?</li>
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li>¿Qué es un Grafo dirigido?</li>
                         </ul>
                     </li>
-                    <li><strong>2.- </strong>Se tiene el siguiente grafo y contesta los siguientes incisos
+                    <li><strong>2.  </strong>Se tiene el siguiente grafo y contesta los siguientes incisos
                         <div class="img-wrap sm mt-2">
                             <div class="img-card">
                                 <img src="assets/img/imguni4-31.png" alt="Grafo para actividad">
                             </div>
                         </div>
                         <ol>
-                            <li><strong>a.</strong>Conjunto de Nodos o Vértices</li>
-                            <li><strong>b.</strong>Conjunto de Aristas o Arcos</li>
-                            <li><strong>c.</strong>Grado o Valencia de los Vértices</li>
-                            <li><strong>d.</strong>Es un grafo completo o fuerte si por qué, no por qué (justificar su
+                            <li><strong>a. </strong>Conjunto de Nodos o Vértices</li>
+                            <li><strong>b. </strong>Conjunto de Aristas o Arcos</li>
+                            <li><strong>c. </strong>Grado o Valencia de los Vértices</li>
+                            <li><strong>d. </strong>Es un grafo completo o fuerte si por qué, no por qué (justificar su
                                 respuesta)</li>
                             <li><strong>e.</strong>Cinco posibles caminos simples</li>
                         </ol>
                     </li>
-                    <li><strong>3.- </strong>Qué es un lazo y da un ejemplo de la vida real</li>
-                    <li><strong>4.- </strong>Qué es un circuito o camino cerrado</li>
-                    <li><strong>5.- </strong>Declara una Matriz_Adyacencia[6][6] de tipo char, asígnale los valores de
+                    <li><strong>3.  </strong>Qué es un lazo y da un ejemplo de la vida real</li>
+                    <li><strong>4.  </strong>Qué es un circuito o camino cerrado</li>
+                    <li><strong>5.  </strong>Declara una Matriz_Adyacencia[6][6] de tipo char, asígnale los valores de
                         la figura del grafo de
-                        este ejercicio, también declara un vector Vector_Vertice[6] de tipo char de tamaño 6 y asígnale
-                        los valores del grafo de este ejercicio.</li>
+                        este ejercicio, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;también declara un vector Vector_Vertice[6] de tipo char de tamaño 6 y asígnale
+                        los valores del grafo de este <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ejercicio.</li>
                     <li><strong>6.- </strong>Declarar la siguiente función<br>
                         <code>void gotoxy(int x,int y){<br>
                 &nbsp;&nbsp;HANDLE hcon;<br>
@@ -869,7 +937,7 @@ sino
                 <div class="act-section-title">📎 Evidencia que entregar:</div>
                 <ul>
                     <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
-                        nombre del programa, por ejemplo, RBV_Programa_Matriz_Adyacencia.</li>
+                        nombre del <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;programa, por ejemplo, RBV_Programa_Matriz_Adyacencia.</li>
                     <li>b) Programa executable.</li>
                     <li>c) Corrida del programa, en un archivo PDF.</li>
                 </ul>
