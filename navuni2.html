@@ -48,114 +48,139 @@
     <header class="w-full nav-bg-custom shadow-md rounded-b-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="flex items-center justify-between py-3" aria-label="Navegación principal">
-              
-              <!-- Botón Menú Mobile -->
-              <button 
-                type="button" 
-                aria-expanded="false" 
-                aria-controls="nav-menu"
-                class="nav-toggle nav-toggle-custom md:hidden w-full flex items-center justify-between px-4 py-3 text-white font-black text-base bg-transparent border-none cursor-pointer rounded-xl focus:outline-none focus:ring-2 focus:ring-white transition">
-                <span class="tracking-wider uppercase drop-shadow-md">Menú</span>
-                <svg class="w-6 h-6 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-              </button>
 
-              <!-- Menú de Enlaces -->
-              <ul id="nav-menu" class="nav-links hidden md:flex items-center justify-center flex-wrap gap-2 list-none m-0 p-0 w-full">
-                
-                <!-- Inicio -->
-                <li>
-                  <a href="index.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
-                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                <!-- Botón Menú Mobile -->
+                <button type="button" aria-expanded="false" aria-controls="nav-menu"
+                    class="nav-toggle nav-toggle-custom md:hidden w-full flex items-center justify-between px-4 py-3 text-white font-black text-base bg-transparent border-none cursor-pointer rounded-xl focus:outline-none focus:ring-2 focus:ring-white transition">
+                    <span class="tracking-wider uppercase drop-shadow-md">Menú</span>
+                    <svg class="w-6 h-6 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
-                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Inicio</span>
-                  </a>
-                </li>
+                </button>
 
-                <!-- Unidad I -->
-                <li>
-                  <a href="navuni1.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
-                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                    </svg>
-                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad I</span>
-                  </a>
-                </li>
+                <!-- Menú de Enlaces -->
+                <ul id="nav-menu"
+                    class="nav-links hidden md:flex items-center justify-center flex-wrap gap-2 list-none m-0 p-0 w-full">
 
-                <!-- Unidad II -->
-                <li>
-                  <a href="navuni2.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group bg-white/20 rounded-lg border-b-2 border-yellow-400">
-                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                    </svg>
-                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad II</span>
-                    <span class="w-2 h-2 rounded-full bg-yellow-400 shadow-sm animate-pulse"></span>
-                  </a>
-                </li>
+                    <!-- Inicio -->
+                    <li>
+                        <a href="index.html"
+                            class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                            <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg>
+                            <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Inicio</span>
+                        </a>
+                    </li>
 
-                <!-- Unidad III -->
-                <li>
-                  <a href="navuni3.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
-                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
-                    </svg>
-                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad III</span>
-                  </a>
-                </li>
+                    <!-- Unidad I -->
+                    <li>
+                        <a href="navuni1.html"
+                            class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                            <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                            <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad I</span>
+                        </a>
+                    </li>
 
-                <!-- Unidad IV -->
-                <li>
-                  <a href="navuni4.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
-                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                    </svg>
-                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad IV</span>
-                  </a>
-                </li>
+                    <!-- Unidad II -->
+                    <li>
+                        <a href="navuni2.html"
+                            class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group bg-white/20 rounded-lg border-b-2 border-yellow-400">
+                            <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                            <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad II</span>
+                            <span class="w-2 h-2 rounded-full bg-yellow-400 shadow-sm animate-pulse"></span>
+                        </a>
+                    </li>
 
-                <!-- Rúbrica -->
-                <li>
-                  <a href="navuni8.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
-                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                    </svg>
-                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Rúbrica</span>
-                  </a>
-                </li>
+                    <!-- Unidad III -->
+                    <li>
+                        <a href="navuni3.html"
+                            class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                            <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                            </svg>
+                            <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad III</span>
+                        </a>
+                    </li>
 
-                <!-- Cierre -->
-                <li>
-                  <a href="navuni7.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
-                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
-                    </svg>
-                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Cierre</span>
-                  </a>
-                </li>
+                    <!-- Unidad IV -->
+                    <li>
+                        <a href="navuni4.html"
+                            class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                            <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                            <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Unidad IV</span>
+                        </a>
+                    </li>
 
-                <!-- Glosario -->
-                <li>
-                  <a href="navuni5.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
-                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                    </svg>
-                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Glosario</span>
-                  </a>
-                </li>
+                    <!-- Rúbrica -->
+                    <li>
+                        <a href="navuni8.html"
+                            class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                            <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                            </svg>
+                            <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Rúbrica</span>
+                        </a>
+                    </li>
 
-                <!-- Bibliografía -->
-                <li>
-                  <a href="navuni6.html" class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
-                    <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
-                    </svg>
-                    <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Bibliografía</span>
-                  </a>
-                </li>
+                    <!-- Cierre -->
+                    <li>
+                        <a href="navuni7.html"
+                            class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                            <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                            </svg>
+                            <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Cierre</span>
+                        </a>
+                    </li>
 
-              </ul>
+                    <!-- Glosario -->
+                    <li>
+                        <a href="navuni5.html"
+                            class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                            <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                            <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Glosario</span>
+                        </a>
+                    </li>
+
+                    <!-- Bibliografía -->
+                    <li>
+                        <a href="navuni6.html"
+                            class="nav-link-underline inline-flex items-center gap-2 px-3.5 py-2 text-sm font-black text-white tracking-wide relative hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 group">
+                            <svg class="w-4 h-4 text-white stroke-[2.5] drop-shadow-sm group-hover:scale-110 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                            </svg>
+                            <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">Bibliografía</span>
+                        </a>
+                    </li>
+
+                </ul>
             </nav>
         </div>
     </header>
@@ -282,16 +307,20 @@
         <div class="exercise-box">
             <div class="ex-label">✏️ Realizar el siguiente ejercicio:</div>
             <ol>
-                <li><strong>1)</strong> Declara un vector de tipo char de tamaño 12, represéntalo como quedaría en memoria utilizando un
+                <li><strong>1)</strong> Declara un vector de tipo char de tamaño 12, represéntalo como quedaría en
+                    memoria utilizando un
                     subíndice (i).</li>
-                <li><strong>2)</strong>  Declara un arreglo unidimensional de tipo entero de tamaño 10, represéntalo como quedaría en
+                <li><strong>2)</strong> Declara un arreglo unidimensional de tipo entero de tamaño 10, represéntalo como
+                    quedaría en
                     memoria
-                    utilizando un subíndice (i).</li>
-                <li><strong>3)</strong> Declara un array de tipo flotante de tamaño 8, represéntalo como quedaría en memoria utilizando un
+                    utilizando <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;un subíndice (i).</li>
+                <li><strong>3)</strong> Declara un array de tipo flotante de tamaño 8, represéntalo como quedaría en
+                    memoria utilizando un
                     subíndice (i).</li>
-                <li><strong>4)</strong> Declara un arreglo unidimensional de tipo string de tamaño 15, represéntalo como quedaría en
+                <li><strong>4)</strong> Declara un arreglo unidimensional de tipo string de tamaño 15, represéntalo como
+                    quedaría en
                     memoria
-                    utilizando un subíndice (i).</li>
+                    utilizando <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;un subíndice (i).</li>
             </ol>
         </div>
         <div class="section-header" data-num="2.1.2">
@@ -321,26 +350,34 @@
                 <div class="act-section-title">📋 Instrucciones</div>
                 <ol>
                     <li>1. Declara el arreglo unidimensional de tipo string que se llame Jugador de tamaño [6], también
-                        declara una variable <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;de tipo string que se llame Buscar_Jugador.
+                        declara una variable <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;de tipo string que se llame
+                        Buscar_Jugador.
                     </li>
                     <li>2. La forma de asignar los nombres de los jugadores al arreglo unidimensional, será
-                        solicitándole el nombre del <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jugador al usuario. Se tendrá que utilizar una estructura de control
+                        solicitándole el nombre del <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jugador al usuario. Se tendrá que
+                        utilizar una estructura de control
                         como es el For.
                     </li>
                     <li>3. Al recibir el nombre tendrá que almacenarse en la posición de memoria que está representada
                         por el subíndice (i) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;del arreglo unidimensional.
                     </li>
                     <li>4. Después de haber almacenado los nombres de los jugadores en el arreglo, a través de la
-                        estructura de control For, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;se recorrerá para mostrar el siguiente mensaje: “En la posición TAL
+                        estructura de control For, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;se recorrerá para mostrar el
+                        siguiente mensaje: “En la posición TAL
                         del arreglo, se encuentra el jugador TAL”.
                     </li>
                     <li>5. Posteriormente, volver a recorrer el arreglo con la estructura de control For para realizar
-                        la tercera operación que <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;es la de búsqueda. Para llevar a cabo esta parte, se le pedirá al
-                        usuario el nombre del jugador a buscar, el cual será <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;almacenado en la variable Buscar_Jugador,
-                        después se tendrá que recorrer cada uno de los elementos del vector<br>&nbsp;&nbsp;&nbsp;&nbsp;para compararlo con la
-                        variable Buscar_Jugador, y si hay coincidencia se deberá mandar un mensaje “El nombre <br>&nbsp;&nbsp;&nbsp;del
+                        la tercera operación que <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;es la de búsqueda. Para llevar a cabo
+                        esta parte, se le pedirá al
+                        usuario el nombre del jugador a buscar, el cual será
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;almacenado en la variable Buscar_Jugador,
+                        después se tendrá que recorrer cada uno de los elementos del
+                        vector<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;para compararlo con la
+                        variable Buscar_Jugador, y si hay coincidencia se deberá mandar un mensaje “El nombre
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;del
                         jugador se encuentre en la posición TAL del arreglo unidimensional” y en dado caso que no se
-                        encuentre, enviar el <br>&nbsp;&nbsp;&nbsp;mensaje “El nombre del jugador no se encuentra en el arreglo
+                        encuentre, enviar <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;el mensaje “El nombre del jugador no se
+                        encuentra en el arreglo
                         unidimensional”.
                     </li>
                 </ol>
@@ -469,17 +506,22 @@
                         <div class="act-section-title">📋 Instrucciones</div>
                         <ol>
                             <li>1. Declara el arreglo unidimensional de tipo int que se llame Numeros_Pares [10],
-                                también declara dos variables de <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tipo int que se llamen Acumulador y Suma_Total
+                                también declara dos variables de <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tipo int que se
+                                llamen Acumulador y Suma_Total
                                 (asignándoles 0)
                             </li>
                             <li>
                                 2. Para asignar los números pares (2,4,6,8,10, 12, 14, 16, 18 y 20) al arreglo
-                                unidimensional, será utilizando una <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;estructura de control For y de forma automática
-                                asignándole la variable Acumulador, la cual se ira acumulando de<br>&nbsp;&nbsp;&nbsp;&nbsp; dos en dos
+                                unidimensional, será utilizando una <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;estructura de
+                                control For y de forma automática
+                                asignándole la variable Acumulador, la cual se ira acumulando
+                                de<br>&nbsp;&nbsp;&nbsp;&nbsp; dos en dos
                             </li>
-                            <li>3.- Después de haber almacenado los números al arreglo, a través de la estructura de
-                                control For, se recorrerá para <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mostrar el siguiente mensaje: “En la posición TAL del
-                                arreglo, se encuentra el valor TAL”. También deberán<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mostrar “La suma total de los
+                            <li>3. Después de haber almacenado los números al arreglo, a través de la estructura de
+                                control For, se recorrerá para <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mostrar el
+                                siguiente mensaje: “En la posición TAL del
+                                arreglo, se encuentra el valor TAL”. También deberán<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                mostrar “La suma total de los
                                 elementos del vector es:”
                             </li>
                         </ol>
@@ -536,18 +578,27 @@
                                 <td>6</td>
                             </tr>
                         </table>
-                        <p>1️ . ¿Qué valor devuelve la instrucción: Dias_semana[3]? 🤔<br>
-                            2️ . ¿Qué valor devuelve la instrucción: Dias_semana[0]? 🤔<br>
-                            3️ . ✏️ Si ejecutamos la orden: Dias_semana[5] = NULL ¿Cómo queda la lista completa de datos
-                            ahora?<br>
-                            4️. ⚠️ ERROR COMÚN: ¿Qué pasa si intentas pedir: Dias_Sema[7]? </p>
 
-                        <p>👨‍🏫 El docente valida las respuestas con todo el grupo:<br>
-                            ✅ Jueves<br>
-                            ✅ Lunes<br>
-                            ✅ [Lunes, Martes, Miercoles, Jueves, Viernes, , Domingo]<br>
-                            ✅ Explica el concepto de fuera de limite, como el índice máximo es 6 , pedir la posición 7
-                            provoca que el programa falle porque está intentando leer memoria que no le pertenece.</p>
+                        <!-- Incisos / Preguntas con sangría -->
+                        <div style="margin-left: 1.5rem; margin-top: 1rem;">
+                            <p>1️ . ¿Qué valor devuelve la instrucción: Dias_semana[3]? 🤔</p>
+                            <p>2️ . ¿Qué valor devuelve la instrucción: Dias_semana[0]? 🤔</p>
+                            <p>3️ . ✏️ Si ejecutamos la orden: Dias_semana[5] = NULL ¿Cómo queda la lista completa de
+                                datos ahora?</p>
+                            <p>4️. ⚠️ ERROR COMÚN: ¿Qué pasa si intentas pedir: Dias_Sema[7]?</p>
+                        </div>
+
+                        <p>👨‍🏫 El docente valida las respuestas con todo el grupo:</p>
+
+                        <!-- Pasos / Respuestas con sangría -->
+                        <div style="margin-left: 1.5rem;">
+                            <p>✅ Jueves</p>
+                            <p>✅ Lunes</p>
+                            <p>✅ [Lunes, Martes, Miercoles, Jueves, Viernes, , Domingo]</p>
+                            <p>✅ Explica el concepto de fuera de limite, como el índice máximo es 6 , pedir la posición
+                                7 provoca que el programa falle porque está intentando leer memoria que no le pertenece.
+                            </p>
+                        </div>
 
                         <p>📝 Evaluación formativa rápida: Cada estudiante debe escribir en su cuaderno la respuesta a
                             la
@@ -558,8 +609,6 @@
                             un
                             conjunto de datos que son del mismo tipo (homogéneos). Para el acceso a los elementos es de
                             forma instantánea usando su posición (subíndice).</p>
-
-
 
                     </div>
                 </div>
@@ -697,20 +746,27 @@
             </div>
         </div>
 
-        <div class="exercise-box">
-            <div class="ex-label">✏️ Realizar el siguiente ejercicio:</div>
-            <ol>
-                <li>1) Declara un arreglo bidimensional de tipo char de tamaño (5x4), represéntalo como quedaría en
-                    memoria
-                    utilizando dos subíndices[i][j].</li>
-                <li>2) Declara un arreglo bidimensional de tipo entero de tamaño (3x6), represéntalo como quedaría
-                    en
-                    memoria utilizando dos subíndices[i][j].</li>
-                <li>3) Declara un arreglo bidimensional de tipo flotante de tamaño (2x4), represéntalo como
-                    quedaría en
-                    memoria utilizando dos subíndices[i][j].</li>
-            </ol>
+    <div class="exercise-box">
+        <div class="ex-label">✏️ Realizar el siguiente ejercicio:</div>
+
+        <div style="margin-left: 1rem; margin-top: 0.5rem;">
+            <p style="padding-left: 1.2rem; text-indent: -1.2rem; margin: 0.25rem 0;">
+                1) Declara un arreglo bidimensional de tipo char de tamaño (5x4), represéntalo como quedaría en
+                memoria
+                utilizando dos subíndices[i][j].
+            </p>
+            <p style="padding-left: 1.2rem; text-indent: -1.2rem; margin: 0.25rem 0;">
+                2) Declara un arreglo bidimensional de tipo entero de tamaño (3x6), represéntalo como quedaría
+                en
+                memoria utilizando dos subíndices[i][j].
+            </p>
+            <p style="padding-left: 1.2rem; text-indent: -1.2rem; margin: 0.25rem 0;">
+                3) Declara un arreglo bidimensional de tipo flotante de tamaño (2x4), represéntalo como
+                quedaría en
+                memoria utilizando dos subíndices[i][j].
+            </p>
         </div>
+    </div>
         <div class="section-header" data-num="2.2.2">
             <h2><span class="section-emoji">📊</span>2.2.2 Formas de uso</h2>
         </div>
@@ -756,25 +812,30 @@
                 </p>
 
                 <div class="act-section-title">Instrucciones</div>
-                <ol>
-                    <li>1. Declara el arreglo bidimensional que se llame Matriz_Identidad de tipo de dato entero de
+                <div style="margin-left: 1rem; margin-top: 0.5rem;">
+                    <p style="padding-left: 1.2rem; text-indent: -1.2rem; margin: 0.25rem 0;">
+                        1. Declara el arreglo bidimensional que se llame Matriz_Identidad de tipo de dato entero de
                         tamaño
                         (4x4).
-                    </li>
-                    <li>2. La forma de asignar los elementos a la matriz identidad, será de forma automática,
+                    </p>
+                    <p style="padding-left: 1.2rem; text-indent: -1.2rem; margin: 0.25rem 0;">
+                        2. La forma de asignar los elementos a la matriz identidad, será de forma automática,
                         utilizando
                         dos estructuras de control For, el primer For está representado por el subíndice [i] que
                         son las
                         filas y el segundo For está representado por el subíndice [j] que son las columnas,
                         dentro de
                         este For se debe utilizar una condición para llenar los elementos de la matriz
-                        identidad.</li>
-                    <li>3. Después de haber asignado los elementos a la matriz identidad, nuevamente se tiene que
+                        identidad.
+                    </p>
+                    <p style="padding-left: 1.2rem; text-indent: -1.2rem; margin: 0.25rem 0;">
+                        3. Después de haber asignado los elementos a la matriz identidad, nuevamente se tiene que
                         recorrer
                         con doble For para mostrar el siguiente mensaje: "En la posición TAL de la matriz
                         identidad, se
-                        encuentra el valor TAL".</li>
-                </ol>
+                        encuentra el valor TAL".
+                    </p>
+                </div>
 
             </div>
         </div>
@@ -885,18 +946,24 @@
                         dato
                         entero (int).</li>
                     <li>2. La forma de asignar los elementos a la matriz A, será de forma automática, utilizando la
-                        estructura de control For<br>&nbsp;&nbsp;&nbsp;&nbsp; para los dos primeros ciclos utilizando el subíndice [i] que
-                        representan las filas y el subíndice (j) para las columnas. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Los valores que va a
+                        estructura de control For<br>&nbsp;&nbsp;&nbsp;&nbsp; para los dos primeros ciclos utilizando el
+                        subíndice [i] que
+                        representan las filas y el subíndice (j) para las columnas.
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Los valores que va a
                         contener la
-                        matriz A son 1,2,3,4,5,6.</li>
+                        matriz A son 1,2,3,4,5,6.
+                    </li>
                     <li>3. Los siguientes dos For serán para realizar la traspuesta, donde las filas de la matriz A
                         van a
                         pasar como columnas a<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; la matriz At.</li>
                     <li>4. Después nuevamente se tendrá que utilizar la estructura de control For para realizar el
-                        recorrido de los elementos<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; de ambas matrices para mostrar el siguiente mensaje: "En la
+                        recorrido de los elementos<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; de ambas matrices para mostrar el
+                        siguiente mensaje: "En la
                         posición
-                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TAL de la matriz A, se encuentra el valor TAL". Así será de igual forma para la matriz
-                        At.</li>
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TAL de la matriz A, se encuentra el valor TAL". Así será de
+                        igual forma para la matriz
+                        At.
+                    </li>
                 </ol>
 
                 <div class="act-section-title">📎 Evidencia que entregar:</div>
@@ -969,26 +1036,49 @@
                     ✏️ De forma individual, deben resolver el siguiente ejercicio:
                 </p>
 
-                <p>
-                    1. ¿Qué coordenada matriz[fila][columna] contiene el emoji (🐜)?<br>
-                    2. ¿Qué emoji se encuentra en la coordenada matriz [2][3]?<br>
-                    3. ¿Qué ocurre si el código intenta ejecutar matriz [1][1] = '🦋'?<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Explica el cambio.<br>
-                    4. ¿Qué ocurre si el código intenta ejecutar matriz[0][2] = NULL?<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Explica el cambio.<br>
-                    5. ❓ ¿Cuáles son las dimensiones totales de esta matriz? (Expresado en filas x columnas).
-                </p>
+                <!-- Preguntas con sangría y sub-sangría -->
+                <div style="margin-left: 1rem; margin-top: 0.5rem;">
+                    <p style="padding-left: 1.2rem; text-indent: -1.2rem; margin: 0.25rem 0;">
+                        1. ¿Qué coordenada matriz[fila][columna] contiene el emoji (🐜)?
+                    </p>
+                    <p style="padding-left: 1.2rem; text-indent: -1.2rem; margin: 0.25rem 0;">
+                        2. ¿Qué emoji se encuentra en la coordenada matriz [2][3]?
+                    </p>
+                    <p style="padding-left: 1.2rem; text-indent: -1.2rem; margin: 0.25rem 0;">
+                        3. ¿Qué ocurre si el código intenta ejecutar matriz [1][1] = '🦋'?
+                    </p>
+                    <p style="margin-left: 2.4rem; margin-top: 0; margin-bottom: 0.25rem;">
+                        Explica el cambio.
+                    </p>
+                    <p style="padding-left: 1.2rem; text-indent: -1.2rem; margin: 0.25rem 0;">
+                        4. ¿Qué ocurre si el código intenta ejecutar matriz[0][2] = NULL?
+                    </p>
+                    <p style="margin-left: 2.4rem; margin-top: 0; margin-bottom: 0.25rem;">
+                        Explica el cambio.
+                    </p>
+                    <p style="padding-left: 1.2rem; text-indent: -1.2rem; margin: 0.25rem 0;">
+                        5. ❓ ¿Cuáles son las dimensiones totales de esta matriz? (Expresado en filas x columnas).
+                    </p>
+                </div>
 
                 <p>
                     Cierre: Consolidación y conclusión🔄 <br>
-                     Momento para evaluar las respuestas.💡<br>
-                    🤔 Si para recorrer un array unidimensional de una sola fila se usa un ciclo For ¿cuántos ciclos For
-                    creen que se necesitan para recorrer toda la matriz completa, fila por fila y columna por
-                    columna?<br>
-                    📍 Cuál es la coordenada exacta para cambiar el emoji último de la esquina inferior izquierda por
-                    una
-                    flor (' 🌻').
+                    Momento para evaluar las respuestas.💡
                 </p>
+
+                <!-- Preguntas de Cierre con sangría limpia -->
+                <div style="margin-left: 1rem;">
+                    <p style="padding-left: 1.5rem; text-indent: -1.5rem; margin: 0.25rem 0;">
+                        🤔 Si para recorrer un array unidimensional de una sola fila se usa un ciclo For ¿cuántos ciclos For
+                        creen que se necesitan para recorrer toda la matriz completa, fila por fila y columna por
+                        columna?
+                    </p>
+                    <p style="padding-left: 1.5rem; text-indent: -1.5rem; margin: 0.25rem 0;">
+                        📍 Cuál es la coordenada exacta para cambiar el emoji último de la esquina inferior izquierda por
+                        una
+                        flor (' 🌻').
+                    </p>
+                </div>
 
                 <p>
                     ✅ Se llega a la conclusión que la estructura de datos arreglo bidimensional es eficiente porque
@@ -998,7 +1088,6 @@
 
             </div>
         </div>
-
         <div class="section-header burgundy" data-num="2.3">
             <h2><span class="section-emoji">📊</span>2.3 Arreglos Multidimensionales (Data Warehouse)</h2>
         </div>
@@ -1040,11 +1129,16 @@
     </div>
 
     <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; gap:20px; padding:24px 24px 0;">
-        <div style="flex:1; height:3px; background:linear-gradient(90deg,transparent,#2d3748,#4a5568); border-radius:4px;"></div>
-        <span style="font-size:0.82rem; font-family:'Outfit',sans-serif; color:#1a202c; font-weight:600; letter-spacing:0.3px; text-transform:uppercase; white-space:nowrap; text-align:center; padding:0 12px;">
+        <div
+            style="flex:1; height:3px; background:linear-gradient(90deg,transparent,#2d3748,#4a5568); border-radius:4px;">
+        </div>
+        <span
+            style="font-size:0.82rem; font-family:'Outfit',sans-serif; color:#1a202c; font-weight:600; letter-spacing:0.3px; text-transform:uppercase; white-space:nowrap; text-align:center; padding:0 12px;">
             Pon a prueba los conocimientos adquiridos en esta unidad descargando el ejercicio correspondiente
         </span>
-        <div style="flex:1; height:3px; background:linear-gradient(90deg,#4a5568,#2d3748,transparent); border-radius:4px;"></div>
+        <div
+            style="flex:1; height:3px; background:linear-gradient(90deg,#4a5568,#2d3748,transparent); border-radius:4px;">
+        </div>
     </div>
 
     <!-- Botón de descarga del examen -->
