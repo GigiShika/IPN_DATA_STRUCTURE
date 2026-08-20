@@ -202,16 +202,6 @@
             </ul>
         </div>
 
-        <p class="exercise-box">
-            Imaginen que estamos comiendo con tortillas, de que parte toman la tortilla, la que esta hasta abajo, la que
-            está en medio o la primera, pues de la primera, si intentas sacar a la fuerza una tortilla que esta hasta
-            abajo ¿Qué va a pasar?
-            Así es como funciona una pila, último en entrar primero en salir, es lo que se conoce como el principio LIFO
-            (Last In, First Out), que en español significa: Último en Entrar, Primero en Salir. El último dato que
-            guardas es obligatoriamente el primero que tienes que sacar.
-        </p>
-
-
         <!-- ==================== 3.1 Apuntador ==================== -->
         <div class="section-header" data-num="3.1">
             <h2><span class="section-emoji">📍</span>3.1 Apuntador</h2>
@@ -237,6 +227,14 @@
         <div class="section-header dark" data-num="3.2">
             <h2><span class="section-emoji">🥞</span>3.2 Pilas</h2>
         </div>
+        <p class="exercise-box">
+            Imaginen que estamos comiendo con tortillas, de que parte toman la tortilla, la que esta hasta abajo, la que
+            está en medio o la primera, pues de la primera, si intentas sacar a la fuerza una tortilla que esta hasta
+            abajo ¿Qué va a pasar?
+            Así es como funciona una pila, último en entrar primero en salir, es lo que se conoce como el principio LIFO
+            (Last In, First Out), que en español significa: Último en Entrar, Primero en Salir. El último dato que
+            guardas es obligatoriamente el primero que tienes que sacar.
+        </p>
 
         <div class="subsection-header">
             <h3>¿Qué es una pila?</h3>
@@ -339,8 +337,8 @@
 
         <p class="body-text">Existen tres formas de poner en práctica las pilas:</p>
         <ol class="styled-list">
-            <li>1)Llamado de funciones, subrutinas, procedimientos, programas, etc.</li>
-            <li>2)Expresiones aritméticas.</li>
+            <li>1) Llamado de funciones, subrutinas, procedimientos, programas, etc.</li>
+            <li>2) Expresiones aritméticas.</li>
         </ol>
         <p class="body-text">Iniciaremos con el punto 1 llamado de funciones, antes de continuar es importante
             comprender que es una función. Las funciones son un conjunto de procedimientos encapsulados en un bloque.
@@ -436,7 +434,7 @@
                 <div class="act-section-title">📎 Evidencia que entregar</div>
                 <ul>
                     <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
-                        nombre del programa, por ejemplo, RBV_Programa_Pila.</li>
+                        nombre del <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;programa, por ejemplo, RBV_Programa_Pila.</li>
                     <li>b) Programa executable.</li>
                     <li>c) Corrida del programa, en un archivo PDF.</li>
                 </ul>
@@ -496,7 +494,7 @@
             <h3>Pasos para convertir una expresión infija a postfija</h3>
         </div>
         <ol class="styled-list">
-            <li><strong>1.- </strong>Los operadores de prioridad más altas se convierten primero<br>
+            <li><strong>1.  </strong>Los operadores de prioridad más altas se convierten primero<br>
             </li>
             <ul class="operations-list">
                 <li><strong>()</strong>&nbsp; </li>
@@ -504,9 +502,9 @@
                 <li><strong>* /</strong>&nbsp; </li>
                 <li><strong>+ - </strong>&nbsp;</li>
             </ul>
-            <li><strong>2.- </strong>Después que una parte de la expresión ha sido convertida, se trata como un solo
+            <li><strong>2.  </strong>Después que una parte de la expresión ha sido convertida, se trata como un solo
                 operando.</li>
-            <li><strong>3.- </strong>Si son de igual prioridad,
+            <li><strong>3.  </strong>Si son de igual prioridad,
                 se procesan de izquierda a derecha, como son el
                 caso de / * y + -.</li>
             <p class="body-text">El siguiente paso después de haber convertido la expresión infija a postfija, es
@@ -515,10 +513,10 @@
 
         </ol>
         <ol class="styled-list">
-            <li><strong>1.- </strong>Explorar la expresión de izquierda a derecha.</li>
-            <li><strong>2.- </strong>Cada vez que se encuentra un operador, aplíquese a los operandos inmediatamente
+            <li><strong>1.  </strong>Explorar la expresión de izquierda a derecha.</li>
+            <li><strong>2.  </strong>Cada vez que se encuentra un operador, aplíquese a los operandos inmediatamente
                 precedentes.</li>
-            <li><strong>3.- </strong>Continuar la exploración a la derecha.</li>
+            <li><strong>3. </strong>Continuar la exploración a la derecha.</li>
         </ol>
 
         <div class="exercise-box">
@@ -539,7 +537,7 @@
             </div>
         </div>
 
-        <!-- Actividad UTIII_A2 -->
+        <!-- Ejercicio programa expresión infija: -->
         <div class="exercise-box">
             <div class="act-header">
 
@@ -548,12 +546,12 @@
             <div class="act-body">
                 <div class="act-section-title">Propósito</div>
                 <p style="margin-bottom:12px;">Comprender la aplicación de una pila en las expresiones infijas.</p>
-                <p class="font-bold mb-2">1.- Convertir la siguiente expresión infija a postfija</p>
+                <p class="font-bold mb-2">1.  Convertir la siguiente expresión infija a postfija</p>
                 <p>A) A / B * C / D / E ^ F</p>
-                <p class="font-bold mt-4 mb-2">2.- Evaluar cada una de las expresiones infijas, sustituyendo los
+                <p class="font-bold mt-4 mb-2">2.  Evaluar cada una de las expresiones infijas, sustituyendo los
                     operandos (letras) por los siguientes valores:</p>
                 <p>A=1, B=2, C=3, D=4, E=5, F=6</p>
-                <p class="font-bold mt-4 mb-2">3.- Denotar paso a paso la separación de los operadores y operando,
+                <p class="font-bold mt-4 mb-2">3.  Denotar paso a paso la separación de los operadores y operando,
                     llenar el siguiente cuadro: (en la columna de pila van los operadores (signos))</p>
                 <div class="dl-grid">
                     <a href="assets/documents/Tabla_Pila.pdf" download class="dl-card btn-parcial">
@@ -566,24 +564,28 @@
                         <span class="dl-arrow">↓</span>
                     </a>
                 </div>
-                <div class="act-section-title">4.- Realizar el programa de la anterior expresión infija</div>
+                <div class="act-section-title">4.  Realizar el programa de la anterior expresión infija</div>
                 <p style="margin-bottom:12px;">Pasos para realizar el programa:</p>
                 <ol>
-                    <li><strong>A) </strong> los siguientes vectores,
-                        a Vector_Exp_Inf asignarle los valores de l
-                        a expresión infija<br>
-                        Vector_Exp_Inf[]={“A”, “ /”, “B”, “*”, “C”, “/”, “D”, “/”, ”E”,”^”, ”F”}<br>
-                        Vector_Pila[5]<br>
-                        Vector_Operando[6]<br>
-                        Vector_Exp_Inf[11]</li>
-                    <li><strong>B) </strong> Separar los operandos de los operadores,
-                        en el vector pila guardar los operadores
-                        (acomodar de acuerdo con el nivel jerárquico
-                        , comparando cada uno de los operadores y si
-                        es de mayor rango se van a intercambiar y
-                        así sucesivamente).</li>
-                    <li><strong>C) </strong> Convertir la expresión infija a postfija tomando en cuenta los operadores
-                        de la pila, utilizando las llamadas de las funciones de push, pop y mostrar.</li>
+                    <li>
+                        <strong>A) </strong> los siguientes vectores,
+                        <div style="padding-left: 2rem;">
+                            a Vector_Exp_Inf asignarle los valores de l a expresión infija<br>
+                            Vector_Exp_Inf[]={“A”, “ /”, “B”, “*”, “C”, “/”, “D”, “/”, ”E”,”^”, ”F”}<br>
+                            Vector_Pila[5]<br>
+                            Vector_Operando[6]<br>
+                            Vector_Exp_Inf[11]
+                        </div>
+                    </li>
+                    <li>
+                        <strong>B) </strong> Separar los operandos de los operadores,
+                        <div style="padding-left: 2rem;">
+                            en el vector pila guardar los operadores (acomodar de acuerdo con el nivel jerárquico, comparando cada uno de los operadores y si es de mayor rango se van a intercambiar y así sucesivamente).
+                        </div>
+                    </li>
+                    <li>
+                        <strong>C) </strong> Convertir la expresión infija a postfija tomando en cuenta los operadores de la pila, utilizando las llamadas de las funciones de push, pop y mostrar.
+                    </li>
                 </ol>
 
             </div>
@@ -804,7 +806,7 @@
         <p class="body-text">Para ilustrar el comportamiento dinámico de una cola y el movimiento de sus posiciones,
             analizaremos una secuencia de operaciones utilizando los días de la semana como conjunto de datos.</p>
         <ol class="styled-list">
-            <li><strong>1.- Push (FINAL, DIA)</strong> Supongamos que se insertan en la cola los siguientes elementos en
+            <li><strong>1.  Push (FINAL, DIA)</strong> Supongamos que se insertan en la cola los siguientes elementos en
                 estricto orden: lunes, martes, miércoles, jueves y viernes. A continuación, se muestra la figura 6 de
                 como quedaría la estructura de datos Cola después de haber insertado los días.</li>
         </ol>
@@ -815,7 +817,7 @@
             </div>
         </div>
         <ol start="2" class="styled-list">
-            <li><strong>2.- Eliminación Pop (FRENTE)</strong> Si se ejecuta una operación de eliminación, el elemento
+            <li><strong>2.  Eliminación Pop (FRENTE)</strong> Si se ejecuta una operación de eliminación, el elemento
                 «lunes» será el primero en salir, ya que fue el primero en llegar, cumpliendo así con el principio FIFO
                 primero en llegar, primero en salir. La siguiente figura 7 muestra que sucede cuando se elimina el
                 lunes:</li>
@@ -827,7 +829,7 @@
             </div>
         </div>
         <ol start="3" class="styled-list">
-            <li><strong>3.- Nueva Inserción Push(FINAL, DIA)</strong> Si a continuación se inserta el elemento «sábado»,
+            <li><strong>3.  Nueva Inserción Push(FINAL, DIA)</strong> Si a continuación se inserta el elemento «sábado»,
                 este debe ingresar por el extremo posterior de la estructura. A continuación, se muestra la figura 8 de
                 como quedaría la estructura de datos Cola después de haber insertado el sábado.</li>
         </ol>
@@ -837,7 +839,7 @@
                 <div class="img-caption">Figura 8 Aplicación Push de una estructura de datos Cola</div>
             </div>
         </div>
-        <p class="body-text"><strong>4.- Análisis de Secuencia de Operaciones</strong> A partir del estado anterior
+        <p class="body-text"><strong>4. Análisis de Secuencia de Operaciones</strong> A partir del estado anterior
             (donde el Frente es «martes» y el Final es «sábado»), evaluemos qué ocurre al ejecutar la siguiente serie de
             instrucciones:</p>
         <ul class="styled-list">
@@ -1016,14 +1018,30 @@
         <p class="body-text">Las diferencias que existen entre los arreglos unidimensionales y las listas en lazadas
             son:</p>
         <ul class="styled-list">
-            <li><strong>a) </strong> acceso de forma aleatoria a un arreglo unidimensional es más eficiente que en una
-                lista enlazada, esto es por la forma en que cada estructura almacena los elementos.</li>
-            <li><strong>b) </strong>Para la búsqueda de un elemento de la lista enlazada, se deben de recorrer todos los
-                elementos desde el inicio hasta que se encuentre el elemento que se busca.</li>
-            <li><strong>c) </strong>Para almacenar los elementos a una lista enlazada se requiere de memoria extra. En
-                cambio, para los arreglos unidimensionales no se requiere memoria adicional.</li>
-            <li><strong>d) </strong>En las listas enlazadas se pueden eliminar o insertar elementos reacomodando los
-                enlaces.</li>
+            <li>
+                <strong>a) </strong> acceso de forma aleatoria a un arreglo unidimensional es más eficiente que en una
+                <div style="padding-left: 1rem;">
+                    lista enlazada, esto es por la forma en que cada estructura almacena los elementos.
+                </div>
+            </li>
+            <li>
+                <strong>b) </strong>Para la búsqueda de un elemento de la lista enlazada, se deben de recorrer todos los
+                <div style="padding-left: 1rem;">
+                    elementos desde el inicio hasta que se encuentre el elemento que se busca.
+                </div>
+            </li>
+            <li>
+                <strong>c) </strong>Para almacenar los elementos a una lista enlazada se requiere de memoria extra. En
+                <div style="padding-left: 1rem;">
+                    cambio, para los arreglos unidimensionales no se requiere memoria adicional.
+                </div>
+            </li>
+            <li>
+                <strong>d) </strong>En las listas enlazadas se pueden eliminar o insertar elementos reacomodando los
+                <div style="padding-left: 1rem;">
+                    enlaces.
+                </div>
+            </li>
         </ul>
 
         <div class="section-header" data-num="3.4.2">
