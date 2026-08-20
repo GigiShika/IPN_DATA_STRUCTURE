@@ -1,3 +1,4 @@
 {
-    "liveServer.settings.multiRootWorkspaceName": "IPN_DATA_STRUCTURE"
+    "liveServer.settings.multiRootWorkspaceName": "IPN_DATA_STRUCTURE",
+    "liveServer.settings.port": 5501
 }
