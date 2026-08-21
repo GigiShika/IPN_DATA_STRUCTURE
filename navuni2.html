@@ -220,7 +220,7 @@
         </div>
         <p class="body-text">
             Figúrense que desean almacenar los nombres de sus 6 primos. Como se vio en la unidad temática I en el tema
-            de las variables, tendrían que crear 6 variables de tipo char separadas e independientes (primo 1, primo 2,
+            de las variables, tendrían que crear 6 variables de tipo String separadas e independientes (primo 1, primo 2,
             primo 3, etc.), pero se pretende almacenar todos los primos bajo un solo nombre Primos. Es similar a una
             cajonera, donde todos los cajones están juntos en un solo mueble.
         </p>
@@ -874,15 +874,17 @@
                 <pre><span style="color:#c792ea">int</span> int Arreglo_Bidimensional [2][3]={1,2,3,4,5,6}</pre>
             </div>
         </div>
-        <div class="concept-highlight">
-            <h3>4) Cuando se les piden los valores a los usuarios:</h3>
-            <div class="code-simple" style="margin-top:8px;">
-                <pre><span style="color:#c792ea">for</span> (<span style="color:#c792ea">int</span> i=0; i < 10; i++) {
-    cout << <span style="color:#6a9955">"Ingrese el valor del Arreglo_Bidimensional“</span>
-    cin >>  Arreglo_Bidimensional[i][j]
+<div class="concept-highlight">
+    <h3>4) Cuando se les piden los valores a los usuarios:</h3>
+    <div class="code-simple" style="margin-top:8px;">
+        <pre><span style="color:#c792ea">for</span> (<span style="color:#c792ea">int</span> i=0; i < 10; i++) {
+    <span style="color:#c792ea">for</span> (<span style="color:#c792ea">int</span> j=0; j < 10; j++) {
+        cout << <span style="color:#6a9955">"Ingrese el valor del Arreglo_Bidimensional“</span>
+        cin >>  Arreglo_Bidimensional[i][j]
+    }
 }</pre>
-            </div>
-        </div>
+    </div>
+</div>
 
         <div class="concept-highlight">
             <h3>5) Asignación automática:</h3>
@@ -892,7 +894,7 @@
 <span style="color:#c792ea">for</span> (<span style="color:#c792ea">int</span> i=0; i<	2; i++) 
     <span style="color:#c792ea">for</span> (<span style="color:#c792ea">int</span> j=0; i<3; j++) 
 
-    Arreglo_Bidimensional[i]=Acumulador
+    Arreglo_Bidimensional[i][j]=Acumulador
     Acumulador=Acumulador + 2
 
 </pre>
