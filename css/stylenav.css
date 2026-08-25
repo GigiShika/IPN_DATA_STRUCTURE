@@ -1624,6 +1624,7 @@ code {
 
 
 /* ===== UNITS GRID ===== */
+
 .units-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -1644,7 +1645,302 @@ code {
         font-size: 0.7rem;
     }
 }
+/* ===== MEDIA QUERIES - AGREGAR AL FINAL ===== */
 
+/* ─── TABLETS ────────────────────────────────── */
+@media (max-width: 1024px) {
+    .page-content {
+        padding: 32px 20px;
+    }
+}
+
+/* ─── CELULARES ─────────────────────────────── */
+@media (max-width: 768px) {
+    .top-bar {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 6px 12px;
+        gap: 8px;
+    }
+    .logo-left img, .logo-right img {
+        height: 45px;
+    }
+    .institution-text {
+        order: 3;
+        flex-basis: 100%;
+    }
+    .institution-text h2 {
+        font-size: 1rem;
+    }
+    .institution-text p {
+        font-size: 0.72rem;
+    }
+    .page-content {
+        padding: 24px 16px;
+    }
+    .unit-banner {
+        padding: 20px 20px;
+    }
+    .unit-banner h1 {
+        font-size: 0.85rem;
+    }
+    .unit-banner h2 {
+        font-size: 1.2rem;
+    }
+    .section-header {
+        padding: 14px 16px 14px 48px;
+    }
+    .section-header h2 {
+        font-size: 0.9rem;
+    }
+    .subsection-header h3 {
+        font-size: 0.98rem;
+    }
+    p.body-text, .body-text {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+    .topic-box {
+        padding: 18px 18px;
+    }
+    .topic-box ul li {
+        font-size: 0.85rem;
+    }
+    .competencia-box {
+        padding: 16px 18px;
+    }
+    .competencia-box p {
+        font-size: 0.9rem;
+    }
+    .exercise-box {
+        padding: 16px 18px;
+    }
+    .activity-box .act-header {
+        padding: 14px 18px;
+    }
+    .activity-box .act-body {
+        padding: 18px 18px;
+    }
+    .activity-box .act-footer {
+        padding: 12px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    .concept-highlight {
+        padding: 14px 16px;
+    }
+    .img-card {
+        padding: 8px;
+    }
+    .img-pair {
+        flex-direction: column;
+        align-items: center;
+    }
+    .img-pair .img-card img {
+        max-height: none;
+        max-width: 100%;
+    }
+    .float-img-card {
+        float: none;
+        width: 100%;
+        margin: 0 0 16px 0;
+    }
+    .datatypes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    .operations-list {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+    .nav-btn {
+        padding: 10px 18px;
+        font-size: 0.8rem;
+    }
+    .nav-btn-home {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
+    .dl-grid {
+        grid-template-columns: 1fr;
+    }
+    .page-footer {
+        padding: 24px 16px;
+    }
+    .matriz-tabla th, .matriz-tabla td {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+}
+
+/* ─── CELULARES PEQUEÑOS ────────────────────── */
+@media (max-width: 480px) {
+    .logo-left img, .logo-right img {
+        height: 35px;
+    }
+    .institution-text h2 {
+        font-size: 0.85rem;
+    }
+    .institution-text p {
+        font-size: 0.6rem;
+    }
+    .page-content {
+        padding: 16px 10px;
+    }
+    .unit-banner {
+        padding: 16px 14px;
+    }
+    .unit-banner h1 {
+        font-size: 0.7rem;
+    }
+    .unit-banner h2 {
+        font-size: 1rem;
+    }
+    .section-header {
+        padding: 12px 12px 12px 38px;
+    }
+    .section-header h2 {
+        font-size: 0.78rem;
+    }
+    .subsection-header h3 {
+        font-size: 0.85rem;
+    }
+    p.body-text, .body-text {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+    .topic-box {
+        padding: 14px 12px;
+    }
+    .topic-box ul li {
+        font-size: 0.78rem;
+    }
+    .competencia-box {
+        padding: 14px 14px;
+    }
+    .competencia-box p {
+        font-size: 0.85rem;
+    }
+    .exercise-box {
+        padding: 14px 14px;
+    }
+    .exercise-box li {
+        font-size: 0.82rem;
+    }
+    .activity-box .act-header {
+        padding: 12px 14px;
+    }
+    .activity-box .act-header h3 {
+        font-size: 0.85rem;
+    }
+    .activity-box .act-body {
+        padding: 14px 14px;
+    }
+    .activity-box li {
+        font-size: 0.82rem;
+    }
+    .activity-box .act-footer {
+        padding: 10px 14px;
+    }
+    .concept-highlight {
+        padding: 12px 14px;
+    }
+    .concept-highlight h3 {
+        font-size: 0.85rem;
+    }
+    .concept-highlight p {
+        font-size: 0.82rem;
+    }
+    .img-card {
+        padding: 6px;
+    }
+    .datatypes-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .datatype-chip {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+    }
+    .operations-list {
+        grid-template-columns: 1fr 1fr;
+    }
+    .operations-list li {
+        padding: 8px 12px;
+        font-size: 0.82rem;
+    }
+    .nav-btn {
+        padding: 8px 14px;
+        font-size: 0.75rem;
+    }
+    .nav-btn-home {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+    .dl-card {
+        padding: 12px 12px;
+    }
+    .dl-title {
+        font-size: 0.75rem;
+    }
+    .page-footer {
+        padding: 20px 14px;
+    }
+    .page-footer h3 {
+        font-size: 0.85rem;
+    }
+    .page-footer p {
+        font-size: 0.7rem;
+    }
+    .matriz-tabla th, .matriz-tabla td {
+        padding: 6px;
+        font-size: 0.7rem;
+    }
+    .units-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    .unit-card .p-5 {
+        padding: 0.75rem;
+    }
+    .unit-card h3 {
+        font-size: 0.85rem;
+    }
+    .unit-card p {
+        font-size: 0.7rem;
+    }
+}
+
+/* ─── PANTALLAS GRANDES ──────────────────────── */
+@media (min-width: 1400px) {
+    .page-content {
+        max-width: 1000px;
+        padding: 48px 32px;
+    }
+}
+
+/* ─── IMPRESIÓN ───────────────────────────────── */
+@media print {
+    .nav-bg-custom, .nav-toggle-custom, .nav-links,
+    .top-bar, .page-footer, .nav-btn, .nav-btn-home,
+    .dl-grid, .lb-overlay, .img-zoom-btn {
+        display: none !important;
+    }
+    .page-content {
+        padding: 20px !important;
+        max-width: 100% !important;
+    }
+    .img-card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+    .section-header, .activity-box, .exercise-box, .competencia-box {
+        break-inside: avoid;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}
 /* ===== RESALTADO ROJO ===== */
 .highlight-red {
     color: #dc2626;
