@@ -562,68 +562,86 @@ sino
 
         <!-- Actividad UTIV_A1 -->
         <div class="activity-box">
-            <div class="act-header">
-                <span class="act-badge">UTIV_A1</span>
-                <h3>📝 Actividad UTIV_A1 Programa recorridos_árbol_binario:</h3>
+    <div class="act-header">
+        <span class="act-badge">UTIV_A1</span>
+        <h3>📝 Actividad UTIV_A1 Programa recorridos_árbol_binario:</h3>
+    </div>
+    <div class="act-body">
+        <div class="act-section-title">🎯 Propósito</div>
+        <div style="margin:0;">
+            <div style="display:flex; margin-bottom:12px;">
+                <span style="flex:0 0 auto; margin-right:4px;"><strong>1 . </strong></span>
+                <span style="flex:1 1 auto;">un lenguaje de programación para declarar la estructura dinámica de un árbol binario.</span>
             </div>
-            <div class="act-body">
-                <div class="act-section-title">🎯 Propósito</div>
-                <p style="margin-bottom:12px;"><strong>1 . </strong> un lenguaje de programación para declarar la
-                    estructura dinámica
-                    de un árbol binario.</p>
-                <p style="margin-bottom:12px;"><strong>2 . </strong>La intención de esta actividad es que el estudiante
-                    comprenda las
-                    funciones que se realizan sobre los árboles <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;binarios, para este
-                    caso es el de mandar a llamar las
-                    funciones (void):</p>
-                <ul class="list-disc ml-5 mb-4">
-                    <li>void insertanodonuevo (ARBOL *, int);</li>
-                    <li>void inorden (ARBOL)</li>
-                    <li>void preorden (ARBOL)</li>
-                    <li>void postorden (ARBOL)</li>
-                    <li>void treefree (ARBOL)</li>
-                </ul>
-                <div class="act-section-title">📋 Instrucciones:</div>
-                <ol>
-                    <li><strong>1. </strong>Declara el árbol binario como se muestra a continuación con un struct
-                        node<br>
-                        <code>Struct nodoarbo{<br>
-                &nbsp;&nbsp;struct nodoarbol *izqnodo;<br>
-                &nbsp;&nbsp;int info;<br>
-                &nbsp;&nbsp;struct nodoarbol *dernodo;<br>
-                };<br>
-                typedef struct nodoarbol NODO;<br>
-                typedef NODO *ARBOL;</code>
-                    </li>
-                    <li><strong>a) </strong>La forma de asignar valores al árbol binario será a través del llamado de la
-                        función void
-                        insertanodonuevo (ARBOL <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*, int)</li>
-                    <li><strong>b) </strong>Para recorrer el árbol binario será de las tres formas llamando las
-                        funciones (void)
-                        respectivamente:
-                        <ul class="list-disc ml-5 mt-2">
-                            <li>void inorden (ARBOL)</li>
-                            <li>void preorden (ARBOL)</li>
-                            <li>void postorden (ARBOL)</li>
-                        </ul>
-                    </li>
-                    <li><strong>c) </strong>Por último, para liberar el espacio de memoria se tiene que llamar la
-                        función void treefree
-                        (ARBOL).</li>
-                </ol>
-                <div class="act-section-title">📎 Evidencia que entregar:</div>
-                <ul>
-                    <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
-                        nombre del<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; programa, por ejemplo,
-                        RBV_Programa_Recorridos_Arbol_Binario.</li>
-                    <li>b) Programa executable.</li>
-                    <li>c) Corrida del programa, en un archivo PDF.</li>
-                </ul>
+            <div style="display:flex; margin-bottom:12px;">
+                <span style="flex:0 0 auto; margin-right:4px;"><strong>2 . </strong></span>
+                <span style="flex:1 1 auto;">La intención de esta actividad es que el estudiante comprenda las funciones que se realizan sobre los árboles binarios, para este caso es el de mandar a llamar las funciones (void):</span>
             </div>
-            <div class="act-footer">
-                <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
-                <span class="act-points">⭐VALOR:10 puntos</span>
+        </div>
+        <ul class="list-disc ml-5 mb-4">
+            <li>void insertanodonuevo (ARBOL *, int);</li>
+            <li>void inorden (ARBOL)</li>
+            <li>void preorden (ARBOL)</li>
+            <li>void postorden (ARBOL)</li>
+            <li>void treefree (ARBOL)</li>
+        </ul>
+
+        <div class="act-section-title">📋 Instrucciones:</div>
+        <div style="margin:0;">
+            <div style="display:flex; margin-bottom:10px;">
+                <span style="flex:0 0 auto; margin-right:4px;"><strong>1. </strong></span>
+                <div style="flex:1 1 auto;">
+                    Declara el árbol binario como se muestra a continuación con un struct node<br>
+                    <code>Struct nodoarbo{<br>
+            &nbsp;&nbsp;struct nodoarbol *izqnodo;<br>
+            &nbsp;&nbsp;int info;<br>
+            &nbsp;&nbsp;struct nodoarbol *dernodo;<br>
+            };<br>
+            typedef struct nodoarbol NODO;<br>
+            typedef NODO *ARBOL;</code>
+                </div>
             </div>
+            <div style="display:flex; margin-bottom:10px;">
+                <span style="flex:0 0 auto; margin-right:4px;"><strong>a) </strong></span>
+                <span style="flex:1 1 auto;">La forma de asignar valores al árbol binario será a través del llamado de la función void insertanodonuevo (ARBOL *, int)</span>
+            </div>
+            <div style="display:flex; margin-bottom:10px;">
+                <span style="flex:0 0 auto; margin-right:4px;"><strong>b) </strong></span>
+                <div style="flex:1 1 auto;">
+                    Para recorrer el árbol binario será de las tres formas llamando las funciones (void) respectivamente:
+                    <ul class="list-disc ml-5 mt-2">
+                        <li>void inorden (ARBOL)</li>
+                        <li>void preorden (ARBOL)</li>
+                        <li>void postorden (ARBOL)</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="display:flex;">
+                <span style="flex:0 0 auto; margin-right:4px;"><strong>c) </strong></span>
+                <span style="flex:1 1 auto;">Por último, para liberar el espacio de memoria se tiene que llamar la función void treefree (ARBOL).</span>
+            </div>
+        </div>
+
+        <div class="act-section-title">📎 Evidencia que entregar:</div>
+        <div style="margin:0;">
+            <div style="display:flex; margin-bottom:6px;">
+                <span style="flex:0 0 auto; margin-right:4px;">a)</span>
+                <span style="flex:1 1 auto;">Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el nombre del programa, por ejemplo, RBV_Programa_Recorridos_Arbol_Binario.</span>
+            </div>
+            <div style="display:flex; margin-bottom:6px;">
+                <span style="flex:0 0 auto; margin-right:4px;">b)</span>
+                <span style="flex:1 1 auto;">Programa executable.</span>
+            </div>
+            <div style="display:flex;">
+                <span style="flex:0 0 auto; margin-right:4px;">c)</span>
+                <span style="flex:1 1 auto;">Corrida del programa, en un archivo PDF.</span>
+            </div>
+        </div>
+    </div>
+    <div class="act-footer">
+        <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
+        <span class="act-points">⭐VALOR:10 puntos</span>
+    </div>
         </div>
 
         <div class="subsection-header">
@@ -916,68 +934,107 @@ sino
 
         <!-- Actividad UTIV_A2 -->
         <div class="activity-box">
-            <div class="act-header">
-                <span class="act-badge">UTIV_A2</span>
-                <h3>📝 Actividad UTIV_A2 Grafo_Matriz_adyacencia</h3>
+    <div class="act-header">
+        <span class="act-badge">UTIV_A2</span>
+        <h3>📝 Actividad UTIV_A2 Grafo_Matriz_adyacencia</h3>
+    </div>
+    <div class="act-body">
+        <div class="act-section-title">🎯 Propósito</div>
+        <div style="display:flex; margin-bottom:12px;">
+            <span style="flex:0 0 auto; margin-right:4px;"><strong>1 . </strong></span>
+            <span style="flex:1 1 auto;">Aplicar las definiciones de un grafo, las formas de uso y utilizar un lenguaje de programación para declarar una Matriz_Adyacencia[6][6] y un Vector_Vertices[6] para programar un grafo y hacer uso de la pantalla a través del goto xy().</span>
+        </div>
+
+        <div class="act-section-title">📋 Instrucciones</div>
+        <div style="margin:0;">
+            <div style="display:flex; margin-bottom:10px;">
+                <span style="flex:0 0 auto; margin-right:4px;"><strong>1. </strong></span>
+                <div style="flex:1 1 auto;">
+                    Responde las siguientes preguntas
+                    <ul class="list-disc mt-2">
+                        <li>¿Qué es un Grafo?</li>
+                        <li>¿Qué es un Grafo dirigido?</li>
+                    </ul>
+                </div>
             </div>
-            <div class="act-body">
-                <div class="act-section-title">🎯 Propósito</div>
-                <p style="margin-bottom:12px;"><strong>1 . </strong>Aplicar las definiciones de un grafo, las formas de
-                    uso y utilizar un
-                    lenguaje de programación para declarar una Matriz_Adyacencia[6][6] y un Vector_Vertices[6] para
-                    programar un grafo y hacer uso de la pantalla a través del goto xy().</p>
-                <div class="act-section-title">📋 Instrucciones</div>
-                <ol>
-                    <li><strong>1. </strong>Responde las siguientes preguntas
-                        <ul class="list-disc mt-2">
-                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li>¿Qué es un Grafo?</li>
-                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li>¿Qué es un Grafo dirigido?</li>
-                        </ul>
-                    </li>
-                    <li><strong>2. </strong>Se tiene el siguiente grafo y contesta los siguientes incisos
-                        <div class="img-wrap sm mt-2">
-                            <div class="img-card">
-                                <img src="assets/img/imguni4-31.png" alt="Grafo para actividad">
-                            </div>
+            <div style="display:flex; margin-bottom:10px;">
+                <span style="flex:0 0 auto; margin-right:4px;"><strong>2. </strong></span>
+                <div style="flex:1 1 auto;">
+                    Se tiene el siguiente grafo y contesta los siguientes incisos
+                    <div class="img-wrap sm mt-2">
+                        <div class="img-card">
+                            <img src="assets/img/imguni4-31.png" alt="Grafo para actividad">
                         </div>
-                        <ol>
-                            <li><strong>a. </strong>Conjunto de Nodos o Vértices</li>
-                            <li><strong>b. </strong>Conjunto de Aristas o Arcos</li>
-                            <li><strong>c. </strong>Grado o Valencia de los Vértices</li>
-                            <li><strong>d. </strong>Es un grafo completo o fuerte si ¿por qué?, no por qué (justificar su
-                                respuesta)</li>
-                            <li><strong>e.</strong>Cinco posibles caminos simples</li>
-                        </ol>
-                    </li>
-                    <li><strong>3. </strong>Qué es un lazo y da un ejemplo de la vida real</li>
-                    <li><strong>4. </strong>Qué es un circuito o camino cerrado</li>
-                    <li><strong>5. </strong>Declara una Matriz_Adyacencia[6][6] de tipo char, asígnale los valores de
-                        la figura del grafo de
-                        este ejercicio, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;también declara un vector Vector_Vertice[6] de
-                        tipo char de tamaño 6 y asígnale
-                        los valores del grafo de este <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ejercicio.</li>
-                    <li><strong>6.  </strong>Declarar la siguiente función<br>
-                        <code>void gotoxy(int x,int y){<br>
-                &nbsp;&nbsp;HANDLE hcon;<br>
-                &nbsp;&nbsp;hcon = GetStdHandle(STD_OUTPUT_HANDLE);<br>
-                }</code><br>
-                        Esta función va a permitir utilizar la pantalla de la computadora con el gotoxy() y poder
-                        dibujar el grafo utilizando el Vector_Vertice[6] y la Matriz_Adyacencia[6][6].
-                    </li>
-                </ol>
-                <div class="act-section-title">📎 Evidencia que entregar:</div>
-                <ul>
-                    <li>a) Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el
-                        nombre del <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;programa, por ejemplo,
-                        RBV_Programa_Matriz_Adyacencia.</li>
-                    <li>b) Programa executable.</li>
-                    <li>c) Corrida del programa, en un archivo PDF.</li>
-                </ul>
+                    </div>
+                    <div style="margin:0;">
+                        <div style="display:flex; margin-bottom:4px;">
+                            <span style="flex:0 0 auto; margin-right:4px;"><strong>a. </strong></span>
+                            <span style="flex:1 1 auto;">Conjunto de Nodos o Vértices</span>
+                        </div>
+                        <div style="display:flex; margin-bottom:4px;">
+                            <span style="flex:0 0 auto; margin-right:4px;"><strong>b. </strong></span>
+                            <span style="flex:1 1 auto;">Conjunto de Aristas o Arcos</span>
+                        </div>
+                        <div style="display:flex; margin-bottom:4px;">
+                            <span style="flex:0 0 auto; margin-right:4px;"><strong>c. </strong></span>
+                            <span style="flex:1 1 auto;">Grado o Valencia de los Vértices</span>
+                        </div>
+                        <div style="display:flex; margin-bottom:4px;">
+                            <span style="flex:0 0 auto; margin-right:4px;"><strong>d. </strong></span>
+                            <span style="flex:1 1 auto;">Es un grafo completo o fuerte si ¿por qué?, no por qué (justificar su respuesta)</span>
+                        </div>
+                        <div style="display:flex;">
+                            <span style="flex:0 0 auto; margin-right:4px;"><strong>e.</strong></span>
+                            <span style="flex:1 1 auto;">Cinco posibles caminos simples</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="act-footer">
-                <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
-                <span class="act-points">⭐VALOR:10 puntos</span>
+            <div style="display:flex; margin-bottom:10px;">
+                <span style="flex:0 0 auto; margin-right:4px;"><strong>3. </strong></span>
+                <span style="flex:1 1 auto;">Qué es un lazo y da un ejemplo de la vida real</span>
             </div>
+            <div style="display:flex; margin-bottom:10px;">
+                <span style="flex:0 0 auto; margin-right:4px;"><strong>4. </strong></span>
+                <span style="flex:1 1 auto;">Qué es un circuito o camino cerrado</span>
+            </div>
+            <div style="display:flex; margin-bottom:10px;">
+                <span style="flex:0 0 auto; margin-right:4px;"><strong>5. </strong></span>
+                <span style="flex:1 1 auto;">Declara una Matriz_Adyacencia[6][6] de tipo char, asígnale los valores de la figura del grafo de este ejercicio, también declara un vector Vector_Vertice[6] de tipo char de tamaño 6 y asígnale los valores del grafo de este ejercicio.</span>
+            </div>
+            <div style="display:flex;">
+                <span style="flex:0 0 auto; margin-right:4px;"><strong>6. </strong></span>
+                <div style="flex:1 1 auto;">
+                    Declarar la siguiente función<br>
+                    <code>void gotoxy(int x,int y){<br>
+            &nbsp;&nbsp;HANDLE hcon;<br>
+            &nbsp;&nbsp;hcon = GetStdHandle(STD_OUTPUT_HANDLE);<br>
+            }</code><br>
+                    Esta función va a permitir utilizar la pantalla de la computadora con el gotoxy() y poder dibujar el grafo utilizando el Vector_Vertice[6] y la Matriz_Adyacencia[6][6].
+                </div>
+            </div>
+        </div>
+
+        <div class="act-section-title">📎 Evidencia que entregar:</div>
+        <div style="margin:0;">
+            <div style="display:flex; margin-bottom:6px;">
+                <span style="flex:0 0 auto; margin-right:4px;">a)</span>
+                <span style="flex:1 1 auto;">Programa fuente, el nombre de este programa debe de contener las iniciales de su nombre y el nombre del programa, por ejemplo, RBV_Programa_Matriz_Adyacencia.</span>
+            </div>
+            <div style="display:flex; margin-bottom:6px;">
+                <span style="flex:0 0 auto; margin-right:4px;">b)</span>
+                <span style="flex:1 1 auto;">Programa executable.</span>
+            </div>
+            <div style="display:flex;">
+                <span style="flex:0 0 auto; margin-right:4px;">c)</span>
+                <span style="flex:1 1 auto;">Corrida del programa, en un archivo PDF.</span>
+            </div>
+        </div>
+    </div>
+    <div class="act-footer">
+        <p>Subir evidencia a Classroom en la hora y fecha indicada</p>
+        <span class="act-points">⭐VALOR:10 puntos</span>
+    </div>
         </div>
         <div class="concept-highlight">
 
